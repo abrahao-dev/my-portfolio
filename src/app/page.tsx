@@ -3,10 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Github, Linkedin, Instagram } from "lucide-react"
 import { motion } from "framer-motion"
-import { useTheme } from "next-themes"
 
 export default function Home() {
-  const { theme } = useTheme()
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gradient-to-br from-background to-secondary/10">
