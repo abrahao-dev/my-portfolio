@@ -64,7 +64,7 @@ export default function About() {
         <Card className="bg-secondary/10 backdrop-blur-sm border-none shadow-lg">
           <CardContent className="pt-6">
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              I'm a passionate Software Engineer specializing in backend and mobile development. 
+              I&apos;m a passionate Software Engineer specializing in backend and mobile development. 
               With expertise in Swift, C, Java, and SQL, I create efficient and scalable solutions 
               for complex problems. My goal is to build innovative applications that make a positive impact.
             </p>

@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 interface PlaceholderImageProps {
   width: number
   height: number

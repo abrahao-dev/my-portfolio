@@ -5,7 +5,12 @@ import { ArrowRight, Github, Linkedin, Mail, Moon } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from 'next/link';
 
-const FloatingIcon = ({ className, children }) => (
+interface FloatingIconProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
+const FloatingIcon: React.FC<FloatingIconProps> = ({ className, children }) => (
   <motion.div
     initial={{ y: 0, rotate: 0 }}
     animate={{ y: [0, -10, 0], rotate: [0, 5, 0, -5, 0] }}
@@ -13,18 +18,6 @@ const FloatingIcon = ({ className, children }) => (
     className={`absolute ${className}`}
   >
     {children}
-  </motion.div>
-);
-
-const SkillTag = ({ skill }) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.5 }}
-    animate={{ opacity: 1, scale: 1 }}
-    whileHover={{ scale: 1.1 }}
-    transition={{ duration: 0.3 }}
-    className="px-4 py-2 bg-primary/10 rounded-full text-primary backdrop-blur-sm cursor-pointer"
-  >
-    {skill}
   </motion.div>
 );
 
@@ -37,7 +30,6 @@ export default function Home() {
           <path d="M20 7L12 3L4 7M20 7L12 11M20 7V17L12 21M12 11L4 7M12 11V21M4 7V17L12 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </FloatingIcon>
-
       <FloatingIcon className="top-1/2 right-20 md:right-32 transform -translate-y-1/2">
         <svg className="w-16 h-16 text-primary/20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M14.1254 8.0625L5.84541 19.4917C5.55352 19.8833 5.67898 20.4453 6.07061 20.7372C6.46224 21.0291 7.02421 20.9036 7.3161 20.512L15.596 9.08281C15.8879 8.69118 15.7624 8.12921 15.3708 7.83732C14.9792 7.54543 14.4172 7.67088 14.1254 8.0625Z" fill="currentColor"/>
@@ -80,7 +72,15 @@ export default function Home() {
         <h2 className="text-2xl font-semibold mb-4 text-center">Technical Skills</h2>
         <div className="flex flex-wrap justify-center gap-4">
           {["Next.js", "Swift", "C", "Java", "SQL"].map((skill, index) => (
-            <SkillTag key={skill} skill={skill} />
+            <motion.div
+              key={skill}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.7 + index * 0.1 }}
+              className="px-4 py-2 bg-primary/10 rounded-full text-primary backdrop-blur-sm"
+            >
+              {skill}
+            </motion.div>
           ))}
         </div>
       </motion.div>
@@ -91,7 +91,7 @@ export default function Home() {
         transition={{ delay: 1, duration: 0.8 }}
         className="mt-20 text-center z-10"
       >
-        <h2 className="text-2xl font-semibold mb-4">Let's Connect</h2>
+        <h2 className="text-2xl font-semibold mb-4">Let&apos;s Connect</h2>
         <div className="flex justify-center space-x-6">
           <motion.a 
             href="https://github.com/abrahao-dev" 

@@ -19,7 +19,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="container mx-auto py-12 px-4 max-w-2xl">
+    <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <motion.h1 
         className="text-4xl font-bold tracking-tighter sm:text-5xl mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
         initial={{ opacity: 0, y: -20 }}
@@ -35,7 +35,7 @@ export default function Contact() {
         transition={{ delay: 0.2, duration: 0.5 }}
       >
         <p className="text-center text-muted-foreground mb-8">
-          Have a question or want to work together? I'd love to hear from you!
+          Have a question or want to work together? I&apos;d love to hear from you!
         </p>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
