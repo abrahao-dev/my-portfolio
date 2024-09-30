@@ -9,25 +9,25 @@ import { Code, Eye } from "lucide-react"
 
 const projects = [
   {
-    title: "Project 1",
-    description: "A mobile app built with Swift",
-    tags: ["Swift", "iOS", "UIKit"],
-    link: "https://github.com/yourusername/project1",
-    demoLink: "https://demo.project1.com"
+    title: "ImaginAI IOS App",
+    description: "A mobile app built with Swift to create images by text with AI",
+    tags: ["Swift", "iOS", "UIKit", "Hugging Face", "Git", "Vercel"],
+    link: "https://github.com/abrahao-dev/imaginAI",
+    demoLink: "#"
   },
   {
-    title: "Project 2",
-    description: "Backend system developed in Java",
-    tags: ["Java", "Spring Boot", "MySQL"],
-    link: "https://github.com/yourusername/project2",
-    demoLink: "https://demo.project2.com"
+    title: "Projeto Hopper",
+    description: "CRUD Application for the Projeto Hopper v1 integrated with Arduino prototype",
+    tags: ["NextJS", "TailwindCSS", "SQL","AWS", "Supabase", "Arduino", "Git", "Vercel"],
+    link: "https://github.com/abrahao-dev/projetohopperapp",
+    demoLink: "https://projetohopperapp.vercel.app/"
   },
   {
-    title: "Project 3",
-    description: "Low-level system programming in C",
-    tags: ["C", "Linux", "Systems Programming"],
-    link: "https://github.com/yourusername/project3",
-    demoLink: "https://demo.project3.com"
+    title: "HDIL COMÉRCIO",
+    description: "Website for a local commerce integrated with LojaZap Platform",
+    tags: ["HTML", "CSS", "JavaScript", "TailwindCSS", "Git", "Vercel"],
+    link: "https://github.com/abrahao-dev/hdil-master",
+    demoLink: "https://hdil-2023.vercel.app/"
   },
 ]
 

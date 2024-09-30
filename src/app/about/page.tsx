@@ -7,34 +7,36 @@ import { Calendar, Briefcase, Code } from "lucide-react"
 
 const skills = [
   { name: "Swift", icon: "devicon-swift-plain colored" },
-  { name: "C", icon: "devicon-c-plain colored" },
   { name: "Java", icon: "devicon-java-plain colored" },
+  { name: "C", icon: "devicon-c-plain colored" },
+  { name: "NextJS", icon: "devicon-nextjs-plain colored" },
   { name: "SQL", icon: "devicon-mysql-plain colored" },
-  { name: "RESTful API", icon: "devicon-nodejs-plain colored" },
+  { name: "AWS", icon: "devicon-amazonwebservices-plain colored" },
   { name: "Git", icon: "devicon-git-plain colored" },
   { name: "iOS Development", icon: "devicon-apple-original colored" },
   { name: "Backend Development", icon: "devicon-nodejs-plain colored" },
+  { name: "React", icon: "devicon-react-plain colored" },
+  { name: "Tailwind", icon: "devicon-tailwindcss-plain colored" },
+  { name: "Shopify", icon: "devicon-vuestorefront-plain colored" },
 ]
 
 const experiences = [
   {
-    title: "Software Engineer",
-    company: "XYZ Company",
-    period: "January 2020 - Present",
+    title: "Freelancer Web Developer",
+    company: "Alerthit.fr",
+    period: "August 2024 - Setember 2024",
     responsibilities: [
-      "Developed and maintained backend services using Java and Spring Boot",
-      "Created iOS applications using Swift and UIKit",
-      "Optimized database queries and improved application performance",
+      "Developed a website for a e-commerce at France using Shopify, Hydrogen, Oxygen and Liquid",
+      "Developed the UI UX by Figma Design",
     ],
   },
   {
-    title: "Junior Developer",
-    company: "ABC Corp",
-    period: "June 2018 - December 2019",
+    title: "Freelancer Web Developer",
+    company: "HDIL COMERCIO",
+    period: "November 2023 - December 2023",
     responsibilities: [
-      "Assisted in the development of mobile applications",
-      "Contributed to backend services and API development",
-      "Participated in code reviews and testing processes",
+      "Developed a Website for a local business using HTML CSS JS and Tailwind",
+      "Integrate the website with LojaZap Platform",
     ],
   },
 ]
@@ -65,7 +67,7 @@ export default function About() {
           <CardContent className="pt-6">
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               I&apos;m a passionate Software Engineer specializing in backend and mobile development. 
-              With expertise in Swift, C, Java, and SQL, I create efficient and scalable solutions 
+              With expertise in Swift, Java, NextJS and SQL, I create efficient and scalable solutions 
               for complex problems. My goal is to build innovative applications that make a positive impact.
             </p>
           </CardContent>
