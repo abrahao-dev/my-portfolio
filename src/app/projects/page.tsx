@@ -29,6 +29,13 @@ const projects = [
     link: "https://github.com/abrahao-dev/hdil-master",
     demoLink: "https://hdil-2023.vercel.app/"
   },
+  {
+    title: "Martin4Shop",
+    description: "E-commerce for a digital business using Shopify",
+    tags: ["Shopify", "Canva", "Digital Marketing", "Automations","SEO", "Social Media", "Customer Support"],
+    link: "#",
+    demoLink: "https://martin4shop.com.br/"
+  },
 ]
 
 export default function Projects() {

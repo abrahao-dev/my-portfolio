@@ -39,6 +39,17 @@ const experiences = [
       "Integrate the website with LojaZap Platform",
     ],
   },
+  {
+    title: "Ceo and Developer of a E-commerce",
+    company: "Martin4Shop",
+    period: "October 2022 - at the moment",
+    responsibilities: [
+      "CEO of the company",
+      "Developed the Website using Shopify Platform",
+      "Digital Marketing",
+      "Customer Support",
+    ],
+  },
 ]
 
 export default function About() {
