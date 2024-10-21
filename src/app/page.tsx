@@ -71,7 +71,7 @@ export default function Home() {
       >
         <h2 className="text-2xl font-semibold mb-4 text-center">Technical Skills</h2>
         <div className="flex flex-wrap justify-center gap-4">
-          {["Java","Swift", "SQL", "AWS"].map((skill, index) => (
+          {["NextJs","Typescript", "MySQL", "Docker", "AWS"].map((skill, index) => (
             <motion.div
               key={skill}
               initial={{ opacity: 0, scale: 0.5 }}
