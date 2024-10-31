@@ -18,6 +18,10 @@ const skills = [
   { name: "React", icon: "devicon-react-plain colored" },
   { name: "Tailwind", icon: "devicon-tailwindcss-plain colored" },
   { name: "Shopify", icon: "devicon-vuestorefront-plain colored" },
+  { name: "HTML", icon: "devicon-html5-plain colored" },
+  { name: "CSS", icon: "devicon-css3-plain colored" },
+  { name: "JavaScript", icon: "devicon-javascript-plain colored" },
+  { name: "Frontend Development", icon: "devicon-react-plain colored" },
 ]
 
 const experiences = [
