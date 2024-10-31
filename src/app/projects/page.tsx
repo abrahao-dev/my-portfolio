@@ -36,6 +36,13 @@ const projects = [
     link: "#",
     demoLink: "https://martin4shop.com.br/"
   },
+  {
+    title: "Golsf - 2D Golf Game",
+    description: "An interactive 2D golf game developed using HTML, CSS, and JavaScript, featuring multiple levels and a scoring system.",
+    tags: ["HTML", "CSS", "JavaScript", "Game Development"],
+    link: "https://github.com/abrahao-dev/golsf-2d-game",
+    demoLink: "https://golsf-2d-game.vercel.app/"
+  },
 ]
 
 export default function Projects() {
