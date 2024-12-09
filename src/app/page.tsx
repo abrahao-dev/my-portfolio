@@ -48,8 +48,7 @@ export default function Home() {
           Matheus Abrahão
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-          Software Engineer | Crafting efficient, scalable solutions
-        </p>
+        Backend Developer | Building Scalable, Robust, and Efficient Server-Side Solutions</p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <Button asChild size="lg" className="group bg-primary/90 hover:bg-primary/100 transition-colors duration-300">
             <Link href="/projects" className="flex items-center">
@@ -71,7 +70,7 @@ export default function Home() {
       >
         <h2 className="text-2xl font-semibold mb-4 text-center">Technical Skills</h2>
         <div className="flex flex-wrap justify-center gap-4">
-          {["NextJs", "Typescript", "Swift", "MySQL", "Docker", "AWS"].map((skill, index) => (
+          {["Backend Developer", "C#", ".Net", "SQL", "Docker", "Azure"].map((skill, index) => (
             <motion.div
               key={skill}
               initial={{ opacity: 0, scale: 0.5 }}

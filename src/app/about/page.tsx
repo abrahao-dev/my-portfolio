@@ -6,52 +6,61 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, Briefcase, Code } from "lucide-react"
 
 const skills = [
-  { name: "Swift", icon: "devicon-swift-plain colored" },
-  { name: "Java", icon: "devicon-java-plain colored" },
+  { name: "C#", icon: "devicon-csharp-plain colored" },
   { name: "C", icon: "devicon-c-plain colored" },
-  { name: "NextJS", icon: "devicon-nextjs-plain colored" },
+  { name: ".Net", icon: "devicon-dot-net-plain colored" },
   { name: "SQL", icon: "devicon-mysql-plain colored" },
+  { name: "Docker", icon: "devicon-docker-plain colored" },
+  { name: "Azure", icon: "devicon-azure-plain colored" },
   { name: "AWS", icon: "devicon-amazonwebservices-plain colored" },
   { name: "Git", icon: "devicon-git-plain colored" },
-  { name: "iOS Development", icon: "devicon-apple-original colored" },
-  { name: "Backend Development", icon: "devicon-nodejs-plain colored" },
-  { name: "React", icon: "devicon-react-plain colored" },
-  { name: "Tailwind", icon: "devicon-tailwindcss-plain colored" },
-  { name: "Shopify", icon: "devicon-vuestorefront-plain colored" },
+  { name: "Linux", icon: "devicon-linux-plain colored" },
   { name: "HTML", icon: "devicon-html5-plain colored" },
   { name: "CSS", icon: "devicon-css3-plain colored" },
   { name: "JavaScript", icon: "devicon-javascript-plain colored" },
-  { name: "Frontend Development", icon: "devicon-react-plain colored" },
 ]
 
 const experiences = [
   {
-    title: "Freelancer Web Developer",
+    title: "Backend Developer (Freelancer)",
     company: "Alerthit.fr",
-    period: "August 2024 - Setember 2024",
+    period: "August 2024 - October 2024",
     responsibilities: [
-      "Developed a website for a e-commerce at France using Shopify, Hydrogen, Oxygen and Liquid",
-      "Developed the UI UX by Figma Design",
+      "As a Backend Developer, I was responsible for architecting, developing, and deploying the backend of a French e-commerce platform hosted on Shopify, leveraging technologies such as Hydrogen, Remix, and JavaScript.",
+      "Designed and implemented custom APIs, ensuring seamless integration with external services and maintaining scalability and reliability of the backend infrastructure.",
+      "Optimized backend processes, focusing on performance, security, and maintainability to support a high-traffic e-commerce environment.",
+      "Collaborated with the client's design team to ensure backend functionalities aligned with technical requirements while adhering to high standards of security and performance.",
+      "Contributed to the frontend layer using React to implement design changes and integrations, ensuring a consistent and functional user experience.",
+      "Led client communications in English, effectively explaining technical requirements, providing updates, and addressing feedback to deliver a robust backend solution."
     ],
   },
   {
-    title: "Freelancer Web Developer",
-    company: "HDIL COMERCIO",
-    period: "November 2023 - December 2023",
+    title: "Backend Developer (Freelancer)",
+    company: "HDIL COMÉRCIO DE ACESSÓRIOS P/ MÓVEIS LTDA",
+    period: "November 2022 - January 2023",
     responsibilities: [
-      "Developed a Website for a local business using HTML CSS JS and Tailwind",
-      "Integrate the website with LojaZap Platform",
-    ],
+      "Designed and developed the backend for a local store’s e-commerce platform, utilizing PHP for email communication and backend logic optimization.",
+      "Created and maintained APIs in PHP for sending and receiving emails, ensuring seamless communication and efficient data processing.",
+      "Developed a full-stack website using HTML, CSS, JavaScript, Tailwind CSS, and deployed it on Vercel, ensuring responsiveness and high performance.",
+      "Implemented and optimized the backend email system, ensuring reliable and secure communication between the store and customers.",
+      "Integrated third-party services, such as the Lojazap platform, to synchronize product data in real-time, ensuring an efficient and scalable user experience.",
+      "Focused on optimizing backend architecture for enhanced performance, scalability, and reliability to meet the needs of a growing local business.",
+      "Ensured the backend solution was efficient and maintainable, applying best practices for PHP development and system integration."
+    ],    
   },
   {
-    title: "Ceo and Developer of a E-commerce",
+    title: "CEO and Developer of an E-commerce",
     company: "Martin4Shop",
-    period: "October 2022 - at the moment",
+    period: "October 2022 - Present",
     responsibilities: [
-      "CEO of the company",
-      "Developed the Website using Shopify Platform",
-      "Digital Marketing",
-      "Customer Support",
+      "CEO of Martin4Shop, leading the strategic vision, business development, and decision-making processes.",
+      "Developed and managed a full-stack e-commerce platform using Shopify, focusing on both backend (customizations, API integrations) and frontend (design, user experience).",
+      "Built and maintained backend functionality, including custom integrations with payment systems, order processing, and email communication systems (PHP backend for email services).",
+      "Created and optimized frontend design and user experience with Shopify, ensuring responsiveness and performance across devices.",
+      "Handled digital marketing efforts, including content creation, SEO, and online advertising campaigns to increase traffic and drive sales.",
+      "Provided customer support and built strong relationships with clients, maintaining high satisfaction and repeat business.",
+      "Implemented automated deployment processes and ensured smooth, secure updates to the platform.",
+      "Utilized Vercel for deployment, ensuring fast, reliable hosting and seamless integration with the Shopify platform."
     ],
   },
 ]
@@ -80,11 +89,12 @@ export default function About() {
       >
         <Card className="bg-secondary/10 backdrop-blur-sm border-none shadow-lg">
           <CardContent className="pt-6">
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              I&apos;m a passionate Software Engineer specializing in backend and mobile development. 
-              With expertise in Swift, Java, NextJS and SQL, I create efficient and scalable solutions 
-              for complex problems. My goal is to build innovative applications that make a positive impact.
-            </p>
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+            I&apos;m a dedicated Backend Developer specializing in C#, .NET, SQL, and cloud technologies like Azure and AWS. I design and implement
+            efficient, scalable backend systems that optimize performance and solve complex business problems. With a strong focus on database logic,
+            structure, and Docker for containerization, I craft robust solutions that deliver reliability and performance. My goal is to drive innovation
+            and create high-quality backend architectures that power modern applications and services.
+          </p>
           </CardContent>
         </Card>
 
