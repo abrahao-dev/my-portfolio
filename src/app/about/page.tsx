@@ -6,27 +6,27 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, Briefcase, Code } from "lucide-react"
 
 const skills = [
-  { name: "C#", icon: "devicon-csharp-plain colored" },
+  { name: "Next JS", icon: "devicon-nextjs-plain colored" },
+  { name: "Java", icon: "devicon-java-plain colored" },
   { name: "C", icon: "devicon-c-plain colored" },
-  { name: ".Net", icon: "devicon-dot-net-plain colored" },
+  { name: "Swift", icon: "devicon-swift-plain colored" },
   { name: "SQL", icon: "devicon-mysql-plain colored" },
   { name: "Docker", icon: "devicon-docker-plain colored" },
-  { name: "Azure", icon: "devicon-azure-plain colored" },
   { name: "AWS", icon: "devicon-amazonwebservices-plain colored" },
   { name: "Git", icon: "devicon-git-plain colored" },
   { name: "Linux", icon: "devicon-linux-plain colored" },
   { name: "HTML", icon: "devicon-html5-plain colored" },
   { name: "CSS", icon: "devicon-css3-plain colored" },
   { name: "JavaScript", icon: "devicon-javascript-plain colored" },
-]
+];
 
 const experiences = [
   {
-    title: "Backend Developer (Freelancer)",
+    title: "Frontend Developer (Freelancer)",
     company: "Alerthit.fr",
     period: "August 2024 - October 2024",
     responsibilities: [
-      "As a Backend Developer, I was responsible for architecting, developing, and deploying the backend of a French e-commerce platform hosted on Shopify, leveraging technologies such as Hydrogen, Remix, and JavaScript.",
+      "As a Frontend Developer, I was responsible for architecting, developing, and deploying the backend of a French e-commerce platform hosted on Shopify, leveraging technologies such as Hydrogen, Remix, and JavaScript.",
       "Designed and implemented custom APIs, ensuring seamless integration with external services and maintaining scalability and reliability of the backend infrastructure.",
       "Optimized backend processes, focusing on performance, security, and maintainability to support a high-traffic e-commerce environment.",
       "Collaborated with the client's design team to ensure backend functionalities aligned with technical requirements while adhering to high standards of security and performance.",
@@ -35,18 +35,18 @@ const experiences = [
     ],
   },
   {
-    title: "Backend Developer (Freelancer)",
+    title: "Full-Stack Developer (Freelancer)",
     company: "HDIL COMÉRCIO DE ACESSÓRIOS P/ MÓVEIS LTDA",
     period: "November 2022 - January 2023",
     responsibilities: [
-      "Designed and developed the backend for a local store’s e-commerce platform, utilizing PHP for email communication and backend logic optimization.",
+      "Designed and developed the frontend for a local store’s e-commerce platform, utilizing PHP for email communication and backend logic optimization.",
       "Created and maintained APIs in PHP for sending and receiving emails, ensuring seamless communication and efficient data processing.",
       "Developed a full-stack website using HTML, CSS, JavaScript, Tailwind CSS, and deployed it on Vercel, ensuring responsiveness and high performance.",
       "Implemented and optimized the backend email system, ensuring reliable and secure communication between the store and customers.",
       "Integrated third-party services, such as the Lojazap platform, to synchronize product data in real-time, ensuring an efficient and scalable user experience.",
       "Focused on optimizing backend architecture for enhanced performance, scalability, and reliability to meet the needs of a growing local business.",
       "Ensured the backend solution was efficient and maintainable, applying best practices for PHP development and system integration."
-    ],    
+    ],
   },
   {
     title: "CEO and Developer of an E-commerce",
@@ -70,7 +70,7 @@ export default function About() {
 
   return (
     <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <motion.h1 
+      <motion.h1
         className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter mb-8 sm:mb-12 text-center"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -80,8 +80,8 @@ export default function About() {
           About Me
         </span>
       </motion.h1>
-      
-      <motion.div 
+
+      <motion.div
         className="max-w-4xl mx-auto space-y-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -90,10 +90,10 @@ export default function About() {
         <Card className="bg-secondary/10 backdrop-blur-sm border-none shadow-lg">
           <CardContent className="pt-6">
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            I&apos;m a dedicated Backend Developer specializing in C#, .NET, SQL, and cloud technologies like Azure and AWS. I design and implement
-            efficient, scalable backend systems that optimize performance and solve complex business problems. With a strong focus on database logic,
+            I&apos;m a dedicated Software Developer specializing in Next JS, Java, SQL, Swift and cloud technologies like AWS. I design and implement
+            efficient, scalable systems that optimize performance and solve complex business problems. With a strong focus on database logic,
             structure, and Docker for containerization, I craft robust solutions that deliver reliability and performance. My goal is to drive innovation
-            and create high-quality backend architectures that power modern applications and services.
+            and create high-quality architectures that power modern applications and services.
           </p>
           </CardContent>
         </Card>
@@ -105,8 +105,8 @@ export default function About() {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`flex items-center px-4 py-2 rounded-md transition-colors duration-200 text-sm sm:text-base ${
-                  activeTab === tab 
-                    ? "bg-primary text-primary-foreground" 
+                  activeTab === tab
+                    ? "bg-primary text-primary-foreground"
                     : "bg-secondary text-secondary-foreground hover:bg-primary/10"
                 }`}
               >

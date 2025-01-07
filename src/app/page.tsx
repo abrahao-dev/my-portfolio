@@ -48,7 +48,7 @@ export default function Home() {
           Matheus Abrahão
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-        Backend Developer | Building Scalable, Robust, and Efficient Server-Side Solutions</p>
+        Backend Developer | Building Scalable, Robust, and Efficient Solutions</p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <Button asChild size="lg" className="group bg-primary/90 hover:bg-primary/100 transition-colors duration-300">
             <Link href="/projects" className="flex items-center">
@@ -70,7 +70,7 @@ export default function Home() {
       >
         <h2 className="text-2xl font-semibold mb-4 text-center">Technical Skills</h2>
         <div className="flex flex-wrap justify-center gap-4">
-          {["Backend Developer", "C#", ".Net", "SQL", "Docker", "Azure"].map((skill, index) => (
+          {["Software Developer", "Next JS", "Java", "SQL", "Swift", "AWS"].map((skill, index) => (
             <motion.div
               key={skill}
               initial={{ opacity: 0, scale: 0.5 }}
@@ -92,28 +92,28 @@ export default function Home() {
       >
         <h2 className="text-2xl font-semibold mb-4">Let&apos;s Connect</h2>
         <div className="flex justify-center space-x-6">
-          <motion.a 
-            href="https://github.com/abrahao-dev" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <motion.a
+            href="https://github.com/abrahao-dev"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-primary hover:text-primary/80 transition-colors duration-300"
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
           >
             <Github size={24} />
           </motion.a>
-          <motion.a 
-            href="https://linkedin.com/in/abrahao-dev" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <motion.a
+            href="https://linkedin.com/in/abrahao-dev"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-primary hover:text-primary/80 transition-colors duration-300"
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
           >
             <Linkedin size={24} />
           </motion.a>
-          <motion.a 
-            href="mailto:contato.matheusabrahao@gmail.com" 
+          <motion.a
+            href="mailto:contato.matheusabrahao@gmail.com"
             className="text-primary hover:text-primary/80 transition-colors duration-300"
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
@@ -123,7 +123,7 @@ export default function Home() {
         </div>
       </motion.div>
 
-      <motion.button 
+      <motion.button
         className="fixed top-4 right-4 p-2 bg-primary/10 rounded-full backdrop-blur-sm"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
