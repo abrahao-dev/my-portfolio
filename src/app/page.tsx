@@ -48,7 +48,7 @@ export default function Home() {
           Matheus Abrahão
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-        Backend Developer | Building Scalable, Robust, and Efficient Solutions</p>
+        Software Developer | Building Scalable, Robust, and Efficient Solutions</p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <Button asChild size="lg" className="group bg-primary/90 hover:bg-primary/100 transition-colors duration-300">
             <Link href="/projects" className="flex items-center">
