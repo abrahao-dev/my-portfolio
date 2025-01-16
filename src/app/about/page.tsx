@@ -1,16 +1,19 @@
 "use client"
 
-import { useState } from "react"
-import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Calendar, Briefcase, Code } from "lucide-react"
+import { motion } from "framer-motion"
+import { Briefcase, Calendar, Code } from "lucide-react"
+import { useState } from "react"
 
 const skills = [
   { name: "Next JS", icon: "devicon-nextjs-plain colored" },
+  { name: "Typescript", icon: "devicon-typescript-plain colored" },
   { name: "Java", icon: "devicon-java-plain colored" },
   { name: "C", icon: "devicon-c-plain colored" },
   { name: "Swift", icon: "devicon-swift-plain colored" },
   { name: "SQL", icon: "devicon-mysql-plain colored" },
+  { name: "DBeaver", icon: "devicon-dbeaver-plain colored" },
+  { name: "Vercel", icon: "devicon-vercel-plain colored" },
   { name: "Docker", icon: "devicon-docker-plain colored" },
   { name: "AWS", icon: "devicon-amazonwebservices-plain colored" },
   { name: "Git", icon: "devicon-git-plain colored" },
@@ -21,6 +24,21 @@ const skills = [
 ];
 
 const experiences = [
+  {
+    title: "Software Developer (Internship)",
+    company: "CLEATUS",
+    period: "January 2025 - Present",
+    responsibilities: [
+      "At cleat.ai, an innovative AI-focused startup, I am part of a talented team developing advanced AI-driven solutions. As a Software Developer Intern, I am involved in both backend and frontend development while working with cutting-edge technologies and methodologies.",
+      "Backend Development: Proficient in TypeScript for building scalable and efficient server-side applications.",
+      "Frontend Development: Strong experience with React for creating dynamic, user-friendly interfaces.",
+      "Database Management: Hands-on experience with MySQL and other SQL databases for efficient data storage and management.",
+      "AI and Machine Learning: Integration of Large Language Models (LLMs), model APIs, and vector databases to enhance product functionality.",
+      "Full-Stack Development: Collaborative approach to building end-to-end solutions, from database to UI.",
+      "Agile Methodologies: Experience working in fast-paced, iterative development cycles within a startup environment.",
+      "English Proficiency: Comfortable working in an English-speaking environment and collaborating with international teams."
+    ],
+  },
   {
     title: "Frontend Developer (Freelancer)",
     company: "Alerthit.fr",
@@ -51,7 +69,7 @@ const experiences = [
   {
     title: "CEO and Developer of an E-commerce",
     company: "Martin4Shop",
-    period: "October 2022 - Present",
+    period: "October 2021 - Present",
     responsibilities: [
       "CEO of Martin4Shop, leading the strategic vision, business development, and decision-making processes.",
       "Developed and managed a full-stack e-commerce platform using Shopify, focusing on both backend (customizations, API integrations) and frontend (design, user experience).",
@@ -89,12 +107,14 @@ export default function About() {
       >
         <Card className="bg-secondary/10 backdrop-blur-sm border-none shadow-lg">
           <CardContent className="pt-6">
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            I&apos;m a dedicated Software Developer specializing in Next JS, Java, SQL, Swift and cloud technologies like AWS. I design and implement
-            efficient, scalable systems that optimize performance and solve complex business problems. With a strong focus on database logic,
-            structure, and Docker for containerization, I craft robust solutions that deliver reliability and performance. My goal is to drive innovation
-            and create high-quality architectures that power modern applications and services.
-          </p>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              I&apos;m a passionate Software Developer with expertise in modern web technologies including Next.js, TypeScript, and React.
+              My experience spans from AI integration and e-commerce development to database management and cloud solutions.
+              I specialize in building scalable applications with a focus on AI-driven solutions, having worked with LLMs and vector databases.
+              With a strong foundation in both frontend and backend development, I create robust, user-centric applications while maintaining
+              high standards of performance and security. My entrepreneurial background as a CEO of an e-commerce platform adds a unique
+              perspective to my technical solutions, combining business acumen with technical expertise.
+            </p>
           </CardContent>
         </Card>
 
@@ -104,11 +124,10 @@ export default function About() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`flex items-center px-4 py-2 rounded-md transition-colors duration-200 text-sm sm:text-base ${
-                  activeTab === tab
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-secondary text-secondary-foreground hover:bg-primary/10"
-                }`}
+                className={`flex items-center px-4 py-2 rounded-md transition-colors duration-200 text-sm sm:text-base ${activeTab === tab
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-secondary text-secondary-foreground hover:bg-primary/10"
+                  }`}
               >
                 {tab === "skills" && <Code className="mr-2 h-4 w-4" />}
                 {tab === "experience" && <Briefcase className="mr-2 h-4 w-4" />}

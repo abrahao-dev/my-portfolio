@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Matheus Abrahão - Software Engineer',
-  description: 'Software Developer | Next JS | Java | SQL | Swift | AWS',
+  description: 'Software Developer at CLEATUS | Next JS | Typescript | SQL | AWS',
 }
 
 export default function RootLayout({
