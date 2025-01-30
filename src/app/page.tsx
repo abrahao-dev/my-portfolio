@@ -48,7 +48,7 @@ export default function Home() {
           Matheus Abrahão
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-          Software Developer at <a href="https://www.cleat.ai/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors duration-300">CLEATUS</a> | Building Scalable, Robust, and Efficient Solutions
+          Software Developer | Building Scalable, Robust, and Efficient Solutions
         </p>
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <Button asChild size="lg" className="group bg-primary/90 hover:bg-primary/100 transition-colors duration-300">
