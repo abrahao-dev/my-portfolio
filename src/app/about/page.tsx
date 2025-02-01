@@ -25,18 +25,28 @@ const skills = [
 
 const experiences = [
   {
-    title: "Software Developer (Internship)",
+    title: "Full-Stack Software Developer (Freelancer)",
     company: "CLEATUS",
     period: "January 2025 - Present",
     responsibilities: [
-      "At cleat.ai, an innovative AI-focused startup, I am part of a talented team developing advanced AI-driven solutions. As a Software Developer Intern, I am involved in both backend and frontend development while working with cutting-edge technologies and methodologies.",
-      "Backend Development: Proficient in TypeScript for building scalable and efficient server-side applications.",
-      "Frontend Development: Strong experience with React for creating dynamic, user-friendly interfaces.",
-      "Database Management: Hands-on experience with MySQL and other SQL databases for efficient data storage and management.",
-      "AI and Machine Learning: Integration of Large Language Models (LLMs), model APIs, and vector databases to enhance product functionality.",
-      "Full-Stack Development: Collaborative approach to building end-to-end solutions, from database to UI.",
-      "Agile Methodologies: Experience working in fast-paced, iterative development cycles within a startup environment.",
-      "English Proficiency: Comfortable working in an English-speaking environment and collaborating with international teams."
+      "As a Full Stack Developer for CLEATUS, an AI-powered government contracting platform, I contributed to the development of innovative features designed to simplify and automate the contracting process for businesses. My work focused on integrating cutting-edge AI technologies to enhance platform capabilities and user experience.",
+      "Key Contributions:",
+      "1. LangGraph AI Chat Integration:",
+      "• Implemented a feature to integrate LangChain-powered AI in the internal admin chat system.",
+      "• Enabled admins and users to interact with OpenAI-based AI for tasks such as consulting company-related PostHog API data and streamlining operations.",
+      "2. USAspending Contract Analysis:",
+      "• Developed a feature to query, search, and analyze SAM.gov contracts.",
+      "• Provided data export functionality to .CSV format, facilitating better understanding and decision-making regarding contract opportunities.",
+      "Tech Stack Used:",
+      "• Frontend: Next.js, TypeScript, Shadcn/UI",
+      "• Backend: Node.js, TypeScript",
+      "• AI Integration: LangChain, OpenAI",
+      "• Infrastructure: Vercel, PlanetScale",
+      "• Architecture: Monorepo (Turborepo)",
+      "Key Achievements:",
+      "• Delivered impactful features within a tight timeline, leveraging modern AI technologies.",
+      "• Enhanced the platform's usability for government contract analysis and internal operations.",
+      "• Contributed to the mission of empowering small businesses to navigate the complexities of government contracting."
     ],
   },
   {
@@ -57,7 +67,7 @@ const experiences = [
     company: "HDIL COMÉRCIO DE ACESSÓRIOS P/ MÓVEIS LTDA",
     period: "November 2022 - January 2023",
     responsibilities: [
-      "Designed and developed the frontend for a local store’s e-commerce platform, utilizing PHP for email communication and backend logic optimization.",
+      "Designed and developed the frontend for a local store's e-commerce platform, utilizing PHP for email communication and backend logic optimization.",
       "Created and maintained APIs in PHP for sending and receiving emails, ensuring seamless communication and efficient data processing.",
       "Developed a full-stack website using HTML, CSS, JavaScript, Tailwind CSS, and deployed it on Vercel, ensuring responsiveness and high performance.",
       "Implemented and optimized the backend email system, ensuring reliable and secure communication between the store and customers.",
