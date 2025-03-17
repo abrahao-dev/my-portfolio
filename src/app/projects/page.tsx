@@ -9,37 +9,93 @@ import { Code, Eye } from "lucide-react"
 
 const projects = [
   {
-    title: "ImaginAI IOS App",
-    description: "A mobile app built with Swift to create images by text with AI",
-    tags: ["Swift", "iOS", "UIKit", "Hugging Face", "Git", "Vercel"],
+    title: "Abrahao Labs",
+    description: "Software house website showcasing services, portfolio, and contact information with modern UI/UX design principles and responsive layout for all devices.",
+    tags: ["NextJS", "React", "TailwindCSS", "Responsive Design", "UI/UX", "Git", "Vercel"],
+    link: "#",
+    demoLink: "https://www.abrahaolabs.com.br"
+  },
+  {
+    title: "NerdShirts",
+    description: "E-commerce platform for geek and nerd culture apparel and merchandise with advanced payment integrations, SEO optimization, and responsive design for mobile-first shopping experience.",
+    tags: ["E-commerce", "NextJS", "React", "TailwindCSS", "Payment Integration", "SEO", "Digital Marketing"],
+    link: "#",
+    demoLink: "https://www.nerdshirts.com.br"
+  },
+  {
+    title: "Martin4Shop",
+    description: "E-commerce platform developed with Shopify and Hydrogen, implementing advanced customization features and sales conversion optimization with personalized checkout experience.",
+    tags: ["Shopify", "Hydrogen", "E-commerce", "Digital Marketing", "SEO", "Conversion Optimization", "Customer Support"],
+    link: "#",
+    demoLink: "https://martin4shop.com.br/"
+  },
+  {
+    title: "Martina4Shop",
+    description: "Complete e-commerce solution built with Shopify and Hydrogen, focused on performance and user experience, with custom checkout features and optimized mobile experience.",
+    tags: ["Shopify", "Hydrogen", "E-commerce", "Performance", "UX/UI", "Custom Checkout"],
+    link: "#",
+    demoLink: "https://martina4shop.com.br/"
+  },
+  {
+    title: "AlerteHit.Fr",
+    description: "International e-commerce platform for the French market, developed with Shopify and Hydrogen. Complete implementation with multi-currency support and local adaptations.",
+    tags: ["Shopify", "Hydrogen", "E-commerce", "International", "Multi-currency", "Localization"],
+    link: "#",
+    demoLink: "https://alertehit.fr/"
+  },
+  {
+    title: "Vem Ve E-commerce",
+    description: "Custom e-commerce implementation using Shopify and Hydrogen, focused on performance and conversion optimization, including advanced payment integrations.",
+    tags: ["Shopify", "Hydrogen", "E-commerce", "Performance", "Payment Integration", "Conversion Optimization"],
+    link: "#",
+    demoLink: "https://vemve.com.br/"
+  },
+  {
+    title: "H3liovation Website",
+    description: "Modern institutional website developed with HTML and Tailwind CSS, featuring optimized contact form and automated deployment on Vercel for maximum availability.",
+    tags: ["HTML", "Tailwind CSS", "JavaScript", "Responsive Design", "Vercel", "Contact Form"],
+    link: "#",
+    demoLink: "https://h3liovation-master.vercel.app/"
+  },
+  {
+    title: "HDil Website",
+    description: "Corporate platform for furniture industry company, developed in React JS. Modern interface with WhatsApp Business integration, optimized contact form and responsive system.",
+    tags: ["React JS", "Tailwind CSS", "WhatsApp Integration", "Responsive Design", "UI/UX"],
+    link: "https://github.com/abrahao-dev/hdil-master",
+    demoLink: "https://hdil-2023.vercel.app/"
+  },
+  {
+    title: "Euac44 Website",
+    description: "Advanced digital portfolio with custom content management system. Automated integration with ArtStation via web scraping, dynamic pricing system and complete admin panel. Implementation with Redis for high performance.",
+    tags: ["Next JS", "Tailwind CSS", "Database", "Bot Integration", "Web Scraping", "Admin Dashboard", "Portfolio"],
+    link: "#",
+    demoLink: "https://euac44.com/"
+  },
+  {
+    title: "Sicon Insurance",
+    description: "Corporate website with integrated insurance quotation system, developed in Next.js. Modern interface with WhatsApp integration, interactive information components and optimized responsive system.",
+    tags: ["Next JS", "Tailwind CSS", "Portfolio", "WhatsApp Integration", "Responsive Design"],
+    link: "#",
+    demoLink: "https://sicon-corretora.vercel.app/"
+  },
+  {
+    title: "ImaginAI iOS App",
+    description: "A mobile app built with Swift to create images by text with AI, featuring intuitive UI and integration with Hugging Face models for image generation.",
+    tags: ["Swift", "iOS", "UIKit", "Hugging Face", "AI", "Image Generation"],
     link: "https://github.com/abrahao-dev/imaginAI",
     demoLink: "#"
   },
   {
     title: "Projeto Hopper",
-    description: "CRUD Application for the Projeto Hopper v1 integrated with Arduino prototype",
-    tags: ["NextJS", "TailwindCSS", "SQL","AWS", "Supabase", "Arduino", "Git", "Vercel"],
+    description: "CRUD Application for the Projeto Hopper v1 integrated with Arduino prototype, featuring real-time data visualization and cloud database integration.",
+    tags: ["NextJS", "TailwindCSS", "SQL", "AWS", "Supabase", "Arduino", "IoT", "Vercel"],
     link: "https://github.com/abrahao-dev/projetohopperapp",
     demoLink: "https://projetohopperapp.vercel.app/"
   },
   {
-    title: "HDIL COMÉRCIO",
-    description: "Website for a local commerce integrated with LojaZap Platform",
-    tags: ["HTML", "CSS", "JavaScript", "TailwindCSS", "Git", "Vercel"],
-    link: "https://github.com/abrahao-dev/hdil-master",
-    demoLink: "https://hdil-2023.vercel.app/"
-  },
-  {
-    title: "Martin4Shop",
-    description: "E-commerce for a digital business using Shopify",
-    tags: ["Shopify", "Canva", "Digital Marketing", "Automations","SEO", "Social Media", "Customer Support"],
-    link: "#",
-    demoLink: "https://martin4shop.com.br/"
-  },
-  {
     title: "Golsf - 2D Golf Game",
-    description: "An interactive 2D golf game developed using HTML, CSS, and JavaScript, featuring multiple levels and a scoring system.",
-    tags: ["HTML", "CSS", "JavaScript", "Game Development"],
+    description: "An interactive 2D golf game developed using HTML, CSS, and JavaScript, featuring multiple levels, physics engine, and a comprehensive scoring system.",
+    tags: ["HTML", "CSS", "JavaScript", "Game Development", "Physics Engine", "Canvas API"],
     link: "https://github.com/abrahao-dev/golsf-2d-game",
     demoLink: "https://golsf-2d-game.vercel.app/"
   },
@@ -54,7 +110,7 @@ export default function Projects() {
 
   return (
     <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <motion.h1 
+      <motion.h1
         className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter mb-8 sm:mb-12 md:mb-16 text-center"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -64,7 +120,7 @@ export default function Projects() {
           My Projects
         </span>
       </motion.h1>
-      <motion.div 
+      <motion.div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -95,16 +151,16 @@ export default function Projects() {
                 </div>
               </CardContent>
               <CardFooter className="pt-2">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="flex-1 mr-2 text-sm sm:text-base"
                   onClick={() => handleProjectClick(project.link)}
                 >
                   <Code className="mr-2 h-4 w-4" />
                   Code
                 </Button>
-                <Button 
-                  variant="default" 
+                <Button
+                  variant="default"
                   className="flex-1 ml-2 text-sm sm:text-base"
                   onClick={() => handleProjectClick(project.demoLink)}
                 >
