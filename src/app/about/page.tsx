@@ -7,7 +7,18 @@ import { useState } from "react"
 
 const skills = [
   { name: "Next JS", icon: "devicon-nextjs-plain colored" },
+  { name: "React", icon: "devicon-react-plain colored" },
   { name: "Typescript", icon: "devicon-typescript-plain colored" },
+  { name: "JavaScript", icon: "devicon-javascript-plain colored" },
+  { name: "Node.js", icon: "devicon-nodejs-plain colored" },
+  { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain colored" },
+  { name: "GraphQL", icon: "devicon-graphql-plain colored" },
+  { name: "Shopify", icon: "devicon-shopify-plain colored" },
+  { name: "OpenAI", icon: "devicon-openai-plain colored" },
+  { name: "LangChain", icon: "devicon-langchain-plain colored" },
+  { name: "GenAI", icon: "devicon-ai-plain colored" },
+  { name: "Supabase", icon: "devicon-supabase-plain colored" },
+  { name: "Firebase", icon: "devicon-firebase-plain colored" },
   { name: "Java", icon: "devicon-java-plain colored" },
   { name: "C", icon: "devicon-c-plain colored" },
   { name: "Swift", icon: "devicon-swift-plain colored" },
@@ -17,13 +28,30 @@ const skills = [
   { name: "Docker", icon: "devicon-docker-plain colored" },
   { name: "AWS", icon: "devicon-amazonwebservices-plain colored" },
   { name: "Git", icon: "devicon-git-plain colored" },
+  { name: "GitHub Actions", icon: "devicon-github-plain colored" },
+  { name: "Postman", icon: "devicon-postman-plain colored" },
+  { name: "Figma", icon: "devicon-figma-plain colored" },
   { name: "Linux", icon: "devicon-linux-plain colored" },
   { name: "HTML", icon: "devicon-html5-plain colored" },
   { name: "CSS", icon: "devicon-css3-plain colored" },
-  { name: "JavaScript", icon: "devicon-javascript-plain colored" },
 ];
 
 const experiences = [
+  {
+    title: "Full Stack Developer & Shopify Specialist",
+    company: "Venna Social",
+    period: "June 2025 - Present",
+    responsibilities: [
+      "Working as a full stack developer and Shopify specialist at Venna, an international events and lifestyle startup. Actively participated in the platform launch, implementing improvements to the theme and essential integrations to scale the brand's operation.",
+      "Key contributions:",
+      "Customized Shopify theme with JavaScript, CSS, and Liquid code;",
+      "Implemented integrations with Mailchimp via Zapier, including automations conditioned by language (PT/EN/ES);",
+      "Integrated and supported payment method configuration via Appmax, with technical suggestion and validation of alternatives;",
+      "Made UX/UI adjustments and improvements, adding new buttons and responsive visual interactions;",
+      "Configured the site's multilingual flow, ensuring consistency between selected language, received emails, and displayed layout;",
+      "Provided continuous technical support via ClickUp and WhatsApp, with agile deliveries aligned with the brand's launch schedule."
+    ],
+  },
   {
     title: "Full-Stack Software Developer (Freelancer)",
     company: "CLEATUS",
@@ -118,12 +146,12 @@ export default function About() {
         <Card className="bg-secondary/10 backdrop-blur-sm border-none shadow-lg">
           <CardContent className="pt-6">
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              I&apos;m a passionate Software Developer with expertise in modern web technologies including Next.js, TypeScript, and React.
-              My experience spans from AI integration and e-commerce development to database management and cloud solutions.
-              I specialize in building scalable applications with a focus on AI-driven solutions, having worked with LLMs and vector databases.
-              With a strong foundation in both frontend and backend development, I create robust, user-centric applications while maintaining
-              high standards of performance and security. My entrepreneurial background as a CEO of an e-commerce platform adds a unique
-              perspective to my technical solutions, combining business acumen with technical expertise.
+            I&apos;m a passionate Software Developer with expertise in modern web technologies including Next.js, TypeScript, and React.
+            My experience spans AI integration, e-commerce development, database management, and cloud infrastructure.
+            I specialize in building scalable, AI-driven applications, having worked with LLMs and vector databases in real-world projects.
+            With a solid foundation in both frontend and backend development, I create robust, user-centric solutions while maintaining
+            high standards of performance, security, and code quality. My entrepreneurial background as the founder of a profitable e-commerce platform
+            adds a unique perspective to my technical work, bridging business strategy with software engineering.
             </p>
           </CardContent>
         </Card>

@@ -16,13 +16,6 @@ const projects = [
     demoLink: "https://www.abrahaolabs.com.br"
   },
   {
-    title: "NerdShirts",
-    description: "E-commerce platform for geek and nerd culture apparel and merchandise with advanced payment integrations, SEO optimization, and responsive design for mobile-first shopping experience.",
-    tags: ["E-commerce", "NextJS", "React", "TailwindCSS", "Payment Integration", "SEO", "Digital Marketing"],
-    link: "#",
-    demoLink: "https://www.nerdshirts.com.br"
-  },
-  {
     title: "Martin4Shop",
     description: "E-commerce platform developed with Shopify and Hydrogen, implementing advanced customization features and sales conversion optimization with personalized checkout experience.",
     tags: ["Shopify", "Hydrogen", "E-commerce", "Digital Marketing", "SEO", "Conversion Optimization", "Customer Support"],
@@ -31,52 +24,66 @@ const projects = [
   },
   {
     title: "Martina4Shop",
-    description: "Complete e-commerce solution built with Shopify and Hydrogen, focused on performance and user experience, with custom checkout features and optimized mobile experience.",
-    tags: ["Shopify", "Hydrogen", "E-commerce", "Performance", "UX/UI", "Custom Checkout"],
+    description: "Complete e-commerce solution built with Shopify and Hydrogen, focused on performance and user experience, with custom checkout features.",
+    tags: ["Shopify", "Hydrogen", "E-commerce"],
     link: "#",
     demoLink: "https://martina4shop.com.br/"
   },
   {
+    title: "NerdShirts",
+    description: "Complete e-commerce solution built with Shopify and Hydrogen, focused on performance and user experience, with custom checkout features.",
+    tags: ["Shopify", "Hydrogen", "E-commerce"],
+    link: "#",
+    demoLink: "https://www.nerdshirts.com.br"
+  },
+  {
     title: "AlerteHit.Fr",
     description: "International e-commerce platform for the French market, developed with Shopify and Hydrogen. Complete implementation with multi-currency support and local adaptations.",
-    tags: ["Shopify", "Hydrogen", "E-commerce", "International", "Multi-currency", "Localization"],
+    tags: ["Shopify", "Hydrogen", "E-commerce"],
     link: "#",
     demoLink: "https://alertehit.fr/"
   },
   {
     title: "Vem Ve E-commerce",
     description: "Custom e-commerce implementation using Shopify and Hydrogen, focused on performance and conversion optimization, including advanced payment integrations.",
-    tags: ["Shopify", "Hydrogen", "E-commerce", "Performance", "Payment Integration", "Conversion Optimization"],
+    tags: ["Shopify", "Hydrogen", "E-commerce"],
     link: "#",
     demoLink: "https://vemve.com.br/"
   },
   {
-    title: "H3liovation Website",
-    description: "Modern institutional website developed with HTML and Tailwind CSS, featuring optimized contact form and automated deployment on Vercel for maximum availability.",
-    tags: ["HTML", "Tailwind CSS", "JavaScript", "Responsive Design", "Vercel", "Contact Form"],
+    title: "Sicon Insurance",
+    description: "Corporate website with integrated insurance quotation system, developed in Next.js. Modern interface with WhatsApp integration, interactive information components and optimized responsive system.",
+    tags: ["Next JS", "Tailwind CSS", "Portfolio"],
     link: "#",
-    demoLink: "https://h3liovation-master.vercel.app/"
+    demoLink: "https://sicon.com.br/"
   },
   {
     title: "HDil Website",
     description: "Corporate platform for furniture industry company, developed in React JS. Modern interface with WhatsApp Business integration, optimized contact form and responsive system.",
-    tags: ["React JS", "Tailwind CSS", "WhatsApp Integration", "Responsive Design", "UI/UX"],
+    tags: ["React JS", "Tailwind CSS"],
     link: "https://github.com/abrahao-dev/hdil-master",
     demoLink: "https://hdil-2023.vercel.app/"
   },
   {
     title: "Euac44 Website",
     description: "Advanced digital portfolio with custom content management system. Automated integration with ArtStation via web scraping, dynamic pricing system and complete admin panel. Implementation with Redis for high performance.",
-    tags: ["Next JS", "Tailwind CSS", "Database", "Bot Integration", "Web Scraping", "Admin Dashboard", "Portfolio"],
+    tags: ["Next JS", "Tailwind CSS", "Database", "Bot Integration", "Web Scraping", "Dashboard Admin", "Portfolio"],
     link: "#",
     demoLink: "https://euac44.com/"
   },
   {
-    title: "Sicon Insurance",
-    description: "Corporate website with integrated insurance quotation system, developed in Next.js. Modern interface with WhatsApp integration, interactive information components and optimized responsive system.",
-    tags: ["Next JS", "Tailwind CSS", "Portfolio", "WhatsApp Integration", "Responsive Design"],
+    title: "H3liovation Website",
+    description: "Modern institutional website developed with HTML and Tailwind CSS, featuring optimized contact form and automated deployment on Vercel for maximum availability.",
+    tags: ["HTML", "Tailwind CSS", "Javascript"],
     link: "#",
-    demoLink: "https://sicon-corretora.vercel.app/"
+    demoLink: "https://h3liovation-master.vercel.app/"
+  },
+  {
+    title: "Venna Social",
+    description: "Full Stack development and Shopify specialization for Venna, an international events and lifestyle startup. Implementation of theme customizations, integrations with Mailchimp via Zapier, and multilingual configuration.",
+    tags: ["Shopify", "JavaScript", "CSS", "Liquid", "Zapier", "Multilingual", "UX/UI"],
+    link: "#",
+    demoLink: "#"
   },
   {
     title: "ImaginAI iOS App",
