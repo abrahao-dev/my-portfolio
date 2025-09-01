@@ -18,12 +18,11 @@ const translations = {
     // Navigation
     'nav.about': 'About',
     'nav.projects': 'Projects',
-    'nav.services': 'Services',
     'nav.contact': 'Contact',
 
     // Homepage
     'home.title': 'Matheus Abrahão',
-    'home.subtitle': 'Software Engineer | Full Stack Developer | TypeScript & Golang Expert',
+    'home.subtitle': 'Full Stack Developer',
     'home.description': 'Building scalable, modern applications with clean architecture and solid engineering principles. Generated $80K+ revenue through e-commerce platforms and AI-powered solutions.',
     'home.stats.revenue': 'Revenue Generated',
     'home.stats.revenue.value': '$80K+',
@@ -31,7 +30,6 @@ const translations = {
     'home.stats.projects': 'Projects Delivered',
     'home.stats.technologies': 'Technologies',
     'home.cta.projects': 'View Projects',
-    'home.cta.services': 'My Services',
     'home.cta.resume': 'Resume',
     'home.cta.contact': 'Get in Touch',
     'home.skills.title': 'Core Technologies',
@@ -60,40 +58,9 @@ const translations = {
     'about.achievements.international.desc': 'Worked with clients from multiple countries including France, USA, and Brazil',
     'about.achievements.excellence': 'Technical Excellence',
     'about.achievements.excellence.desc': 'Consistently delivered high-quality solutions using modern technologies and best practices',
-    'about.summary.paragraph1': 'I\'m a passionate Software Engineer focused on building modern, scalable full-stack applications grounded in clean architecture, automation, and solid software engineering principles. I work primarily with TypeScript, Golang, Docker, and Cloud technologies, delivering robust end-to-end solutions with strong foundations in algorithms, data structures, and systems design.',
+    'about.summary.paragraph1': 'I\'m a passionate Software Engineer focused on building modern, scalable full-stack applications grounded in clean architecture, automation, and solid software engineering principles. I work primarily with TypeScript, Docker, and Cloud technologies, delivering robust end-to-end solutions with strong foundations in algorithms, data structures, and systems design.',
     'about.summary.paragraph2': 'Since 2021, I\'ve independently led the technical operations of Martin4Shop, a self-owned e-commerce brand that has generated over $80,000 in revenue. I built the entire platform from scratch using Shopify Hydrogen, React, and Remix, along with custom automations. This experience gave me deep, hands-on insight into how engineering, product, and business intersect.',
     'about.summary.paragraph3': 'I have complete command of the development lifecycle: modern web applications, REST/GraphQL APIs, relational and NoSQL databases, CI/CD pipelines, containerization, testing, and clean, maintainable code using SOLID principles. I also have practical experience with machine learning models and AI-powered solutions.',
-
-    // Services page
-    'services.title': 'Professional Services',
-    'services.subtitle': 'Comprehensive software engineering services tailored to your business needs. From full-stack development to AI integration, I deliver scalable solutions that drive results.',
-    'services.fullstack.title': 'Full Stack Development',
-    'services.fullstack.desc': 'End-to-end web application development using modern technologies like TypeScript, React, Next.js, and Golang.',
-    'services.ecommerce.title': 'E-commerce Solutions',
-    'services.ecommerce.desc': 'Complete e-commerce platform development with Shopify, custom integrations, and conversion optimization.',
-    'services.ai.title': 'AI Integration',
-    'services.ai.desc': 'Intelligent solutions powered by machine learning, LLMs, and AI technologies for enhanced user experiences.',
-    'services.backend.title': 'Database & Backend',
-    'services.backend.desc': 'Robust backend systems with proper database design, API development, and infrastructure setup.',
-    'services.cloud.title': 'Cloud & DevOps',
-    'services.cloud.desc': 'Cloud infrastructure setup, CI/CD pipelines, and DevOps automation for scalable applications.',
-    'services.performance.title': 'Performance Optimization',
-    'services.performance.desc': 'Application performance optimization, speed improvements, and user experience enhancements.',
-    'services.features': 'Key Features:',
-    'services.technologies': 'Technologies:',
-    'services.process.title': 'Development Process',
-    'services.process.discovery': 'Discovery & Planning',
-    'services.process.discovery.desc': 'Understanding your requirements, goals, and technical specifications to create a detailed project plan.',
-    'services.process.design': 'Design & Architecture',
-    'services.process.design.desc': 'Creating technical architecture, database design, and UI/UX wireframes for your project.',
-    'services.process.development': 'Development & Testing',
-    'services.process.development.desc': 'Building your solution with clean code, comprehensive testing, and regular progress updates.',
-    'services.process.deployment': 'Deployment & Launch',
-    'services.process.deployment.desc': 'Deploying to production, performance optimization, and providing documentation and training.',
-    'services.cta.title': 'Ready to Start Your Project?',
-    'services.cta.subtitle': 'Let\'s discuss your requirements and create a solution that drives your business forward. I\'m available for both freelance projects and long-term collaborations.',
-    'services.cta.start': 'Get Started',
-    'services.cta.portfolio': 'View Portfolio',
 
     // Contact page
     'contact.title': 'Get in Touch',
@@ -130,12 +97,11 @@ const translations = {
     // Navigation
     'nav.about': 'Sobre',
     'nav.projects': 'Projetos',
-    'nav.services': 'Serviços',
     'nav.contact': 'Contato',
 
     // Homepage
     'home.title': 'Matheus Abrahão',
-    'home.subtitle': 'Engenheiro de Software | Desenvolvedor Full Stack | Especialista em TypeScript & Golang',
+    'home.subtitle': 'Desenvolvedor Full Stack',
     'home.description': 'Construindo aplicações modernas e escaláveis com arquitetura limpa e princípios sólidos de engenharia. Gerou mais de $80K em receita através de plataformas de e-commerce e soluções com IA.',
     'home.stats.revenue': 'Receita Gerada',
     'home.stats.revenue.value': 'R$400K+',
@@ -143,7 +109,6 @@ const translations = {
     'home.stats.projects': 'Projetos Entregues',
     'home.stats.technologies': 'Tecnologias',
     'home.cta.projects': 'Ver Projetos',
-    'home.cta.services': 'Meus Serviços',
     'home.cta.resume': 'Currículo',
     'home.cta.contact': 'Entre em Contato',
     'home.skills.title': 'Tecnologias Principais',
@@ -172,40 +137,9 @@ const translations = {
     'about.achievements.international.desc': 'Trabalhou com clientes de múltiplos países incluindo França, EUA e Brasil',
     'about.achievements.excellence': 'Excelência Técnica',
     'about.achievements.excellence.desc': 'Entregou consistentemente soluções de alta qualidade usando tecnologias modernas e melhores práticas',
-    'about.summary.paragraph1': 'Sou um Engenheiro de Software apaixonado focado em construir aplicações full-stack modernas e escaláveis baseadas em arquitetura limpa, automação e princípios sólidos de engenharia de software. Trabalho principalmente com TypeScript, Golang, Docker e tecnologias Cloud, entregando soluções robustas de ponta a ponta com bases sólidas em algoritmos, estruturas de dados e design de sistemas.',
+    'about.summary.paragraph1': 'Sou um Engenheiro de Software apaixonado focado em construir aplicações full-stack modernas e escaláveis baseadas em arquitetura limpa, automação e princípios sólidos de engenharia de software. Trabalho principalmente com TypeScript, Docker e tecnologias Cloud, entregando soluções robustas de ponta a ponta com bases sólidas em algoritmos, estruturas de dados e design de sistemas.',
     'about.summary.paragraph2': 'Desde 2021, lidero independentemente as operações técnicas da Martin4Shop, uma marca de e-commerce própria que gerou mais de R$400.000 em receita. Construí toda a plataforma do zero usando Shopify Hydrogen, React e Remix, junto com automações customizadas. Esta experiência me deu insights profundos e práticos sobre como engenharia, produto e negócio se intersectam.',
     'about.summary.paragraph3': 'Tenho domínio completo do ciclo de vida de desenvolvimento: aplicações web modernas, APIs REST/GraphQL, bancos de dados relacionais e NoSQL, pipelines de CI/CD, containerização, testes e código limpo e sustentável usando princípios SOLID. Também tenho experiência prática com modelos de machine learning e soluções com IA.',
-
-    // Services page
-    'services.title': 'Serviços Profissionais',
-    'services.subtitle': 'Serviços abrangentes de engenharia de software adaptados às necessidades do seu negócio. Do desenvolvimento full-stack à integração de IA, entrego soluções escaláveis que geram resultados.',
-    'services.fullstack.title': 'Desenvolvimento Full Stack',
-    'services.fullstack.desc': 'Desenvolvimento de aplicações web de ponta a ponta usando tecnologias modernas como TypeScript, React, Next.js e Golang.',
-    'services.ecommerce.title': 'Soluções de E-commerce',
-    'services.ecommerce.desc': 'Desenvolvimento completo de plataformas de e-commerce com Shopify, integrações customizadas e otimização de conversão.',
-    'services.ai.title': 'Integração de IA',
-    'services.ai.desc': 'Soluções inteligentes alimentadas por machine learning, LLMs e tecnologias de IA para experiências de usuário aprimoradas.',
-    'services.backend.title': 'Banco de Dados & Backend',
-    'services.backend.desc': 'Sistemas backend robustos com design adequado de banco de dados, desenvolvimento de API e configuração de infraestrutura.',
-    'services.cloud.title': 'Cloud & DevOps',
-    'services.cloud.desc': 'Configuração de infraestrutura em nuvem, pipelines de CI/CD e automação DevOps para aplicações escaláveis.',
-    'services.performance.title': 'Otimização de Performance',
-    'services.performance.desc': 'Otimização de performance de aplicações, melhorias de velocidade e aprimoramentos da experiência do usuário.',
-    'services.features': 'Principais Recursos:',
-    'services.technologies': 'Tecnologias:',
-    'services.process.title': 'Processo de Desenvolvimento',
-    'services.process.discovery': 'Descoberta & Planejamento',
-    'services.process.discovery.desc': 'Entendendo seus requisitos, objetivos e especificações técnicas para criar um plano detalhado do projeto.',
-    'services.process.design': 'Design & Arquitetura',
-    'services.process.design.desc': 'Criando arquitetura técnica, design de banco de dados e wireframes de UI/UX para seu projeto.',
-    'services.process.development': 'Desenvolvimento & Testes',
-    'services.process.development.desc': 'Construindo sua solução com código limpo, testes abrangentes e atualizações regulares de progresso.',
-    'services.process.deployment': 'Deploy & Lançamento',
-    'services.process.deployment.desc': 'Fazendo deploy em produção, otimização de performance e fornecendo documentação e treinamento.',
-    'services.cta.title': 'Pronto para Começar Seu Projeto?',
-    'services.cta.subtitle': 'Vamos discutir seus requisitos e criar uma solução que impulsione seu negócio. Estou disponível para projetos freelancer e colaborações de longo prazo.',
-    'services.cta.start': 'Começar',
-    'services.cta.portfolio': 'Ver Portfólio',
 
     // Contact page
     'contact.title': 'Entre em Contato',
@@ -241,7 +175,7 @@ const translations = {
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en')
+  const [language, setLanguage] = useState<Language>('pt-BR')
 
   useEffect(() => {
     // Check for saved language preference or browser language

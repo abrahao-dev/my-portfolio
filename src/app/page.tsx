@@ -24,7 +24,6 @@ const FloatingIcon: React.FC<FloatingIconProps> = ({ className, children }) => (
 
 const technologies = [
   { name: "TypeScript", category: "Language" },
-  { name: "Golang", category: "Language" },
   { name: "React", category: "Frontend" },
   { name: "Next.js", category: "Framework" },
   { name: "Node.js", category: "Runtime" },
@@ -32,9 +31,10 @@ const technologies = [
   { name: "PostgreSQL", category: "Database" },
   { name: "AWS", category: "Cloud" },
   { name: "Shopify", category: "E-commerce" },
-  { name: "OpenAI", category: "AI" },
+  { name: "Java", category: "Language" },
   { name: "GraphQL", category: "API" },
   { name: "CI/CD", category: "DevOps" },
+  { name: "Git", category: "Version Control" },
 ];
 
 export default function Home() {
@@ -106,11 +106,6 @@ export default function Home() {
             <Link href="/projects" className="flex items-center justify-center">
               {t('home.cta.projects')}
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="border-primary/20 hover:bg-primary/10 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto">
-            <Link href="/services" className="flex items-center justify-center">
-              {t('home.cta.services')}
             </Link>
           </Button>
           <Button asChild variant="ghost" size="lg" className="hover:bg-primary/10 transition-all duration-300 w-full sm:w-auto">

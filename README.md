@@ -29,7 +29,6 @@ A modern, SEO-optimized portfolio website built with Next.js, TypeScript, and Ta
 - **Home**: Hero section with stats, skills, and social links
 - **About**: Professional experience, achievements, and philosophy
 - **Projects**: Portfolio showcase with GitHub and demo links
-- **Services**: Professional services and pricing
 - **Contact**: Contact form with validation and contact information
 
 ## 🎨 Design System
@@ -52,12 +51,16 @@ A modern, SEO-optimized portfolio website built with Next.js, TypeScript, and Ta
    npm install
    ```
 
-3. **Run the development server**
+3. **Set up images** (see [IMAGE_SETUP.md](./IMAGE_SETUP.md))
+   - Replace placeholder images in `public/` directory
+   - Add your profile photo, OG image, and resume
+
+4. **Run the development server**
    ```bash
    npm run dev
    ```
 
-4. **Open your browser**
+5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
 ## 📦 Available Scripts
@@ -79,7 +82,6 @@ A modern, SEO-optimized portfolio website built with Next.js, TypeScript, and Ta
 
 ### Professional Profile
 - ✅ Updated content to reflect $80K+ revenue achievement
-- ✅ Added comprehensive services page with pricing
 - ✅ Enhanced about page with professional philosophy
 - ✅ Improved project descriptions and links
 - ✅ Added achievements and statistics section
@@ -97,6 +99,9 @@ A modern, SEO-optimized portfolio website built with Next.js, TypeScript, and Ta
 - ✅ Implemented loading states and error boundaries
 - ✅ Enhanced SEO with comprehensive meta tags
 - ✅ Added proper error handling
+- ✅ Removed services page and updated navigation
+- ✅ Set Portuguese as default language
+- ✅ Created image placeholders and optimization system
 
 ### Code Quality
 - ✅ Fixed ESLint errors and warnings
@@ -169,7 +174,6 @@ A modern, SEO-optimized portfolio website built with Next.js, TypeScript, and Ta
 - Software Engineer Brazil
 - Full Stack Developer São Paulo
 - TypeScript Developer Freelance
-- Golang Developer Remote
 - E-commerce Developer
 - AI Integration Expert
 - Shopify Developer

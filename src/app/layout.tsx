@@ -11,13 +11,12 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://matheusabrahao.com.br'),
-  title: 'Matheus Abrahão - Software Engineer | Full Stack Developer | TypeScript & Golang Expert',
-  description: 'Experienced Software Engineer specializing in full-stack development with TypeScript, Golang, Docker, and Cloud technologies. Built scalable e-commerce platforms generating $80K+ revenue. Expert in modern web applications, AI integration, and clean architecture.',
+  title: 'Matheus Abrahão - Full Stack Developert',
+  description: 'Experienced Software Engineer specializing in full-stack development with TypeScript, Docker, and Cloud technologies. Built scalable e-commerce platforms generating $80K+ revenue. Expert in modern web applications, AI integration, and clean architecture.',
   keywords: [
     'Software Engineer',
     'Full Stack Developer',
     'TypeScript Developer',
-    'Golang Developer',
     'React Developer',
     'Next.js Developer',
     'E-commerce Developer',
@@ -51,10 +50,10 @@ export const metadata: Metadata = {
   classification: 'Software Development',
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'pt_BR',
     url: 'https://matheusabrahao.com.br',
     title: 'Matheus Abrahão - Software Engineer | Full Stack Developer',
-    description: 'Experienced Software Engineer specializing in full-stack development with TypeScript, Golang, Docker, and Cloud technologies. Built scalable e-commerce platforms generating $80K+ revenue.',
+    description: 'Experienced Software Engineer specializing in full-stack development with TypeScript, Docker, and Cloud technologies. Built scalable e-commerce platforms generating $80K+ revenue.',
     siteName: 'Matheus Abrahão - Software Engineer',
     images: [
       {
@@ -68,7 +67,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Matheus Abrahão - Software Engineer | Full Stack Developer',
-    description: 'Experienced Software Engineer specializing in full-stack development with TypeScript, Golang, Docker, and Cloud technologies.',
+    description: 'Experienced Software Engineer specializing in full-stack development with TypeScript, Docker, and Cloud technologies.',
     creator: '@abrahao_dev',
     images: ['/og-image.jpg'],
   },
@@ -98,7 +97,7 @@ export const metadata: Metadata = {
     'ICBM': '-23.5505, -46.6333',
     'DC.title': 'Matheus Abrahão - Software Engineer Portfolio',
     'DC.creator': 'Matheus Abrahão',
-    'DC.subject': 'Software Engineering, Full Stack Development, TypeScript, Golang',
+    'DC.subject': 'Software Engineering, Full Stack Development, TypeScript',
     'DC.description': 'Experienced Software Engineer specializing in full-stack development',
     'DC.publisher': 'Matheus Abrahão',
     'DC.contributor': 'Matheus Abrahão',
@@ -106,7 +105,7 @@ export const metadata: Metadata = {
     'DC.type': 'Text',
     'DC.format': 'text/html',
     'DC.identifier': 'https://matheusabrahao.com.br',
-    'DC.language': 'en',
+    'DC.language': 'pt-BR',
     'DC.coverage': 'World',
     'DC.rights': 'Copyright 2025 Matheus Abrahão',
   },
@@ -122,7 +121,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
         <link rel="icon" href="/favicon.ico" />
@@ -141,7 +140,7 @@ export default function RootLayout({
               "@type": "Person",
               "name": "Matheus Abrahão",
               "jobTitle": "Software Engineer",
-              "description": "Experienced Software Engineer specializing in full-stack development with TypeScript, Golang, Docker, and Cloud technologies.",
+              "description": "Experienced Software Engineer specializing in full-stack development with TypeScript, Docker, and Cloud technologies.",
               "url": "https://matheusabrahao.com.br",
               "image": "https://matheusabrahao.com.br/profile.jpg",
               "sameAs": [
@@ -156,7 +155,6 @@ export default function RootLayout({
               },
               "knowsAbout": [
                 "TypeScript",
-                "Golang",
                 "React",
                 "Next.js",
                 "Docker",
