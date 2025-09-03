@@ -102,7 +102,7 @@ const translations = {
     // Homepage
     'home.title': 'Matheus Abrahão',
     'home.subtitle': 'Desenvolvedor Full Stack',
-    'home.description': 'Construindo aplicações modernas e escaláveis com arquitetura limpa e princípios sólidos de engenharia. Gerou mais de $80K em receita através de plataformas de e-commerce e soluções com IA.',
+    'home.description': 'Construindo aplicações modernas e escaláveis com arquitetura limpa e princípios sólidos de engenharia. Gerou mais de R$400.000 em receita através de plataformas de e-commerce e soluções com IA.',
     'home.stats.revenue': 'Receita Gerada',
     'home.stats.revenue.value': 'R$400K+',
     'home.stats.experience': 'Anos de Experiência',
