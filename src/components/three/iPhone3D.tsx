@@ -2,15 +2,15 @@
 
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Environment, useGLTF } from '@react-three/drei'
-import { useRef, Suspense } from 'react'
+import { useRef, Suspense, useMemo } from 'react'
 import * as THREE from 'three'
 
 function IPhoneModel() {
   const { scene } = useGLTF('/apple-iphone-17-pro-max/source/iphone17promax.glb')
   const modelRef = useRef<THREE.Group>(null)
 
-  // Clone the scene to avoid issues with reusing the same object
-  const clonedScene = scene.clone()
+  // Clone the scene once using useMemo to avoid recreating on every render
+  const clonedScene = useMemo(() => scene.clone(), [scene])
 
   useFrame(() => {
     if (modelRef.current) {
@@ -31,17 +31,22 @@ useGLTF.preload('/apple-iphone-17-pro-max/source/iphone17promax.glb')
 
 export default function IPhone3D() {
   return (
-    <div className="w-full h-[500px] md:h-[600px] lg:h-[700px] touch-none">
+    <div
+      className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]"
+      style={{ touchAction: 'pan-y' }}
+    >
       <Canvas
         camera={{ position: [0, 0, 500], fov: 45, near: 1, far: 2000 }}
-        dpr={[1, 2]}
+        dpr={[1, 1.5]}
         gl={{
           antialias: true,
           powerPreference: "high-performance",
           alpha: true,
-          preserveDrawingBuffer: true
         }}
         style={{ touchAction: 'none' }}
+        onCreated={({ gl }) => {
+          gl.setClearColor(0x000000, 0)
+        }}
       >
         <Suspense fallback={null}>
           {/* Lighting setup */}
@@ -56,20 +61,15 @@ export default function IPhone3D() {
             enableZoom={false}
             enableRotate={true}
             autoRotate={false}
-            // Full 360° rotation - no limits
             minPolarAngle={0}
             maxPolarAngle={Math.PI}
-            minAzimuthAngle={-Infinity}
-            maxAzimuthAngle={Infinity}
-            // Touch settings for mobile
+            enableDamping={true}
+            dampingFactor={0.1}
+            rotateSpeed={0.8}
             touches={{
               ONE: THREE.TOUCH.ROTATE,
               TWO: THREE.TOUCH.ROTATE
             }}
-            // Smooth damping
-            enableDamping={true}
-            dampingFactor={0.05}
-            rotateSpeed={0.5}
           />
 
           <IPhoneModel />

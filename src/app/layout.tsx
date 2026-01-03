@@ -196,20 +196,22 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased">
+      <body className="antialiased min-h-screen bg-background">
         <ErrorBoundary>
           <LanguageProvider>
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
               enableSystem
-              disableTransitionOnChange
+              disableTransitionOnChange={false}
             >
-              <Navigation />
-              <main className="container mx-auto mt-8 px-4 min-h-[calc(100vh-8rem)]">
-                {children}
-              </main>
-              <Footer />
+              <div className="relative flex min-h-screen flex-col">
+                <Navigation />
+                <main className="flex-1">
+                  {children}
+                </main>
+                <Footer />
+              </div>
             </ThemeProvider>
           </LanguageProvider>
         </ErrorBoundary>
