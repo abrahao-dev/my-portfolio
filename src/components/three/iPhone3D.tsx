@@ -1,7 +1,7 @@
 "use client"
 
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Environment, useGLTF, Stage } from '@react-three/drei'
+import { OrbitControls, Environment, useGLTF } from '@react-three/drei'
 import { useRef, Suspense } from 'react'
 import * as THREE from 'three'
 
@@ -12,7 +12,7 @@ function IPhoneModel() {
   // Clone the scene to avoid issues with reusing the same object
   const clonedScene = scene.clone()
 
-  useFrame((state) => {
+  useFrame(() => {
     if (modelRef.current) {
       // Subtle idle animation
       modelRef.current.rotation.y += 0.002

@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge"
 import { useLanguage } from "@/contexts/language-context"
 import { motion } from "framer-motion"
 import { Calendar, Clock, ArrowRight, Rss } from "lucide-react"
-import Link from "next/link"
 
 const blogPosts = [
   {
