@@ -142,9 +142,11 @@ export default function Contact() {
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Phone</h3>
+                  <h3 className="font-medium">WhatsApp</h3>
                   <a
-                    href="tel:+5511992431835"
+                    href="https://wa.me/5511992431835"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     +55 (11) 99243-1835

@@ -27,6 +27,9 @@ export function Navigation() {
             <Link href="/projects" className="text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-2 py-1">
               {t('nav.projects')}
             </Link>
+            <Link href="/blog" className="text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-2 py-1">
+              {t('nav.blog')}
+            </Link>
             <Link href="/contact" className="text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md px-2 py-1">
               {t('nav.contact')}
             </Link>

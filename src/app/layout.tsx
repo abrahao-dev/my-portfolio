@@ -4,70 +4,66 @@ import { Navigation } from "@/components/navigation"
 import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/contexts/language-context"
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+// Note: Apple SF Pro fonts are configured but require manual download
+// See SF_PRO_FONTS_SETUP.md for instructions
+// For now, using system fonts with -apple-system fallback
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://matheusabrahao.com.br'),
-  title: 'Matheus Abrahão - Full Stack Developert',
-  description: 'Experienced Software Engineer specializing in full-stack development with TypeScript, Docker, and Cloud technologies. Built scalable e-commerce platforms generating $80K+ revenue. Expert in modern web applications, AI integration, and clean architecture.',
+  title: 'Matheus Abrahão - iOS Software Engineer',
+  description: 'iOS Software Engineer focused on building and shipping real-world mobile applications. Specialized in Swift, SwiftUI, UIKit, and MVVM with clean architecture and Apple platform best practices.',
   keywords: [
-    'Software Engineer',
-    'Full Stack Developer',
-    'TypeScript Developer',
-    'React Developer',
-    'Next.js Developer',
-    'E-commerce Developer',
-    'Shopify Developer',
-    'AI Integration',
-    'Machine Learning',
-    'Docker Expert',
-    'Cloud Engineer',
-    'Freelance Developer',
+    'iOS Developer',
+    'iOS Software Engineer',
+    'Swift Developer',
+    'SwiftUI Developer',
+    'UIKit Developer',
+    'Mobile Developer',
+    'Apple Developer',
+    'MVVM Architecture',
+    'Clean Architecture',
+    'App Store',
+    'Native iOS Apps',
+    'iPhone Developer',
+    'Combine Framework',
+    'SwiftData',
+    'Core Data',
+    'WidgetKit',
     'Brazil Developer',
     'São Paulo Developer',
-    'Clean Architecture',
-    'SOLID Principles',
-    'REST API',
-    'GraphQL',
-    'PostgreSQL',
-    'AWS',
-    'Vercel',
-    'CI/CD',
-    'GitHub Actions',
-    'OpenAI',
-    'LangChain',
-    'LLM Integration',
-    'RAG Systems',
-    'Vector Databases'
+    'Remote iOS Developer',
+    'Freelance iOS Developer',
+    'XCTest',
+    'iOS Testing',
+    'Mobile App Development'
   ],
   authors: [{ name: 'Matheus Abrahão' }],
   creator: 'Matheus Abrahão',
   publisher: 'Matheus Abrahão',
   category: 'Technology',
-  classification: 'Software Development',
+  classification: 'iOS Development',
   openGraph: {
     type: 'website',
-    locale: 'pt_BR',
+    locale: 'en_US',
     url: 'https://matheusabrahao.com.br',
-    title: 'Matheus Abrahão - Software Engineer | Full Stack Developer',
-    description: 'Experienced Software Engineer specializing in full-stack development with TypeScript, Docker, and Cloud technologies. Built scalable e-commerce platforms generating $80K+ revenue.',
-    siteName: 'Matheus Abrahão - Software Engineer',
+    title: 'Matheus Abrahão - iOS Software Engineer',
+    description: 'iOS Software Engineer focused on building and shipping real-world mobile applications with Swift, SwiftUI, UIKit, and MVVM.',
+    siteName: 'Matheus Abrahão - iOS Software Engineer',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Matheus Abrahão - Software Engineer Portfolio',
+        alt: 'Matheus Abrahão - iOS Software Engineer Portfolio',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Matheus Abrahão - Software Engineer | Full Stack Developer',
-    description: 'Experienced Software Engineer specializing in full-stack development with TypeScript, Docker, and Cloud technologies.',
+    title: 'Matheus Abrahão - iOS Software Engineer',
+    description: 'iOS Software Engineer focused on building and shipping real-world mobile applications with Swift, SwiftUI, UIKit, and MVVM.',
     creator: '@abrahao_dev',
     images: ['/og-image.jpg'],
   },
@@ -95,19 +91,19 @@ export const metadata: Metadata = {
     'geo.placename': 'São Paulo',
     'geo.position': '-23.5505;-46.6333',
     'ICBM': '-23.5505, -46.6333',
-    'DC.title': 'Matheus Abrahão - Software Engineer Portfolio',
+    'DC.title': 'Matheus Abrahão - iOS Software Engineer Portfolio',
     'DC.creator': 'Matheus Abrahão',
-    'DC.subject': 'Software Engineering, Full Stack Development, TypeScript',
-    'DC.description': 'Experienced Software Engineer specializing in full-stack development',
+    'DC.subject': 'iOS Development, Swift, SwiftUI, UIKit, Mobile Development',
+    'DC.description': 'iOS Software Engineer focused on building native mobile applications',
     'DC.publisher': 'Matheus Abrahão',
     'DC.contributor': 'Matheus Abrahão',
-    'DC.date': '2025',
+    'DC.date': '2026',
     'DC.type': 'Text',
     'DC.format': 'text/html',
     'DC.identifier': 'https://matheusabrahao.com.br',
-    'DC.language': 'pt-BR',
+    'DC.language': 'en',
     'DC.coverage': 'World',
-    'DC.rights': 'Copyright 2025 Matheus Abrahão',
+    'DC.rights': 'Copyright 2026 Matheus Abrahão',
   },
 }
 
@@ -200,7 +196,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className="antialiased">
         <ErrorBoundary>
           <LanguageProvider>
             <ThemeProvider
