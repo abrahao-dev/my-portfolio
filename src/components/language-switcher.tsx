@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Language, useLanguage } from "@/contexts/language-context"
-import { ChevronDown, Globe } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import { useState } from "react"
 
 const languageOptions = [
@@ -38,11 +38,10 @@ export function LanguageSwitcher() {
         <Button
           variant="outline"
           size="sm"
-          className="flex items-center space-x-2 h-9 px-3 text-xs sm:text-sm"
+          className="flex items-center gap-1.5 h-9 px-3 text-xs sm:text-sm"
         >
-          <Globe className="h-3 w-3 sm:h-4 sm:w-4" />
-          <span className="hidden sm:inline">{currentLanguage?.flag}</span>
-          <span className="hidden md:inline">{currentLanguage?.name}</span>
+          <span className="text-base">{currentLanguage?.flag}</span>
+          <span className="hidden sm:inline">{currentLanguage?.name}</span>
           <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
         </Button>
       </DropdownMenuTrigger>

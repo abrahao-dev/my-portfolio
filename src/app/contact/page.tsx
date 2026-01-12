@@ -144,12 +144,12 @@ export default function Contact() {
                 <div>
                   <h3 className="font-medium">WhatsApp</h3>
                   <a
-                    href="https://wa.me/5511992431835"
+                    href="https://wa.me/5511988512788"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +55 (11) 99243-1835
+                    +55 (11) 98851-2788
                   </a>
                 </div>
               </div>

@@ -3,100 +3,107 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useLanguage } from "@/contexts/language-context"
 import { motion } from "framer-motion"
-import { Award, Briefcase, Calendar, Code, ExternalLink, Globe, Smartphone, Users } from "lucide-react"
+import { Award, Briefcase, Calendar, Code, ExternalLink, Globe, TrendingUp } from "lucide-react"
 import { useState } from "react"
 
 const skills = [
-  { name: "Swift", icon: "devicon-swift-plain colored" },
-  { name: "SwiftUI", icon: "devicon-swift-plain colored" },
-  { name: "UIKit", icon: "devicon-apple-plain colored" },
-  { name: "Combine", icon: "devicon-swift-plain colored" },
-  { name: "MVVM", icon: "devicon-swift-plain colored" },
-  { name: "Clean Architecture", icon: "devicon-swift-plain colored" },
-  { name: "SwiftData", icon: "devicon-swift-plain colored" },
-  { name: "Core Data", icon: "devicon-apple-plain colored" },
-  { name: "WidgetKit", icon: "devicon-apple-plain colored" },
-  { name: "XCTest", icon: "devicon-swift-plain colored" },
-  { name: "App Store Connect", icon: "devicon-apple-plain colored" },
-  { name: "Xcode", icon: "devicon-xcode-plain colored" },
-  { name: "Git", icon: "devicon-git-plain colored" },
-  { name: "GitHub", icon: "devicon-github-plain colored" },
-  { name: "Figma", icon: "devicon-figma-plain colored" },
-  { name: "REST APIs", icon: "devicon-swift-plain colored" },
+  { name: "React.js", icon: "devicon-react-original colored" },
+  { name: "Next.js", icon: "devicon-nextjs-plain" },
+  { name: "TypeScript", icon: "devicon-typescript-plain colored" },
+  { name: "Node.js", icon: "devicon-nodejs-plain colored" },
+  { name: "Express", icon: "devicon-express-original" },
+  { name: "PostgreSQL", icon: "devicon-postgresql-plain colored" },
+  { name: "Prisma", icon: "devicon-prisma-original" },
+  { name: "GraphQL", icon: "devicon-graphql-plain colored" },
+  { name: "Docker", icon: "devicon-docker-plain colored" },
+  { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark colored" },
+  { name: "Shopify", icon: "devicon-shopify-plain colored" },
+  { name: "Git/GitHub", icon: "devicon-github-plain" },
+  { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain colored" },
+  { name: "REST APIs", icon: "devicon-nodejs-plain colored" },
+  { name: "CI/CD", icon: "devicon-github-plain" },
+  { name: "Vercel", icon: "devicon-vercel-original" },
 ];
 
 const experiences = [
   {
-    title: "iOS Developer",
-    company: "Greenstand",
-    period: "October 2025 - Present",
+    title: "Software Engineer",
+    company: "Virtustant",
+    period: "August 2025 - Present",
     location: "Remote (USA)",
-    description: "Contributing to open-source technology fighting climate change through mobile development of the Treetracker ecosystem.",
+    description: "Technical partner for an international luxury fashion brand. Engineering e-commerce platform reliability, integrations, and automation.",
     highlights: [
-      "Developing iOS features using Swift, SwiftUI, UIKit, MVVM and Clean Architecture",
-      "Building reliable, scalable and user-centered mobile features",
-      "Collaborating with distributed engineering team on GitHub-based workflows",
-      "Working on CI/CD improvements and automated testing",
-      "Contributing to open-source iOS development best practices"
+      "Designed and implemented custom Shopify/Liquid components for a high-traffic e-commerce store",
+      "Led platform integrations: Amazon Seller Central, Google Merchant Center, Meta Ads (CAPI/Pixel)",
+      "Built marketing automation flows for inventory, post-purchase ops, and analytics pipelines",
+      "Achieved Core Web Vitals optimization across 1000+ product catalog",
+      "Collaborated with international stakeholders in a fully remote environment"
     ],
   },
   {
-    title: "iOS Developer (Independent)",
-    company: "Prism - Subscription Manager",
-    period: "November 2025 - Present",
+    title: "Founder & Software Engineer",
+    company: "Martin (E-commerce)",
+    period: "January 2021 - Present",
     location: "Brazil",
-    description: "End-to-end development of a native iOS subscription management app published on the App Store.",
+    description: "Built and operated a profitable e-commerce platform from scratch, achieving $90K+ in total revenue.",
     highlights: [
-      "Built entire app with SwiftUI using MVVM architecture",
-      "Implemented local data persistence with SwiftData (@Model)",
-      "Privacy-by-design: no external servers, optional encrypted iCloud sync",
-      "Local notifications using UNUserNotificationCenter",
-      "Home Screen widget with WidgetKit and App Groups",
-      "Multi-language support (PT, EN, ES) with String Catalog",
-      "Native Charts visualization and full Dark Mode support"
+      "Designed and maintained full technical stack: Shopify/Liquid, React.js, Hydrogen, Remix, Tailwind CSS",
+      "Built custom frontend components, checkout logic, and internal tooling",
+      "Implemented marketing + analytics integrations, inventory automation, performance reporting",
+      "Profitable operation since 2021 with 100% technical ownership",
+      "Strong customer retention driven by technical optimization and system stability"
     ],
   },
   {
-    title: "iOS Developer",
-    company: "MasterCode Academy",
-    period: "September 2025 - Present",
-    location: "Brazil",
-    description: "Development of native iOS applications within an advanced mobile bootcamp focused on architecture and best practices.",
+    title: "Full Stack AI Engineer",
+    company: "CLEATUS",
+    period: "January 2025 - February 2025",
+    location: "Remote (USA)",
+    description: "Built AI-driven features for a government contracts platform using LangGraph, LangChain, and OpenAI.",
     highlights: [
-      "Developed NutriScan iOS app using Swift and UIKit",
-      "Implemented MVVM architecture for separation of concerns",
-      "Integration with REST APIs and local persistence (Core Data/Realm)",
-      "Built reusable UI components and Custom Views",
-      "Adopted Git best practices with Conventional Commits",
-      "Close collaboration using Figma prototypes"
+      "Designed and built internal AI chatbot using LangGraph + LangChain for structured data queries",
+      "Implemented SQL querying and analytics workflows with PostHog integration",
+      "Built data pipelines converting government contract PDFs to Markdown for LLM analysis",
+      "Developed features to query, normalize, and export SAM.gov data to CSV"
     ],
   },
   {
-    title: "iOS Developer",
-    company: "Agroger",
-    period: "August 2025 - September 2025",
+    title: "Full Stack Software Engineer",
+    company: "Onmed Farmacêutica",
+    period: "November 2025 - December 2025",
     location: "Brazil",
-    description: "Contributing to iOS apps for farms and agribusiness operations across Brazil.",
+    description: "Led end-to-end digital modernization for a pharmaceutical logistics distributor.",
     highlights: [
-      "Built and improved features in Swift/SwiftUI",
-      "Integrated and maintained REST APIs",
-      "Improved UI components for farm task management",
-      "Supported debugging and code reviews",
-      "Published updates on App Store"
+      "Engineered high-performance institutional SPA using React.js, Next.js, Vite",
+      "Achieved top-tier Lighthouse scores for performance and SEO optimization",
+      "Designed responsive, mobile-first interface with glassmorphism aesthetics and Tailwind CSS",
+      "Resolved critical legacy infrastructure: DNS sanitization, domain configuration, digital assets"
     ],
   },
   {
-    title: "iOS Developer",
-    company: "iOS Lab",
-    period: "September 2024 - April 2025",
-    location: "Brazil",
-    description: "Hands-on iOS development training with Swift, UIKit, SwiftUI, and ViewCode.",
+    title: "Full Stack Developer",
+    company: "Clecci",
+    period: "November 2025 - December 2025",
+    location: "Remote (Canada)",
+    description: "Re-architected critical components for a Canadian fashion retailer's e-commerce storefront.",
     highlights: [
-      "Native iOS development using Swift",
-      "UI development using ViewCode and UIKit",
-      "SwiftUI for modern interfaces",
-      "API consumption using URLSession and Codable",
-      "Final project: iOS app with Marvel Heroes API"
+      "Developed reactive variant selection engine managing media assets dynamically",
+      "Engineered native tiered discount system (Buy More, Save More) driving AOV increases",
+      "Rebuilt Add-to-Cart flow with AJAX, slide-out drawer, shipping progress bars, and upsells",
+      "Refactored legacy codebases improving maintainability and load times"
+    ],
+  },
+  {
+    title: "Full Stack Developer",
+    company: "Venna",
+    period: "June 2025 - August 2025",
+    location: "Remote (Portugal)",
+    description: "Shopify specialist leading technical customizations and conversion strategies for high-performance stores.",
+    highlights: [
+      "Advanced JavaScript and Liquid customizations using Shopify CLI",
+      "Developed upsell offers and dynamic personalized checkouts",
+      "Implemented UX/UI optimized interfaces with mobile responsiveness",
+      "Created email automations with Mailchimp, Zapier, and Wati.io (WhatsApp)"
     ],
   },
 ];
@@ -107,12 +114,12 @@ export default function About() {
 
   const achievements = [
     {
-      icon: Smartphone,
-      title: t('about.achievements.apps'),
-      description: t('about.achievements.apps.desc')
+      icon: TrendingUp,
+      title: t('about.achievements.revenue'),
+      description: t('about.achievements.revenue.desc')
     },
     {
-      icon: Users,
+      icon: Code,
       title: t('about.achievements.projects'),
       description: t('about.achievements.projects.desc')
     },

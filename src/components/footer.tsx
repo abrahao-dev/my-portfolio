@@ -1,7 +1,7 @@
 "use client"
 
 import { useLanguage } from "@/contexts/language-context";
-import { Github, Linkedin, Instagram, Mail } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail } from "lucide-react";
 import Link from 'next/link';
 
 export function Footer() {
@@ -46,7 +46,7 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold mb-3 text-foreground uppercase tracking-wider">{t('footer.connect')}</h3>
             <div className="space-y-2 text-sm">
-              <a href="https://wa.me/5511992431835" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-primary transition-colors">WhatsApp</a>
+              <a href="https://wa.me/5511988512788" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-primary transition-colors">WhatsApp</a>
               <a href="mailto:contato.matheusabrahao@gmail.com" className="block text-muted-foreground hover:text-primary transition-colors">contato.matheusabrahao@gmail.com</a>
               <p className="text-muted-foreground">São Paulo, Brazil</p>
             </div>

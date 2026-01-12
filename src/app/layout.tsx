@@ -12,58 +12,58 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://matheusabrahao.com.br'),
-  title: 'Matheus Abrahão - iOS Software Engineer',
-  description: 'iOS Software Engineer focused on building and shipping real-world mobile applications. Specialized in Swift, SwiftUI, UIKit, and MVVM with clean architecture and Apple platform best practices.',
+  title: 'Matheus Abrahão | Senior Full Stack Engineer | React, Next.js, Node.js',
+  description: 'Senior Full Stack Engineer with 5+ years building production web applications. Built $90K+ e-commerce platform. Expertise in React, Next.js, Node.js, TypeScript, and Shopify.',
   keywords: [
-    'iOS Developer',
-    'iOS Software Engineer',
-    'Swift Developer',
-    'SwiftUI Developer',
-    'UIKit Developer',
-    'Mobile Developer',
-    'Apple Developer',
-    'MVVM Architecture',
-    'Clean Architecture',
-    'App Store',
-    'Native iOS Apps',
-    'iPhone Developer',
-    'Combine Framework',
-    'SwiftData',
-    'Core Data',
-    'WidgetKit',
+    'Full Stack Developer',
+    'Full Stack Engineer',
+    'Senior Full Stack Engineer',
+    'React Developer',
+    'Next.js Developer',
+    'Node.js Developer',
+    'TypeScript Developer',
+    'E-commerce Developer',
+    'Shopify Developer',
+    'Software Engineer',
+    'Web Developer',
+    'Remote Full Stack Developer',
+    'Frontend Developer',
+    'Backend Developer',
+    'JavaScript Developer',
+    'REST API Developer',
+    'GraphQL Developer',
     'Brazil Developer',
     'São Paulo Developer',
-    'Remote iOS Developer',
-    'Freelance iOS Developer',
-    'XCTest',
-    'iOS Testing',
-    'Mobile App Development'
+    'Remote Software Engineer',
+    'Freelance Full Stack Developer',
+    'Web Application Developer',
+    'SaaS Developer'
   ],
   authors: [{ name: 'Matheus Abrahão' }],
   creator: 'Matheus Abrahão',
   publisher: 'Matheus Abrahão',
   category: 'Technology',
-  classification: 'iOS Development',
+  classification: 'Full Stack Development',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://matheusabrahao.com.br',
-    title: 'Matheus Abrahão - iOS Software Engineer',
-    description: 'iOS Software Engineer focused on building and shipping real-world mobile applications with Swift, SwiftUI, UIKit, and MVVM.',
-    siteName: 'Matheus Abrahão - iOS Software Engineer',
+    title: 'Matheus Abrahão | Senior Full Stack Engineer',
+    description: 'Senior Full Stack Engineer with 5+ years experience. Built $90K+ e-commerce platform. React, Next.js, Node.js, TypeScript, Shopify.',
+    siteName: 'Matheus Abrahão - Senior Full Stack Engineer',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Matheus Abrahão - iOS Software Engineer Portfolio',
+        alt: 'Matheus Abrahão - Senior Full Stack Engineer Portfolio',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Matheus Abrahão - iOS Software Engineer',
-    description: 'iOS Software Engineer focused on building and shipping real-world mobile applications with Swift, SwiftUI, UIKit, and MVVM.',
+    title: 'Matheus Abrahão | Senior Full Stack Engineer',
+    description: 'Senior Full Stack Engineer with 5+ years experience. Built $90K+ e-commerce platform. React, Next.js, Node.js, TypeScript.',
     creator: '@abrahao_dev',
     images: ['/og-image.jpg'],
   },
@@ -91,10 +91,10 @@ export const metadata: Metadata = {
     'geo.placename': 'São Paulo',
     'geo.position': '-23.5505;-46.6333',
     'ICBM': '-23.5505, -46.6333',
-    'DC.title': 'Matheus Abrahão - iOS Software Engineer Portfolio',
+    'DC.title': 'Matheus Abrahão - Senior Full Stack Engineer Portfolio',
     'DC.creator': 'Matheus Abrahão',
-    'DC.subject': 'iOS Development, Swift, SwiftUI, UIKit, Mobile Development',
-    'DC.description': 'iOS Software Engineer focused on building native mobile applications',
+    'DC.subject': 'Full Stack Development, React, Next.js, Node.js, TypeScript, E-commerce',
+    'DC.description': 'Senior Full Stack Engineer building production web applications and e-commerce platforms',
     'DC.publisher': 'Matheus Abrahão',
     'DC.contributor': 'Matheus Abrahão',
     'DC.date': '2026',
@@ -117,7 +117,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
         <link rel="icon" href="/favicon.ico" />
@@ -135,32 +135,35 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Matheus Abrahão",
-              "jobTitle": "Software Engineer",
-              "description": "Experienced Software Engineer specializing in full-stack development with TypeScript, Docker, and Cloud technologies.",
+              "jobTitle": "Senior Full Stack Engineer",
+              "description": "Senior Full Stack Engineer with 5+ years building production web applications. Built $90K+ e-commerce platform. Expertise in React, Next.js, Node.js, TypeScript, and Shopify.",
               "url": "https://matheusabrahao.com.br",
               "image": "https://matheusabrahao.com.br/profile.jpg",
               "sameAs": [
                 "https://github.com/abrahao-dev",
-                "https://linkedin.com/in/abrahao-dev",
-                "https://www.abrahaolabs.com.br"
+                "https://linkedin.com/in/abrahao-dev"
               ],
               "worksFor": {
                 "@type": "Organization",
-                "name": "Martin4Shop",
-                "url": "https://martin4shop.com.br"
+                "name": "Virtustant",
+                "url": "https://virtustant.com"
               },
               "knowsAbout": [
-                "TypeScript",
                 "React",
                 "Next.js",
+                "TypeScript",
+                "Node.js",
+                "Express",
+                "REST APIs",
+                "GraphQL",
+                "PostgreSQL",
+                "Prisma",
+                "Shopify",
                 "Docker",
                 "AWS",
-                "PostgreSQL",
-                "Shopify",
-                "AI Integration",
-                "Machine Learning",
-                "Clean Architecture",
-                "SOLID Principles"
+                "GCP",
+                "CI/CD",
+                "E-commerce"
               ],
               "address": {
                 "@type": "PostalAddress",
@@ -180,9 +183,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "Matheus Abrahão - Software Engineer Portfolio",
+              "name": "Matheus Abrahão - Senior Full Stack Engineer Portfolio",
               "url": "https://matheusabrahao.com.br",
-              "description": "Portfolio website showcasing software engineering projects and expertise",
+              "description": "Portfolio showcasing Full Stack development projects, e-commerce platforms, and production web applications",
               "author": {
                 "@type": "Person",
                 "name": "Matheus Abrahão"

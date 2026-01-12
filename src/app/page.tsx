@@ -3,57 +3,43 @@
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/language-context";
 import { motion } from "framer-motion";
-import { ArrowRight, Award, Code, Github, Linkedin, Mail, Smartphone, Instagram, MessageCircle } from "lucide-react";
+import { ArrowRight, Briefcase, Code2, Github, Instagram, Linkedin, Mail, MessageCircle, Server, TrendingUp } from "lucide-react";
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-
-// Dynamically import 3D component to avoid SSR issues
-const IPhone3D = dynamic(() => import('@/components/three/iPhone3D'), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-[300px] sm:h-[400px] lg:h-[500px] flex items-center justify-center">
-      <div className="relative">
-        <div className="w-20 h-40 rounded-3xl bg-gradient-to-b from-primary/20 to-primary/5 animate-pulse"></div>
-      </div>
-    </div>
-  )
-});
 
 const technologies = [
-  { name: "Swift", category: "Language", icon: "🔶" },
-  { name: "SwiftUI", category: "Framework", icon: "📱" },
-  { name: "UIKit", category: "Framework", icon: "🎨" },
-  { name: "MVVM", category: "Architecture", icon: "🏗️" },
-  { name: "Combine", category: "Reactive", icon: "🔄" },
-  { name: "SwiftData", category: "Persistence", icon: "💾" },
-  { name: "Core Data", category: "Persistence", icon: "🗄️" },
-  { name: "WidgetKit", category: "Extensions", icon: "📊" },
-  { name: "XCTest", category: "Testing", icon: "✅" },
-  { name: "Git", category: "Version Control", icon: "🔀" },
-  { name: "CI/CD", category: "DevOps", icon: "🚀" },
-  { name: "App Store", category: "Distribution", icon: "🍎" },
+  { name: "React", category: "Frontend", icon: "devicon-react-original colored" },
+  { name: "Next.js", category: "Framework", icon: "devicon-nextjs-plain" },
+  { name: "TypeScript", category: "Language", icon: "devicon-typescript-plain colored" },
+  { name: "Node.js", category: "Backend", icon: "devicon-nodejs-plain colored" },
+  { name: "Express", category: "Backend", icon: "devicon-express-original" },
+  { name: "PostgreSQL", category: "Database", icon: "devicon-postgresql-plain colored" },
+  { name: "Prisma", category: "Prisma", icon: "devicon-prisma-original" },
+  { name: "GraphQL", category: "API", icon: "devicon-graphql-plain colored" },
+  { name: "REST APIs", category: "Integration", icon: "devicon-nodejs-plain colored" },
+  { name: "Shopify", category: "E-commerce", icon: "devicon-shopify-plain colored" },
+  { name: "Docker", category: "DevOps", icon: "devicon-docker-plain colored" },
+  { name: "AWS/GCP", category: "Cloud", icon: "devicon-amazonwebservices-plain-wordmark colored" },
 ];
 
 export default function Home() {
   const { t } = useLanguage();
 
   const stats = [
-    { label: t('home.stats.apps'), value: t('home.stats.apps.value'), icon: Smartphone },
-    { label: t('home.stats.experience'), value: "5+", icon: Award },
-    { label: t('home.stats.projects'), value: "10+", icon: Code },
-    { label: t('home.stats.technologies'), value: "15+", icon: Smartphone },
+    { label: t('home.stats.experience'), value: "5+", icon: Briefcase },
+    { label: t('home.stats.revenue'), value: "$90K+", icon: TrendingUp },
+    { label: t('home.stats.projects'), value: "10+", icon: Code2 },
+    { label: t('home.stats.remote'), value: "Global", icon: Server },
   ];
 
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Hero Section */}
-      <section className="relative flex flex-col lg:flex-row items-center justify-between min-h-[calc(100vh-5rem)] px-4 sm:px-6 lg:px-8 py-8 lg:py-0 max-w-7xl mx-auto gap-8">
-        {/* Left Content */}
+      <section className="relative flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-4 sm:px-6 lg:px-8 py-12 lg:py-0 max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 text-center lg:text-left z-10 max-w-2xl order-2 lg:order-1"
+          className="text-center z-10 max-w-4xl"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -65,7 +51,7 @@ export default function Home() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            Open to remote opportunities
+            {t('home.badge')}
           </motion.div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
@@ -76,12 +62,12 @@ export default function Home() {
             {t('home.subtitle')}
           </p>
 
-          <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
             {t('home.description')}
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button asChild size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 h-12 px-8">
               <Link href="/projects" className="flex items-center">
                 {t('home.cta.projects')}
@@ -97,7 +83,7 @@ export default function Home() {
           </div>
 
           {/* Social Links */}
-          <div className="flex justify-center lg:justify-start gap-4">
+          <div className="flex justify-center gap-4">
             {[
               { href: "https://github.com/abrahao-dev", icon: Github, label: "GitHub" },
               { href: "https://linkedin.com/in/abrahao-dev", icon: Linkedin, label: "LinkedIn" },
@@ -118,16 +104,6 @@ export default function Home() {
               </motion.a>
             ))}
           </div>
-        </motion.div>
-
-        {/* Right Content - 3D iPhone */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex-1 w-full lg:w-auto order-1 lg:order-2"
-        >
-          <IPhone3D />
         </motion.div>
       </section>
 
@@ -171,7 +147,7 @@ export default function Home() {
           >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">{t('home.skills.title')}</h2>
             <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-              Technologies and tools I use to build production-ready iOS applications
+              {t('home.skills.subtitle')}
             </p>
           </motion.div>
 
@@ -186,7 +162,7 @@ export default function Home() {
                 className="group p-3 sm:p-4 rounded-xl bg-secondary/30 border border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 cursor-default"
               >
                 <div className="flex items-center gap-2 sm:gap-3">
-                  <span className="text-xl sm:text-2xl">{tech.icon}</span>
+                  <i className={`${tech.icon} text-xl sm:text-2xl`}></i>
                   <div>
                     <div className="font-medium text-sm sm:text-base text-foreground group-hover:text-primary transition-colors">
                       {tech.name}
@@ -239,7 +215,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Newsletter Section */}
+      {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
           <motion.div
@@ -249,18 +225,20 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10 border border-primary/20"
           >
-            <h3 className="text-xl sm:text-2xl font-bold mb-2">{t('home.newsletter.title')}</h3>
+            <h3 className="text-xl sm:text-2xl font-bold mb-2">{t('home.cta.title')}</h3>
             <p className="text-sm sm:text-base text-muted-foreground mb-6">
-              {t('home.newsletter.desc')}
+              {t('home.cta.desc')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder={t('home.newsletter.placeholder')}
-                className="flex-1 px-4 py-3 rounded-xl bg-background border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm sm:text-base"
-              />
-              <Button className="px-6 py-3 h-auto rounded-xl">
-                {t('home.newsletter.cta')}
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button asChild size="lg" className="h-12 px-8">
+                <Link href="/projects">
+                  {t('home.cta.projects')}
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="h-12 px-8">
+                <Link href="/contact">
+                  {t('home.cta.contact')}
+                </Link>
               </Button>
             </div>
           </motion.div>

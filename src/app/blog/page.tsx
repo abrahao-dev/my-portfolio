@@ -1,50 +1,70 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useLanguage } from "@/contexts/language-context"
 import { motion } from "framer-motion"
-import { Calendar, Clock, ArrowRight, Rss } from "lucide-react"
+import { ArrowRight, Calendar, Clock, Rss } from "lucide-react"
 
 const blogPosts = [
   {
     id: 1,
-    title: "Getting Started with SwiftUI in 2026",
-    description: "A comprehensive guide to building modern iOS apps with SwiftUI, covering the latest features and best practices.",
+    title: "Building Scalable E-commerce with Shopify & React",
+    description: "A comprehensive guide to building high-performance e-commerce platforms using Shopify Hydrogen, React, and custom checkout logic.",
     date: "2026-01-15",
-    readTime: "8 min read",
-    tags: ["SwiftUI", "iOS", "Tutorial"],
-    slug: "getting-started-swiftui-2026",
+    readTime: "10 min read",
+    tags: ["Shopify", "React", "E-commerce"],
+    slug: "scalable-ecommerce-shopify-react",
     featured: true,
   },
   {
     id: 2,
-    title: "MVVM Architecture in iOS Apps",
-    description: "Deep dive into implementing MVVM architecture pattern in your iOS applications for better testability and maintainability.",
+    title: "Full Stack Architecture Patterns for Production",
+    description: "Deep dive into implementing scalable architecture patterns for Full Stack applications with React, Node.js, and PostgreSQL.",
     date: "2026-01-10",
     readTime: "12 min read",
-    tags: ["Architecture", "MVVM", "Swift"],
-    slug: "mvvm-architecture-ios",
+    tags: ["Architecture", "Node.js", "React"],
+    slug: "fullstack-architecture-patterns",
     featured: true,
   },
   {
     id: 3,
-    title: "Building Widgets with WidgetKit",
-    description: "Learn how to create beautiful and functional Home Screen widgets for your iOS apps using WidgetKit.",
+    title: "Building AI-Powered Features with LangChain",
+    description: "Learn how to integrate LLMs into your applications using LangChain, LangGraph, and OpenAI for intelligent data processing.",
     date: "2026-01-05",
-    readTime: "10 min read",
-    tags: ["WidgetKit", "iOS", "Tutorial"],
-    slug: "building-widgets-widgetkit",
+    readTime: "15 min read",
+    tags: ["AI/ML", "LangChain", "Python"],
+    slug: "ai-features-langchain",
     featured: false,
   },
   {
     id: 4,
-    title: "SwiftData vs Core Data: Which to Choose?",
-    description: "A comparison between Apple's new SwiftData framework and the traditional Core Data for data persistence.",
+    title: "Next.js 14 App Router: Best Practices",
+    description: "A practical guide to leveraging Next.js 14 App Router features for better performance, SEO, and developer experience.",
     date: "2025-12-28",
-    readTime: "15 min read",
-    tags: ["SwiftData", "Core Data", "Persistence"],
-    slug: "swiftdata-vs-coredata",
+    readTime: "8 min read",
+    tags: ["Next.js", "React", "Performance"],
+    slug: "nextjs-14-app-router-best-practices",
+    featured: false,
+  },
+  {
+    id: 5,
+    title: "TypeScript Patterns for Robust APIs",
+    description: "Advanced TypeScript patterns for building type-safe, maintainable REST and GraphQL APIs with Node.js and Express.",
+    date: "2025-12-20",
+    readTime: "10 min read",
+    tags: ["TypeScript", "Node.js", "API"],
+    slug: "typescript-patterns-apis",
+    featured: false,
+  },
+  {
+    id: 6,
+    title: "Docker & CI/CD for Full Stack Projects",
+    description: "Set up production-ready Docker containers and CI/CD pipelines with GitHub Actions for your Full Stack applications.",
+    date: "2025-12-15",
+    readTime: "12 min read",
+    tags: ["Docker", "CI/CD", "DevOps"],
+    slug: "docker-cicd-fullstack",
     featured: false,
   },
 ]
@@ -187,7 +207,7 @@ export default function Blog() {
           <CardContent className="py-8">
             <h3 className="text-xl font-semibold mb-2">Stay Updated</h3>
             <p className="text-muted-foreground mb-6">
-              Get notified when I publish new articles about iOS development, Swift, and mobile engineering.
+              Get notified when I publish new articles about Full Stack development, React, Node.js, and web engineering.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
