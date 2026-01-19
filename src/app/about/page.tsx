@@ -27,83 +27,109 @@ const skills = [
 
 const experiences = [
   {
-    title: "Software Engineer",
+    title: "Senior Software Engineer (Full Stack)",
     company: "Virtustant",
-    period: "August 2025 - Present",
+    period: "August 2025 - Present (6 months)",
     location: "Remote (USA)",
-    description: "Technical partner for an international luxury fashion brand. Engineering e-commerce platform reliability, integrations, and automation.",
+    description: "Acting as Senior Software Engineer and technical partner for an international luxury fashion brand, owning engineering, reliability, and scalability of the e-commerce platform.",
     highlights: [
-      "Designed and implemented custom Shopify/Liquid components for a high-traffic e-commerce store",
+      "Designed and implemented custom Shopify/Liquid components with focus on performance, UX, and maintainability",
       "Led platform integrations: Amazon Seller Central, Google Merchant Center, Meta Ads (CAPI/Pixel)",
-      "Built marketing automation flows for inventory, post-purchase ops, and analytics pipelines",
-      "Achieved Core Web Vitals optimization across 1000+ product catalog",
-      "Collaborated with international stakeholders in a fully remote environment"
+      "Built automation workflows for marketing, inventory management, and post-purchase operations",
+      "Performed technical SEO improvements and Core Web Vitals optimizations across large-scale product catalog",
+      "Act as technical decision-maker, balancing platform constraints, scalability, and business priorities"
     ],
   },
   {
     title: "Founder & Software Engineer",
     company: "Martin (E-commerce)",
-    period: "January 2021 - Present",
+    period: "January 2021 - Present (5 years 1 month)",
     location: "Brazil",
-    description: "Built and operated a profitable e-commerce platform from scratch, achieving $90K+ in total revenue.",
+    description: "Built and operated a profitable men's fashion e-commerce platform from scratch, achieving $90K+ in total revenue.",
     highlights: [
       "Designed and maintained full technical stack: Shopify/Liquid, React.js, Hydrogen, Remix, Tailwind CSS",
-      "Built custom frontend components, checkout logic, and internal tooling",
-      "Implemented marketing + analytics integrations, inventory automation, performance reporting",
-      "Profitable operation since 2021 with 100% technical ownership",
-      "Strong customer retention driven by technical optimization and system stability"
-    ],
-  },
-  {
-    title: "Full Stack AI Engineer",
-    company: "CLEATUS",
-    period: "January 2025 - February 2025",
-    location: "Remote (USA)",
-    description: "Built AI-driven features for a government contracts platform using LangGraph, LangChain, and OpenAI.",
-    highlights: [
-      "Designed and built internal AI chatbot using LangGraph + LangChain for structured data queries",
-      "Implemented SQL querying and analytics workflows with PostHog integration",
-      "Built data pipelines converting government contract PDFs to Markdown for LLM analysis",
-      "Developed features to query, normalize, and export SAM.gov data to CSV"
-    ],
-  },
-  {
-    title: "Full Stack Software Engineer",
-    company: "Onmed Farmacêutica",
-    period: "November 2025 - December 2025",
-    location: "Brazil",
-    description: "Led end-to-end digital modernization for a pharmaceutical logistics distributor.",
-    highlights: [
-      "Engineered high-performance institutional SPA using React.js, Next.js, Vite",
-      "Achieved top-tier Lighthouse scores for performance and SEO optimization",
-      "Designed responsive, mobile-first interface with glassmorphism aesthetics and Tailwind CSS",
-      "Resolved critical legacy infrastructure: DNS sanitization, domain configuration, digital assets"
+      "Built custom frontend components, checkout logic, and internal tooling for scalable operations",
+      "Implemented marketing + analytics integrations, inventory automation, performance reporting pipelines",
+      "Profitable operation since 2021 with fully automated, lean production system managed end-to-end",
+      "Strong customer retention and recurring revenue driven by technical optimization and system stability"
     ],
   },
   {
     title: "Full Stack Developer",
     company: "Clecci",
-    period: "November 2025 - December 2025",
+    period: "October 2025 - December 2025 (3 months)",
     location: "Remote (Canada)",
-    description: "Re-architected critical components for a Canadian fashion retailer's e-commerce storefront.",
+    description: "Partnered with a Canadian fashion retailer to re-architect critical components of their digital storefront.",
     highlights: [
-      "Developed reactive variant selection engine managing media assets dynamically",
-      "Engineered native tiered discount system (Buy More, Save More) driving AOV increases",
-      "Rebuilt Add-to-Cart flow with AJAX, slide-out drawer, shipping progress bars, and upsells",
-      "Refactored legacy codebases improving maintainability and load times"
+      "Rebuilt PDP architecture using JavaScript and Liquid with reactive variant selection engine",
+      "Engineered native tiered pricing system (Buy More, Save More) increasing Average Order Value",
+      "Reworked Add-to-Cart flow with AJAX, slide-out cart drawer, shipping progress, and upsell modules",
+      "Refactored legacy code to enhance maintainability, load times, and frontend data consistency"
+    ],
+  },
+  {
+    title: "Full Stack Developer",
+    company: "Onmed Farmacêutica",
+    period: "November 2025 (1 month)",
+    location: "Brazil",
+    description: "Led end-to-end digital modernization of a pharmaceutical logistics distributor.",
+    highlights: [
+      "Engineered high-performance institutional SPA using React.js, Next.js, and Vite with strong Lighthouse scores",
+      "Designed fully responsive, mobile-first UI with glassmorphism aesthetics and Tailwind CSS",
+      "Resolved legacy infrastructure issues: DNS sanitization, domain configuration, digital assets consolidation",
+      "Developed custom lead-conversion hub (Linktree-style) to streamline social media traffic"
     ],
   },
   {
     title: "Full Stack Developer",
     company: "Venna",
-    period: "June 2025 - August 2025",
+    period: "July 2025 - September 2025 (3 months)",
     location: "Remote (Portugal)",
-    description: "Shopify specialist leading technical customizations and conversion strategies for high-performance stores.",
+    description: "Shopify specialist leading technical customizations and conversion-focused engineering for high-performance e-commerce platforms.",
     highlights: [
-      "Advanced JavaScript and Liquid customizations using Shopify CLI",
-      "Developed upsell offers and dynamic personalized checkouts",
-      "Implemented UX/UI optimized interfaces with mobile responsiveness",
-      "Created email automations with Mailchimp, Zapier, and Wati.io (WhatsApp)"
+      "Implemented advanced theme customizations using JavaScript and Liquid, extending native Shopify capabilities",
+      "Built dynamic upsell flows and personalized checkout experiences to improve conversion and AOV",
+      "Developed responsive, mobile-first interfaces ensuring consistency across devices",
+      "Created automation workflows for email and messaging using Mailchimp, Zapier, and Wati.io (WhatsApp)"
+    ],
+  },
+  {
+    title: "Software Engineer (Full Stack / AI Systems)",
+    company: "CLEATUS",
+    period: "January 2025 - March 2025 (3 months)",
+    location: "Remote (USA)",
+    description: "Worked on AI-driven systems for a U.S.-based platform helping companies discover, analyze, and win government contracts.",
+    highlights: [
+      "Designed and built internal AI chatbot using LangGraph and LangChain for natural language queries over structured/unstructured data",
+      "Implemented SQL querying and analytics workflows with PostHog integration for insights and usage tracking",
+      "Built data pipelines to extract, process, and convert government contract PDFs to Markdown for LLM analysis",
+      "Developed features to query, normalize, and export SAM.gov contract data to CSV"
+    ],
+  },
+  {
+    title: "Software Engineer",
+    company: "AlerteHit",
+    period: "2022 - August 2022",
+    location: "Remote (France)",
+    description: "Software Engineer on an international, custom-built e-commerce project focused on the Pokémon TCG market using modern Shopify ecosystem technologies.",
+    highlights: [
+      "Developed custom React-based frontend solutions for a headless e-commerce platform",
+      "Implemented storefront using Shopify Hydrogen and Remix with focus on performance and scalability",
+      "Integrated Shopify Storefront API for dynamic product, collection, and checkout flows",
+      "Built interactive visual experiences using Three.js for strong visual differentiation"
+    ],
+  },
+  {
+    title: "Junior Software Developer (Web)",
+    company: "HDIL Comércio",
+    period: "2019 - 2021 (2 years)",
+    location: "São Paulo, Brazil",
+    description: "First professional role in technology, responsible for end-to-end development of the company's institutional website.",
+    highlights: [
+      "Developed website from scratch using HTML, CSS, JavaScript, PHP, and Bootstrap",
+      "Built complete site structure: product catalog, About page, contact form, Google Maps integration",
+      "Implemented responsive design ensuring compatibility across desktop and mobile devices",
+      "Applied on-page SEO best practices and deployed application to production"
     ],
   },
 ];

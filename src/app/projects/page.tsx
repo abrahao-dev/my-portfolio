@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { TiltCard } from "@/components/ui/tilt-card"
 import { AnimatePresence, motion } from "framer-motion"
 import { ExternalLink, Github, TrendingUp } from "lucide-react"
 import { useState } from "react"
@@ -38,6 +39,30 @@ const projects = [
     solution: "Engineered Shopify customizations, platform integrations (Amazon, Google Merchant, Meta Ads), and automation flows",
     impact: "Improved Core Web Vitals across 1000+ products, streamlined multi-channel operations",
     tags: ["Shopify", "Liquid", "JavaScript", "Meta CAPI", "Google Merchant", "Amazon Integration"],
+    link: "",
+    demoLink: "",
+    hasCode: false,
+    hasDemo: false,
+    featured: true
+  },
+  {
+    title: "Clecci Digital Storefront (Canada)",
+    problem: "Canadian fashion retailer needed advanced customizations beyond standard Shopify theme limitations",
+    solution: "Re-architected PDP with reactive variant selection, engineered tiered pricing system, rebuilt Add-to-Cart with AJAX and upsell modules",
+    impact: "Increased Average Order Value through tiered pricing, improved conversion rate and perceived performance",
+    tags: ["Shopify", "JavaScript", "Liquid", "AJAX", "E-commerce", "Conversion Optimization"],
+    link: "",
+    demoLink: "",
+    hasCode: false,
+    hasDemo: false,
+    featured: true
+  },
+  {
+    title: "Onmed Farmacêutica Digital Platform",
+    problem: "Pharmaceutical distributor needed digital modernization with legacy infrastructure issues",
+    solution: "Built high-performance institutional SPA using React.js, Next.js, and Vite with mobile-first design and lead-conversion hub",
+    impact: "Achieved strong Lighthouse scores, resolved DNS/domain issues, streamlined social media lead capture",
+    tags: ["React", "Next.js", "Vite", "Tailwind CSS", "SEO", "Glassmorphism"],
     link: "",
     demoLink: "",
     hasCode: false,
@@ -210,72 +235,74 @@ export default function Projects() {
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
             >
-              <Card className="h-full flex flex-col bg-gradient-to-br from-primary/5 to-secondary/10 backdrop-blur-sm border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 relative z-10 overflow-hidden group-hover:scale-[1.02]">
-                <CardHeader className="pb-2">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Badge variant="default" className="bg-primary/20 text-primary text-xs">Featured</Badge>
-                  </div>
-                  <CardTitle className="text-xl sm:text-2xl font-semibold leading-tight group-hover:text-primary transition-colors duration-300">
-                    {project.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow py-2 space-y-3">
-                  <div>
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-sm text-foreground">{project.problem}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Solution</p>
-                    <p className="text-sm text-foreground">{project.solution}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-sm text-foreground font-medium">{project.impact}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {project.tags.slice(0, 5).map((tag, tagIndex) => (
-                      <Badge
-                        key={tagIndex}
-                        variant="secondary"
-                        className="bg-secondary/50 text-xs hover:bg-secondary/70 transition-colors duration-200"
+              <TiltCard className="h-full" tiltAmount={5} glareEnabled={true}>
+                <Card className="h-full flex flex-col bg-gradient-to-br from-primary/5 to-secondary/10 backdrop-blur-sm border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 relative z-10 overflow-hidden glass-card">
+                  <CardHeader className="pb-2">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Badge variant="default" className="bg-primary/20 text-primary text-xs">Featured</Badge>
+                    </div>
+                    <CardTitle className="text-xl sm:text-2xl font-semibold leading-tight group-hover:text-primary transition-colors duration-300">
+                      {project.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex-grow py-2 space-y-3">
+                    <div>
+                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Problem</p>
+                      <p className="text-sm text-foreground">{project.problem}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Solution</p>
+                      <p className="text-sm text-foreground">{project.solution}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">Impact</p>
+                      <p className="text-sm text-foreground font-medium">{project.impact}</p>
+                    </div>
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {project.tags.slice(0, 5).map((tag, tagIndex) => (
+                        <Badge
+                          key={tagIndex}
+                          variant="secondary"
+                          className="bg-secondary/50 text-xs hover:bg-secondary/70 transition-colors duration-200"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
+                      {project.tags.length > 5 && (
+                        <Badge variant="secondary" className="bg-secondary/50 text-xs">
+                          +{project.tags.length - 5}
+                        </Badge>
+                      )}
+                    </div>
+                  </CardContent>
+                  <CardFooter className="pt-2 gap-2">
+                    {project.hasCode && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 group/btn"
+                        onClick={() => handleProjectClick(project.link)}
+                        disabled={!project.link || project.link === '#'}
                       >
-                        {tag}
-                      </Badge>
-                    ))}
-                    {project.tags.length > 5 && (
-                      <Badge variant="secondary" className="bg-secondary/50 text-xs">
-                        +{project.tags.length - 5}
-                      </Badge>
+                        <Github className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
+                        Code
+                      </Button>
                     )}
-                  </div>
-                </CardContent>
-                <CardFooter className="pt-2 gap-2">
-                  {project.hasCode && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex-1 group/btn"
-                      onClick={() => handleProjectClick(project.link)}
-                      disabled={!project.link || project.link === '#'}
-                    >
-                      <Github className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                      Code
-                    </Button>
-                  )}
-                  {project.hasDemo && (
-                    <Button
-                      variant="default"
-                      size="sm"
-                      className="flex-1 group/btn"
-                      onClick={() => handleProjectClick(project.demoLink)}
-                      disabled={!project.demoLink || project.demoLink === '#'}
-                    >
-                      <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                      View Live
-                    </Button>
-                  )}
-                </CardFooter>
-              </Card>
+                    {project.hasDemo && (
+                      <Button
+                        variant="default"
+                        size="sm"
+                        className="flex-1 group/btn"
+                        onClick={() => handleProjectClick(project.demoLink)}
+                        disabled={!project.demoLink || project.demoLink === '#'}
+                      >
+                        <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
+                        View Live
+                      </Button>
+                    )}
+                  </CardFooter>
+                </Card>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

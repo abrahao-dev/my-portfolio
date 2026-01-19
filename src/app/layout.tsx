@@ -2,6 +2,7 @@ import ErrorBoundary from "@/components/error-boundary"
 import { Footer } from "@/components/footer"
 import { Navigation } from "@/components/navigation"
 import { ThemeProvider } from "@/components/theme-provider"
+import { ScrollProgress } from "@/components/ui/scroll-progress"
 import { LanguageProvider } from "@/contexts/language-context"
 import type { Metadata } from 'next'
 import './globals.css'
@@ -172,7 +173,7 @@ export default function RootLayout({
                 "addressCountry": "BR"
               },
               "email": "contato.matheusabrahao@gmail.com",
-              "telephone": "+55-11-99243-1835"
+              "telephone": "+55-11-98851-2788"
             })
           }}
         />
@@ -199,7 +200,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased min-h-screen bg-background">
+      <body className="antialiased min-h-screen bg-background animated-gradient-bg">
         <ErrorBoundary>
           <LanguageProvider>
             <ThemeProvider
@@ -208,6 +209,7 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange={false}
             >
+              <ScrollProgress />
               <div className="relative flex min-h-screen flex-col">
                 <Navigation />
                 <main className="flex-1">

@@ -1,10 +1,20 @@
 "use client"
 
+import { AnimatedTechStack } from "@/components/AnimatedTechStack";
 import { Button } from "@/components/ui/button";
+import { MagneticWrapper } from "@/components/ui/magnetic-wrapper";
+import { TypingText } from "@/components/ui/typing-text";
 import { useLanguage } from "@/contexts/language-context";
 import { motion } from "framer-motion";
 import { ArrowRight, Briefcase, Code2, Github, Instagram, Linkedin, Mail, MessageCircle, Server, TrendingUp } from "lucide-react";
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
+
+// Dynamic import for ParticleField to avoid SSR issues with Three.js
+const ParticleField = dynamic(() => import('@/components/three/ParticleField'), {
+  ssr: false,
+  loading: () => null
+});
 
 const technologies = [
   { name: "React", category: "Frontend", icon: "devicon-react-original colored" },
@@ -33,78 +43,97 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-4 sm:px-6 lg:px-8 py-12 lg:py-0 max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center z-10 max-w-4xl"
-        >
+      {/* Hero Section - Full width, immersive */}
+      <section className="relative min-h-[calc(100vh-5rem)] w-full aurora-bg">
+        <ParticleField />
+
+        {/* Content wrapper - centered with max-width */}
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-4 sm:px-6 lg:px-8 py-12 lg:py-0">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm mb-6"
+            transition={{ duration: 0.8 }}
+            className="text-center max-w-4xl mx-auto"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            {t('home.badge')}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm mb-6"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              {t('home.badge')}
+            </motion.div>
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+              <span className="text-gradient">{t('home.title')}</span>
+            </h1>
+
+            <p className="text-xl sm:text-2xl text-primary font-medium mb-4">
+              <TypingText
+                texts={[
+                  "Full Stack Software Engineer",
+                  "React & Next.js Specialist",
+                  "E-commerce Expert",
+                  "AI/ML Developer"
+                ]}
+                typingSpeed={80}
+                deletingSpeed={40}
+                pauseDuration={2500}
+              />
+            </p>
+
+            <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+              {t('home.description')}
+            </p>
+
+            {/* CTA Buttons with Magnetic Effect */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <MagneticWrapper strength={0.2}>
+                <Button asChild size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl hover-glow transition-all duration-300 h-12 px-8">
+                  <Link href="/projects" className="flex items-center">
+                    {t('home.cta.projects')}
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+              </MagneticWrapper>
+              <MagneticWrapper strength={0.2}>
+                <Button asChild variant="outline" size="lg" className="group border-2 hover:bg-primary/5 hover-glow transition-all duration-300 h-12 px-8">
+                  <Link href="/contact" className="flex items-center">
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    {t('home.cta.contact')}
+                  </Link>
+                </Button>
+              </MagneticWrapper>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex justify-center gap-4">
+              {[
+                { href: "https://github.com/abrahao-dev", icon: Github, label: "GitHub" },
+                { href: "https://linkedin.com/in/abrahao-dev", icon: Linkedin, label: "LinkedIn" },
+                { href: "https://instagram.com/abrahao.dev", icon: Instagram, label: "Instagram" },
+                { href: "mailto:contato.matheusabrahao@gmail.com", icon: Mail, label: "Email" },
+              ].map((social) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target={social.href.startsWith('mailto') ? undefined : '_blank'}
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-secondary/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label={social.label}
+                >
+                  <social.icon className="h-5 w-5" />
+                </motion.a>
+              ))}
+            </div>
           </motion.div>
-
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
-            <span className="text-gradient">{t('home.title')}</span>
-          </h1>
-
-          <p className="text-xl sm:text-2xl text-primary font-medium mb-4">
-            {t('home.subtitle')}
-          </p>
-
-          <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            {t('home.description')}
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button asChild size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 h-12 px-8">
-              <Link href="/projects" className="flex items-center">
-                {t('home.cta.projects')}
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="group border-2 hover:bg-primary/5 transition-all duration-300 h-12 px-8">
-              <Link href="/contact" className="flex items-center">
-                <MessageCircle className="mr-2 h-5 w-5" />
-                {t('home.cta.contact')}
-              </Link>
-            </Button>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex justify-center gap-4">
-            {[
-              { href: "https://github.com/abrahao-dev", icon: Github, label: "GitHub" },
-              { href: "https://linkedin.com/in/abrahao-dev", icon: Linkedin, label: "LinkedIn" },
-              { href: "https://instagram.com/abrahao.dev", icon: Instagram, label: "Instagram" },
-              { href: "mailto:contato.matheusabrahao@gmail.com", icon: Mail, label: "Email" },
-            ].map((social) => (
-              <motion.a
-                key={social.label}
-                href={social.href}
-                target={social.href.startsWith('mailto') ? undefined : '_blank'}
-                rel="noopener noreferrer"
-                className="p-3 rounded-full bg-secondary/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label={social.label}
-              >
-                <social.icon className="h-5 w-5" />
-              </motion.a>
-            ))}
-          </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Stats Section */}
@@ -151,28 +180,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-            {technologies.map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="group p-3 sm:p-4 rounded-xl bg-secondary/30 border border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 cursor-default"
-              >
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <i className={`${tech.icon} text-xl sm:text-2xl`}></i>
-                  <div>
-                    <div className="font-medium text-sm sm:text-base text-foreground group-hover:text-primary transition-colors">
-                      {tech.name}
-                    </div>
-                    <div className="text-xs text-muted-foreground">{tech.category}</div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <AnimatedTechStack technologies={technologies} />
         </div>
       </section>
 
