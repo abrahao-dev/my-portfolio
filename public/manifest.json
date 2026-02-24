@@ -1,10 +1,12 @@
 {
-  "name": "Matheus Abrahão - Software Engineer",
+  "name": "Matheus Abrahão - Senior Full Stack Engineer",
   "short_name": "Matheus Abrahão",
-  "description": "Full Stack Developer",
+  "description": "Senior Full Stack Engineer with 5+ years building production web applications. React, Next.js, Node.js, TypeScript, Shopify.",
   "start_url": "/",
+  "id": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#000000",
   "theme_color": "#000000",
   "orientation": "portrait-primary",
   "icons": [
@@ -24,8 +26,10 @@
   "categories": [
     "business",
     "productivity",
-    "technology"
+    "technology",
+    "developer-tools"
   ],
   "lang": "en",
-  "dir": "ltr"
+  "dir": "ltr",
+  "prefer_related_applications": false
 }

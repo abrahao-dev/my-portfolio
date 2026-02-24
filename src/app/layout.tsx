@@ -13,9 +13,13 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://matheusabrahao.com.br'),
-  title: 'Matheus Abrahão | Senior Full Stack Engineer | React, Next.js, Node.js',
-  description: 'Senior Full Stack Engineer with 5+ years building production web applications. Built $90K+ e-commerce platform. Expertise in React, Next.js, Node.js, TypeScript, and Shopify.',
+  title: {
+    default: 'Matheus Abrahão | Senior Full Stack Engineer | React, Next.js, Node.js',
+    template: '%s | Matheus Abrahão',
+  },
+  description: 'Senior Full Stack Engineer with 5+ years building production web applications. Built $90K+ e-commerce platform. Expertise in React, Next.js, Node.js, TypeScript, and Shopify. Available for remote work from São Paulo, Brazil.',
   keywords: [
+    // English keywords
     'Full Stack Developer',
     'Full Stack Engineer',
     'Senior Full Stack Engineer',
@@ -25,6 +29,7 @@ export const metadata: Metadata = {
     'TypeScript Developer',
     'E-commerce Developer',
     'Shopify Developer',
+    'Shopify Expert',
     'Software Engineer',
     'Web Developer',
     'Remote Full Stack Developer',
@@ -38,9 +43,30 @@ export const metadata: Metadata = {
     'Remote Software Engineer',
     'Freelance Full Stack Developer',
     'Web Application Developer',
-    'SaaS Developer'
+    'SaaS Developer',
+    'AI Developer',
+    'LangChain Developer',
+    'Hire Full Stack Developer',
+    'Hire React Developer',
+    'Hire Shopify Developer',
+    // Portuguese keywords (Brazilian market)
+    'Desenvolvedor Full Stack',
+    'Engenheiro de Software',
+    'Programador São Paulo',
+    'Desenvolvedor React',
+    'Desenvolvedor Node.js',
+    'Desenvolvedor Web',
+    'Freelancer React Brasil',
+    'Desenvolvedor TypeScript',
+    'Desenvolvedor E-commerce',
+    'Desenvolvedor Shopify Brasil',
+    'Programador Full Stack Remoto',
+    'Desenvolvedor Front-end',
+    'Desenvolvedor Back-end',
+    'Contratar Desenvolvedor Full Stack',
+    'Contratar Programador React',
   ],
-  authors: [{ name: 'Matheus Abrahão' }],
+  authors: [{ name: 'Matheus Abrahão', url: 'https://matheusabrahao.com.br' }],
   creator: 'Matheus Abrahão',
   publisher: 'Matheus Abrahão',
   category: 'Technology',
@@ -48,6 +74,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
+    alternateLocale: ['pt_BR'],
     url: 'https://matheusabrahao.com.br',
     title: 'Matheus Abrahão | Senior Full Stack Engineer',
     description: 'Senior Full Stack Engineer with 5+ years experience. Built $90K+ e-commerce platform. React, Next.js, Node.js, TypeScript, Shopify.',
@@ -58,6 +85,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'Matheus Abrahão - Senior Full Stack Engineer Portfolio',
+        type: 'image/jpeg',
       }
     ],
   },
@@ -79,13 +107,13 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-    yahoo: 'your-yahoo-verification-code',
-  },
   alternates: {
     canonical: 'https://matheusabrahao.com.br',
+    languages: {
+      'en': 'https://matheusabrahao.com.br',
+      'pt-BR': 'https://matheusabrahao.com.br',
+      'x-default': 'https://matheusabrahao.com.br',
+    },
   },
   other: {
     'geo.region': 'BR-SP',
@@ -94,8 +122,8 @@ export const metadata: Metadata = {
     'ICBM': '-23.5505, -46.6333',
     'DC.title': 'Matheus Abrahão - Senior Full Stack Engineer Portfolio',
     'DC.creator': 'Matheus Abrahão',
-    'DC.subject': 'Full Stack Development, React, Next.js, Node.js, TypeScript, E-commerce',
-    'DC.description': 'Senior Full Stack Engineer building production web applications and e-commerce platforms',
+    'DC.subject': 'Full Stack Development, React, Next.js, Node.js, TypeScript, E-commerce, Shopify, AI',
+    'DC.description': 'Senior Full Stack Engineer building production web applications, e-commerce platforms, and AI systems',
     'DC.publisher': 'Matheus Abrahão',
     'DC.contributor': 'Matheus Abrahão',
     'DC.date': '2026',
@@ -105,12 +133,11 @@ export const metadata: Metadata = {
     'DC.language': 'en',
     'DC.coverage': 'World',
     'DC.rights': 'Copyright 2026 Matheus Abrahão',
+    'revisit-after': '7 days',
+    'rating': 'general',
+    'distribution': 'global',
   },
 }
-
-
-
-
 
 export default function RootLayout({
   children,
@@ -128,7 +155,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
 
-        {/* Structured Data for SEO */}
+        {/* Structured Data: Person */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -136,36 +163,34 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Matheus Abrahão",
+              "alternateName": ["Matheus Abrahao", "abrahao-dev"],
               "jobTitle": "Senior Full Stack Engineer",
               "description": "Senior Full Stack Engineer with 5+ years building production web applications. Built $90K+ e-commerce platform. Expertise in React, Next.js, Node.js, TypeScript, and Shopify.",
               "url": "https://matheusabrahao.com.br",
               "image": "https://matheusabrahao.com.br/profile.jpg",
               "sameAs": [
                 "https://github.com/abrahao-dev",
-                "https://linkedin.com/in/abrahao-dev"
+                "https://linkedin.com/in/abrahao-dev",
+                "https://instagram.com/abrahao.dev"
               ],
               "worksFor": {
                 "@type": "Organization",
                 "name": "Virtustant",
                 "url": "https://virtustant.com"
               },
+              "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "Centro Universitário das Américas (FAM)"
+              },
               "knowsAbout": [
-                "React",
-                "Next.js",
-                "TypeScript",
-                "Node.js",
-                "Express",
-                "REST APIs",
-                "GraphQL",
-                "PostgreSQL",
-                "Prisma",
-                "Shopify",
-                "Docker",
-                "AWS",
-                "GCP",
-                "CI/CD",
-                "E-commerce"
+                "React", "Next.js", "TypeScript", "Node.js", "Express",
+                "REST APIs", "GraphQL", "PostgreSQL", "MongoDB", "Prisma",
+                "Shopify", "Shopify Liquid", "Docker", "AWS", "GCP",
+                "CI/CD", "E-commerce", "LangChain", "Python", "Go",
+                "Tailwind CSS", "Framer Motion", "Three.js", "AI/ML",
+                "Vercel", "Git", "Agile", "Scrum"
               ],
+              "knowsLanguage": ["en", "pt-BR", "es"],
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "São Paulo",
@@ -173,11 +198,16 @@ export default function RootLayout({
                 "addressCountry": "BR"
               },
               "email": "contato.matheusabrahao@gmail.com",
-              "telephone": "+55-11-98851-2788"
+              "telephone": "+55-11-98894-5608",
+              "nationality": {
+                "@type": "Country",
+                "name": "Brazil"
+              }
             })
           }}
         />
 
+        {/* Structured Data: WebSite */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -187,15 +217,180 @@ export default function RootLayout({
               "name": "Matheus Abrahão - Senior Full Stack Engineer Portfolio",
               "url": "https://matheusabrahao.com.br",
               "description": "Portfolio showcasing Full Stack development projects, e-commerce platforms, and production web applications",
+              "inLanguage": ["en", "pt-BR"],
               "author": {
                 "@type": "Person",
                 "name": "Matheus Abrahão"
-              },
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://matheusabrahao.com.br/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
               }
+            })
+          }}
+        />
+
+        {/* Structured Data: ProfessionalService */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "name": "Matheus Abrahão - Full Stack Development Services",
+              "description": "Professional full stack development services including React, Next.js, Node.js, Shopify, and AI/ML solutions. Available for freelance and remote contract work.",
+              "url": "https://matheusabrahao.com.br",
+              "telephone": "+55-11-98894-5608",
+              "email": "contato.matheusabrahao@gmail.com",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "São Paulo",
+                "addressRegion": "SP",
+                "addressCountry": "BR"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": -23.5505,
+                "longitude": -46.6333
+              },
+              "areaServed": [
+                { "@type": "Country", "name": "Brazil" },
+                { "@type": "Country", "name": "United States" },
+                { "@type": "Country", "name": "Canada" },
+                { "@type": "Country", "name": "Portugal" },
+                { "@type": "Country", "name": "France" }
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Development Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Full Stack Web Development",
+                      "description": "Custom web applications using React, Next.js, Node.js, and TypeScript"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "E-commerce Development",
+                      "description": "Shopify stores, custom themes, and e-commerce platforms"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "AI & Automation Solutions",
+                      "description": "AI chatbots, LangChain integrations, and process automation"
+                    }
+                  }
+                ]
+              }
+            })
+          }}
+        />
+
+        {/* Structured Data: BreadcrumbList */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://matheusabrahao.com.br"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "About",
+                  "item": "https://matheusabrahao.com.br/about"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Projects",
+                  "item": "https://matheusabrahao.com.br/projects"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": "Blog",
+                  "item": "https://matheusabrahao.com.br/blog"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 5,
+                  "name": "Contact",
+                  "item": "https://matheusabrahao.com.br/contact"
+                }
+              ]
+            })
+          }}
+        />
+
+        {/* Structured Data: FAQPage */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What technologies does Matheus Abrahão work with?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Matheus specializes in React, Next.js, Node.js, TypeScript, Shopify (Liquid), Python, Go, PostgreSQL, MongoDB, Docker, AWS, and GCP. He also works with AI/ML tools like LangChain and OpenAI."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Is Matheus Abrahão available for remote work?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, Matheus is based in São Paulo, Brazil, and is available for remote work with clients worldwide. He has successfully worked with companies in the USA, Canada, Portugal, and France."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What kind of projects has Matheus Abrahão built?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Matheus has built a $90K+ e-commerce platform, AI chatbots with LangChain, Shopify custom themes, NFT marketplaces, real-time messaging platforms, and IoT dashboards. He specializes in full stack web applications and e-commerce solutions."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How can I hire Matheus Abrahão as a developer?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can reach Matheus through WhatsApp at +55 11 98894-5608, email at contato.matheusabrahao@gmail.com, or through his portfolio contact page at matheusabrahao.com.br/contact. He is available for freelance projects, contract work, and full-time remote positions."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Quais tecnologias o Matheus Abrahão utiliza?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Matheus é especialista em React, Next.js, Node.js, TypeScript, Shopify, Python, Go, PostgreSQL, MongoDB, Docker, AWS e GCP. Também trabalha com ferramentas de IA/ML como LangChain e OpenAI."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Como contratar o Matheus Abrahão?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Você pode entrar em contato com o Matheus pelo WhatsApp +55 11 98894-5608, email contato.matheusabrahao@gmail.com, ou pela página de contato do portfólio em matheusabrahao.com.br/contact. Ele está disponível para projetos freelance, contratos e posições remotas."
+                  }
+                }
+              ]
             })
           }}
         />
