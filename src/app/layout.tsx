@@ -14,15 +14,19 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://matheusabrahao.com.br'),
   title: {
-    default: 'Matheus Abrahão | Senior Full Stack Engineer | React, Next.js, Node.js',
+    default: 'Matheus Abrahão | Senior Software Engineer | Apple Swift Student Challenge Winner',
     template: '%s | Matheus Abrahão',
   },
-  description: 'Senior Full Stack Engineer with 5+ years building production web applications. Built $90K+ e-commerce platform. Expertise in React, Next.js, Node.js, TypeScript, and Shopify. Available for remote work from São Paulo, Brazil.',
+  description: 'Senior Software Engineer with 5+ years building production web applications. Apple Swift Student Challenge 2026 Winner. Built $90K+ e-commerce platform. Expertise in React, Next.js, Node.js, TypeScript, Swift, SwiftUI, and Shopify. Available for remote work from São Paulo, Brazil.',
   keywords: [
     // English keywords
+    'Senior Software Engineer',
     'Full Stack Developer',
     'Full Stack Engineer',
-    'Senior Full Stack Engineer',
+    'Apple Swift Student Challenge Winner',
+    'Swift Developer',
+    'SwiftUI Developer',
+    'iOS Developer',
     'React Developer',
     'Next.js Developer',
     'Node.js Developer',
@@ -76,9 +80,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     alternateLocale: ['pt_BR'],
     url: 'https://matheusabrahao.com.br',
-    title: 'Matheus Abrahão | Senior Full Stack Engineer',
-    description: 'Senior Full Stack Engineer with 5+ years experience. Built $90K+ e-commerce platform. React, Next.js, Node.js, TypeScript, Shopify.',
-    siteName: 'Matheus Abrahão - Senior Full Stack Engineer',
+    title: 'Matheus Abrahão | Senior Software Engineer | Apple Swift Student Challenge Winner',
+    description: 'Senior Software Engineer with 5+ years experience. Apple Swift Student Challenge 2026 Winner. Built $90K+ e-commerce platform. React, Next.js, Node.js, Swift, SwiftUI, TypeScript, Shopify.',
+    siteName: 'Matheus Abrahão - Senior Software Engineer',
     images: [
       {
         url: '/og-image.jpg',
@@ -91,8 +95,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Matheus Abrahão | Senior Full Stack Engineer',
-    description: 'Senior Full Stack Engineer with 5+ years experience. Built $90K+ e-commerce platform. React, Next.js, Node.js, TypeScript.',
+    title: 'Matheus Abrahão | Senior Software Engineer | Apple Swift Student Challenge Winner',
+    description: 'Senior Software Engineer with 5+ years experience. Apple Swift Student Challenge 2026 Winner. Built $90K+ e-commerce platform. React, Next.js, Node.js, Swift, TypeScript.',
     creator: '@abrahao_dev',
     images: ['/og-image.jpg'],
   },
@@ -120,10 +124,10 @@ export const metadata: Metadata = {
     'geo.placename': 'São Paulo',
     'geo.position': '-23.5505;-46.6333',
     'ICBM': '-23.5505, -46.6333',
-    'DC.title': 'Matheus Abrahão - Senior Full Stack Engineer Portfolio',
+    'DC.title': 'Matheus Abrahão - Senior Software Engineer Portfolio',
     'DC.creator': 'Matheus Abrahão',
-    'DC.subject': 'Full Stack Development, React, Next.js, Node.js, TypeScript, E-commerce, Shopify, AI',
-    'DC.description': 'Senior Full Stack Engineer building production web applications, e-commerce platforms, and AI systems',
+    'DC.subject': 'Software Engineering, React, Next.js, Node.js, TypeScript, Swift, SwiftUI, E-commerce, Shopify, AI',
+    'DC.description': 'Senior Software Engineer building production web applications, iOS apps, e-commerce platforms, and AI systems. Apple Swift Student Challenge 2026 Winner.',
     'DC.publisher': 'Matheus Abrahão',
     'DC.contributor': 'Matheus Abrahão',
     'DC.date': '2026',
@@ -164,8 +168,8 @@ export default function RootLayout({
               "@type": "Person",
               "name": "Matheus Abrahão",
               "alternateName": ["Matheus Abrahao", "abrahao-dev"],
-              "jobTitle": "Senior Full Stack Engineer",
-              "description": "Senior Full Stack Engineer with 5+ years building production web applications. Built $90K+ e-commerce platform. Expertise in React, Next.js, Node.js, TypeScript, and Shopify.",
+              "jobTitle": "Senior Software Engineer",
+              "description": "Senior Software Engineer with 5+ years building production web applications. Apple Swift Student Challenge 2026 Winner. Built $90K+ e-commerce platform. Expertise in React, Next.js, Node.js, TypeScript, Swift, SwiftUI, and Shopify.",
               "url": "https://matheusabrahao.com.br",
               "image": "https://matheusabrahao.com.br/profile.jpg",
               "sameAs": [
@@ -180,17 +184,19 @@ export default function RootLayout({
               },
               "alumniOf": {
                 "@type": "EducationalOrganization",
-                "name": "Centro Universitário das Américas (FAM)"
+                "name": "Universidade São Francisco"
               },
               "knowsAbout": [
                 "React", "Next.js", "TypeScript", "Node.js", "Express",
+                "Swift", "SwiftUI", "iOS Development",
                 "REST APIs", "GraphQL", "PostgreSQL", "MongoDB", "Prisma",
-                "Shopify", "Shopify Liquid", "Docker", "AWS", "GCP",
-                "CI/CD", "E-commerce", "LangChain", "Python", "Go",
+                "Shopify", "Shopify Liquid", "Docker", "AWS", "GCP", "Firebase",
+                "CI/CD", "E-commerce", "LangChain", "Python",
                 "Tailwind CSS", "Framer Motion", "Three.js", "AI/ML",
-                "Vercel", "Git", "Agile", "Scrum"
+                "Vercel", "Git", "Agile", "Scrum",
+                "Postman", "DBeaver", "PostHog"
               ],
-              "knowsLanguage": ["en", "pt-BR", "es"],
+              "knowsLanguage": ["en", "pt-BR"],
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "São Paulo",
@@ -198,7 +204,7 @@ export default function RootLayout({
                 "addressCountry": "BR"
               },
               "email": "contato.matheusabrahao@gmail.com",
-              "telephone": "+55-11-98894-5608",
+              "telephone": "+55-11-98851-2788",
               "nationality": {
                 "@type": "Country",
                 "name": "Brazil"
@@ -214,7 +220,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "Matheus Abrahão - Senior Full Stack Engineer Portfolio",
+              "name": "Matheus Abrahão - Senior Software Engineer Portfolio",
               "url": "https://matheusabrahao.com.br",
               "description": "Portfolio showcasing Full Stack development projects, e-commerce platforms, and production web applications",
               "inLanguage": ["en", "pt-BR"],
@@ -233,10 +239,10 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
-              "name": "Matheus Abrahão - Full Stack Development Services",
-              "description": "Professional full stack development services including React, Next.js, Node.js, Shopify, and AI/ML solutions. Available for freelance and remote contract work.",
+              "name": "Matheus Abrahão - Software Engineering Services",
+              "description": "Professional software engineering services including React, Next.js, Node.js, Swift, SwiftUI, Shopify, and AI/ML solutions. Apple Swift Student Challenge 2026 Winner. Available for freelance and remote contract work.",
               "url": "https://matheusabrahao.com.br",
-              "telephone": "+55-11-98894-5608",
+              "telephone": "+55-11-98851-2788",
               "email": "contato.matheusabrahao@gmail.com",
               "priceRange": "$$",
               "address": {
@@ -275,6 +281,14 @@ export default function RootLayout({
                       "@type": "Service",
                       "name": "E-commerce Development",
                       "description": "Shopify stores, custom themes, and e-commerce platforms"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "iOS & Mobile Development",
+                      "description": "Native iOS apps using Swift and SwiftUI — Apple Swift Student Challenge 2026 Winner"
                     }
                   },
                   {
@@ -347,7 +361,7 @@ export default function RootLayout({
                   "name": "What technologies does Matheus Abrahão work with?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Matheus specializes in React, Next.js, Node.js, TypeScript, Shopify (Liquid), Python, Go, PostgreSQL, MongoDB, Docker, AWS, and GCP. He also works with AI/ML tools like LangChain and OpenAI."
+                    "text": "Matheus specializes in React, Next.js, Node.js, TypeScript, Swift, SwiftUI, Shopify (Liquid), Python, PostgreSQL, MongoDB, Docker, AWS, and GCP. He is an Apple Swift Student Challenge 2026 Winner and also works with AI/ML tools like LangChain and OpenAI."
                   }
                 },
                 {
@@ -363,7 +377,7 @@ export default function RootLayout({
                   "name": "What kind of projects has Matheus Abrahão built?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Matheus has built a $90K+ e-commerce platform, AI chatbots with LangChain, Shopify custom themes, NFT marketplaces, real-time messaging platforms, and IoT dashboards. He specializes in full stack web applications and e-commerce solutions."
+                    "text": "Matheus has built a $90K+ e-commerce platform, AI chatbots with LangChain, Shopify custom themes, iOS apps with Swift/SwiftUI, NFT marketplaces, real-time messaging platforms, and IoT dashboards. He is an Apple Swift Student Challenge 2026 Winner and specializes in full stack web applications, mobile development, and e-commerce solutions."
                   }
                 },
                 {
@@ -371,7 +385,7 @@ export default function RootLayout({
                   "name": "How can I hire Matheus Abrahão as a developer?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "You can reach Matheus through WhatsApp at +55 11 98894-5608, email at contato.matheusabrahao@gmail.com, or through his portfolio contact page at matheusabrahao.com.br/contact. He is available for freelance projects, contract work, and full-time remote positions."
+                    "text": "You can reach Matheus through WhatsApp at +55 11 98851-2788, email at contato.matheusabrahao@gmail.com, or through his portfolio contact page at matheusabrahao.com.br/contact. He is available for freelance projects, contract work, and full-time remote positions."
                   }
                 },
                 {
@@ -379,7 +393,7 @@ export default function RootLayout({
                   "name": "Quais tecnologias o Matheus Abrahão utiliza?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Matheus é especialista em React, Next.js, Node.js, TypeScript, Shopify, Python, Go, PostgreSQL, MongoDB, Docker, AWS e GCP. Também trabalha com ferramentas de IA/ML como LangChain e OpenAI."
+                    "text": "Matheus é especialista em React, Next.js, Node.js, TypeScript, Swift, SwiftUI, Shopify, Python, PostgreSQL, MongoDB, Docker, AWS e GCP. É vencedor do Apple Swift Student Challenge 2026 e também trabalha com ferramentas de IA/ML como LangChain e OpenAI."
                   }
                 },
                 {
@@ -387,7 +401,7 @@ export default function RootLayout({
                   "name": "Como contratar o Matheus Abrahão?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Você pode entrar em contato com o Matheus pelo WhatsApp +55 11 98894-5608, email contato.matheusabrahao@gmail.com, ou pela página de contato do portfólio em matheusabrahao.com.br/contact. Ele está disponível para projetos freelance, contratos e posições remotas."
+                    "text": "Você pode entrar em contato com o Matheus pelo WhatsApp +55 11 98851-2788, email contato.matheusabrahao@gmail.com, ou pela página de contato do portfólio em matheusabrahao.com.br/contact. Ele está disponível para projetos freelance, contratos e posições remotas."
                   }
                 }
               ]

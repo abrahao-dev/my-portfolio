@@ -11,6 +11,8 @@ const skills = [
   { name: "Next.js", icon: "devicon-nextjs-plain" },
   { name: "TypeScript", icon: "devicon-typescript-plain colored" },
   { name: "Node.js", icon: "devicon-nodejs-plain colored" },
+  { name: "Swift", icon: "devicon-swift-plain colored" },
+  { name: "SwiftUI", icon: "devicon-swift-plain colored" },
   { name: "Express", icon: "devicon-express-original" },
   { name: "PostgreSQL", icon: "devicon-postgresql-plain colored" },
   { name: "Prisma", icon: "devicon-prisma-original" },
@@ -22,14 +24,28 @@ const skills = [
   { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain colored" },
   { name: "REST APIs", icon: "devicon-nodejs-plain colored" },
   { name: "CI/CD", icon: "devicon-github-plain" },
-  { name: "Vercel", icon: "devicon-vercel-original" },
+  { name: "Firebase", icon: "devicon-firebase-plain colored" },
 ];
 
 const experiences = [
   {
+    title: "Full Stack Mentor",
+    company: "Télos.IA",
+    period: "January 2026 - Present",
+    location: "São Paulo, Brazil",
+    description: "Mentor for a Full Stack training program for People with Disabilities (PCDs), covering programming fundamentals through hands-on development with JavaScript, databases, Node.js, and applied software engineering practices.",
+    highlights: [
+      "Mentored students across a structured 9-level curriculum (Foundations → Final Project), balancing technical depth with accessibility and inclusion",
+      "Delivered live mentoring sessions and practical labs on Git/GitHub, semantic versioning, and modern developer workflows",
+      "Guided database learning: SQL vs NoSQL, data modeling, constraints, relationships, joins, and functions (Oracle / SQL Server)",
+      "Supported backend fundamentals with Node.js: REST APIs, JWT authentication, middleware, and CRUD (MongoDB with Mongoose)",
+      "Built and shared interactive learning materials and provided real-time troubleshooting during sessions"
+    ],
+  },
+  {
     title: "Senior Software Engineer (Full Stack)",
     company: "Virtustant",
-    period: "August 2025 - Present (6 months)",
+    period: "August 2025 - Present (8 months)",
     location: "Remote (USA)",
     description: "Acting as Senior Software Engineer and technical partner for an international luxury fashion brand, owning engineering, reliability, and scalability of the e-commerce platform.",
     highlights: [
@@ -43,7 +59,7 @@ const experiences = [
   {
     title: "Founder & Software Engineer",
     company: "Martin (E-commerce)",
-    period: "January 2021 - Present (5 years 1 month)",
+    period: "January 2021 - Present (5 years 3 months)",
     location: "Brazil",
     description: "Built and operated a profitable men's fashion e-commerce platform from scratch, achieving $90K+ in total revenue.",
     highlights: [
@@ -140,6 +156,11 @@ export default function About() {
 
   const achievements = [
     {
+      icon: Award,
+      title: t('about.achievements.apple'),
+      description: t('about.achievements.apple.desc')
+    },
+    {
       icon: TrendingUp,
       title: t('about.achievements.revenue'),
       description: t('about.achievements.revenue.desc')
@@ -153,11 +174,6 @@ export default function About() {
       icon: Globe,
       title: t('about.achievements.international'),
       description: t('about.achievements.international.desc')
-    },
-    {
-      icon: Award,
-      title: t('about.achievements.excellence'),
-      description: t('about.achievements.excellence.desc')
     }
   ]
 

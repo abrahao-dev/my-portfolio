@@ -21,11 +21,11 @@ const technologies = [
   { name: "Next.js", category: "Framework", icon: "devicon-nextjs-plain" },
   { name: "TypeScript", category: "Language", icon: "devicon-typescript-plain colored" },
   { name: "Node.js", category: "Backend", icon: "devicon-nodejs-plain colored" },
-  { name: "Express", category: "Backend", icon: "devicon-express-original" },
+  { name: "Swift", category: "Mobile", icon: "devicon-swift-plain colored" },
+  { name: "SwiftUI", category: "Mobile", icon: "devicon-swift-plain colored" },
   { name: "PostgreSQL", category: "Database", icon: "devicon-postgresql-plain colored" },
-  { name: "Prisma", category: "Prisma", icon: "devicon-prisma-original" },
+  { name: "Prisma", category: "ORM", icon: "devicon-prisma-original" },
   { name: "GraphQL", category: "API", icon: "devicon-graphql-plain colored" },
-  { name: "REST APIs", category: "Integration", icon: "devicon-nodejs-plain colored" },
   { name: "Shopify", category: "E-commerce", icon: "devicon-shopify-plain colored" },
   { name: "Docker", category: "DevOps", icon: "devicon-docker-plain colored" },
   { name: "AWS/GCP", category: "Cloud", icon: "devicon-amazonwebservices-plain-wordmark colored" },
@@ -75,10 +75,11 @@ export default function Home() {
             <p className="text-xl sm:text-2xl text-primary font-medium mb-4">
               <TypingText
                 texts={[
-                  "Full Stack Software Engineer",
+                  "Senior Software Engineer",
                   "React & Next.js Specialist",
+                  "Apple Swift Student Challenge Winner",
                   "E-commerce Expert",
-                  "AI/ML Developer"
+                  "iOS Developer"
                 ]}
                 typingSpeed={80}
                 deletingSpeed={40}
