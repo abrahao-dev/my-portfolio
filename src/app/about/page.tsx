@@ -6,146 +6,167 @@ import { motion } from "framer-motion"
 import { Award, Briefcase, Calendar, Code, ExternalLink, Globe, TrendingUp } from "lucide-react"
 import { useState } from "react"
 
-const skills = [
-  { name: "React.js", icon: "devicon-react-original colored" },
-  { name: "Next.js", icon: "devicon-nextjs-plain" },
-  { name: "TypeScript", icon: "devicon-typescript-plain colored" },
-  { name: "Node.js", icon: "devicon-nodejs-plain colored" },
-  { name: "Swift", icon: "devicon-swift-plain colored" },
-  { name: "SwiftUI", icon: "devicon-swift-plain colored" },
-  { name: "Express", icon: "devicon-express-original" },
-  { name: "PostgreSQL", icon: "devicon-postgresql-plain colored" },
-  { name: "Prisma", icon: "devicon-prisma-original" },
-  { name: "GraphQL", icon: "devicon-graphql-plain colored" },
-  { name: "Docker", icon: "devicon-docker-plain colored" },
-  { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark colored" },
-  { name: "Shopify", icon: "devicon-shopify-plain colored" },
-  { name: "Git/GitHub", icon: "devicon-github-plain" },
-  { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain colored" },
-  { name: "REST APIs", icon: "devicon-nodejs-plain colored" },
-  { name: "CI/CD", icon: "devicon-github-plain" },
-  { name: "Firebase", icon: "devicon-firebase-plain colored" },
-];
+type SkillCategoryKey =
+  | 'about.skills.shopify'
+  | 'about.skills.ecommerce'
+  | 'about.skills.web'
+  | 'about.skills.data'
+  | 'about.skills.ai'
+  | 'about.skills.devops'
+  | 'about.skills.mobile'
+
+type SkillGroup = { categoryKey: SkillCategoryKey; items: { name: string; icon: string }[] }
+
+const skillGroups: SkillGroup[] = [
+  {
+    categoryKey: 'about.skills.shopify',
+    items: [
+      { name: "Shopify Plus", icon: "devicon-shopify-plain colored" },
+      { name: "Shopify Liquid", icon: "devicon-shopify-plain colored" },
+      { name: "Hydrogen + Remix", icon: "devicon-shopify-plain colored" },
+      { name: "Matrixify", icon: "devicon-shopify-plain colored" },
+      { name: "Shopify Admin & Storefront API", icon: "devicon-shopify-plain colored" },
+      { name: "Theme & Sections", icon: "devicon-shopify-plain colored" },
+      { name: "Checkout Extensibility", icon: "devicon-shopify-plain colored" },
+      { name: "App Integrations", icon: "devicon-shopify-plain colored" },
+    ],
+  },
+  {
+    categoryKey: 'about.skills.ecommerce',
+    items: [
+      { name: "Klaviyo", icon: "devicon-mailchimp-plain colored" },
+      { name: "Meta CAPI / Pixel", icon: "devicon-facebook-plain colored" },
+      { name: "Google Merchant Center", icon: "devicon-google-plain colored" },
+      { name: "Amazon Seller Central", icon: "devicon-amazonwebservices-plain-wordmark colored" },
+      { name: "Technical SEO", icon: "devicon-google-plain colored" },
+      { name: "Schema / JSON-LD", icon: "devicon-google-plain colored" },
+      { name: "Core Web Vitals", icon: "devicon-google-plain colored" },
+      { name: "Conversion Optimization", icon: "devicon-shopify-plain colored" },
+    ],
+  },
+  {
+    categoryKey: 'about.skills.web',
+    items: [
+      { name: "React.js", icon: "devicon-react-original colored" },
+      { name: "Next.js", icon: "devicon-nextjs-plain" },
+      { name: "TypeScript", icon: "devicon-typescript-plain colored" },
+      { name: "Node.js", icon: "devicon-nodejs-plain colored" },
+      { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain colored" },
+      { name: "Framer Motion", icon: "devicon-react-original colored" },
+      { name: "REST + GraphQL", icon: "devicon-graphql-plain colored" },
+      { name: "Prisma", icon: "devicon-prisma-original" },
+    ],
+  },
+  {
+    categoryKey: 'about.skills.data',
+    items: [
+      { name: "GA4", icon: "devicon-google-plain colored" },
+      { name: "PostHog", icon: "devicon-react-original colored" },
+      { name: "PostgreSQL", icon: "devicon-postgresql-plain colored" },
+      { name: "MongoDB", icon: "devicon-mongodb-plain colored" },
+      { name: "CSV / Bulk Workflows", icon: "devicon-shopify-plain colored" },
+    ],
+  },
+  {
+    categoryKey: 'about.skills.ai',
+    items: [
+      { name: "LangGraph", icon: "devicon-python-plain colored" },
+      { name: "LangChain", icon: "devicon-python-plain colored" },
+      { name: "OpenAI APIs", icon: "devicon-python-plain colored" },
+      { name: "RAG Pipelines", icon: "devicon-python-plain colored" },
+      { name: "Workflow Automation", icon: "devicon-nodejs-plain colored" },
+    ],
+  },
+  {
+    categoryKey: 'about.skills.devops',
+    items: [
+      { name: "Docker", icon: "devicon-docker-plain colored" },
+      { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark colored" },
+      { name: "GCP", icon: "devicon-googlecloud-plain colored" },
+      { name: "Vercel", icon: "devicon-vercel-original" },
+      { name: "GitHub Actions / CI/CD", icon: "devicon-github-plain" },
+      { name: "Firebase", icon: "devicon-firebase-plain colored" },
+    ],
+  },
+  {
+    categoryKey: 'about.skills.mobile',
+    items: [
+      { name: "Swift", icon: "devicon-swift-plain colored" },
+      { name: "SwiftUI", icon: "devicon-swift-plain colored" },
+    ],
+  },
+]
 
 const experiences = [
   {
+    title: "Senior Shopify Operator",
+    company: "Scale Army",
+    period: "May 2026 - Present · Full-time",
+    location: "Charlotte, NC, United States · Remote",
+    description: "Leading complex Shopify operations, technical SEO, and data management for high-volume B2B and B2C environments.",
+    highlights: [
+      "Catalog & Data Management: bulk updates, pricing adjustments, and inventory synchronization across multi-level variant configurations using Matrixify and complex CSV workflows",
+      "Technical SEO & Performance: structured data, schema markup, and site architecture for high crawlability and AI-search readiness",
+      "Analytics & Strategy: cross-referencing GA4 sales data to drive upselling, cross-selling, and merchandising strategies",
+      "Ecosystem Stability: monitoring Shopify app integrations, building lead-capture forms, and optimizing navigation and checkout flows to eliminate friction"
+    ],
+  },
+  {
+    title: "Shopify Specialist",
+    company: "Virtustant",
+    period: "August 2025 - Present · 10 months · Part-time",
+    location: "New York, NY, United States · Remote",
+    description: "Acting as the technical partner and sole engineer for an international luxury fashion brand, owning the engineering, reliability, and scalability of their e-commerce ecosystem. Responsible for designing, implementing, and operating production-grade systems that directly support business growth, automation, and multi-channel operations.",
+    highlights: [
+      "Business Growth: drove +455% increase in platform sessions, +114% in orders, and +74% in total sales since joining through technical optimizations, SEO improvements, and marketing integrations",
+      "Frontend Engineering: designed and implemented custom frontend components and UI logic, heavily prioritizing performance, Core Web Vitals, and UX across a large-scale product catalog",
+      "Omnichannel Integrations: led and maintained critical platform integrations, including Amazon Seller Central, Google Merchant Center, and advanced Meta Ads tracking (CAPI / Pixel)",
+      "System Automation: built and maintained robust automation workflows for marketing, inventory management, and post-purchase operations using Klaviyo, custom flows, and AI-assisted content pipelines",
+      "Technical Leadership: served as the primary technical decision-maker, balancing platform constraints, scalability, and business priorities in a fully remote, international environment"
+    ],
+  },
+  {
+    title: "Founder",
+    company: "NEX Agency",
+    period: "September 2020 - Present · 5 years 9 months · Self-employed",
+    location: "São Paulo, Brazil · Remote",
+    description: "Founded a software engineering consultancy serving clients across 10+ countries, delivering end-to-end solutions in software development, performance marketing, UI/UX design, and branding.",
+    highlights: [
+      "Led technical architecture and full-stack development for clients in the US, Canada, France, Portugal, and Brazil — acting as the sole engineer and technical decision-maker",
+      "Built an AI-powered chatbot using LangGraph, LangChain, and OpenAI APIs for a US-based govtech platform, including PDF-to-Markdown data pipelines and structured SQL analytics",
+      "Re-architected e-commerce storefronts with custom frontend logic, checkout optimization, and tiered pricing systems for international clients",
+      "Delivered production-ready institutional websites, SPAs, and lead-conversion systems using React.js, Next.js, and Tailwind CSS",
+      "Managed $20,000+ in ad spend across Google Ads and Meta Ads with measurable ROI"
+    ],
+    link: "https://nexagency.com.br",
+  },
+  {
+    title: "Founder",
+    company: "Martin",
+    period: "November 2022 - April 2026 · 3 years 6 months · Self-employed",
+    location: "Brazil · Remote",
+    description: "Founded and scaled a men's fashion e-commerce platform from zero, leading every aspect of the business as a single founder: engineering, branding, content creation, social media, and operations.",
+    highlights: [
+      "Built and maintained the entire technical stack, custom frontend components, checkout logic, and internal tooling",
+      "Scaled the platform to 6-figure revenue ($90K+), nearly 2,000 orders, and 297,000+ sessions — operated end-to-end without additional resources",
+      "Grew TikTok to 51,000+ followers and 500,000+ likes, with individual videos reaching over 1.7M views — all content produced, edited, and published independently",
+      "Built an Instagram presence to 5,100+ followers with a cohesive brand identity, product photography, and video content",
+      "Implemented marketing integrations, inventory automation, and performance reporting pipelines",
+      "This experience strengthened my ability to build products from zero, wear every hat, and make engineering and business decisions with direct, measurable impact"
+    ],
+    link: "https://martin4shop.com.br",
+  },
+  {
     title: "Full Stack Mentor",
     company: "Télos.IA",
-    period: "January 2026 - Present",
-    location: "São Paulo, Brazil",
-    description: "Mentor for a Full Stack training program for People with Disabilities (PCDs), covering programming fundamentals through hands-on development with JavaScript, databases, Node.js, and applied software engineering practices.",
+    period: "January 2026 - May 2026 · 5 months",
+    location: "São Paulo, Brazil · Remote",
+    description: "Mentor for an inclusive Full Stack training program for People with Disabilities (PCDs), covering backend technologies and developer tooling through hands-on instruction.",
     highlights: [
-      "Mentored students across a structured 9-level curriculum (Foundations → Final Project), balancing technical depth with accessibility and inclusion",
-      "Delivered live mentoring sessions and practical labs on Git/GitHub, semantic versioning, and modern developer workflows",
-      "Guided database learning: SQL vs NoSQL, data modeling, constraints, relationships, joins, and functions (Oracle / SQL Server)",
-      "Supported backend fundamentals with Node.js: REST APIs, JWT authentication, middleware, and CRUD (MongoDB with Mongoose)",
-      "Built and shared interactive learning materials and provided real-time troubleshooting during sessions"
-    ],
-  },
-  {
-    title: "Senior Software Engineer (Full Stack)",
-    company: "Virtustant",
-    period: "August 2025 - Present (8 months)",
-    location: "Remote (USA)",
-    description: "Acting as Senior Software Engineer and technical partner for an international luxury fashion brand, owning engineering, reliability, and scalability of the e-commerce platform.",
-    highlights: [
-      "Designed and implemented custom Shopify/Liquid components with focus on performance, UX, and maintainability",
-      "Led platform integrations: Amazon Seller Central, Google Merchant Center, Meta Ads (CAPI/Pixel)",
-      "Built automation workflows for marketing, inventory management, and post-purchase operations",
-      "Performed technical SEO improvements and Core Web Vitals optimizations across large-scale product catalog",
-      "Act as technical decision-maker, balancing platform constraints, scalability, and business priorities"
-    ],
-  },
-  {
-    title: "Founder & Software Engineer",
-    company: "Martin (E-commerce)",
-    period: "January 2021 - Present (5 years 3 months)",
-    location: "Brazil",
-    description: "Built and operated a profitable men's fashion e-commerce platform from scratch, achieving $90K+ in total revenue.",
-    highlights: [
-      "Designed and maintained full technical stack: Shopify/Liquid, React.js, Hydrogen, Remix, Tailwind CSS",
-      "Built custom frontend components, checkout logic, and internal tooling for scalable operations",
-      "Implemented marketing + analytics integrations, inventory automation, performance reporting pipelines",
-      "Profitable operation since 2021 with fully automated, lean production system managed end-to-end",
-      "Strong customer retention and recurring revenue driven by technical optimization and system stability"
-    ],
-  },
-  {
-    title: "Full Stack Developer",
-    company: "Clecci",
-    period: "October 2025 - December 2025 (3 months)",
-    location: "Remote (Canada)",
-    description: "Partnered with a Canadian fashion retailer to re-architect critical components of their digital storefront.",
-    highlights: [
-      "Rebuilt PDP architecture using JavaScript and Liquid with reactive variant selection engine",
-      "Engineered native tiered pricing system (Buy More, Save More) increasing Average Order Value",
-      "Reworked Add-to-Cart flow with AJAX, slide-out cart drawer, shipping progress, and upsell modules",
-      "Refactored legacy code to enhance maintainability, load times, and frontend data consistency"
-    ],
-  },
-  {
-    title: "Full Stack Developer",
-    company: "Onmed Farmacêutica",
-    period: "November 2025 (1 month)",
-    location: "Brazil",
-    description: "Led end-to-end digital modernization of a pharmaceutical logistics distributor.",
-    highlights: [
-      "Engineered high-performance institutional SPA using React.js, Next.js, and Vite with strong Lighthouse scores",
-      "Designed fully responsive, mobile-first UI with glassmorphism aesthetics and Tailwind CSS",
-      "Resolved legacy infrastructure issues: DNS sanitization, domain configuration, digital assets consolidation",
-      "Developed custom lead-conversion hub (Linktree-style) to streamline social media traffic"
-    ],
-  },
-  {
-    title: "Full Stack Developer",
-    company: "Venna",
-    period: "July 2025 - September 2025 (3 months)",
-    location: "Remote (Portugal)",
-    description: "Shopify specialist leading technical customizations and conversion-focused engineering for high-performance e-commerce platforms.",
-    highlights: [
-      "Implemented advanced theme customizations using JavaScript and Liquid, extending native Shopify capabilities",
-      "Built dynamic upsell flows and personalized checkout experiences to improve conversion and AOV",
-      "Developed responsive, mobile-first interfaces ensuring consistency across devices",
-      "Created automation workflows for email and messaging using Mailchimp, Zapier, and Wati.io (WhatsApp)"
-    ],
-  },
-  {
-    title: "Software Engineer (Full Stack / AI Systems)",
-    company: "CLEATUS",
-    period: "January 2025 - March 2025 (3 months)",
-    location: "Remote (USA)",
-    description: "Worked on AI-driven systems for a U.S.-based platform helping companies discover, analyze, and win government contracts.",
-    highlights: [
-      "Designed and built internal AI chatbot using LangGraph and LangChain for natural language queries over structured/unstructured data",
-      "Implemented SQL querying and analytics workflows with PostHog integration for insights and usage tracking",
-      "Built data pipelines to extract, process, and convert government contract PDFs to Markdown for LLM analysis",
-      "Developed features to query, normalize, and export SAM.gov contract data to CSV"
-    ],
-  },
-  {
-    title: "Software Engineer",
-    company: "AlerteHit",
-    period: "2022 - August 2022",
-    location: "Remote (France)",
-    description: "Software Engineer on an international, custom-built e-commerce project focused on the Pokémon TCG market using modern Shopify ecosystem technologies.",
-    highlights: [
-      "Developed custom React-based frontend solutions for a headless e-commerce platform",
-      "Implemented storefront using Shopify Hydrogen and Remix with focus on performance and scalability",
-      "Integrated Shopify Storefront API for dynamic product, collection, and checkout flows",
-      "Built interactive visual experiences using Three.js for strong visual differentiation"
-    ],
-  },
-  {
-    title: "Junior Software Developer (Web)",
-    company: "HDIL Comércio",
-    period: "2019 - 2021 (2 years)",
-    location: "São Paulo, Brazil",
-    description: "First professional role in technology, responsible for end-to-end development of the company's institutional website.",
-    highlights: [
-      "Developed website from scratch using HTML, CSS, JavaScript, PHP, and Bootstrap",
-      "Built complete site structure: product catalog, About page, contact form, Google Maps integration",
-      "Implemented responsive design ensuring compatibility across desktop and mobile devices",
-      "Applied on-page SEO best practices and deployed application to production"
+      "Mentored students through the intermediate and backend modules of a structured curriculum, balancing technical depth with accessibility and inclusion",
+      "Built custom interactive learning materials and delivered live sessions covering macOS development environments, Git/GitHub, Python Fundamentals, Object-Oriented Programming (OOP), Node.js, and NoSQL databases (MongoDB)",
+      "Hosted exclusive support sessions for macOS learners, troubleshooting environment setup, tooling differences, and platform-specific workflows across Apple Silicon and Intel machines",
+      "Provided real-time troubleshooting and technical guidance during live classes to ensure a solid understanding of backend architecture and logic"
     ],
   },
 ];
@@ -205,8 +226,11 @@ export default function About() {
             <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed mb-4 sm:mb-6">
               {t('about.summary.paragraph2')}
             </p>
-            <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed mb-4 sm:mb-6">
               {t('about.summary.paragraph3')}
+            </p>
+            <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
+              {t('about.summary.paragraph4')}
             </p>
           </CardContent>
         </Card>
@@ -291,15 +315,30 @@ export default function About() {
               <CardHeader>
                 <CardTitle className="text-lg sm:text-xl lg:text-2xl">{t('about.skills.title')}</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                  {skills.map((skill) => (
-                    <div key={skill.name} className="flex items-center space-x-3 bg-secondary/50 rounded-lg p-3 hover:bg-secondary/70 transition-colors duration-200">
-                      <i className={`${skill.icon} text-lg sm:text-xl lg:text-2xl`}></i>
-                      <span className="text-xs sm:text-sm lg:text-base font-medium">{skill.name}</span>
+              <CardContent className="space-y-6 sm:space-y-8">
+                {skillGroups.map((group, groupIndex) => (
+                  <motion.div
+                    key={group.categoryKey}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: groupIndex * 0.06 }}
+                  >
+                    <h3 className="text-sm sm:text-base font-semibold text-primary uppercase tracking-wider mb-3">
+                      {t(group.categoryKey)}
+                    </h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                      {group.items.map((skill) => (
+                        <div
+                          key={skill.name}
+                          className="flex items-center space-x-3 bg-secondary/50 rounded-lg p-3 hover:bg-secondary/70 hover:scale-[1.02] transition-all duration-200"
+                        >
+                          <i className={`${skill.icon} text-lg sm:text-xl lg:text-2xl shrink-0`}></i>
+                          <span className="text-xs sm:text-sm lg:text-base font-medium leading-tight">{skill.name}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </motion.div>
+                ))}
               </CardContent>
             </Card>
           )}
@@ -323,7 +362,19 @@ export default function About() {
                       <div className="mb-3 sm:mb-4">
                         <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-foreground">{exp.title}</h3>
                         <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs sm:text-sm text-muted-foreground mb-2">
-                          <span className="font-medium">{exp.company}</span>
+                          {'link' in exp && exp.link ? (
+                            <a
+                              href={exp.link as string}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-medium text-primary hover:underline inline-flex items-center gap-1"
+                            >
+                              {exp.company}
+                              <ExternalLink className="h-3 w-3" />
+                            </a>
+                          ) : (
+                            <span className="font-medium">{exp.company}</span>
+                          )}
                           <span className="hidden sm:inline">•</span>
                           <span>{exp.period}</span>
                           <span className="hidden sm:inline">•</span>

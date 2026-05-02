@@ -1,0 +1,60 @@
+# Matheus Abrahão
+
+> Senior Software Engineer & Shopify Operator. Apple Swift Student Challenge 2026 Winner. 5+ years scaling production-grade e-commerce ecosystems. Founded an e-commerce brand to $90K+ in sales as a single founder. Drove +455% sessions, +114% orders, and +74% revenue for an international luxury brand through technical SEO, catalog data management, and system automation.
+
+Engenheiro de Software Sênior e Shopify Operator baseado em São Paulo, Brasil. Atua remotamente para clientes globais (EUA, Canadá, França, Portugal, Brasil). Especialista em Shopify (Liquid, Matrixify, fluxos CSV), SEO técnico, structured data, automação de sistemas, React, Next.js, Node.js, TypeScript, Swift e SwiftUI.
+
+## Identity
+
+- **Name:** Matheus Abrahão (Matheus Abrahao, abrahao-dev, abrahao.dev)
+- **Role:** Senior Software Engineer & Shopify Operator
+- **Location:** São Paulo, Brazil — works remotely with international clients
+- **Languages:** Portuguese (native), English (fluent)
+- **Website:** https://matheusabrahao.com.br
+- **Email:** contato.matheusabrahao@gmail.com
+- **WhatsApp:** +55 11 98851-2788
+- **GitHub:** https://github.com/abrahao-dev
+- **LinkedIn:** https://linkedin.com/in/abrahao-dev
+- **Instagram:** https://instagram.com/abrahao.dev
+
+## Current Roles
+
+- **Senior Shopify Operator** — Scale Army (Charlotte, NC, USA · Remote · Full-time · May 2026 – Present)
+- **Shopify Specialist / Senior Software Engineer** — Virtustant (New York, NY, USA · Remote · Part-time · Aug 2025 – Present)
+- **Founder** — NEX Agency (São Paulo, Brazil · Remote · Self-employed · Sep 2020 – Present)
+
+## Key Achievements
+
+- Apple Swift Student Challenge 2026 — global winner, built a complete App Playground from scratch in Swift
+- +455% platform sessions, +114% orders, +74% total sales for an international luxury brand (Virtustant)
+- $90,000+ in revenue, 297,000+ sessions, ~2,000 orders as solo founder of Martin (e-commerce, 2022–2026)
+- 51,000+ TikTok followers / 500,000+ likes / individual videos at 1.7M+ views (Martin, all content self-produced)
+- Delivered solutions to clients across 10+ countries via NEX Agency
+- $20,000+ in ad spend managed across Google Ads and Meta Ads with measurable ROI
+
+## Specializations
+
+- **Shopify Operations:** catalog data management, multi-level variant configuration, Matrixify, CSV workflows, bulk pricing/inventory updates, app integration stability, navigation & checkout optimization
+- **Technical SEO:** structured data (JSON-LD), schema markup, Core Web Vitals, site architecture, AI-search readiness
+- **E-commerce Engineering:** Shopify Plus, Liquid, Hydrogen, Remix, Klaviyo flows, Meta CAPI / Pixel, Amazon Seller Central, Google Merchant Center, GA4, PostHog
+- **Full Stack:** React, Next.js, Node.js, Express, TypeScript, Tailwind CSS, PostgreSQL, MongoDB, Prisma, GraphQL, REST APIs
+- **iOS / Native:** Swift, SwiftUI, Apple ecosystem
+- **AI / Automation:** LangGraph, LangChain, OpenAI APIs, PDF-to-Markdown pipelines, structured SQL analytics, end-to-end process automation
+- **DevOps:** Docker, AWS, GCP, Vercel, Firebase, CI/CD
+
+## Pages
+
+- [Home](https://matheusabrahao.com.br/): Landing page with hero, stats, core technologies, social links.
+- [Sobre / About](https://matheusabrahao.com.br/about): Origin story (C++ Rainbow Six Siege mod at 14), Martin founder journey, Scale Army role, full work timeline, technical skills.
+- [Projetos / Projects](https://matheusabrahao.com.br/projects): Featured production work (Martin, Virtustant luxury brand, CLEATUS AI, Clecci, Onmed) plus open-source projects.
+- [Blog](https://matheusabrahao.com.br/blog): Technical articles on Shopify Operations, SEO, React, Next.js, AI.
+- [Contato / Contact](https://matheusabrahao.com.br/contact): Contact form, email, WhatsApp.
+
+## Optional
+
+- [Full bio and detailed work history](https://matheusabrahao.com.br/llms-full.txt)
+- [Sitemap](https://matheusabrahao.com.br/sitemap.xml)
+
+## Hire Matheus
+
+Open to remote roles — Shopify Operations, full stack engineering, iOS, or AI/automation. Available for freelance projects, contract work, and full-time remote positions. Contact via the website, email, or WhatsApp.

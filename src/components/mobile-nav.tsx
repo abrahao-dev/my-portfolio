@@ -1,18 +1,18 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { useLanguage } from "@/contexts/language-context"
 import { Menu } from "lucide-react"
 import Link from "next/link"
-import { useState, useCallback } from "react"
+import { useCallback, useState } from "react"
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   const navItems = [
-    { href: "/", label: "Home" },
+    { href: "/", label: language === 'pt-BR' ? "Início" : "Home" },
     { href: "/about", label: t('nav.about') },
     { href: "/projects", label: t('nav.projects') },
     { href: "/blog", label: t('nav.blog') },
@@ -20,7 +20,7 @@ export function MobileNav() {
   ]
 
   const handleLinkClick = useCallback(() => {
-    // Small delay to allow animation before closing
+    // Small delay so the route transition starts before the sheet animates out
     setTimeout(() => setIsOpen(false), 150)
   }, [])
 
@@ -31,7 +31,7 @@ export function MobileNav() {
           variant="ghost"
           size="icon"
           className="md:hidden relative z-50 h-10 w-10 touch-manipulation"
-          aria-label="Open menu"
+          aria-label={language === 'pt-BR' ? 'Abrir menu' : 'Open menu'}
         >
           <Menu className="h-5 w-5" />
         </Button>
@@ -39,10 +39,18 @@ export function MobileNav() {
       <SheetContent
         side="right"
         className="w-full sm:w-[350px] p-0 border-l border-border/50 bg-background/95 backdrop-blur-xl"
+        style={{
+          paddingTop: 'env(safe-area-inset-top)',
+          paddingBottom: 'env(safe-area-inset-bottom)',
+          paddingRight: 'env(safe-area-inset-right)',
+        }}
       >
+        <SheetTitle className="sr-only">{t('mobile.menu')}</SheetTitle>
+        <SheetDescription className="sr-only">
+          {language === 'pt-BR' ? 'Menu de navegação principal' : 'Main navigation menu'}
+        </SheetDescription>
         <div className="flex flex-col h-full pt-16 pb-8 px-6">
-          {/* Navigation Links */}
-          <nav className="flex-1">
+          <nav className="flex-1" aria-label={language === 'pt-BR' ? 'Menu principal' : 'Main menu'}>
             <ul className="space-y-1">
               {navItems.map((item, index) => (
                 <li key={item.href}>
@@ -61,7 +69,6 @@ export function MobileNav() {
             </ul>
           </nav>
 
-          {/* Footer Info */}
           <div className="pt-6 border-t border-border/50">
             <p className="text-sm text-muted-foreground text-center">
               © 2026 Matheus Abrahão

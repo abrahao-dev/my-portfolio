@@ -14,13 +14,45 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://matheusabrahao.com.br'),
   title: {
-    default: 'Matheus Abrahão | Senior Software Engineer | Apple Swift Student Challenge Winner',
+    default: 'Matheus Abrahão | Engenheiro de Software Sênior & Shopify Operator',
     template: '%s | Matheus Abrahão',
   },
-  description: 'Senior Software Engineer with 5+ years building production web applications. Apple Swift Student Challenge 2026 Winner. Built $90K+ e-commerce platform. Expertise in React, Next.js, Node.js, TypeScript, Swift, SwiftUI, and Shopify. Available for remote work from São Paulo, Brazil.',
+  description: 'Engenheiro de Software Sênior e Shopify Operator com 5+ anos escalando ecossistemas de e-commerce. Vencedor do Apple Swift Student Challenge 2026. Fundador de marca com $90K+ em vendas. Gerei +455% de sessões e +74% de receita para uma marca de luxo internacional via SEO técnico, gestão de catálogo e automação. Especialista em Shopify, React, Next.js, Node.js, TypeScript, Swift e SwiftUI. Disponível para trabalho remoto a partir de São Paulo, Brasil.',
   keywords: [
-    // English keywords
+    // Portuguese keywords (primary — domain is .com.br)
+    'Engenheiro de Software Sênior',
+    'Shopify Operator',
+    'Especialista Shopify',
+    'Desenvolvedor Shopify',
+    'Desenvolvedor Shopify Brasil',
+    'Desenvolvedor Full Stack',
+    'Engenheiro de Software',
+    'Programador São Paulo',
+    'Desenvolvedor React',
+    'Desenvolvedor Next.js',
+    'Desenvolvedor Node.js',
+    'Desenvolvedor Web',
+    'Freelancer React Brasil',
+    'Desenvolvedor TypeScript',
+    'Desenvolvedor E-commerce',
+    'SEO Técnico Shopify',
+    'Automação E-commerce',
+    'Gestão de Catálogo Shopify',
+    'Matrixify Shopify',
+    'Programador Full Stack Remoto',
+    'Desenvolvedor Front-end',
+    'Desenvolvedor Back-end',
+    'Contratar Desenvolvedor Full Stack',
+    'Contratar Programador React',
+    'Contratar Especialista Shopify',
+    'Vencedor Apple Swift Student Challenge',
+    'Desenvolvedor Swift',
+    'Desenvolvedor iOS',
+    // English keywords (secondary — international audience)
     'Senior Software Engineer',
+    'Senior Shopify Operator',
+    'Shopify Expert',
+    'Shopify Developer',
     'Full Stack Developer',
     'Full Stack Engineer',
     'Apple Swift Student Challenge Winner',
@@ -32,43 +64,19 @@ export const metadata: Metadata = {
     'Node.js Developer',
     'TypeScript Developer',
     'E-commerce Developer',
-    'Shopify Developer',
-    'Shopify Expert',
+    'Technical SEO Shopify',
+    'Shopify Catalog Management',
+    'Matrixify Expert',
+    'Shopify Liquid Developer',
     'Software Engineer',
-    'Web Developer',
     'Remote Full Stack Developer',
     'Frontend Developer',
     'Backend Developer',
-    'JavaScript Developer',
-    'REST API Developer',
-    'GraphQL Developer',
-    'Brazil Developer',
-    'São Paulo Developer',
-    'Remote Software Engineer',
-    'Freelance Full Stack Developer',
-    'Web Application Developer',
-    'SaaS Developer',
     'AI Developer',
     'LangChain Developer',
     'Hire Full Stack Developer',
-    'Hire React Developer',
+    'Hire Shopify Operator',
     'Hire Shopify Developer',
-    // Portuguese keywords (Brazilian market)
-    'Desenvolvedor Full Stack',
-    'Engenheiro de Software',
-    'Programador São Paulo',
-    'Desenvolvedor React',
-    'Desenvolvedor Node.js',
-    'Desenvolvedor Web',
-    'Freelancer React Brasil',
-    'Desenvolvedor TypeScript',
-    'Desenvolvedor E-commerce',
-    'Desenvolvedor Shopify Brasil',
-    'Programador Full Stack Remoto',
-    'Desenvolvedor Front-end',
-    'Desenvolvedor Back-end',
-    'Contratar Desenvolvedor Full Stack',
-    'Contratar Programador React',
   ],
   authors: [{ name: 'Matheus Abrahão', url: 'https://matheusabrahao.com.br' }],
   creator: 'Matheus Abrahão',
@@ -77,26 +85,26 @@ export const metadata: Metadata = {
   classification: 'Full Stack Development',
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    alternateLocale: ['pt_BR'],
+    locale: 'pt_BR',
+    alternateLocale: ['en_US'],
     url: 'https://matheusabrahao.com.br',
-    title: 'Matheus Abrahão | Senior Software Engineer | Apple Swift Student Challenge Winner',
-    description: 'Senior Software Engineer with 5+ years experience. Apple Swift Student Challenge 2026 Winner. Built $90K+ e-commerce platform. React, Next.js, Node.js, Swift, SwiftUI, TypeScript, Shopify.',
-    siteName: 'Matheus Abrahão - Senior Software Engineer',
+    title: 'Matheus Abrahão | Engenheiro de Software Sênior & Shopify Operator',
+    description: 'Engenheiro de Software Sênior e Shopify Operator. Vencedor do Apple Swift Student Challenge 2026. Fundador com $90K+ em vendas. +455% de sessões e +74% de receita para marca de luxo internacional. Shopify, React, Next.js, Node.js, Swift, TypeScript.',
+    siteName: 'Matheus Abrahão — Senior Software Engineer & Shopify Operator',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Matheus Abrahão - Senior Full Stack Engineer Portfolio',
+        alt: 'Matheus Abrahão — Senior Software Engineer & Shopify Operator',
         type: 'image/jpeg',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Matheus Abrahão | Senior Software Engineer | Apple Swift Student Challenge Winner',
-    description: 'Senior Software Engineer with 5+ years experience. Apple Swift Student Challenge 2026 Winner. Built $90K+ e-commerce platform. React, Next.js, Node.js, Swift, TypeScript.',
+    title: 'Matheus Abrahão | Engenheiro de Software Sênior & Shopify Operator',
+    description: 'Senior Software Engineer & Shopify Operator. Apple Swift Student Challenge 2026 Winner. $90K+ e-commerce founder. +455% sessions and +74% revenue for an international luxury brand.',
     creator: '@abrahao_dev',
     images: ['/og-image.jpg'],
   },
@@ -114,8 +122,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://matheusabrahao.com.br',
     languages: {
-      'en': 'https://matheusabrahao.com.br',
       'pt-BR': 'https://matheusabrahao.com.br',
+      'en': 'https://matheusabrahao.com.br',
       'x-default': 'https://matheusabrahao.com.br',
     },
   },
@@ -124,17 +132,17 @@ export const metadata: Metadata = {
     'geo.placename': 'São Paulo',
     'geo.position': '-23.5505;-46.6333',
     'ICBM': '-23.5505, -46.6333',
-    'DC.title': 'Matheus Abrahão - Senior Software Engineer Portfolio',
+    'DC.title': 'Matheus Abrahão - Senior Software Engineer & Shopify Operator',
     'DC.creator': 'Matheus Abrahão',
-    'DC.subject': 'Software Engineering, React, Next.js, Node.js, TypeScript, Swift, SwiftUI, E-commerce, Shopify, AI',
-    'DC.description': 'Senior Software Engineer building production web applications, iOS apps, e-commerce platforms, and AI systems. Apple Swift Student Challenge 2026 Winner.',
+    'DC.subject': 'Software Engineering, Shopify Operator, Technical SEO, Catalog Management, React, Next.js, Node.js, TypeScript, Swift, SwiftUI, E-commerce, AI',
+    'DC.description': 'Senior Software Engineer and Shopify Operator scaling production-grade e-commerce ecosystems. Apple Swift Student Challenge 2026 Winner.',
     'DC.publisher': 'Matheus Abrahão',
     'DC.contributor': 'Matheus Abrahão',
     'DC.date': '2026',
     'DC.type': 'Text',
     'DC.format': 'text/html',
     'DC.identifier': 'https://matheusabrahao.com.br',
-    'DC.language': 'en',
+    'DC.language': 'pt-BR',
     'DC.coverage': 'World',
     'DC.rights': 'Copyright 2026 Matheus Abrahão',
     'revisit-after': '7 days',
@@ -149,15 +157,23 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="alternate" hrefLang="pt-BR" href="https://matheusabrahao.com.br" />
+        <link rel="alternate" hrefLang="en" href="https://matheusabrahao.com.br" />
+        <link rel="alternate" hrefLang="x-default" href="https://matheusabrahao.com.br" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="format-detection" content="telephone=no" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
         {/* Structured Data: Person */}
         <script
@@ -167,9 +183,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Matheus Abrahão",
-              "alternateName": ["Matheus Abrahao", "abrahao-dev"],
-              "jobTitle": "Senior Software Engineer",
-              "description": "Senior Software Engineer with 5+ years building production web applications. Apple Swift Student Challenge 2026 Winner. Built $90K+ e-commerce platform. Expertise in React, Next.js, Node.js, TypeScript, Swift, SwiftUI, and Shopify.",
+              "alternateName": ["Matheus Abrahao", "abrahao-dev", "abrahao.dev"],
+              "jobTitle": "Senior Software Engineer & Shopify Operator",
+              "description": "Senior Software Engineer and Shopify Operator with 5+ years scaling production-grade e-commerce ecosystems. Apple Swift Student Challenge 2026 Winner. Founded an e-commerce brand to $90K+ in sales. Drove +455% sessions, +114% orders, and +74% revenue for an international luxury brand through technical SEO, catalog data management, and system automation. Expert in Shopify, React, Next.js, Node.js, TypeScript, Swift, and SwiftUI.",
               "url": "https://matheusabrahao.com.br",
               "image": "https://matheusabrahao.com.br/profile.jpg",
               "sameAs": [
@@ -177,26 +193,57 @@ export default function RootLayout({
                 "https://linkedin.com/in/abrahao-dev",
                 "https://instagram.com/abrahao.dev"
               ],
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Virtustant",
-                "url": "https://virtustant.com"
-              },
+              "worksFor": [
+                {
+                  "@type": "Organization",
+                  "name": "Scale Army",
+                  "url": "https://scalearmy.com"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Virtustant",
+                  "url": "https://virtustant.com"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "NEX Agency",
+                  "url": "https://nexagency.com.br"
+                }
+              ],
               "alumniOf": {
                 "@type": "EducationalOrganization",
-                "name": "Universidade São Francisco"
+                "name": "Universidade São Francisco",
+                "department": "Bachelor's Degree, Software Engineering"
               },
+              "hasOccupation": [
+                {
+                  "@type": "Occupation",
+                  "name": "Senior Shopify Operator",
+                  "occupationLocation": { "@type": "Country", "name": "United States" },
+                  "skills": "Shopify Plus, Liquid, Matrixify, CSV workflows, technical SEO, schema markup, GA4 analytics, app integrations, conversion optimization, catalog data management, multi-variant configuration"
+                },
+                {
+                  "@type": "Occupation",
+                  "name": "Senior Software Engineer",
+                  "skills": "React, Next.js, Node.js, TypeScript, Swift, SwiftUI, PostgreSQL, MongoDB, Docker, AWS, GCP, REST APIs, GraphQL, LangChain"
+                }
+              ],
               "knowsAbout": [
+                "Shopify", "Shopify Plus", "Shopify Liquid", "Shopify Operator",
+                "Technical SEO", "Schema Markup", "Structured Data", "Core Web Vitals",
+                "Catalog Data Management", "Matrixify", "Shopify CSV Workflows",
+                "Multi-Variant Configuration", "Inventory Synchronization",
+                "Klaviyo", "Meta CAPI", "Google Merchant Center", "Amazon Seller Central",
+                "GA4", "PostHog", "E-commerce Automation",
                 "React", "Next.js", "TypeScript", "Node.js", "Express",
                 "Swift", "SwiftUI", "iOS Development",
                 "REST APIs", "GraphQL", "PostgreSQL", "MongoDB", "Prisma",
-                "Shopify", "Shopify Liquid", "Docker", "AWS", "GCP", "Firebase",
-                "CI/CD", "E-commerce", "LangChain", "Python",
+                "Docker", "AWS", "GCP", "Firebase",
+                "CI/CD", "LangChain", "Python", "OpenAI",
                 "Tailwind CSS", "Framer Motion", "Three.js", "AI/ML",
-                "Vercel", "Git", "Agile", "Scrum",
-                "Postman", "DBeaver", "PostHog"
+                "Vercel", "Git", "Agile", "Scrum"
               ],
-              "knowsLanguage": ["en", "pt-BR"],
+              "knowsLanguage": ["pt-BR", "en"],
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "São Paulo",
@@ -220,13 +267,18 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "Matheus Abrahão - Senior Software Engineer Portfolio",
+              "name": "Matheus Abrahão — Senior Software Engineer & Shopify Operator",
               "url": "https://matheusabrahao.com.br",
-              "description": "Portfolio showcasing Full Stack development projects, e-commerce platforms, and production web applications",
-              "inLanguage": ["en", "pt-BR"],
+              "description": "Portfólio do Engenheiro de Software Sênior e Shopify Operator Matheus Abrahão — projetos de e-commerce, SEO técnico, automação de sistemas e aplicações web em produção.",
+              "inLanguage": ["pt-BR", "en"],
               "author": {
                 "@type": "Person",
                 "name": "Matheus Abrahão"
+              },
+              "potentialAction": {
+                "@type": "ContactAction",
+                "name": "Contact Matheus Abrahão",
+                "target": "https://matheusabrahao.com.br/contact"
               }
             })
           }}
@@ -239,8 +291,8 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
-              "name": "Matheus Abrahão - Software Engineering Services",
-              "description": "Professional software engineering services including React, Next.js, Node.js, Swift, SwiftUI, Shopify, and AI/ML solutions. Apple Swift Student Challenge 2026 Winner. Available for freelance and remote contract work.",
+              "name": "Matheus Abrahão — Software Engineering & Shopify Operations",
+              "description": "Senior Software Engineer and Shopify Operator services: production-grade Shopify operations (catalog data management, technical SEO, system automation), full-stack web development (React, Next.js, Node.js, TypeScript), iOS native development (Swift, SwiftUI), and AI/automation solutions (LangChain, OpenAI). Apple Swift Student Challenge 2026 Winner. Available for freelance, contract, and full-time remote roles.",
               "url": "https://matheusabrahao.com.br",
               "telephone": "+55-11-98851-2788",
               "email": "contato.matheusabrahao@gmail.com",
@@ -265,22 +317,30 @@ export default function RootLayout({
               ],
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
-                "name": "Development Services",
+                "name": "Engineering & Shopify Services",
                 "itemListElement": [
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Full Stack Web Development",
-                      "description": "Custom web applications using React, Next.js, Node.js, and TypeScript"
+                      "name": "Shopify Operations & Technical SEO",
+                      "description": "Senior Shopify Operator services: catalog data management with Matrixify and CSV workflows, multi-variant configuration, structured data and schema markup, Core Web Vitals, GA4 analytics, app integration stability, navigation and checkout optimization for high-volume B2B and B2C stores."
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "E-commerce Development",
-                      "description": "Shopify stores, custom themes, and e-commerce platforms"
+                      "name": "E-commerce Engineering",
+                      "description": "Custom Shopify themes (Liquid), headless storefronts (Hydrogen, Remix), Klaviyo flows, Meta CAPI / Pixel, Amazon Seller Central and Google Merchant Center integrations."
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Full Stack Web Development",
+                      "description": "Production web applications using React, Next.js, Node.js, and TypeScript with strong Core Web Vitals and SEO."
                     }
                   },
                   {
@@ -288,7 +348,7 @@ export default function RootLayout({
                     "itemOffered": {
                       "@type": "Service",
                       "name": "iOS & Mobile Development",
-                      "description": "Native iOS apps using Swift and SwiftUI — Apple Swift Student Challenge 2026 Winner"
+                      "description": "Native iOS apps using Swift and SwiftUI — Apple Swift Student Challenge 2026 Winner."
                     }
                   },
                   {
@@ -296,7 +356,7 @@ export default function RootLayout({
                     "itemOffered": {
                       "@type": "Service",
                       "name": "AI & Automation Solutions",
-                      "description": "AI chatbots, LangChain integrations, and process automation"
+                      "description": "AI chatbots, LangGraph and LangChain integrations, OpenAI APIs, PDF-to-Markdown pipelines, and end-to-end process automation."
                     }
                   }
                 ]
@@ -355,37 +415,30 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "FAQPage",
+              "inLanguage": ["pt-BR", "en"],
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "What technologies does Matheus Abrahão work with?",
+                  "name": "Quem é Matheus Abrahão?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Matheus specializes in React, Next.js, Node.js, TypeScript, Swift, SwiftUI, Shopify (Liquid), Python, PostgreSQL, MongoDB, Docker, AWS, and GCP. He is an Apple Swift Student Challenge 2026 Winner and also works with AI/ML tools like LangChain and OpenAI."
+                    "text": "Matheus Abrahão é Engenheiro de Software Sênior e Shopify Operator, atualmente atuando na Scale Army (Charlotte, NC, EUA, remoto) e como engenheiro técnico para uma marca de luxo internacional via Virtustant (NY, EUA, remoto). Vencedor global do Apple Swift Student Challenge 2026, fundou e operou a marca de e-commerce Martin gerando $90.000+ em vendas como fundador único. É baseado em São Paulo, Brasil."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "Is Matheus Abrahão available for remote work?",
+                  "name": "O que é um Shopify Operator?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, Matheus is based in São Paulo, Brazil, and is available for remote work with clients worldwide. He has successfully worked with companies in the USA, Canada, Portugal, and France."
+                    "text": "Shopify Operator é um perfil que combina engenharia técnica e operação de negócio em ambientes Shopify de alto volume. Matheus atua como Shopify Operator gerenciando atualizações em massa de catálogo, configurações de variantes multi-nível com Matrixify e fluxos CSV, SEO técnico com structured data, integrações entre apps Shopify, e otimizações de checkout — sempre cruzando dados de GA4 para gerar estratégias de upsell, cross-sell e merchandising."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "What kind of projects has Matheus Abrahão built?",
+                  "name": "Quais resultados Matheus Abrahão já entregou?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Matheus has built a $90K+ e-commerce platform, AI chatbots with LangChain, Shopify custom themes, iOS apps with Swift/SwiftUI, NFT marketplaces, real-time messaging platforms, and IoT dashboards. He is an Apple Swift Student Challenge 2026 Winner and specializes in full stack web applications, mobile development, and e-commerce solutions."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "How can I hire Matheus Abrahão as a developer?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "You can reach Matheus through WhatsApp at +55 11 98851-2788, email at contato.matheusabrahao@gmail.com, or through his portfolio contact page at matheusabrahao.com.br/contact. He is available for freelance projects, contract work, and full-time remote positions."
+                    "text": "Para uma marca de luxo internacional (via Virtustant), Matheus gerou +455% de aumento em sessões da plataforma, +114% em pedidos e +74% em vendas totais através de otimizações técnicas, melhorias de SEO e integrações de marketing. Como fundador da Martin, escalou a operação a $90.000+ em receita, quase 2.000 pedidos e 297.000+ sessões — operando ponta a ponta sem recursos adicionais. Entregou soluções para clientes em 10+ países via NEX Agency."
                   }
                 },
                 {
@@ -393,7 +446,7 @@ export default function RootLayout({
                   "name": "Quais tecnologias o Matheus Abrahão utiliza?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Matheus é especialista em React, Next.js, Node.js, TypeScript, Swift, SwiftUI, Shopify, Python, PostgreSQL, MongoDB, Docker, AWS e GCP. É vencedor do Apple Swift Student Challenge 2026 e também trabalha com ferramentas de IA/ML como LangChain e OpenAI."
+                    "text": "Shopify Plus, Shopify Liquid, Matrixify, Klaviyo, Meta CAPI, Google Merchant Center, Amazon Seller Central, GA4, PostHog. Stack web: React, Next.js, Node.js, TypeScript, Tailwind CSS, PostgreSQL, MongoDB, Prisma. iOS: Swift e SwiftUI. AI: LangGraph, LangChain, OpenAI. DevOps: Docker, AWS, GCP, Vercel, Firebase, CI/CD."
                   }
                 },
                 {
@@ -401,7 +454,39 @@ export default function RootLayout({
                   "name": "Como contratar o Matheus Abrahão?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Você pode entrar em contato com o Matheus pelo WhatsApp +55 11 98851-2788, email contato.matheusabrahao@gmail.com, ou pela página de contato do portfólio em matheusabrahao.com.br/contact. Ele está disponível para projetos freelance, contratos e posições remotas."
+                    "text": "Você pode entrar em contato pelo WhatsApp +55 11 98851-2788, email contato.matheusabrahao@gmail.com, ou pela página de contato em matheusabrahao.com.br/contact. Está disponível para projetos freelance, contratos e posições remotas — Shopify Operations, engenharia full stack ou iOS."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Who is Matheus Abrahão?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Matheus Abrahão is a Senior Software Engineer and Shopify Operator currently at Scale Army (Charlotte, NC, USA, remote) and the sole engineer for an international luxury brand via Virtustant (NY, USA, remote). Global winner of the Apple Swift Student Challenge 2026 and founder of the e-commerce brand Martin, which he scaled to $90,000+ in sales as a single founder. Based in São Paulo, Brazil."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What technologies does Matheus Abrahão work with?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Shopify Plus, Liquid, Matrixify, Klaviyo, Meta CAPI, Google Merchant Center, Amazon Seller Central, GA4, PostHog. Web: React, Next.js, Node.js, TypeScript, Tailwind, PostgreSQL, MongoDB, Prisma. iOS: Swift, SwiftUI. AI: LangGraph, LangChain, OpenAI. DevOps: Docker, AWS, GCP, Vercel, Firebase."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What results has Matheus Abrahão delivered?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "+455% sessions, +114% orders, and +74% total sales for an international luxury brand through technical optimizations, SEO, and marketing integrations. $90K+ in revenue and 297,000+ sessions as the founder of Martin, operating end-to-end as a single founder. Delivered solutions to clients across 10+ countries via NEX Agency."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How can I hire Matheus Abrahão?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "WhatsApp +55 11 98851-2788, email contato.matheusabrahao@gmail.com, or the contact page at matheusabrahao.com.br/contact. Open to freelance, contract, and full-time remote roles — Shopify Operations, full stack engineering, or iOS."
                   }
                 }
               ]

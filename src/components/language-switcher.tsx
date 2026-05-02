@@ -13,17 +13,17 @@ import { useState } from "react"
 
 const languageOptions = [
   {
+    code: 'pt-BR' as Language,
+    name: 'Português',
+    flag: '🇧🇷',
+    country: 'Brasil'
+  },
+  {
     code: 'en' as Language,
     name: 'English',
     flag: '🇺🇸',
     country: 'USA'
   },
-  {
-    code: 'pt-BR' as Language,
-    name: 'Português',
-    flag: '🇧🇷',
-    country: 'Brasil'
-  }
 ]
 
 export function LanguageSwitcher() {

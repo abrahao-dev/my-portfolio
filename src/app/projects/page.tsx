@@ -4,192 +4,244 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { TiltCard } from "@/components/ui/tilt-card"
+import { useLanguage } from "@/contexts/language-context"
 import { AnimatePresence, motion } from "framer-motion"
-import { ExternalLink, Github, TrendingUp } from "lucide-react"
+import { ExternalLink, Github, ShoppingBag, Sparkles, TrendingUp } from "lucide-react"
 import { useState } from "react"
 
-const projects = [
+type Project = {
+  titleEn: string
+  titlePt: string
+  problemEn: string
+  problemPt: string
+  solutionEn: string
+  solutionPt: string
+  impactEn: string
+  impactPt: string
+  tags: string[]
+  link?: string
+  demoLink?: string
+  hasCode?: boolean
+  hasDemo?: boolean
+  featured?: boolean
+}
+
+const projects: Project[] = [
   {
-    title: "Martin E-commerce Platform",
-    problem: "Needed a scalable, automated e-commerce operation with minimal overhead",
-    solution: "Built a complete e-commerce platform using Shopify, React/Hydrogen, and custom automation workflows",
-    impact: "$90,000+ in total revenue, fully automated operations, strong customer retention",
-    tags: ["Shopify", "React", "Hydrogen", "Remix", "Tailwind CSS", "E-commerce", "Automation"],
-    link: "",
+    titleEn: "Scale Army — Shopify Operations",
+    titlePt: "Scale Army — Operações Shopify",
+    problemEn: "High-volume B2B and B2C Shopify clients needed reliable catalog data management, technical SEO, and ecosystem stability at scale.",
+    problemPt: "Clientes Shopify B2B e B2C de alto volume precisavam de gestão confiável de catálogo, SEO técnico e estabilidade do ecossistema em escala.",
+    solutionEn: "Senior Shopify Operator role — running bulk Matrixify/CSV catalog workflows, managing structured data and schema markup, monitoring app integrations, and translating GA4 insights into upsell and merchandising strategy.",
+    solutionPt: "Atuação como Senior Shopify Operator — executando fluxos de catálogo em massa via Matrixify/CSV, gerenciando structured data e schema markup, monitorando integrações de apps e traduzindo dados do GA4 em estratégias de upsell e merchandising.",
+    impactEn: "Stable production stores ready for AI-powered search, with friction-free navigation and checkout across multi-level variant catalogs.",
+    impactPt: "Lojas em produção estáveis e prontas para busca com IA, com navegação e checkout sem fricção em catálogos de variantes multi-nível.",
+    tags: ["Shopify Plus", "Matrixify", "Technical SEO", "Schema Markup", "GA4", "Klaviyo", "Catalog Management"],
+    featured: true,
+  },
+  {
+    titleEn: "Luxury Fashion E-commerce (Virtustant)",
+    titlePt: "E-commerce de Moda de Luxo (Virtustant)",
+    problemEn: "International luxury fashion brand needed reliability, scalability, and growth across a large-scale product catalog and multi-channel operations.",
+    problemPt: "Marca de moda de luxo internacional precisava de confiabilidade, escalabilidade e crescimento em um catálogo de produtos de larga escala e operações multicanal.",
+    solutionEn: "Sole engineer building custom Liquid components for Core Web Vitals, leading omnichannel integrations (Amazon Seller Central, Google Merchant, Meta CAPI/Pixel), and engineering Klaviyo + AI-assisted automation flows.",
+    solutionPt: "Engenheiro único construindo componentes Liquid customizados para Core Web Vitals, liderando integrações omnichannel (Amazon Seller Central, Google Merchant, Meta CAPI/Pixel) e engenharia de fluxos Klaviyo + automação assistida por IA.",
+    impactEn: "+455% platform sessions, +114% orders, +74% total sales since joining — driven by technical SEO, performance, and marketing integrations.",
+    impactPt: "+455% de sessões na plataforma, +114% em pedidos, +74% em vendas totais desde o início — impulsionado por SEO técnico, performance e integrações de marketing.",
+    tags: ["Shopify", "Liquid", "Klaviyo", "Meta CAPI", "Google Merchant", "Amazon Integration", "Core Web Vitals"],
+    featured: true,
+  },
+  {
+    titleEn: "Martin — Founder E-commerce Brand",
+    titlePt: "Martin — Marca de E-commerce Própria",
+    problemEn: "Build a profitable men's fashion brand from zero, owning every layer: technical, brand, content, and operations.",
+    problemPt: "Construir uma marca de moda masculina lucrativa do zero, com ownership total: técnico, marca, conteúdo e operações.",
+    solutionEn: "Designed and operated the full stack on Shopify/Liquid + Hydrogen + Remix + Tailwind. Built custom checkout logic, internal tooling, marketing integrations, inventory automation, and content (TikTok, Instagram).",
+    solutionPt: "Projetei e operei toda a stack em Shopify/Liquid + Hydrogen + Remix + Tailwind. Construí lógica de checkout customizada, ferramentas internas, integrações de marketing, automação de inventário e conteúdo (TikTok, Instagram).",
+    impactEn: "$90,000+ revenue, ~2,000 orders, 297,000+ sessions. TikTok grown to 51K followers and 500K+ likes; individual videos at 1.7M+ views — all solo.",
+    impactPt: "$90.000+ em receita, ~2.000 pedidos, 297.000+ sessões. TikTok com 51K seguidores e 500K+ curtidas; vídeos individuais com 1,7M+ visualizações — tudo solo.",
+    tags: ["Shopify", "Hydrogen", "Remix", "React", "Tailwind CSS", "E-commerce", "Founder"],
     demoLink: "https://martin4shop.com.br",
-    hasCode: false,
     hasDemo: true,
-    featured: true
+    featured: true,
   },
   {
-    title: "CLEATUS AI Platform",
-    problem: "Companies struggled to analyze and win government contracts efficiently",
-    solution: "Built AI-powered chatbot and data pipelines using LangGraph, LangChain, and OpenAI for structured contract analysis",
-    impact: "Enabled natural-language queries over contract data, automated PDF analysis and SAM.gov integration",
-    tags: ["LangChain", "LangGraph", "OpenAI", "Python", "PostgreSQL", "AI/ML", "Data Pipelines"],
-    link: "",
-    demoLink: "",
-    hasCode: false,
-    hasDemo: false,
-    featured: true
+    titleEn: "Clecci — Canadian Fashion Storefront",
+    titlePt: "Clecci — Storefront Canadense de Moda",
+    problemEn: "Canadian fashion retailer needed advanced customizations beyond standard Shopify theme limitations to lift AOV and conversion.",
+    problemPt: "Varejista de moda canadense precisava de customizações avançadas além das limitações do tema Shopify padrão para aumentar AOV e conversão.",
+    solutionEn: "Re-architected PDP with reactive variant selection engine, engineered native tiered pricing (Buy More, Save More), rebuilt Add-to-Cart with AJAX, slide-out cart drawer, shipping progress, and upsell modules.",
+    solutionPt: "Re-arquitetei a PDP com engine de seleção reativa de variantes, criei sistema nativo de tiered pricing (Buy More, Save More), refiz o Add-to-Cart com AJAX, drawer lateral de carrinho, progresso de frete e módulos de upsell.",
+    impactEn: "Higher Average Order Value, improved perceived performance and conversion rate, cleaner legacy codebase.",
+    impactPt: "AOV mais alto, performance percebida e taxa de conversão melhoradas, código legado mais limpo.",
+    tags: ["Shopify", "Liquid", "JavaScript", "AJAX", "Conversion Optimization"],
+    featured: true,
   },
   {
-    title: "Luxury Fashion E-commerce (Virtustant)",
-    problem: "International fashion brand needed improved platform reliability and multi-channel integrations",
-    solution: "Engineered Shopify customizations, platform integrations (Amazon, Google Merchant, Meta Ads), and automation flows",
-    impact: "Improved Core Web Vitals across 1000+ products, streamlined multi-channel operations",
-    tags: ["Shopify", "Liquid", "JavaScript", "Meta CAPI", "Google Merchant", "Amazon Integration"],
-    link: "",
-    demoLink: "",
-    hasCode: false,
-    hasDemo: false,
-    featured: true
+    titleEn: "CLEATUS — Govtech AI Platform",
+    titlePt: "CLEATUS — Plataforma de IA para Govtech",
+    problemEn: "Companies struggled to discover, analyze, and win government contracts efficiently from unstructured PDFs and SAM.gov data.",
+    problemPt: "Empresas tinham dificuldade em descobrir, analisar e ganhar contratos governamentais a partir de PDFs não estruturados e dados do SAM.gov.",
+    solutionEn: "Built an internal AI chatbot using LangGraph and LangChain for natural-language queries over structured/unstructured data; PDF-to-Markdown pipelines and PostHog analytics integration.",
+    solutionPt: "Construí um chatbot interno de IA com LangGraph e LangChain para consultas em linguagem natural sobre dados estruturados/não estruturados; pipelines de PDF-para-Markdown e integração de analytics com PostHog.",
+    impactEn: "Natural-language access to contract data, automated PDF analysis, and SAM.gov ETL exporting clean CSV.",
+    impactPt: "Acesso em linguagem natural a dados de contratos, análise automatizada de PDFs e ETL do SAM.gov exportando CSV limpo.",
+    tags: ["LangGraph", "LangChain", "OpenAI", "Python", "PostgreSQL", "PostHog", "AI/ML"],
+    featured: true,
   },
   {
-    title: "Clecci Digital Storefront (Canada)",
-    problem: "Canadian fashion retailer needed advanced customizations beyond standard Shopify theme limitations",
-    solution: "Re-architected PDP with reactive variant selection, engineered tiered pricing system, rebuilt Add-to-Cart with AJAX and upsell modules",
-    impact: "Increased Average Order Value through tiered pricing, improved conversion rate and perceived performance",
-    tags: ["Shopify", "JavaScript", "Liquid", "AJAX", "E-commerce", "Conversion Optimization"],
-    link: "",
-    demoLink: "",
-    hasCode: false,
-    hasDemo: false,
-    featured: true
+    titleEn: "Onmed Farmacêutica — Institutional SPA",
+    titlePt: "Onmed Farmacêutica — SPA Institucional",
+    problemEn: "Pharmaceutical distributor needed digital modernization with strong performance, mobile-first design, and resolved legacy infrastructure.",
+    problemPt: "Distribuidora farmacêutica precisava de modernização digital com forte performance, design mobile-first e infraestrutura legada resolvida.",
+    solutionEn: "Built a high-performance institutional SPA using React, Next.js, and Vite; mobile-first glassmorphism UI with Tailwind; resolved DNS/domain consolidation and built a Linktree-style lead-capture hub.",
+    solutionPt: "Construí um SPA institucional de alta performance com React, Next.js e Vite; UI glassmorphism mobile-first com Tailwind; resolvi consolidação de DNS/domínio e construí um hub de captura de leads no estilo Linktree.",
+    impactEn: "Strong Lighthouse scores, streamlined social-media-to-lead funnel, modernized digital footprint.",
+    impactPt: "Pontuações Lighthouse fortes, funil de social-media-para-lead simplificado, presença digital modernizada.",
+    tags: ["React", "Next.js", "Vite", "Tailwind CSS", "SEO", "Mobile-First"],
+    featured: false,
   },
   {
-    title: "Onmed Farmacêutica Digital Platform",
-    problem: "Pharmaceutical distributor needed digital modernization with legacy infrastructure issues",
-    solution: "Built high-performance institutional SPA using React.js, Next.js, and Vite with mobile-first design and lead-conversion hub",
-    impact: "Achieved strong Lighthouse scores, resolved DNS/domain issues, streamlined social media lead capture",
-    tags: ["React", "Next.js", "Vite", "Tailwind CSS", "SEO", "Glassmorphism"],
-    link: "",
-    demoLink: "",
-    hasCode: false,
-    hasDemo: false,
-    featured: true
+    titleEn: "Venna — Shopify Conversion Engineering (Portugal)",
+    titlePt: "Venna — Engenharia de Conversão Shopify (Portugal)",
+    problemEn: "Shopify store needed conversion-focused engineering and personalized checkout experiences.",
+    problemPt: "Loja Shopify precisava de engenharia focada em conversão e experiências de checkout personalizadas.",
+    solutionEn: "Advanced Liquid customizations, dynamic upsell flows, personalized checkout, and multi-channel automation via Mailchimp, Zapier, and Wati.io (WhatsApp).",
+    solutionPt: "Customizações avançadas em Liquid, fluxos dinâmicos de upsell, checkout personalizado e automação multicanal via Mailchimp, Zapier e Wati.io (WhatsApp).",
+    impactEn: "Improved AOV, mobile-consistent UX, and reduced manual marketing operations through automation.",
+    impactPt: "AOV melhorado, UX consistente em mobile e redução de operações manuais de marketing por automação.",
+    tags: ["Shopify", "Liquid", "Mailchimp", "Zapier", "Wati.io", "Automation"],
+    featured: false,
   },
   {
-    title: "NFT Marketplace",
-    problem: "Needed a complete decentralized marketplace for NFT trading with modern architecture",
-    solution: "Built full-stack Web3 dApp with React frontend, Go backend, and Solidity smart contracts",
-    impact: "Complete marketplace with wallet integration, minting, and trading functionality",
-    tags: ["React", "Go", "Solidity", "Web3", "TypeScript", "Smart Contracts"],
-    link: "https://github.com/abrahao-dev/nft-marketplace",
-    demoLink: "",
-    hasCode: true,
-    hasDemo: false,
-    featured: false
+    titleEn: "AlerteHit — Pokémon TCG Headless Storefront (France)",
+    titlePt: "AlerteHit — Storefront Headless Pokémon TCG (França)",
+    problemEn: "International e-commerce project for the Pokémon TCG market needed a custom, performant, headless storefront.",
+    problemPt: "Projeto internacional de e-commerce para o mercado de Pokémon TCG precisava de um storefront headless customizado e performático.",
+    solutionEn: "Custom React-based frontend on Shopify Hydrogen + Remix, Storefront API integration for product/collection/checkout flows, and interactive Three.js visuals.",
+    solutionPt: "Frontend React customizado em Shopify Hydrogen + Remix, integração com Storefront API para fluxos de produto/coleção/checkout e visuais interativos com Three.js.",
+    impactEn: "Visually differentiated storefront with strong performance and scalability for a niche international market.",
+    impactPt: "Storefront visualmente diferenciado com forte performance e escalabilidade para um mercado internacional de nicho.",
+    tags: ["Shopify Hydrogen", "Remix", "React", "Three.js", "Storefront API"],
+    featured: false,
   },
   {
-    title: "AbrahaoLabs AI Chatbot",
-    problem: "Needed an AI-powered chatbot for digital marketing with document support",
-    solution: "Built chatbot using LangChain, Hugging Face fine-tuning (DistilGPT2), and RAG with PDF/CSV/TXT support",
-    impact: "Intelligent document-based Q&A for marketing automation",
-    tags: ["Python", "LangChain", "Hugging Face", "RAG", "Flask", "NLP"],
+    titleEn: "AbrahaoLabs AI Chatbot",
+    titlePt: "Chatbot de IA AbrahaoLabs",
+    problemEn: "Needed an AI chatbot for marketing teams with PDF/CSV/TXT document support.",
+    problemPt: "Era necessário um chatbot de IA para equipes de marketing com suporte a documentos PDF/CSV/TXT.",
+    solutionEn: "LangChain + Hugging Face fine-tuning (DistilGPT2) and RAG with multi-format ingestion served by Flask.",
+    solutionPt: "LangChain + fine-tuning Hugging Face (DistilGPT2) e RAG com ingestão multi-formato servido por Flask.",
+    impactEn: "Document-grounded Q&A for marketing automation use cases.",
+    impactPt: "Q&A baseado em documentos para casos de uso de automação de marketing.",
+    tags: ["Python", "LangChain", "Hugging Face", "RAG", "Flask"],
     link: "https://github.com/abrahao-dev/abrahao-labs-chatbot",
-    demoLink: "",
     hasCode: true,
-    hasDemo: false,
-    featured: false
+    featured: false,
   },
   {
-    title: "EHR Integration System",
-    problem: "Healthcare providers needed standardized patient data mapping to EHR systems",
-    solution: "Built internal tool for mapping and submitting patient data to Electronic Health Record systems",
-    impact: "Fully tested, scalable, and production-ready integration with multiple EHR providers",
-    tags: ["TypeScript", "Node.js", "React", "Express", "Healthcare", "API Integration"],
-    link: "https://github.com/abrahao-dev/ehr-integration",
-    demoLink: "",
-    hasCode: true,
-    hasDemo: false,
-    featured: false
-  },
-  {
-    title: "Martin Auto-Fulfillment",
-    problem: "Manual order fulfillment between Shopify and Shopee was time-consuming",
-    solution: "Built custom automation integrating Shopify orders with Shopee for streamlined fulfillment and tracking",
-    impact: "Automated fulfillment workflow, address formatting, and order tracking",
+    titleEn: "Martin Auto-Fulfillment",
+    titlePt: "Martin Auto-Fulfillment",
+    problemEn: "Manual order fulfillment between Shopify and Shopee was time-consuming.",
+    problemPt: "O fulfillment manual de pedidos entre Shopify e Shopee era demorado.",
+    solutionEn: "Custom automation integrating Shopify orders with Shopee for streamlined fulfillment, address formatting, and tracking.",
+    solutionPt: "Automação customizada integrando pedidos Shopify com Shopee para fulfillment, formatação de endereço e rastreamento simplificados.",
+    impactEn: "Automated fulfillment workflow that removed daily manual work.",
+    impactPt: "Workflow de fulfillment automatizado que eliminou trabalho manual diário.",
     tags: ["Python", "Streamlit", "Playwright", "Shopify API", "Automation"],
     link: "https://github.com/abrahao-dev/martin-autofulfill",
-    demoLink: "",
     hasCode: true,
-    hasDemo: false,
-    featured: false
+    featured: false,
   },
   {
-    title: "Smart Irrigation Dashboard",
-    problem: "Farmers needed real-time monitoring of soil conditions and remote irrigation control",
-    solution: "Built real-time dashboard with React and MQTT for IoT sensor data visualization",
-    impact: "Monitor soil moisture, temperature, rainfall, and control irrigation remotely",
-    tags: ["React", "MQTT", "IoT", "ESP32", "Tailwind CSS", "Real-time"],
-    link: "https://github.com/abrahao-dev/smart-irrigation-dashboard",
-    demoLink: "",
-    hasCode: true,
-    hasDemo: false,
-    featured: false
-  },
-  {
-    title: "Real-time Messaging Platform",
-    problem: "Needed a scalable messaging solution with modern architecture",
-    solution: "Built with Java Spring Boot, RabbitMQ, React, and Redux for real-time updates",
-    impact: "Scalable messaging with robust backend services and modern UI",
-    tags: ["Java", "Spring Boot", "RabbitMQ", "React", "Redux", "Real-time"],
-    link: "https://github.com/abrahao-dev/messaging-app",
-    demoLink: "",
-    hasCode: true,
-    hasDemo: false,
-    featured: false
-  },
-  {
-    title: "Bitcoin Market Trends Analysis",
-    problem: "Investors needed data-driven insights into Bitcoin price patterns",
-    solution: "Built analysis tool using clustering and pattern recognition on historical Bitcoin data",
-    impact: "Uncovered market trends and potential price movements through ML analysis",
-    tags: ["Python", "Machine Learning", "Clustering", "Jupyter", "Data Visualization"],
-    link: "https://github.com/abrahao-dev/BitcoinMarketTrends",
-    demoLink: "",
-    hasCode: true,
-    hasDemo: false,
-    featured: false
-  },
-  {
-    title: "Venna Shopify Theme",
-    problem: "Needed a customizable Shopify 2.0 theme following best practices",
-    solution: "Built modern Shopify theme with Liquid, sections, and structured reusable components",
-    impact: "Demonstrates best practices in Shopify theme development",
-    tags: ["Shopify", "Liquid", "JavaScript", "CSS", "E-commerce"],
+    titleEn: "Venna Shopify Theme",
+    titlePt: "Tema Shopify Venna",
+    problemEn: "Reusable Shopify 2.0 theme starter following best practices.",
+    problemPt: "Tema-base Shopify 2.0 reutilizável seguindo as melhores práticas.",
+    solutionEn: "Modern Shopify theme with Liquid sections and structured, reusable components.",
+    solutionPt: "Tema Shopify moderno com seções Liquid e componentes estruturados e reutilizáveis.",
+    impactEn: "Reference implementation showcasing Shopify theme best practices.",
+    impactPt: "Implementação de referência demonstrando melhores práticas de temas Shopify.",
+    tags: ["Shopify", "Liquid", "JavaScript", "CSS"],
     link: "https://github.com/abrahao-dev/venna-shopify-theme",
-    demoLink: "",
     hasCode: true,
-    hasDemo: false,
-    featured: false
+    featured: false,
   },
   {
-    title: "CPF/CNPJ Validator (Rust)",
-    problem: "Needed a fast, reliable validator for Brazilian tax IDs",
-    solution: "Built CLI tool in Rust with automatic formatting and official algorithms",
-    impact: "Fast CLI validation with full formatting support for Brazilian documents",
-    tags: ["Rust", "CLI", "Brazil", "Validation"],
-    link: "https://github.com/abrahao-dev/cpf-cnpj-validator",
-    demoLink: "",
+    titleEn: "EHR Integration System",
+    titlePt: "Sistema de Integração EHR",
+    problemEn: "Healthcare providers needed standardized patient data mapping to multiple EHR systems.",
+    problemPt: "Profissionais de saúde precisavam de mapeamento padronizado de dados de pacientes para múltiplos sistemas EHR.",
+    solutionEn: "Internal tool for mapping and submitting patient data to Electronic Health Record systems with multi-provider support.",
+    solutionPt: "Ferramenta interna para mapear e enviar dados de pacientes para sistemas de Electronic Health Record com suporte multi-provedor.",
+    impactEn: "Tested, scalable, production-ready integration across multiple EHR providers.",
+    impactPt: "Integração testada, escalável e pronta para produção em múltiplos provedores de EHR.",
+    tags: ["TypeScript", "Node.js", "React", "Express", "Healthcare"],
+    link: "https://github.com/abrahao-dev/ehr-integration",
     hasCode: true,
-    hasDemo: false,
-    featured: false
+    featured: false,
+  },
+  {
+    titleEn: "NFT Marketplace",
+    titlePt: "Marketplace NFT",
+    problemEn: "Needed a complete decentralized marketplace for NFT trading with modern architecture.",
+    problemPt: "Era necessário um marketplace descentralizado completo para negociação de NFTs com arquitetura moderna.",
+    solutionEn: "Full-stack Web3 dApp with React frontend, Go backend, and Solidity smart contracts.",
+    solutionPt: "dApp Web3 full-stack com frontend React, backend Go e contratos inteligentes em Solidity.",
+    impactEn: "Complete marketplace with wallet integration, minting, and trading.",
+    impactPt: "Marketplace completo com integração de carteira, minting e negociação.",
+    tags: ["React", "Go", "Solidity", "Web3", "Smart Contracts"],
+    link: "https://github.com/abrahao-dev/nft-marketplace",
+    hasCode: true,
+    featured: false,
+  },
+  {
+    titleEn: "Smart Irrigation Dashboard",
+    titlePt: "Dashboard de Irrigação Inteligente",
+    problemEn: "Farmers needed real-time monitoring of soil conditions and remote irrigation control.",
+    problemPt: "Agricultores precisavam de monitoramento em tempo real de condições do solo e controle remoto de irrigação.",
+    solutionEn: "Real-time React dashboard with MQTT connecting to ESP32 sensors.",
+    solutionPt: "Dashboard React em tempo real com MQTT conectado a sensores ESP32.",
+    impactEn: "Soil moisture, temperature, and rainfall monitoring with remote irrigation control.",
+    impactPt: "Monitoramento de umidade do solo, temperatura e chuva com controle remoto de irrigação.",
+    tags: ["React", "MQTT", "IoT", "ESP32", "Real-time"],
+    link: "https://github.com/abrahao-dev/smart-irrigation-dashboard",
+    hasCode: true,
+    featured: false,
+  },
+  {
+    titleEn: "CPF/CNPJ Validator (Rust)",
+    titlePt: "Validador CPF/CNPJ (Rust)",
+    problemEn: "Needed a fast, reliable validator for Brazilian tax IDs.",
+    problemPt: "Era necessário um validador rápido e confiável para CPFs e CNPJs.",
+    solutionEn: "CLI tool in Rust with automatic formatting and official validation algorithms.",
+    solutionPt: "Ferramenta CLI em Rust com formatação automática e algoritmos oficiais de validação.",
+    impactEn: "Fast CLI validation with full formatting support for Brazilian documents.",
+    impactPt: "Validação CLI rápida com suporte completo a formatação de documentos brasileiros.",
+    tags: ["Rust", "CLI", "Brazil"],
+    link: "https://github.com/abrahao-dev/cpf-cnpj-validator",
+    hasCode: true,
+    featured: false,
   },
 ]
 
 export default function Projects() {
+  const { t, language } = useLanguage()
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
 
-  const handleProjectClick = (link: string) => {
+  const handleProjectClick = (link?: string) => {
     if (link && link !== '#') {
       window.open(link, '_blank', 'noopener,noreferrer')
     }
   }
 
-  const featuredProjects = projects.filter(p => p.featured)
-  const otherProjects = projects.filter(p => !p.featured)
+  const featuredProjects = projects.filter((p) => p.featured)
+  const otherProjects = projects.filter((p) => !p.featured)
+
+  const pickTitle = (p: Project) => (language === 'pt-BR' ? p.titlePt : p.titleEn)
+  const pickProblem = (p: Project) => (language === 'pt-BR' ? p.problemPt : p.problemEn)
+  const pickSolution = (p: Project) => (language === 'pt-BR' ? p.solutionPt : p.solutionEn)
+  const pickImpact = (p: Project) => (language === 'pt-BR' ? p.impactPt : p.impactEn)
 
   return (
     <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -199,21 +251,18 @@ export default function Projects() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-gradient inline-block py-2">
-          Full Stack Projects
-        </span>
+        <span className="text-gradient inline-block py-2">{t('projects.title')}</span>
       </motion.h1>
 
       <motion.p
-        className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-lg"
+        className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-base sm:text-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
-        Production systems I&apos;ve built and shipped. Each project showcases real business impact—from $90K+ in e-commerce revenue to AI-powered platforms serving enterprise clients.
+        {t('projects.subtitle')}
       </motion.p>
 
-      {/* Featured Projects */}
       <motion.div
         className="mb-16"
         initial={{ opacity: 0 }}
@@ -221,13 +270,14 @@ export default function Projects() {
         transition={{ delay: 0.3, duration: 0.5 }}
       >
         <h2 className="text-xl sm:text-2xl font-semibold mb-6 flex items-center gap-2">
-          <TrendingUp className="h-5 w-5 text-primary" />
-          Featured Work
+          <ShoppingBag className="h-5 w-5 text-primary" />
+          {t('projects.featured')}
+          <TrendingUp className="h-5 w-5 text-primary ml-auto sm:ml-2" />
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {featuredProjects.map((project, index) => (
             <motion.div
-              key={index}
+              key={project.titleEn}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
@@ -239,29 +289,38 @@ export default function Projects() {
                 <Card className="h-full flex flex-col bg-gradient-to-br from-primary/5 to-secondary/10 backdrop-blur-sm border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 relative z-10 overflow-hidden glass-card">
                   <CardHeader className="pb-2">
                     <div className="flex items-center gap-2 mb-2">
-                      <Badge variant="default" className="bg-primary/20 text-primary text-xs">Featured</Badge>
+                      <Badge variant="default" className="bg-primary/20 text-primary text-xs">
+                        <Sparkles className="h-3 w-3 mr-1" />
+                        {t('projects.featured')}
+                      </Badge>
                     </div>
-                    <CardTitle className="text-xl sm:text-2xl font-semibold leading-tight group-hover:text-primary transition-colors duration-300">
-                      {project.title}
+                    <CardTitle className="text-lg sm:text-xl lg:text-2xl font-semibold leading-tight group-hover:text-primary transition-colors duration-300">
+                      {pickTitle(project)}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="flex-grow py-2 space-y-3">
                     <div>
-                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Problem</p>
-                      <p className="text-sm text-foreground">{project.problem}</p>
+                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                        {t('projects.problem')}
+                      </p>
+                      <p className="text-sm text-foreground">{pickProblem(project)}</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Solution</p>
-                      <p className="text-sm text-foreground">{project.solution}</p>
+                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                        {t('projects.solution')}
+                      </p>
+                      <p className="text-sm text-foreground">{pickSolution(project)}</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">Impact</p>
-                      <p className="text-sm text-foreground font-medium">{project.impact}</p>
+                      <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">
+                        {t('projects.impact')}
+                      </p>
+                      <p className="text-sm text-foreground font-medium">{pickImpact(project)}</p>
                     </div>
                     <div className="flex flex-wrap gap-2 pt-2">
-                      {project.tags.slice(0, 5).map((tag, tagIndex) => (
+                      {project.tags.slice(0, 5).map((tag) => (
                         <Badge
-                          key={tagIndex}
+                          key={tag}
                           variant="secondary"
                           className="bg-secondary/50 text-xs hover:bg-secondary/70 transition-colors duration-200"
                         >
@@ -285,7 +344,7 @@ export default function Projects() {
                         disabled={!project.link || project.link === '#'}
                       >
                         <Github className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                        Code
+                        {t('projects.code')}
                       </Button>
                     )}
                     {project.hasDemo && (
@@ -297,7 +356,7 @@ export default function Projects() {
                         disabled={!project.demoLink || project.demoLink === '#'}
                       >
                         <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                        View Live
+                        {t('projects.live')}
                       </Button>
                     )}
                   </CardFooter>
@@ -308,17 +367,16 @@ export default function Projects() {
         </div>
       </motion.div>
 
-      {/* Other Projects */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        <h2 className="text-xl sm:text-2xl font-semibold mb-6">Open Source & More Projects</h2>
+        <h2 className="text-xl sm:text-2xl font-semibold mb-6">{t('projects.other')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {otherProjects.map((project, index) => (
             <motion.div
-              key={index}
+              key={project.titleEn}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: (index + featuredProjects.length) * 0.05 }}
@@ -329,26 +387,32 @@ export default function Projects() {
               <Card className="h-full flex flex-col bg-secondary/10 backdrop-blur-sm border-none shadow-lg hover:shadow-xl transition-all duration-300 relative z-10 overflow-hidden group-hover:scale-[1.02]">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-lg sm:text-xl font-semibold leading-tight group-hover:text-primary transition-colors duration-300">
-                    {project.title}
+                    {pickTitle(project)}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow py-2 space-y-3">
                   <div>
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Problem</p>
-                    <p className="text-sm text-foreground">{project.problem}</p>
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                      {t('projects.problem')}
+                    </p>
+                    <p className="text-sm text-foreground">{pickProblem(project)}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Solution</p>
-                    <p className="text-sm text-foreground">{project.solution}</p>
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                      {t('projects.solution')}
+                    </p>
+                    <p className="text-sm text-foreground">{pickSolution(project)}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">Impact</p>
-                    <p className="text-sm text-foreground font-medium">{project.impact}</p>
+                    <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">
+                      {t('projects.impact')}
+                    </p>
+                    <p className="text-sm text-foreground font-medium">{pickImpact(project)}</p>
                   </div>
                   <div className="flex flex-wrap gap-2 pt-2">
-                    {project.tags.slice(0, 4).map((tag, tagIndex) => (
+                    {project.tags.slice(0, 4).map((tag) => (
                       <Badge
-                        key={tagIndex}
+                        key={tag}
                         variant="secondary"
                         className="bg-primary/20 text-primary-foreground text-xs hover:bg-primary/30 transition-colors duration-200"
                       >
@@ -372,7 +436,7 @@ export default function Projects() {
                       disabled={!project.link || project.link === '#'}
                     >
                       <Github className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                      Code
+                      {t('projects.code')}
                     </Button>
                   )}
                   {project.hasDemo && (
@@ -384,7 +448,7 @@ export default function Projects() {
                       disabled={!project.demoLink || project.demoLink === '#'}
                     >
                       <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                      View Live
+                      {t('projects.live')}
                     </Button>
                   )}
                 </CardFooter>
@@ -392,7 +456,7 @@ export default function Projects() {
               <AnimatePresence>
                 {hoveredProject === index + featuredProjects.length && (
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg"
+                    className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg pointer-events-none"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -405,7 +469,6 @@ export default function Projects() {
         </div>
       </motion.div>
 
-      {/* GitHub CTA */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -415,21 +478,49 @@ export default function Projects() {
         <Card className="max-w-xl mx-auto bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 border-primary/20">
           <CardContent className="py-8">
             <Github className="h-10 w-10 mx-auto mb-4 text-primary" />
-            <h3 className="text-xl font-semibold mb-2">More on GitHub</h3>
-            <p className="text-muted-foreground mb-6">
-              Check out more projects, contributions, and experiments on my GitHub profile.
-            </p>
+            <h3 className="text-xl font-semibold mb-2">{t('projects.github.title')}</h3>
+            <p className="text-muted-foreground mb-6">{t('projects.github.desc')}</p>
             <Button
               variant="default"
               size="lg"
-              onClick={() => window.open('https://github.com/abrahao-dev', '_blank')}
+              onClick={() => window.open('https://github.com/abrahao-dev', '_blank', 'noopener,noreferrer')}
             >
               <Github className="mr-2 h-5 w-5" />
-              View GitHub Profile
+              {t('projects.github.cta')}
             </Button>
           </CardContent>
         </Card>
       </motion.div>
+
+      {/* Structured data: ItemList of featured projects for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            'name': 'Projetos | Matheus Abrahão',
+            'url': 'https://matheusabrahao.com.br/projects',
+            'inLanguage': ['pt-BR', 'en'],
+            'mainEntity': {
+              '@type': 'ItemList',
+              'name': 'Featured Projects by Matheus Abrahão',
+              'itemListElement': featuredProjects.map((p, i) => ({
+                '@type': 'ListItem',
+                'position': i + 1,
+                'item': {
+                  '@type': 'CreativeWork',
+                  'name': p.titleEn,
+                  'description': p.solutionEn,
+                  'keywords': p.tags.join(', '),
+                  'creator': { '@type': 'Person', 'name': 'Matheus Abrahão' },
+                  ...(p.demoLink ? { 'url': p.demoLink } : {}),
+                },
+              })),
+            },
+          }),
+        }}
+      />
     </div>
   )
 }

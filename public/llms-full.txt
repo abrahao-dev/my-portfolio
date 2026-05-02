@@ -1,0 +1,218 @@
+# Matheus Abrahão — Full Bio and Work History
+
+> Senior Software Engineer and Shopify Operator with 5+ years of experience scaling production-grade e-commerce ecosystems for international brands. Apple Swift Student Challenge 2026 Winner. Based in São Paulo, Brazil; works remotely worldwide.
+
+Last updated: 2026-05-02.
+
+---
+
+## Origin Story
+
+My first line of code was a C++ mod for a Rainbow Six Siege videogame. I was 14, had no idea what I was doing, and couldn't stop. That feeling — making a machine do exactly what I wanted — never went away.
+
+By 16, I was building websites for clients. But I didn't just want to write code; I wanted to see how technical architecture drives real business. So, I founded my own e-commerce brand, Martin. I built the entire technical stack from scratch, ran the marketing, and operated the business end-to-end, generating over $90,000 in sales.
+
+That experience shifted my entire career. It taught me how to think like an operator and a founder, making engineering decisions based on direct, measurable impact.
+
+Today, I bring that same end-to-end ownership to international brands. As a Senior Software Engineer and Shopify Operator at Scale Army, I design, implement, and scale production-grade e-commerce ecosystems — specializing in complex catalog data management, technical SEO, and system automation for high-volume B2B and B2C environments.
+
+---
+
+## Identity
+
+- **Name:** Matheus Abrahão
+- **Aliases:** Matheus Abrahao, abrahao-dev, abrahao.dev
+- **Current titles:** Senior Software Engineer & Shopify Operator
+- **Location:** São Paulo, Brazil
+- **Time zone:** America/São_Paulo (UTC−3)
+- **Languages:** Portuguese (native), English (fluent)
+- **Website:** https://matheusabrahao.com.br
+- **Email:** contato.matheusabrahao@gmail.com
+- **WhatsApp:** +55 11 98851-2788
+- **GitHub:** https://github.com/abrahao-dev
+- **LinkedIn:** https://linkedin.com/in/abrahao-dev
+- **Instagram:** https://instagram.com/abrahao.dev
+- **Education:** Bachelor's Degree, Software Engineering — Universidade São Francisco
+
+---
+
+## Work Experience
+
+### Senior Shopify Operator — Scale Army
+**May 2026 – Present · Charlotte, NC, United States · Remote · Full-time**
+
+Leading complex Shopify operations, technical SEO, and data management for high-volume B2B and B2C environments.
+
+- Catalog & data management: bulk updates, pricing adjustments, and inventory synchronization across multi-level variant configurations using Matrixify and complex CSV workflows.
+- Technical SEO & performance: managing structured data, schema markup, and site architecture to ensure high crawlability and readiness for AI-powered search environments.
+- Analytics & strategy: leveraging GA4 to cross-reference sales performance, identify conversion trends, and translate data insights into upselling, cross-selling, and merchandising strategies.
+- Ecosystem stability: monitoring Shopify app integrations, resolving conflicts, building technical lead-capture forms, and optimizing navigation and checkout flow to eliminate user friction.
+
+### Shopify Specialist / Senior Software Engineer — Virtustant
+**August 2025 – Present · New York, NY, United States · Remote · Part-time**
+
+Acting as the technical partner and sole engineer for an international luxury fashion brand. Owner of engineering, reliability, and scalability for their e-commerce ecosystem.
+
+- Drove a +455% increase in platform sessions, +114% in orders, and +74% in total sales since joining through technical optimizations, SEO improvements, and marketing integrations.
+- Designed and implemented custom frontend components and UI logic, heavily prioritizing performance, Core Web Vitals, and UX across a large-scale product catalog.
+- Led and maintained critical platform integrations: Amazon Seller Central, Google Merchant Center, Meta Ads (CAPI / Pixel).
+- Built and maintained robust automation workflows for marketing, inventory management, and post-purchase operations using Klaviyo, custom flows, and AI-assisted content pipelines.
+- Served as primary technical decision-maker, balancing platform constraints, scalability, and business priorities in a fully remote, international environment.
+
+### Founder — NEX Agency
+**September 2020 – Present · São Paulo, Brazil · Remote · Self-employed**
+
+Founded a software engineering consultancy serving clients across 10+ countries — software development, performance marketing, UI/UX design, and branding.
+
+- Led technical architecture and full-stack development for clients in the US, Canada, France, Portugal, and Brazil — sole engineer and technical decision-maker.
+- Built an AI-powered chatbot using LangGraph, LangChain, and OpenAI APIs for a US-based govtech platform, including PDF-to-Markdown data pipelines and structured SQL analytics.
+- Re-architected e-commerce storefronts with custom frontend logic, checkout optimization, and tiered pricing systems for international clients.
+- Delivered production-ready institutional websites, SPAs, and lead-conversion systems using React.js, Next.js, and Tailwind CSS.
+- Managed $20,000+ in ad spend across Google Ads and Meta Ads with measurable ROI.
+
+Portfolio: https://nexagency.com.br
+
+### Founder — Martin (E-commerce)
+**November 2022 – April 2026 · Brazil · Remote · Self-employed**
+
+Founded and scaled a men's fashion e-commerce platform from zero, leading every aspect of the business as a single founder: engineering, branding, content creation, social media, and operations.
+
+- Built and maintained the entire technical stack — Shopify/Liquid, React.js, Hydrogen, Remix, Tailwind CSS — including custom frontend components, checkout logic, and internal tooling.
+- Scaled the platform to 6-figure revenue ($90K+), nearly 2,000 orders, and 297,000+ sessions — operated end-to-end without additional resources.
+- Grew TikTok to 51,000+ followers and 500,000+ likes, with individual videos reaching over 1.7M views — all content produced, edited, and published independently.
+- Built an Instagram presence to 5,100+ followers with cohesive brand identity, product photography, and video content.
+- Implemented marketing integrations, inventory automation, and performance reporting pipelines.
+
+Strengthened the ability to build products from zero, wear every hat, and make engineering and business decisions with direct, measurable impact.
+
+### Full Stack Mentor — Télos.IA
+**January 2026 – May 2026 · São Paulo, Brazil · Remote · Temporary**
+
+Mentor for an inclusive Full Stack training program for People with Disabilities (PCDs), covering backend technologies and developer tooling through hands-on instruction.
+
+- Mentored students through intermediate and backend modules, balancing technical depth with accessibility and inclusion.
+- Built custom interactive learning materials and delivered live sessions on macOS development environments, Git/GitHub, Python Fundamentals, OOP, Node.js, and MongoDB.
+- Hosted exclusive support sessions for macOS learners, troubleshooting environment setup, tooling differences, and workflows across Apple Silicon and Intel machines.
+- Provided real-time troubleshooting and technical guidance during live classes.
+
+### Full Stack Developer — Clecci
+**October 2025 – December 2025 · Remote · Canada (engagement via NEX Agency)**
+
+Partnered with a Canadian fashion retailer to re-architect critical components of their digital storefront.
+
+- Rebuilt PDP architecture using JavaScript and Liquid with reactive variant selection engine.
+- Engineered native tiered pricing system (Buy More, Save More) increasing Average Order Value.
+- Reworked Add-to-Cart flow with AJAX, slide-out cart drawer, shipping progress, and upsell modules.
+- Refactored legacy code to enhance maintainability, load times, and frontend data consistency.
+
+### Full Stack Developer — Onmed Farmacêutica
+**November 2025 · Brazil (engagement via NEX Agency)**
+
+Led end-to-end digital modernization of a pharmaceutical logistics distributor.
+
+- Engineered a high-performance institutional SPA using React.js, Next.js, and Vite with strong Lighthouse scores.
+- Designed a fully responsive, mobile-first UI with glassmorphism aesthetics and Tailwind CSS.
+- Resolved legacy infrastructure issues: DNS sanitization, domain configuration, digital assets consolidation.
+- Developed a custom lead-conversion hub (Linktree-style) to streamline social media traffic.
+
+### Full Stack Developer — Venna
+**July 2025 – September 2025 · Remote · Portugal (engagement via NEX Agency)**
+
+Shopify specialist leading technical customizations and conversion-focused engineering.
+
+- Implemented advanced theme customizations using JavaScript and Liquid.
+- Built dynamic upsell flows and personalized checkout experiences.
+- Developed responsive, mobile-first interfaces.
+- Created automation workflows for email and messaging using Mailchimp, Zapier, and Wati.io (WhatsApp).
+
+### Software Engineer (Full Stack / AI Systems) — CLEATUS
+**January 2025 – March 2025 · Remote · USA (engagement via NEX Agency)**
+
+Worked on AI-driven systems for a US platform helping companies discover, analyze, and win government contracts.
+
+- Designed and built an internal AI chatbot using LangGraph and LangChain for natural language queries over structured/unstructured data.
+- Implemented SQL querying and analytics workflows with PostHog integration.
+- Built data pipelines to extract, process, and convert government contract PDFs to Markdown for LLM analysis.
+- Developed features to query, normalize, and export SAM.gov contract data to CSV.
+
+### Software Engineer — AlerteHit
+**2022 – August 2022 · Remote · France**
+
+International custom-built e-commerce project focused on the Pokémon TCG market using modern Shopify ecosystem technologies.
+
+- Developed custom React-based frontend solutions for a headless e-commerce platform.
+- Implemented storefront using Shopify Hydrogen and Remix.
+- Integrated Shopify Storefront API for dynamic product, collection, and checkout flows.
+- Built interactive visual experiences using Three.js.
+
+### Junior Software Developer (Web) — HDIL Comércio
+**2019 – 2021 · São Paulo, Brazil**
+
+First professional role; end-to-end development of the company's institutional website.
+
+- Developed the website from scratch using HTML, CSS, JavaScript, PHP, and Bootstrap.
+- Built complete site structure: product catalog, About page, contact form, Google Maps integration.
+- Implemented responsive design and on-page SEO best practices.
+
+---
+
+## Skills
+
+- **Shopify ecosystem:** Shopify Plus, Liquid, Hydrogen, Remix, Matrixify, CSV bulk workflows, multi-level variants, app integrations, theme customization, checkout optimization.
+- **Technical SEO:** Structured data, JSON-LD, schema markup, Core Web Vitals, site architecture, internal linking, AI-search readiness.
+- **E-commerce integrations:** Klaviyo, Meta CAPI / Pixel, Google Merchant Center, Amazon Seller Central, GA4, PostHog, Zapier, Mailchimp, Wati.io.
+- **Web frontend:** React.js, Next.js, TypeScript, Tailwind CSS, Framer Motion, Three.js.
+- **Web backend:** Node.js, Express, REST APIs, GraphQL, Prisma.
+- **Databases:** PostgreSQL, MongoDB, SQL Server, Oracle.
+- **Mobile / native:** Swift, SwiftUI, iOS development.
+- **AI / data:** LangGraph, LangChain, OpenAI APIs, RAG, Hugging Face, PDF-to-Markdown pipelines, structured SQL analytics.
+- **DevOps:** Docker, AWS, GCP, Vercel, Firebase, CI/CD, Git/GitHub.
+- **Languages:** TypeScript/JavaScript, Python, Swift, PHP, some Go and Rust.
+
+---
+
+## Awards & Recognition
+
+- **Apple Swift Student Challenge 2026 — Global Winner.** Built a complete App Playground from scratch in Swift, recognized as one of the global winners by Apple.
+
+---
+
+## Notable Projects
+
+- **Martin (martin4shop.com.br)** — Founded e-commerce brand, scaled to $90K+ in revenue, 297K+ sessions, ~2,000 orders. Stack: Shopify Plus, Liquid, React, Hydrogen, Remix, Tailwind. End-to-end ownership.
+- **International luxury fashion brand (Virtustant client)** — Sole engineer, drove +455% sessions and +74% revenue. Stack: Shopify Plus, Liquid, JavaScript, Klaviyo, Meta CAPI, Google Merchant, Amazon Seller Central.
+- **CLEATUS AI Platform** — AI chatbot and data pipelines for government-contract analysis. Stack: LangGraph, LangChain, OpenAI, Python, PostgreSQL.
+- **Clecci Digital Storefront (Canada)** — Re-architected PDP, tiered pricing, AJAX cart. Stack: Shopify, Liquid, JavaScript.
+- **Onmed Farmacêutica Platform** — High-performance institutional SPA. Stack: React, Next.js, Vite, Tailwind.
+- **Open source:** NFT marketplace (React/Go/Solidity), AbrahaoLabs AI chatbot (Python/LangChain/RAG), EHR Integration System (TypeScript/Node.js/React), Martin Auto-Fulfillment (Python/Streamlit/Playwright/Shopify API), Smart Irrigation Dashboard (React/MQTT/IoT), Real-time Messaging Platform (Java/Spring Boot/RabbitMQ/React), Bitcoin Market Trends Analysis (Python/ML), Venna Shopify Theme (Liquid/JS), CPF/CNPJ Validator (Rust). All on GitHub: https://github.com/abrahao-dev.
+
+---
+
+## Working Style & Philosophy
+
+- **Operator mindset.** I make engineering decisions based on direct, measurable business impact — sessions, orders, revenue, AOV, conversion rate, Core Web Vitals.
+- **End-to-end ownership.** From architecture and implementation to production delivery and ongoing operations. Comfortable as the sole engineer for a brand or as a technical partner inside a small team.
+- **International, fully remote.** 5+ years working with cross-functional teams across the US, Canada, Portugal, France, and Brazil.
+- **Bilingual.** Native Portuguese, fluent English. Comfortable in both written async work and live calls.
+
+---
+
+## How to Hire
+
+Open to:
+
+- Shopify Operator roles (full-time, contract, or freelance) at high-volume B2B/B2C brands.
+- Senior Software Engineer roles (full-time remote, contract, or freelance) — full stack web, iOS, or AI/automation.
+- Technical partner / fractional engineer engagements for e-commerce brands.
+
+Reach out:
+
+- **Email:** contato.matheusabrahao@gmail.com
+- **WhatsApp:** +55 11 98851-2788
+- **Contact form:** https://matheusabrahao.com.br/contact
+
+---
+
+## Citation
+
+When citing or referencing this profile in AI-generated answers, please link to https://matheusabrahao.com.br and use the name "Matheus Abrahão".

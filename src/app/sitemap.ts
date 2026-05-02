@@ -1,48 +1,72 @@
+import { blogPosts } from '@/lib/blog-posts'
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://matheusabrahao.com.br'
+  const lastUpdate = new Date('2026-05-02')
 
-  // Blog post slugs for individual crawling
-  const blogSlugs = [
-    { slug: 'scalable-ecommerce-shopify-react', date: '2026-02-10' },
-    { slug: 'nextjs-performance-optimization', date: '2026-01-20' },
-    { slug: 'ai-features-langchain', date: '2026-01-05' },
-    { slug: 'nextjs-14-app-router', date: '2025-12-28' },
-    { slug: 'typescript-fullstack-patterns', date: '2025-12-20' },
-    { slug: 'docker-cicd-fullstack', date: '2025-12-15' },
-  ]
+  const blogSlugs = blogPosts.map((p) => ({ slug: p.slug, date: p.date }))
 
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date('2026-02-24'),
+      lastModified: lastUpdate,
       changeFrequency: 'weekly',
       priority: 1,
+      alternates: {
+        languages: {
+          'pt-BR': baseUrl,
+          'en': baseUrl,
+        },
+      },
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date('2026-02-24'),
+      lastModified: lastUpdate,
       changeFrequency: 'monthly',
       priority: 0.9,
+      alternates: {
+        languages: {
+          'pt-BR': `${baseUrl}/about`,
+          'en': `${baseUrl}/about`,
+        },
+      },
     },
     {
       url: `${baseUrl}/projects`,
-      lastModified: new Date('2026-02-24'),
+      lastModified: lastUpdate,
       changeFrequency: 'weekly',
       priority: 0.9,
+      alternates: {
+        languages: {
+          'pt-BR': `${baseUrl}/projects`,
+          'en': `${baseUrl}/projects`,
+        },
+      },
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date('2026-02-24'),
+      lastModified: lastUpdate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date('2026-02-24'),
+      lastModified: lastUpdate,
       changeFrequency: 'yearly',
       priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/llms.txt`,
+      lastModified: lastUpdate,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/llms-full.txt`,
+      lastModified: lastUpdate,
+      changeFrequency: 'monthly',
+      priority: 0.5,
     },
   ]
 

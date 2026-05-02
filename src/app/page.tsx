@@ -6,7 +6,7 @@ import { MagneticWrapper } from "@/components/ui/magnetic-wrapper";
 import { TypingText } from "@/components/ui/typing-text";
 import { useLanguage } from "@/contexts/language-context";
 import { motion } from "framer-motion";
-import { ArrowRight, Briefcase, Code2, Github, Instagram, Linkedin, Mail, MessageCircle, Server, TrendingUp } from "lucide-react";
+import { ArrowRight, Briefcase, Code2, Github, Globe, Instagram, Linkedin, Mail, MessageCircle, TrendingUp } from "lucide-react";
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
@@ -17,38 +17,56 @@ const ParticleField = dynamic(() => import('@/components/three/ParticleField'), 
 });
 
 const technologies = [
-  { name: "React", category: "Frontend", icon: "devicon-react-original colored" },
+  { name: "Shopify Plus", category: "E-commerce", icon: "devicon-shopify-plain colored" },
+  { name: "Liquid", category: "Shopify", icon: "devicon-shopify-plain colored" },
+  { name: "Hydrogen + Remix", category: "Headless", icon: "devicon-shopify-plain colored" },
+  { name: "Matrixify", category: "Catalog", icon: "devicon-shopify-plain colored" },
+  { name: "Klaviyo", category: "Marketing", icon: "devicon-mailchimp-plain colored" },
+  { name: "GA4 + PostHog", category: "Analytics", icon: "devicon-google-plain colored" },
   { name: "Next.js", category: "Framework", icon: "devicon-nextjs-plain" },
+  { name: "React", category: "Frontend", icon: "devicon-react-original colored" },
   { name: "TypeScript", category: "Language", icon: "devicon-typescript-plain colored" },
   { name: "Node.js", category: "Backend", icon: "devicon-nodejs-plain colored" },
-  { name: "Swift", category: "Mobile", icon: "devicon-swift-plain colored" },
-  { name: "SwiftUI", category: "Mobile", icon: "devicon-swift-plain colored" },
   { name: "PostgreSQL", category: "Database", icon: "devicon-postgresql-plain colored" },
-  { name: "Prisma", category: "ORM", icon: "devicon-prisma-original" },
-  { name: "GraphQL", category: "API", icon: "devicon-graphql-plain colored" },
-  { name: "Shopify", category: "E-commerce", icon: "devicon-shopify-plain colored" },
-  { name: "Docker", category: "DevOps", icon: "devicon-docker-plain colored" },
-  { name: "AWS/GCP", category: "Cloud", icon: "devicon-amazonwebservices-plain-wordmark colored" },
+  { name: "Swift / SwiftUI", category: "iOS", icon: "devicon-swift-plain colored" },
 ];
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const stats = [
     { label: t('home.stats.experience'), value: "5+", icon: Briefcase },
     { label: t('home.stats.revenue'), value: "$90K+", icon: TrendingUp },
     { label: t('home.stats.projects'), value: "10+", icon: Code2 },
-    { label: t('home.stats.remote'), value: "Global", icon: Server },
+    { label: t('home.stats.remote'), value: "10+", icon: Globe },
   ];
+
+  const typingTexts = language === 'pt-BR'
+    ? [
+        "Engenheiro de Software Sênior",
+        "Shopify Operator",
+        "Especialista em SEO Técnico",
+        "Vencedor do Apple Swift Student Challenge",
+        "Especialista React & Next.js",
+        "Operador de E-commerce",
+      ]
+    : [
+        "Senior Software Engineer",
+        "Shopify Operator",
+        "Technical SEO Specialist",
+        "Apple Swift Student Challenge Winner",
+        "React & Next.js Specialist",
+        "E-commerce Operator",
+      ];
 
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Hero Section - Full width, immersive */}
-      <section className="relative min-h-[calc(100vh-5rem)] w-full aurora-bg">
+      <section className="relative min-h-[calc(100dvh-5rem)] w-full aurora-bg">
         <ParticleField />
 
         {/* Content wrapper - centered with max-width */}
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-4 sm:px-6 lg:px-8 py-12 lg:py-0">
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100dvh-5rem)] px-4 sm:px-6 lg:px-8 py-12 lg:py-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,13 +92,7 @@ export default function Home() {
 
             <p className="text-xl sm:text-2xl text-primary font-medium mb-4">
               <TypingText
-                texts={[
-                  "Senior Software Engineer",
-                  "React & Next.js Specialist",
-                  "Apple Swift Student Challenge Winner",
-                  "E-commerce Expert",
-                  "iOS Developer"
-                ]}
+                texts={typingTexts}
                 typingSpeed={80}
                 deletingSpeed={40}
                 pauseDuration={2500}

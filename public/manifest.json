@@ -1,7 +1,7 @@
 {
-  "name": "Matheus Abrahão - Senior Full Stack Engineer",
+  "name": "Matheus Abrahão — Senior Software Engineer & Shopify Operator",
   "short_name": "Matheus Abrahão",
-  "description": "Senior Full Stack Engineer with 5+ years building production web applications. React, Next.js, Node.js, TypeScript, Shopify.",
+  "description": "Engenheiro de Software Sênior e Shopify Operator. 5+ anos escalando ecossistemas de e-commerce, SEO técnico e automação de sistemas. Vencedor do Apple Swift Student Challenge 2026.",
   "start_url": "/",
   "id": "/",
   "scope": "/",
@@ -29,7 +29,24 @@
     "technology",
     "developer-tools"
   ],
-  "lang": "en",
+  "lang": "pt-BR",
   "dir": "ltr",
-  "prefer_related_applications": false
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Sobre",
+      "short_name": "Sobre",
+      "url": "/about"
+    },
+    {
+      "name": "Projetos",
+      "short_name": "Projetos",
+      "url": "/projects"
+    },
+    {
+      "name": "Contato",
+      "short_name": "Contato",
+      "url": "/contact"
+    }
+  ]
 }
