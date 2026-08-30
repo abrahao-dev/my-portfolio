@@ -1,270 +1,371 @@
 "use client"
 
-import { AnimatedTechStack } from "@/components/AnimatedTechStack";
-import { Button } from "@/components/ui/button";
-import { MagneticWrapper } from "@/components/ui/magnetic-wrapper";
-import { TypingText } from "@/components/ui/typing-text";
-import { useLanguage } from "@/contexts/language-context";
-import { motion } from "framer-motion";
-import { ArrowRight, Briefcase, Code2, Github, Globe, Instagram, Linkedin, Mail, MessageCircle, TrendingUp } from "lucide-react";
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
+import {
+  EMAIL,
+  HEADLINE_PROOF,
+  ProofBand,
+  StackStrip,
+  WHATSAPP_DISPLAY,
+  whatsappLink,
+} from "@/components/seo-landing"
+import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/contexts/language-context"
+import { ArrowUpRight, Github, Instagram, Linkedin, Mail, MessageCircle } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { useCallback, useState } from "react"
 
-// Dynamic import for ParticleField to avoid SSR issues with Three.js
-const ParticleField = dynamic(() => import('@/components/three/ParticleField'), {
-  ssr: false,
-  loading: () => null
-});
+const WA_TEXT = "Hi Matheus, I found your site. I'd like to talk about my Shopify store:"
 
-const technologies = [
-  { name: "Shopify Plus", category: "E-commerce", icon: "devicon-shopify-plain colored" },
-  { name: "Liquid", category: "Shopify", icon: "devicon-shopify-plain colored" },
-  { name: "Hydrogen + Remix", category: "Headless", icon: "devicon-shopify-plain colored" },
-  { name: "Matrixify", category: "Catalog", icon: "devicon-shopify-plain colored" },
-  { name: "Klaviyo", category: "Marketing", icon: "devicon-mailchimp-plain colored" },
-  { name: "GA4 + PostHog", category: "Analytics", icon: "devicon-google-plain colored" },
-  { name: "Next.js", category: "Framework", icon: "devicon-nextjs-plain" },
-  { name: "React", category: "Frontend", icon: "devicon-react-original colored" },
-  { name: "TypeScript", category: "Language", icon: "devicon-typescript-plain colored" },
-  { name: "Node.js", category: "Backend", icon: "devicon-nodejs-plain colored" },
-  { name: "PostgreSQL", category: "Database", icon: "devicon-postgresql-plain colored" },
-  { name: "Swift / SwiftUI", category: "iOS", icon: "devicon-swift-plain colored" },
-];
+/**
+ * Services written for a store owner, not a developer.
+ * Each card leads with the problem, in the words the owner would use.
+ */
+const SERVICES = {
+  en: [
+    {
+      href: "/shopify-speed-optimization",
+      tag: "Speed & conversion",
+      problem: "Your store is slow and you are losing sales",
+      body: "Pages that take four seconds to load quietly cost you orders every day. I find what is dragging the store down — apps, images, theme code — and fix it, and you see it in the checkout numbers.",
+    },
+    {
+      href: "/klaviyo-expert",
+      tag: "Klaviyo email & SMS",
+      problem: "Your emails are not bringing anyone back",
+      body: "Abandoned carts, welcome sequences, win-backs. Email should be a fifth to a third of your revenue. When it is not, it is almost never the copy — it is the setup underneath it.",
+    },
+    {
+      href: "/matrixify-expert",
+      tag: "Catalog operations",
+      problem: "Updating your catalog eats your whole week",
+      body: "Thousands of products, prices and variants changed safely in bulk instead of one at a time. Nobody on your team should be editing products by hand at midnight.",
+    },
+    {
+      href: "/shopify-migration-expert",
+      tag: "Migration",
+      problem: "You need to move to Shopify without losing Google",
+      body: "Coming off WooCommerce, Magento or Wix. Products, customers, orders — and the part most people get wrong, your search rankings, with every redirect in place.",
+    },
+    {
+      href: "/shopify-expert",
+      tag: "Shopify development",
+      problem: "Your theme cannot do what the business needs",
+      body: "Custom sections, B2B pricing, bundles, subscriptions, wholesale portals. Built properly into your theme instead of stacked as five more apps that slow the store down.",
+    },
+    {
+      href: "/hire-shopify-developer",
+      tag: "Ongoing support",
+      problem: "You just need a reliable person on call",
+      body: "Ongoing hours for the things that keep coming up — a broken app, a launch, a report nobody can pull. The same person every time, who already knows your store.",
+    },
+  ],
+  "pt-BR": [
+    {
+      href: "/shopify-speed-optimization",
+      tag: "Velocidade e conversão",
+      problem: "Sua loja está lenta e perde venda",
+      body: "Página que demora quatro segundos para abrir custa pedido todo dia, em silêncio. Eu descubro o que está travando a loja — apps, imagens, código do tema — e arrumo. Isso aparece no número do checkout.",
+    },
+    {
+      href: "/klaviyo-expert",
+      tag: "Klaviyo e-mail e SMS",
+      problem: "Seus e-mails não trazem ninguém de volta",
+      body: "Carrinho abandonado, boas-vindas, recuperação de cliente. E-mail deveria ser de um quinto a um terço do seu faturamento. Se não é, quase nunca é o texto — é a estrutura por baixo.",
+    },
+    {
+      href: "/matrixify-expert",
+      tag: "Operação de catálogo",
+      problem: "Atualizar o catálogo consome a semana inteira",
+      body: "Milhares de produtos, preços e variantes alterados em massa com segurança, em vez de um por um. Ninguém do seu time deveria editar produto na mão de madrugada.",
+    },
+    {
+      href: "/shopify-migration-expert",
+      tag: "Migração",
+      problem: "Precisa migrar para o Shopify sem perder o Google",
+      body: "Saindo de WooCommerce, Magento ou Wix. Produtos, clientes, pedidos — e a parte que quase todo mundo erra, seu posicionamento na busca, com todos os redirects certos.",
+    },
+    {
+      href: "/shopify-expert",
+      tag: "Desenvolvimento Shopify",
+      problem: "Seu tema não faz o que o negócio precisa",
+      body: "Seções sob medida, preço B2B, kits, assinatura, portal de atacado. Feito direito dentro do tema, em vez de empilhar mais cinco apps que deixam a loja lenta.",
+    },
+    {
+      href: "/hire-shopify-developer",
+      tag: "Suporte contínuo",
+      problem: "Você só quer alguém de confiança à disposição",
+      body: "Horas contínuas para o que sempre aparece — um app quebrado, um lançamento, um relatório que ninguém consegue tirar. Sempre a mesma pessoa, que já conhece sua loja.",
+    },
+  ],
+} as const
 
-export default function Home() {
-  const { t, language } = useLanguage();
+/**
+ * Hero photo slot.
+ *
+ * `public/profile.jpg` is currently a 152-byte text placeholder, not an image,
+ * so pointing at it renders a broken-image glyph. Commit a real portrait
+ * (roughly 800x1000, shot against a plain background) and set PORTRAIT_SRC to
+ * its path — that is the only change needed. Until then the slot renders a
+ * monogram card with the same dimensions, so the layout does not shift when
+ * the photo lands.
+ */
+const PORTRAIT_SRC: string | null = null
 
-  const stats = [
-    { label: t('home.stats.experience'), value: "5+", icon: Briefcase },
-    { label: t('home.stats.revenue'), value: "$90K+", icon: TrendingUp },
-    { label: t('home.stats.projects'), value: "10+", icon: Code2 },
-    { label: t('home.stats.remote'), value: "10+", icon: Globe },
-  ];
-
-  const typingTexts = language === 'pt-BR'
-    ? [
-        "Engenheiro de Software Sênior",
-        "Shopify Operator",
-        "Especialista em SEO Técnico",
-        "Vencedor do Apple Swift Student Challenge",
-        "Especialista React & Next.js",
-        "Operador de E-commerce",
-      ]
-    : [
-        "Senior Software Engineer",
-        "Shopify Operator",
-        "Technical SEO Specialist",
-        "Apple Swift Student Challenge Winner",
-        "React & Next.js Specialist",
-        "E-commerce Operator",
-      ];
+function HeroPortrait() {
+  // Belt and braces: if the file at PORTRAIT_SRC ever 404s or is unreadable,
+  // fall back to the monogram instead of a broken glyph.
+  const [ok, setOk] = useState(true)
+  const check = useCallback((el: HTMLImageElement | null) => {
+    if (el?.complete && el.naturalWidth === 0) setOk(false)
+  }, [])
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Hero Section - Full width, immersive */}
-      <section className="relative min-h-[calc(100dvh-5rem)] w-full aurora-bg">
-        <ParticleField />
+    <div className="relative mx-auto w-full max-w-[320px] lg:max-w-none">
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 scale-110 rounded-[2rem] bg-[radial-gradient(60%_55%_at_50%_45%,hsl(var(--brand)/0.45),transparent_70%)] blur-2xl"
+      />
+      <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-border bg-secondary">
+        {PORTRAIT_SRC && ok ? (
+          <Image
+            ref={check}
+            src={PORTRAIT_SRC}
+            alt="Matheus Abrahão"
+            fill
+            sizes="(max-width: 1024px) 320px, 440px"
+            priority
+            onError={() => setOk(false)}
+            className="portrait-treated object-cover"
+          />
+        ) : (
+          <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-[linear-gradient(155deg,hsl(var(--secondary)),hsl(var(--card)))]">
+            <span className="text-7xl font-bold tracking-tighter text-primary">MA</span>
+            <span className="type-eyebrow text-muted-foreground">Matheus Abrahão</span>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
 
-        {/* Content wrapper - centered with max-width */}
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100dvh-5rem)] px-4 sm:px-6 lg:px-8 py-12 lg:py-0">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm mb-6"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+export default function Home() {
+  const { t, language } = useLanguage()
+  const wa = whatsappLink(WA_TEXT)
+  const services = SERVICES[language]
+
+  // HEADLINE_PROOF is written for the English landing pages; translate the
+  // units and captions so the pt-BR home is not half in English.
+  const proofPt = [
+    { unit: "lojas", label: "operação Shopify que opero hoje, ponta a ponta" },
+    { unit: "sessões", label: "marca internacional de moda de luxo" },
+    { unit: "vendas", label: "marca de beleza e lifestyle dos EUA" },
+  ]
+  const proof = [
+    ...HEADLINE_PROOF.map((p, i) =>
+      language === "pt-BR" ? { ...p, ...(proofPt[i] ?? {}) } : p
+    ),
+    {
+      value: "6+",
+      unit: language === "pt-BR" ? "anos" : "years",
+      label: t("home.stats.years"),
+    },
+  ]
+
+  // The headline always opens with "Shopify"; paint it in the accent colour.
+  const title = t("home.title")
+  const titleRest = title.startsWith("Shopify") ? title.slice("Shopify".length) : ` ${title}`
+
+  return (
+    <div className="relative">
+      {/* ---------- Hero ---------- */}
+      <section className="brand-glow relative overflow-hidden px-4 pb-12 pt-10 sm:px-6 sm:pb-16 sm:pt-14 lg:px-8">
+        <div aria-hidden className="grid-texture pointer-events-none absolute inset-0 -z-10" />
+
+        <div className="mx-auto max-w-content">
+          {/* Status pill left, connect pill right */}
+          <div className="flex items-center justify-between gap-4">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3.5 py-1.5 text-xs font-medium text-muted-foreground">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-70" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
               </span>
-              {t('home.badge')}
-            </motion.div>
+              {t("home.badge")}
+            </span>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
-              <span className="text-gradient">{t('home.title')}</span>
-            </h1>
+            <a
+              href={wa}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] shrink-0 items-center gap-1.5 rounded-full bg-primary px-4 text-xs font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:text-sm"
+            >
+              {t("home.cta.contact")}
+              <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+            </a>
+          </div>
 
-            <p className="text-xl sm:text-2xl text-primary font-medium mb-4">
-              <TypingText
-                texts={typingTexts}
-                typingSpeed={80}
-                deletingSpeed={40}
-                pauseDuration={2500}
-              />
-            </p>
+          {/* No entry animation on the hero: it is the LCP element and must be
+              painted by the server, not revealed by JavaScript. */}
+          <div className="mt-10 grid items-center gap-10 lg:mt-14 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-8">
+              <p className="type-eyebrow text-primary">{t("home.subtitle")}</p>
 
-            <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              {t('home.description')}
-            </p>
+              <h1 className="type-hero mt-5 text-foreground">
+                <span className="text-primary">Shopify</span>
+                {titleRest}
+              </h1>
 
-            {/* CTA Buttons with Magnetic Effect */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <MagneticWrapper strength={0.2}>
-                <Button asChild size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl hover-glow transition-all duration-300 h-12 px-8">
-                  <Link href="/projects" className="flex items-center">
-                    {t('home.cta.projects')}
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </Link>
+              <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                {t("home.description")}
+              </p>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button asChild size="lg" className="h-12 rounded-full px-7 text-[15px]">
+                  <a href={wa} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="mr-2 h-[18px] w-[18px]" aria-hidden />
+                    WhatsApp {WHATSAPP_DISPLAY}
+                  </a>
                 </Button>
-              </MagneticWrapper>
-              <MagneticWrapper strength={0.2}>
-                <Button asChild variant="outline" size="lg" className="group border-2 hover:bg-primary/5 hover-glow transition-all duration-300 h-12 px-8">
-                  <Link href="/contact" className="flex items-center">
-                    <MessageCircle className="mr-2 h-5 w-5" />
-                    {t('home.cta.contact')}
-                  </Link>
-                </Button>
-              </MagneticWrapper>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex justify-center gap-4">
-              {[
-                { href: "https://github.com/abrahao-dev", icon: Github, label: "GitHub" },
-                { href: "https://linkedin.com/in/abrahao-dev", icon: Linkedin, label: "LinkedIn" },
-                { href: "https://instagram.com/abrahao.dev", icon: Instagram, label: "Instagram" },
-                { href: "mailto:contato.matheusabrahao@gmail.com", icon: Mail, label: "Email" },
-              ].map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target={social.href.startsWith('mailto') ? undefined : '_blank'}
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-secondary/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all duration-300"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  aria-label={social.label}
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="h-12 rounded-full px-7 text-[15px]"
                 >
-                  <social.icon className="h-5 w-5" />
-                </motion.a>
-              ))}
+                  <Link href="/shopify-expert">
+                    {t("home.cta.projects")}
+                    <ArrowUpRight className="ml-2 h-[18px] w-[18px]" aria-hidden />
+                  </Link>
+                </Button>
+              </div>
             </div>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/5">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center p-4 sm:p-6 rounded-2xl bg-background border border-border/50 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300"
-              >
-                <stat.icon className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 sm:mb-3 text-primary" />
-                <div className="text-2xl sm:text-3xl font-bold text-foreground mb-1">{stat.value}</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
-              </motion.div>
+            <div className="lg:col-span-4">
+              <HeroPortrait />
+            </div>
+          </div>
+
+          {/* Headline numbers — value and label stack, so nothing can collide */}
+          <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-border pt-8 lg:mt-16 lg:grid-cols-4">
+            {proof.map((p) => (
+              <div key={p.label}>
+                <dd className="flex flex-wrap items-baseline gap-x-2">
+                  <span className="tabular text-3xl font-bold leading-none text-primary sm:text-4xl">
+                    {p.value}
+                  </span>
+                  <span className="text-sm text-muted-foreground">{p.unit}</span>
+                </dd>
+                <dt className="mt-2 text-sm leading-snug text-muted-foreground">{p.label}</dt>
+              </div>
             ))}
-          </motion.div>
+          </dl>
         </div>
       </section>
 
-      {/* Technologies Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-8 sm:mb-12"
-          >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">{t('home.skills.title')}</h2>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-              {t('home.skills.subtitle')}
-            </p>
-          </motion.div>
+      <StackStrip label={t("home.skills.title")} />
 
-          <AnimatedTechStack technologies={technologies} />
+      {/* ---------- Services, in plain language ---------- */}
+      <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-content">
+          <div className="max-w-2xl">
+            <h2 className="type-section">{t("home.services.title")}</h2>
+            <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+              {t("home.services.subtitle")}
+            </p>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+            {services.map((s) => (
+              <Link
+                key={s.href}
+                href={s.href}
+                className="group flex flex-col bg-card p-6 transition-colors hover:bg-secondary/60 sm:p-7"
+              >
+                <span className="type-eyebrow text-primary">{s.tag}</span>
+                <h3 className="mt-3 text-lg font-semibold leading-snug">{s.problem}</h3>
+                <p className="mt-2.5 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  {s.body}
+                </p>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
+                  {language === "pt-BR" ? "Ver detalhes" : "See how it works"}
+                  <ArrowUpRight
+                    className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Connect Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-secondary/10">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">{t('home.connect.title')}</h2>
-            <p className="text-base sm:text-lg text-muted-foreground mb-8">
-              {t('home.connect.subtitle')}
-            </p>
+      <ProofBand
+        note={
+          language === "pt-BR"
+            ? "Quatro lojas, quatro segmentos, o mesmo trabalho de operação por trás do crescimento."
+            : "Four stores, four verticals, the same operational playbook behind the growth."
+        }
+      />
 
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-              {[
-                { href: "https://github.com/abrahao-dev", icon: Github, label: "GitHub", color: "hover:bg-[#333]/10 hover:text-[#333] dark:hover:bg-white/10 dark:hover:text-white" },
-                { href: "https://linkedin.com/in/abrahao-dev", icon: Linkedin, label: "LinkedIn", color: "hover:bg-[#0077b5]/10 hover:text-[#0077b5]" },
-                { href: "https://instagram.com/abrahao.dev", icon: Instagram, label: "Instagram", color: "hover:bg-[#E4405F]/10 hover:text-[#E4405F]" },
-                { href: "mailto:contato.matheusabrahao@gmail.com", icon: Mail, label: "Email", color: "hover:bg-primary/10 hover:text-primary" },
-              ].map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target={social.href.startsWith('mailto') ? undefined : '_blank'}
-                  rel="noopener noreferrer"
-                  className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-secondary/50 text-muted-foreground transition-all duration-300 text-sm sm:text-base ${social.color}`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+      {/* ---------- Closing pitch ---------- */}
+      <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="brand-glow relative mx-auto max-w-content overflow-hidden rounded-3xl border border-border bg-card p-7 sm:p-12">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-7">
+              <h2 className="type-display">{t("home.connect.title")}</h2>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                {t("home.connect.subtitle")}
+              </p>
+            </div>
+
+            <div className="lg:col-span-5">
+              <p className="text-lg font-semibold">{t("home.cta.title")}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {t("home.cta.desc")}
+              </p>
+
+              <div className="mt-6 flex flex-col gap-3">
+                <Button asChild size="lg" className="h-12 rounded-full px-7 text-[15px]">
+                  <a href={wa} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="mr-2 h-[18px] w-[18px]" aria-hidden />
+                    WhatsApp {WHATSAPP_DISPLAY}
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="h-12 max-w-full rounded-full px-7 text-[15px]"
                 >
-                  <social.icon className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span className="font-medium">{social.label}</span>
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+                  <a href={`mailto:${EMAIL}`}>
+                    <Mail className="mr-2 h-[18px] w-[18px] shrink-0" aria-hidden />
+                    <span className="truncate">{EMAIL}</span>
+                  </a>
+                </Button>
+              </div>
 
-      {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10 border border-primary/20"
-          >
-            <h3 className="text-xl sm:text-2xl font-bold mb-2">{t('home.cta.title')}</h3>
-            <p className="text-sm sm:text-base text-muted-foreground mb-6">
-              {t('home.cta.desc')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button asChild size="lg" className="h-12 px-8">
-                <Link href="/projects">
-                  {t('home.cta.projects')}
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 px-8">
-                <Link href="/contact">
-                  {t('home.cta.contact')}
-                </Link>
-              </Button>
+              <div className="mt-6 flex items-center gap-2">
+                {[
+                  { href: "https://github.com/abrahao-dev", icon: Github, label: "GitHub" },
+                  { href: "https://linkedin.com/in/abrahao-dev", icon: Linkedin, label: "LinkedIn" },
+                  { href: "https://instagram.com/abrahao.dev", icon: Instagram, label: "Instagram" },
+                ].map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="grid h-11 w-11 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
+                  >
+                    <s.icon className="h-[18px] w-[18px]" aria-hidden />
+                  </a>
+                ))}
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>
-  );
+  )
 }

@@ -11,9 +11,7 @@ type SkillCategoryKey =
   | 'about.skills.ecommerce'
   | 'about.skills.web'
   | 'about.skills.data'
-  | 'about.skills.ai'
   | 'about.skills.devops'
-  | 'about.skills.mobile'
 
 type SkillGroup = { categoryKey: SkillCategoryKey; items: { name: string; icon: string }[] }
 
@@ -25,16 +23,19 @@ const skillGroups: SkillGroup[] = [
       { name: "Shopify Liquid", icon: "devicon-shopify-plain colored" },
       { name: "Hydrogen + Remix", icon: "devicon-shopify-plain colored" },
       { name: "Matrixify", icon: "devicon-shopify-plain colored" },
+      { name: "Salsify PIM", icon: "devicon-shopify-plain colored" },
       { name: "Shopify Admin & Storefront API", icon: "devicon-shopify-plain colored" },
       { name: "Theme & Sections", icon: "devicon-shopify-plain colored" },
       { name: "Checkout Extensibility", icon: "devicon-shopify-plain colored" },
-      { name: "App Integrations", icon: "devicon-shopify-plain colored" },
+      { name: "Shopify Flow & Apps", icon: "devicon-shopify-plain colored" },
+      { name: "B2B / Wholesale Catalogs", icon: "devicon-shopify-plain colored" },
+      { name: "Store Migrations", icon: "devicon-shopify-plain colored" },
     ],
   },
   {
     categoryKey: 'about.skills.ecommerce',
     items: [
-      { name: "Klaviyo", icon: "devicon-mailchimp-plain colored" },
+      { name: "Klaviyo Flows & Segments", icon: "devicon-mailchimp-plain colored" },
       { name: "Meta CAPI / Pixel", icon: "devicon-facebook-plain colored" },
       { name: "Google Merchant Center", icon: "devicon-google-plain colored" },
       { name: "Amazon Seller Central", icon: "devicon-amazonwebservices-plain-wordmark colored" },
@@ -68,31 +69,12 @@ const skillGroups: SkillGroup[] = [
     ],
   },
   {
-    categoryKey: 'about.skills.ai',
-    items: [
-      { name: "LangGraph", icon: "devicon-python-plain colored" },
-      { name: "LangChain", icon: "devicon-python-plain colored" },
-      { name: "OpenAI APIs", icon: "devicon-python-plain colored" },
-      { name: "RAG Pipelines", icon: "devicon-python-plain colored" },
-      { name: "Workflow Automation", icon: "devicon-nodejs-plain colored" },
-    ],
-  },
-  {
     categoryKey: 'about.skills.devops',
     items: [
-      { name: "Docker", icon: "devicon-docker-plain colored" },
-      { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark colored" },
-      { name: "GCP", icon: "devicon-googlecloud-plain colored" },
       { name: "Vercel", icon: "devicon-vercel-original" },
       { name: "GitHub Actions / CI/CD", icon: "devicon-github-plain" },
-      { name: "Firebase", icon: "devicon-firebase-plain colored" },
-    ],
-  },
-  {
-    categoryKey: 'about.skills.mobile',
-    items: [
-      { name: "Swift", icon: "devicon-swift-plain colored" },
-      { name: "SwiftUI", icon: "devicon-swift-plain colored" },
+      { name: "Docker", icon: "devicon-docker-plain colored" },
+      { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark colored" },
     ],
   },
 ]
@@ -100,43 +82,57 @@ const skillGroups: SkillGroup[] = [
 const experiences = [
   {
     title: "Senior Shopify Operator",
-    company: "Scale Army",
+    company: "US Building-Products Manufacturer (confidential)",
     period: "May 2026 - Present · Full-time",
-    location: "Charlotte, NC, United States · Remote",
-    description: "Leading complex Shopify operations, technical SEO, and data management for high-volume B2B and B2C environments.",
+    location: "United States · Remote",
+    description: "Operating paired B2C and B2B Shopify storefronts on one enterprise-scale catalog — multi-level variants, separate pricing and customer accounts, and 7+ sales channels.",
     highlights: [
       "Catalog & Data Management: bulk updates, pricing adjustments, and inventory synchronization across multi-level variant configurations using Matrixify and complex CSV workflows",
       "Technical SEO & Performance: structured data, schema markup, and site architecture for high crawlability and AI-search readiness",
       "Analytics & Strategy: cross-referencing GA4 sales data to drive upselling, cross-selling, and merchandising strategies",
-      "Ecosystem Stability: monitoring Shopify app integrations, building lead-capture forms, and optimizing navigation and checkout flows to eliminate friction"
+      "Ecosystem Stability: monitoring Shopify app integrations, building lead-capture forms, and optimizing navigation and checkout flows to eliminate friction",
+      "Retail Syndication: catalog distribution through Salsify PIM to Lowe's, Home Depot US and Canada, Menards, Amazon Seller and Vendor Central, with MAP/MSRP pricing parity across every channel"
     ],
   },
   {
     title: "Shopify Specialist",
-    company: "Virtustant",
+    company: "US-Based Beauty & Lifestyle Brand (confidential)",
+    period: "12-month engagement",
+    location: "United States · Remote",
+    description: "Owned the Shopify storefront, catalog and lifecycle marketing for a US direct-to-consumer beauty and lifestyle brand.",
+    highlights: [
+      "Business Growth: +254% sales, +324% orders, and +1,700% sessions over 12 months",
+      "Technical SEO: collection and product architecture, structured data, and internal linking rebuilt for organic acquisition",
+      "Lifecycle Marketing: Klaviyo flow architecture, segmentation and list health tied directly to revenue reporting",
+      "Storefront Engineering: Liquid theme work focused on page speed, Core Web Vitals, and checkout friction"
+    ],
+  },
+  {
+    title: "Shopify Specialist",
+    company: "International Luxury Fashion Brand (confidential)",
     period: "August 2025 - Present · 10 months · Part-time",
-    location: "New York, NY, United States · Remote",
-    description: "Acting as the technical partner and sole engineer for an international luxury fashion brand, owning the engineering, reliability, and scalability of their e-commerce ecosystem. Responsible for designing, implementing, and operating production-grade systems that directly support business growth, automation, and multi-channel operations.",
+    location: "United States · Remote",
+    description: "Acting as the technical partner and sole Shopify engineer for an international luxury fashion brand, owning the engineering, reliability, and scalability of their e-commerce ecosystem.",
     highlights: [
       "Business Growth: drove +455% increase in platform sessions, +114% in orders, and +74% in total sales since joining through technical optimizations, SEO improvements, and marketing integrations",
-      "Frontend Engineering: designed and implemented custom frontend components and UI logic, heavily prioritizing performance, Core Web Vitals, and UX across a large-scale product catalog",
+      "Storefront Engineering: designed and implemented custom Liquid sections and UI logic, heavily prioritizing performance, Core Web Vitals, and UX across a large-scale product catalog",
       "Omnichannel Integrations: led and maintained critical platform integrations, including Amazon Seller Central, Google Merchant Center, and advanced Meta Ads tracking (CAPI / Pixel)",
-      "System Automation: built and maintained robust automation workflows for marketing, inventory management, and post-purchase operations using Klaviyo, custom flows, and AI-assisted content pipelines",
+      "Lifecycle Automation: built and maintained Klaviyo flows and automation for marketing, inventory management, and post-purchase operations",
       "Technical Leadership: served as the primary technical decision-maker, balancing platform constraints, scalability, and business priorities in a fully remote, international environment"
     ],
   },
   {
     title: "Founder",
     company: "NEX Agency",
-    period: "September 2020 - Present · 5 years 9 months · Self-employed",
+    period: "September 2020 - Present · Self-employed",
     location: "São Paulo, Brazil · Remote",
-    description: "Founded a software engineering consultancy serving clients across 10+ countries, delivering end-to-end solutions in software development, performance marketing, UI/UX design, and branding.",
+    description: "E-commerce engineering studio serving Shopify brands across the US, Canada, and Europe — storefront engineering, catalog operations, technical SEO, and lifecycle marketing.",
     highlights: [
-      "Led technical architecture and full-stack development for clients in the US, Canada, France, Portugal, and Brazil — acting as the sole engineer and technical decision-maker",
-      "Built an AI-powered chatbot using LangGraph, LangChain, and OpenAI APIs for a US-based govtech platform, including PDF-to-Markdown data pipelines and structured SQL analytics",
-      "Re-architected e-commerce storefronts with custom frontend logic, checkout optimization, and tiered pricing systems for international clients",
-      "Delivered production-ready institutional websites, SPAs, and lead-conversion systems using React.js, Next.js, and Tailwind CSS",
-      "Managed $20,000+ in ad spend across Google Ads and Meta Ads with measurable ROI"
+      "Sole engineer and technical decision-maker for Shopify brands in the US, Canada, France, Portugal, and Brazil",
+      "Re-architected Shopify storefronts with custom Liquid logic, checkout optimization, and tiered B2B pricing systems",
+      "Rebuilt product detail pages with reactive variant engines, AJAX cart drawers, and upsell modules to lift AOV",
+      "Migrated and consolidated catalogs between platforms and stores using Matrixify and structured CSV workflows",
+      "Managed $20,000+ in ad spend across Google Ads and Meta Ads, with server-side tracking wired through Meta CAPI"
     ],
     link: "https://nexagency.com.br",
   },
@@ -145,29 +141,16 @@ const experiences = [
     company: "Martin",
     period: "November 2022 - April 2026 · 3 years 6 months · Self-employed",
     location: "Brazil · Remote",
-    description: "Founded and scaled a men's fashion e-commerce platform from zero, leading every aspect of the business as a single founder: engineering, branding, content creation, social media, and operations.",
+    description: "Founded and scaled a men's fashion Shopify store from zero, leading every aspect of the business as a single founder: engineering, branding, content creation, social media, and operations. This is where the Shopify work started.",
     highlights: [
-      "Built and maintained the entire technical stack, custom frontend components, checkout logic, and internal tooling",
-      "Scaled the platform to 6-figure revenue ($90K+), nearly 2,000 orders, and 297,000+ sessions — operated end-to-end without additional resources",
+      "Built and maintained the entire Shopify stack — custom Liquid theme, checkout logic, and internal tooling",
+      "Scaled the platform to 1,959 orders, roughly R$552,000 processed, and 299,000+ sessions — operated end-to-end without additional resources",
       "Grew TikTok to 51,000+ followers and 500,000+ likes, with individual videos reaching over 1.7M views — all content produced, edited, and published independently",
       "Built an Instagram presence to 5,100+ followers with a cohesive brand identity, product photography, and video content",
       "Implemented marketing integrations, inventory automation, and performance reporting pipelines",
       "This experience strengthened my ability to build products from zero, wear every hat, and make engineering and business decisions with direct, measurable impact"
     ],
     link: "https://martin4shop.com.br",
-  },
-  {
-    title: "Full Stack Mentor",
-    company: "Télos.IA",
-    period: "January 2026 - May 2026 · 5 months",
-    location: "São Paulo, Brazil · Remote",
-    description: "Mentor for an inclusive Full Stack training program for People with Disabilities (PCDs), covering backend technologies and developer tooling through hands-on instruction.",
-    highlights: [
-      "Mentored students through the intermediate and backend modules of a structured curriculum, balancing technical depth with accessibility and inclusion",
-      "Built custom interactive learning materials and delivered live sessions covering macOS development environments, Git/GitHub, Python Fundamentals, Object-Oriented Programming (OOP), Node.js, and NoSQL databases (MongoDB)",
-      "Hosted exclusive support sessions for macOS learners, troubleshooting environment setup, tooling differences, and platform-specific workflows across Apple Silicon and Intel machines",
-      "Provided real-time troubleshooting and technical guidance during live classes to ensure a solid understanding of backend architecture and logic"
-    ],
   },
 ];
 
@@ -176,11 +159,6 @@ export default function About() {
   const { t } = useLanguage()
 
   const achievements = [
-    {
-      icon: Award,
-      title: t('about.achievements.apple'),
-      description: t('about.achievements.apple.desc')
-    },
     {
       icon: TrendingUp,
       title: t('about.achievements.revenue'),
@@ -195,6 +173,12 @@ export default function About() {
       icon: Globe,
       title: t('about.achievements.international'),
       description: t('about.achievements.international.desc')
+    },
+    // Kept last on purpose: technical credibility, not the positioning.
+    {
+      icon: Award,
+      title: t('about.achievements.apple'),
+      description: t('about.achievements.apple.desc')
     }
   ]
 

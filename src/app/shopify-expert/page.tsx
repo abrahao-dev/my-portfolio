@@ -5,7 +5,7 @@ export const metadata: Metadata = seoMeta({
   slug: "shopify-expert",
   title: "Shopify Expert — Senior Shopify Developer for Hire | Matheus Abrahão",
     description:
-    "Shopify expert and senior Shopify developer for hire, working with US and Canadian brands. 6+ years on Shopify, currently operating a US$1M/month B2C + B2B Shopify business. Liquid themes, custom apps, integrations, technical SEO and CRO. +455% sessions and +74% revenue for an international luxury fashion brand.",
+    "Shopify expert and senior Shopify developer for hire, working with US and Canadian brands. 6+ years on Shopify, currently operating paired B2C and B2B Shopify storefronts for a US manufacturer. Liquid themes, custom apps, integrations, technical SEO and CRO. +455% sessions and +74% revenue for an international luxury fashion brand.",
 })
 
 const data: SeoLandingData = {
@@ -20,7 +20,7 @@ const data: SeoLandingData = {
     "I work as an individual contractor, not an agency. You talk to the person writing the code. No account manager, no junior developer quietly assigned to your store, no ticket that sits for a week. That is usually the difference between a Shopify expert developer who ships and a vendor who bills.",
   ],
   playbookLine:
-    "Four stores, four verticals, one playbook: fix the data, fix the speed, fix the funnel — at US$1M/month scale and at startup scale.",
+    "Four stores, four verticals, one playbook: fix the data, fix the speed, fix the funnel — at enterprise scale and at startup scale.",
   servicesTitle: "What a Shopify expert actually does for you",
   services: [
     {
@@ -58,7 +58,7 @@ const data: SeoLandingData = {
     {
       title: "B2C and B2B on Shopify, at real volume",
       intro:
-        "Most Shopify developers have only ever built direct-to-consumer stores. I run both sides daily for a US building-products manufacturer — a B2C storefront and a B2B storefront that together average about US$1,000,000 per month in revenue.",
+        "Most Shopify developers have only ever built direct-to-consumer stores. I run both sides daily for a US building-products manufacturer — a B2C storefront and a B2B storefront sharing one enterprise-scale catalog with multi-level variants.",
       items: [
         {
           title: "Two storefronts, two different rulebooks",

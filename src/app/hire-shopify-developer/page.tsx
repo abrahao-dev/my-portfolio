@@ -5,7 +5,7 @@ export const metadata: Metadata = seoMeta({
   slug: "hire-shopify-developer",
   title: "Hire a Shopify Developer — Freelance Shopify Contractor | Matheus Abrahão",
   description:
-    "Hire a dedicated freelance Shopify developer for US and Canadian brands. 6+ years on Shopify, currently operating a US$1M/month B2C + B2B Shopify business. Fixed-price projects, monthly retainers, rescue work. US$60-90/hour, fluent English, full North American time zone overlap.",
+    "Hire a dedicated freelance Shopify developer for US and Canadian brands. 6+ years on Shopify, currently operating paired B2C and B2B Shopify storefronts for a US manufacturer. Fixed-price projects, monthly retainers, rescue work. US$60-90/hour, fluent English, full North American time zone overlap.",
 })
 
 const data: SeoLandingData = {
@@ -20,7 +20,7 @@ const data: SeoLandingData = {
     "Most clients start with a small paid scope — a broken checkout flow, a slow product page, a migration nobody wants to touch. If that goes well it usually becomes a retainer. I have no interest in selling you a twelve-month contract on day one.",
   ],
   playbookLine:
-    "Four stores, four verticals, one engineer — from my own brand to a US$1M/month operation. That is what you are hiring.",
+    "Four stores, four verticals, one engineer — from my own brand to an enterprise-scale B2C + B2B operation. That is what you are hiring.",
   servicesTitle: "Ways to hire me",
   services: [
     {
@@ -63,12 +63,12 @@ const data: SeoLandingData = {
     {
       title: "What you are actually hiring",
       intro:
-        "The short version: an engineer who currently runs a Shopify operation averaging about US$1,000,000 per month in revenue, across both a B2C and a B2B storefront.",
+        "The short version: an engineer who runs a high-volume Shopify operation day to day, across both a B2C and a B2B storefront.",
       items: [
         {
           title: "Operating experience, not just build experience",
           body:
-            "I am the day-to-day operator of a US building-products manufacturer's Shopify business — 1.6M sessions and 3,500+ orders per quarter across two storefronts and 7+ sales channels. That is a very different job from shipping a theme and disappearing, and it shows in the decisions I make about your store.",
+            "I am the day-to-day operator of a US building-products manufacturer's Shopify business — an enterprise-scale catalog with multi-level variants, spread across two storefronts and 7+ sales channels. That is a very different job from shipping a theme and disappearing, and it shows in the decisions I make about your store.",
         },
         {
           title: "B2B as well as B2C",

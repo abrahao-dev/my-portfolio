@@ -2,144 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    /* Apple system fonts as fallback */
-    --font-sf-pro-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Roboto', sans-serif;
-    --font-sf-pro-text: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Roboto', sans-serif;
-  }
-
-  /* Use system fonts with Apple fallback */
-  body {
-    font-family: var(--font-sf-pro-text);
-    font-weight: 400;
-  }
-
-  /* Use display font for headings */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-sf-pro-display);
-  }
-}
-
-@layer utilities {
-  /* iOS Glassmorphism */
-  .glass {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-
-  .glass-dark {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  /* iOS smooth scrolling */
-  .smooth-scroll {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* iOS bounce animation */
-  @keyframes ios-bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  .ios-bounce {
-    animation: ios-bounce 2s ease-in-out infinite;
-  }
-
-  /* Smooth transitions */
-  .transition-smooth {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* Text gradient for iOS style */
-  .text-gradient-ios {
-    background: linear-gradient(135deg, hsl(211, 100%, 50%) 0%, hsl(271, 76%, 53%) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-}
+/* ============================================================
+   Design tokens — dark-first.
+   Near-black canvas + a single vibrant lime accent.
+   Light mode keeps the same structure with a deep moss green,
+   because lime on white fails contrast.
+   ============================================================ */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Light theme */
+    --background: 44 24% 97%;
+    --foreground: 40 8% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 40 8% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 40 8% 8%;
 
-    /* iOS-inspired blue primary color */
-    --primary: 211 100% 50%;
-    --primary-foreground: 0 0% 100%;
+    /* Deep moss — readable accent for light surfaces (AA on paper) */
+    --primary: 88 64% 24%;
+    --primary-foreground: 60 30% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 44 16% 93%;
+    --secondary-foreground: 40 8% 12%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 44 16% 93%;
+    --muted-foreground: 40 5% 38%;
 
-    --accent: 211 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 88 64% 24%;
+    --accent-foreground: 60 30% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 4 74% 42%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 211 100% 50%;
+    --border: 42 12% 87%;
+    --input: 42 12% 87%;
+    --ring: 88 64% 24%;
 
-    --radius: 0.75rem;
+    /* Decorative lime — glows, fills, never body text on light */
+    --brand: 84 71% 46%;
+    --brand-soft: 84 71% 58%;
 
-    /* Custom colors for iOS-inspired gradients */
-    --custom-blue-variable: 211 100% 50%;
-    --gradient-start: 211 100% 50%;
-    --gradient-end: 199 89% 48%;
+    --radius: 0.875rem;
+
+    /* Kept for legacy utilities in pages outside this redesign */
+    --custom-blue-variable: 88 64% 24%;
+    --gradient-start: 88 64% 24%;
+    --gradient-end: 84 62% 34%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 4.3%;
+    --foreground: 60 8% 96%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 60 3% 7.5%;
+    --card-foreground: 60 8% 96%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 60 3% 7.5%;
+    --popover-foreground: 60 8% 96%;
 
-    /* iOS-inspired blue primary color for dark mode */
-    --primary: 211 100% 60%;
-    --primary-foreground: 222.2 84% 4.9%;
+    /* Lime — 12.5:1 on the near-black canvas */
+    --primary: 84 71% 58%;
+    --primary-foreground: 80 30% 6%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 60 3% 12%;
+    --secondary-foreground: 60 8% 96%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 60 3% 12%;
+    --muted-foreground: 55 5% 66%;
 
-    --accent: 211 100% 60%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --accent: 84 71% 58%;
+    --accent-foreground: 80 30% 6%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 4 72% 58%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 211 100% 60%;
+    --border: 55 4% 16%;
+    --input: 55 4% 16%;
+    --ring: 84 71% 58%;
 
-    /* Custom colors for dark mode */
-    --custom-blue-variable: 211 100% 60%;
-    --gradient-start: 211 100% 60%;
-    --gradient-end: 199 89% 58%;
+    --brand: 84 71% 58%;
+    --brand-soft: 84 71% 58%;
+
+    --custom-blue-variable: 84 71% 58%;
+    --gradient-start: 84 71% 58%;
+    --gradient-end: 74 60% 70%;
   }
 }
 
@@ -147,20 +96,48 @@
   * {
     @apply border-border;
   }
+
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    scroll-behavior: smooth;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    /* iOS notch / safe-area support */
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
   }
-  /* Larger touch targets on mobile (Apple HIG: 44x44 minimum) */
+
+  /* Headlines: tight, confident, optically corrected */
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible focus everywhere, not just on .focus-visible */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  /* Apple HIG minimum touch target on coarse pointers */
   @media (hover: none) and (pointer: coarse) {
     a,
     button,
@@ -168,7 +145,7 @@
       min-height: 44px;
     }
   }
-  /* Honor user's reduced-motion preference */
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -182,268 +159,183 @@
 }
 
 @layer utilities {
-  .bg-gradient {
-    background: linear-gradient(to bottom right, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  /* ---- Typography scale -------------------------------------------------
+     Fluid, viewport-driven. Hero fills the screen at any width without a
+     pile of breakpoint overrides. */
+  .type-hero {
+    font-size: clamp(2.75rem, 7.6vw, 6.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    font-weight: 700;
   }
 
+  .type-display {
+    font-size: clamp(2rem, 6vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+  }
+
+  .type-section {
+    font-size: clamp(1.75rem, 4.2vw, 3rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
+  .type-eyebrow {
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* ---- Surface & atmosphere -------------------------------------------- */
+
+  /* Soft lime radial behind hero content. One glow, used sparingly. */
+  .brand-glow {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .brand-glow::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -20% -10% auto -10%;
+    height: 120%;
+    background: radial-gradient(
+      55% 55% at 50% 35%,
+      hsl(var(--brand) / 0.16) 0%,
+      hsl(var(--brand) / 0.05) 45%,
+      transparent 72%
+    );
+    pointer-events: none;
+  }
+
+  :root:not(.dark) .brand-glow::before {
+    background: radial-gradient(
+      55% 55% at 50% 35%,
+      hsl(var(--brand) / 0.22) 0%,
+      hsl(var(--brand) / 0.07) 45%,
+      transparent 72%
+    );
+  }
+
+  /* Fine grid texture — reads as "engineered", not as decoration */
+  .grid-texture {
+    background-image:
+      linear-gradient(to right, hsl(var(--foreground) / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--foreground) / 0.045) 1px, transparent 1px);
+    background-size: 72px 72px;
+    -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 100%);
+    mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 100%);
+  }
+
+  .hairline-t {
+    border-top: 1px solid hsl(var(--border));
+  }
+
+  .surface {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+  }
+
+  /* Portrait treatment: desaturated, high contrast, per the reference */
+  .portrait-treated {
+    filter: grayscale(1) contrast(1.12) brightness(1.02);
+  }
+
+  .dark .portrait-treated {
+    filter: grayscale(1) contrast(1.18) brightness(0.94);
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---- Legacy utilities still referenced by pages outside this redesign
+     (projects, blog, policies). Re-pointed at the new palette. ---------- */
   .text-gradient {
-    background: linear-gradient(to right, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+    background: linear-gradient(
+      100deg,
+      hsl(var(--foreground)) 0%,
+      hsl(var(--primary)) 60%,
+      hsl(var(--foreground)) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-}
 
-.custom-blue-icon {
-  color: hsl(var(--custom-blue-variable)) !important;
-}
-
-/* Improved animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(5deg); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Better focus states for accessibility */
-.focus-visible:focus {
-  outline: 2px solid hsl(var(--ring));
-  outline-offset: 2px;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Better selection colors */
-::selection {
-  background: hsl(var(--primary) / 0.2);
-  color: hsl(var(--primary-foreground));
-}
-
-/* ===== IMMERSIVE ANIMATIONS ===== */
-
-/* Animated gradient background */
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
+  .aurora-bg {
+    position: relative;
+    overflow: hidden;
   }
-  50% {
-    background-position: 100% 50%;
+
+  .glass-card {
+    background: hsl(var(--card) / 0.72);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid hsl(var(--border));
+    transition: border-color 0.25s ease, background-color 0.25s ease;
   }
-  100% {
-    background-position: 0% 50%;
+
+  .glass-card:hover {
+    border-color: hsl(var(--primary) / 0.45);
+  }
+
+  .perspective-container {
+    perspective: 1000px;
+  }
+
+  .tilt-card {
+    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(0.03, 0.98, 0.52, 0.99);
+  }
+
+  .tilt-card:hover {
+    transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg)) scale(1.02);
+  }
+
+  .hover-glow {
+    transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.35), 0 10px 40px -12px hsl(var(--brand) / 0.5);
+  }
+
+  .custom-blue-icon {
+    color: hsl(var(--primary)) !important;
   }
 }
 
-@keyframes aurora {
-  0%, 100% {
-    opacity: 0.3;
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: translateY(-20px) scale(1.05);
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
-  }
-  50% {
-    box-shadow: 0 0 40px hsl(var(--primary) / 0.4);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes float-subtle {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  33% {
-    transform: translateY(-5px) rotate(1deg);
-  }
-  66% {
-    transform: translateY(3px) rotate(-1deg);
-  }
-}
-
-@keyframes glow-pulse {
-  0%, 100% {
-    filter: drop-shadow(0 0 5px hsl(var(--primary) / 0.3));
-  }
-  50% {
-    filter: drop-shadow(0 0 15px hsl(var(--primary) / 0.5));
-  }
-}
-
-/* Animated background utilities */
-.animated-gradient-bg {
-  background: linear-gradient(
-    -45deg,
-    hsl(var(--background)),
-    hsl(var(--primary) / 0.05),
-    hsl(var(--background)),
-    hsl(var(--gradient-end) / 0.08)
-  );
-  background-size: 400% 400%;
-  animation: gradient-shift 15s ease infinite;
-}
-
-.aurora-bg {
-  position: relative;
-  overflow: hidden;
-}
-
-.aurora-bg::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    ellipse at center,
-    hsl(var(--primary) / 0.1) 0%,
-    transparent 70%
-  );
-  animation: aurora 8s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.dark .aurora-bg::before {
-  background: radial-gradient(
-    ellipse at center,
-    hsl(var(--primary) / 0.15) 0%,
-    transparent 70%
-  );
-}
-
-/* Interactive element effects */
-.hover-glow {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-glow:hover {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.shimmer-effect {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    hsl(var(--primary) / 0.1) 50%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 2s ease-in-out infinite;
-}
-
-.float-animation {
-  animation: float-subtle 6s ease-in-out infinite;
-}
-
-.glow-icon {
-  animation: glow-pulse 3s ease-in-out infinite;
-}
-
-/* 3D perspective container */
-.perspective-container {
-  perspective: 1000px;
-}
-
-/* Tilt card effect */
-.tilt-card {
-  transform-style: preserve-3d;
-  transition: transform 0.3s cubic-bezier(0.03, 0.98, 0.52, 0.99);
-}
-
-.tilt-card:hover {
-  transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg)) scale(1.02);
-}
-
-/* Glassmorphism enhancement */
-.glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.dark .glass-card {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.glass-card:hover {
-  background: rgba(255, 255, 255, 0.8);
-  border-color: hsl(var(--primary) / 0.3);
-}
-
-.dark .glass-card:hover {
-  background: rgba(0, 0, 0, 0.6);
-  border-color: hsl(var(--primary) / 0.4);
-}
-
-/* Magnetic button effect placeholder */
-.magnetic-element {
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* Stagger animation delays */
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; }
-
-/* Text reveal animation */
-@keyframes text-reveal {
+/* Marquee for the stack strip — CSS only, no JS, no layout shift */
+@keyframes marquee {
   from {
-    clip-path: inset(0 100% 0 0);
+    transform: translateX(0);
   }
   to {
-    clip-path: inset(0 0 0 0);
+    transform: translateX(-50%);
   }
 }
 
-.text-reveal {
-  animation: text-reveal 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+.marquee-track {
+  animation: marquee 38s linear infinite;
+  will-change: transform;
 }
 
-/* Line drawing animation for borders */
-@keyframes draw-line {
-  from {
-    stroke-dashoffset: 1000;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
 }
 
-/* Cursor trail effect */
-.cursor-trail {
-  pointer-events: none;
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: hsl(var(--primary) / 0.2);
-  mix-blend-mode: difference;
-  transition: transform 0.15s ease-out;
-  z-index: 9999;
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+  .marquee {
+    overflow-x: auto;
+  }
 }

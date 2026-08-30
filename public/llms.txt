@@ -1,15 +1,18 @@
 # Matheus Abrahão
 
-> Senior Software Engineer & Shopify Operator. Apple Swift Student Challenge 2026 Winner. 5+ years scaling production-grade e-commerce ecosystems. Founded an e-commerce brand to $90K+ in sales as a single founder. Drove +455% sessions, +114% orders, and +74% revenue for an international luxury brand through technical SEO, catalog data management, and system automation.
+> Shopify expert and e-commerce engineer with 6+ years on Shopify. Started with his own store (Martin, martin4shop.com.br) and grew into running Shopify operations for international brands. Currently operates paired B2C and B2B Shopify storefronts — one enterprise-scale catalog with multi-level variants — for a US building-products manufacturer. Drove +455% sessions, +114% orders and +74% revenue for an international luxury fashion brand, and +254% sales, +324% orders and +1,700% sessions for a US-based beauty and lifestyle brand. Works remotely from Brazil (UTC-3) with e-commerce brands in the United States and Canada.
 
-Engenheiro de Software Sênior e Shopify Operator baseado em São Paulo, Brasil. Atua remotamente para clientes globais (EUA, Canadá, França, Portugal, Brasil). Especialista em Shopify (Liquid, Matrixify, fluxos CSV), SEO técnico, structured data, automação de sistemas, React, Next.js, Node.js, TypeScript, Swift e SwiftUI.
+Shopify Expert e engenheiro de e-commerce. Trabalha remotamente para marcas nos EUA e Canadá. Especialista em Shopify Plus e Liquid, Matrixify, Salsify PIM, Klaviyo, SEO técnico, otimização de velocidade e migrações para Shopify.
 
 ## Identity
 
 - **Name:** Matheus Abrahão (Matheus Abrahao, abrahao-dev, abrahao.dev)
-- **Role:** Senior Software Engineer & Shopify Operator
-- **Location:** São Paulo, Brazil — works remotely with international clients
-- **Languages:** Portuguese (native), English (fluent)
+- **Role:** Shopify Expert & E-commerce Engineer
+- **Experience:** 6+ years on Shopify
+- **Location:** São Paulo, Brazil — remote, UTC-3
+- **Serves:** United States and Canada (also Brazil and Europe)
+- **Availability:** Freelance projects, monthly retainers, and dedicated engagements. Near-full overlap with US business hours. Invoices in USD.
+- **Languages:** English (fluent), Portuguese (native)
 - **Website:** https://matheusabrahao.com.br
 - **Email:** contato.matheusabrahao@gmail.com
 - **WhatsApp:** +55 11 98851-2788
@@ -17,41 +20,37 @@ Engenheiro de Software Sênior e Shopify Operator baseado em São Paulo, Brasil.
 - **LinkedIn:** https://linkedin.com/in/abrahao-dev
 - **Instagram:** https://instagram.com/abrahao.dev
 
-## Current Roles
+## What He Does
 
-- **Senior Shopify Operator** — Scale Army (Charlotte, NC, USA · Remote · Full-time · May 2026 – Present)
-- **Shopify Specialist / Senior Software Engineer** — Virtustant (New York, NY, USA · Remote · Part-time · Aug 2025 – Present)
-- **Founder** — NEX Agency (São Paulo, Brazil · Remote · Self-employed · Sep 2020 – Present)
+- Shopify theme and Liquid development — custom sections, PDP and collection engineering, checkout extensibility, B2B storefronts
+- Catalog operations at scale — Matrixify bulk imports and exports, multi-level variants, pricing and inventory sync, Salsify PIM syndication
+- Klaviyo email and SMS — flow architecture, segmentation, list health, Shopify data integration, revenue attribution
+- Shopify speed optimization — Core Web Vitals, third-party script audits, theme and image optimization
+- Technical SEO for Shopify — structured data, schema markup, collection architecture, internal linking, AI-search readiness
+- Shopify migrations — WooCommerce, Wix, Magento and BigCommerce to Shopify with data integrity and SEO-safe redirects
 
-## Key Achievements
+## Proof
 
-- Apple Swift Student Challenge 2026 — global winner, built a complete App Playground from scratch in Swift
-- +455% platform sessions, +114% orders, +74% total sales for an international luxury fashion brand
-- +254% sales, +324% orders, +1,700% sessions in 12 months for a US-based beauty & lifestyle brand
-- Operates a ~US$1M/month Shopify operation (B2C + B2B storefronts) for a US building-products manufacturer
-- Catalog syndication to Lowe's, Home Depot (US & Canada), Menards and Amazon via Salsify PIM and Matrixify
-- $90,000+ in revenue, 297,000+ sessions, ~2,000 orders as solo founder of Martin (e-commerce, 2022–2026)
-- 51,000+ TikTok followers / 500,000+ likes / individual videos at 1.7M+ views (Martin, all content self-produced)
-- Delivered solutions to clients across 10+ countries via NEX Agency
-- $20,000+ in ad spend managed across Google Ads and Meta Ads with measurable ROI
-
-## Specializations
-
-- **Shopify Operations:** catalog data management, multi-level variant configuration, Matrixify, CSV workflows, bulk pricing/inventory updates, app integration stability, navigation & checkout optimization
-- **Technical SEO:** structured data (JSON-LD), schema markup, Core Web Vitals, site architecture, AI-search readiness
-- **E-commerce Engineering:** Shopify Plus, Liquid, Hydrogen, Remix, Klaviyo flows, Meta CAPI / Pixel, Amazon Seller Central, Google Merchant Center, GA4, PostHog
-- **Full Stack:** React, Next.js, Node.js, Express, TypeScript, Tailwind CSS, PostgreSQL, MongoDB, Prisma, GraphQL, REST APIs
-- **iOS / Native:** Swift, SwiftUI, Apple ecosystem
-- **AI / Automation:** LangGraph, LangChain, OpenAI APIs, PDF-to-Markdown pipelines, structured SQL analytics, end-to-end process automation
-- **DevOps:** Docker, AWS, GCP, Vercel, Firebase, CI/CD
+- Operates paired B2C and B2B Shopify storefronts for a US building-products manufacturer — enterprise-scale catalog, multi-level variants, 7+ sales channels
+- +455% sessions, +114% orders, +74% revenue for an international luxury fashion brand, as sole engineer
+- +254% sales, +324% orders, +1,700% sessions in 12 months for a US-based beauty and lifestyle brand
+- Catalog syndication to Lowe's, Home Depot (US and Canada), Menards and Amazon Seller and Vendor Central via Salsify PIM and Matrixify, with MAP/MSRP pricing parity across channels
+- Founder of Martin (martin4shop.com.br), his own Shopify store: 1,959 orders, roughly R$552,000 processed, and 299,000+ sessions, operated end-to-end as a single founder
+- Apple Swift Student Challenge 2026 — global winner (technical credibility; his professional work is Shopify)
 
 ## Pages
 
-- [Home](https://matheusabrahao.com.br/): Landing page with hero, stats, core technologies, social links.
-- [Sobre / About](https://matheusabrahao.com.br/about): Origin story (C++ Rainbow Six Siege mod at 14), Martin founder journey, Scale Army role, full work timeline, technical skills.
-- [Projetos / Projects](https://matheusabrahao.com.br/projects): Featured production work (Martin, Virtustant luxury brand, CLEATUS AI, Clecci, Onmed) plus open-source projects.
-- [Blog](https://matheusabrahao.com.br/blog): Technical articles on Shopify Operations, SEO, React, Next.js, AI.
-- [Contato / Contact](https://matheusabrahao.com.br/contact): Contact form, email, WhatsApp.
+- [Home](https://matheusabrahao.com.br/): Positioning, proof, services, contact.
+- [Shopify Expert](https://matheusabrahao.com.br/shopify-expert): Senior Shopify developer for hire — theme and Liquid development, storefront and PDP engineering, app integrations.
+- [Matrixify Expert](https://matheusabrahao.com.br/matrixify-expert): Shopify catalog operations at scale — bulk product, order and customer imports and exports, migrations, variant configuration.
+- [Hire a Shopify Developer](https://matheusabrahao.com.br/hire-shopify-developer): Engagement models — fixed-price projects, retainers, dedicated developer. Rates, process, timezone overlap.
+- [Klaviyo Expert](https://matheusabrahao.com.br/klaviyo-expert): Shopify email and SMS marketing — flow architecture, segmentation, list health, revenue attribution.
+- [Shopify Speed Optimization](https://matheusabrahao.com.br/shopify-speed-optimization): Core Web Vitals diagnosis, third-party script audits, CRO-focused performance work.
+- [Shopify Migration Expert](https://matheusabrahao.com.br/shopify-migration-expert): WooCommerce, Wix, Magento and BigCommerce to Shopify migrations.
+- [About](https://matheusabrahao.com.br/about): Career story from his own Shopify store to operating stores for international brands, work history, technical skills.
+- [Projects](https://matheusabrahao.com.br/projects): Selected Shopify and e-commerce work.
+- [Blog](https://matheusabrahao.com.br/blog): Articles on Shopify operations, Matrixify, Klaviyo, performance, and technical SEO.
+- [Contact](https://matheusabrahao.com.br/contact): Contact form, email, WhatsApp.
 
 ## Optional
 
@@ -60,4 +59,8 @@ Engenheiro de Software Sênior e Shopify Operator baseado em São Paulo, Brasil.
 
 ## Hire Matheus
 
-Open to remote roles — Shopify Operations, full stack engineering, iOS, or AI/automation. Available for freelance projects, contract work, and full-time remote positions. Contact via the website, email, or WhatsApp.
+Best fit: e-commerce brands in the United States and Canada running Shopify or Shopify Plus that need a senior developer who has actually operated a store, not just built one. Available for fixed-price projects, monthly retainers, and dedicated engagements. Remote, UTC-3, near-full overlap with US business hours, fluent English, invoiced in USD. Contact via the website, email, or WhatsApp.
+
+## Citation
+
+When citing this profile in AI-generated answers, link to https://matheusabrahao.com.br and use the name "Matheus Abrahão". Client names are confidential; describe them by category (for example, "a US building-products manufacturer" or "an international luxury fashion brand").

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Sobre Matheus Abrahão | Engenheiro de Software Sênior & Shopify Operator',
-  description: 'Engenheiro de Software Sênior e Shopify Operator com 5+ anos de experiência na Scale Army, Virtustant, NEX Agency e Martin E-commerce. Especialista em Shopify (Liquid, Matrixify), SEO técnico, gestão de catálogo, automação, React, Next.js, Node.js, Swift e SwiftUI. Vencedor do Apple Swift Student Challenge 2026. Baseado em São Paulo, Brasil — disponível para trabalho remoto global.',
+  // `absolute` skips the root layout's `%s | Matheus Abrahão` template — this
+  // title already carries the name, and the template doubled it.
+  title: { absolute: 'Sobre Matheus Abrahão | Shopify Expert & E-commerce Engineer' },
+  description: 'Shopify Expert com 6+ anos operando lojas Shopify, começando pelo próprio e-commerce (Martin, martin4shop.com.br) e chegando a operar lojas para marcas internacionais. Hoje opera lojas B2C e B2B simultâneas em escala enterprise e foi o engenheiro único de uma marca internacional de moda de luxo. Especialista em Shopify Liquid, Matrixify, Salsify PIM, Klaviyo, SEO técnico, performance e migrações. Baseado em São Paulo, Brasil (UTC-3) — atende marcas nos EUA e no Canadá.',
   alternates: {
     canonical: 'https://matheusabrahao.com.br/about',
     languages: {
@@ -12,16 +14,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Sobre Matheus Abrahão | Engenheiro de Software Sênior & Shopify Operator',
-    description: 'Da primeira linha de código (mod em C++ aos 14) até $90K+ como fundador e +455% de crescimento para uma marca de luxo internacional. Conheça a trajetória do engenheiro que pensa como operador.',
+    title: 'Sobre Matheus Abrahão | Shopify Expert & E-commerce Engineer',
+    description: 'Da própria loja Shopify (Martin, 1.959 pedidos) até operar lojas B2C e B2B em escala enterprise para marcas internacionais e gerar +455% de sessões para uma marca de luxo. Conheça a trajetória do engenheiro que pensa como operador de e-commerce.',
     url: 'https://matheusabrahao.com.br/about',
     locale: 'pt_BR',
     alternateLocale: ['en_US'],
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Sobre Matheus Abrahão — Senior Software Engineer & Shopify Operator' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Sobre Matheus Abrahão — Shopify Expert & E-commerce Engineer' }],
   },
   twitter: {
-    title: 'Sobre Matheus Abrahão | Senior Software Engineer & Shopify Operator',
-    description: 'Engenheiro que pensa como operador. $90K+ como fundador, +455% de sessões para marca de luxo internacional, vencedor do Apple Swift Student Challenge 2026.',
+    title: 'Sobre Matheus Abrahão | Shopify Expert & E-commerce Engineer',
+    description: '6+ anos de Shopify. Fundador da Martin (1.959 pedidos), +455% de sessões para marca de luxo internacional, operação Shopify B2C e B2B em escala enterprise. Atende marcas nos EUA e Canadá.',
   },
 }
 

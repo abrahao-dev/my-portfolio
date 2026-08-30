@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useLanguage } from "@/contexts/language-context"
 import { motion } from "framer-motion"
-import { AlertCircle, CheckCircle, Loader2, Mail, MapPin, Phone, Send } from "lucide-react"
+import { AlertCircle, CheckCircle, Clock, Loader2, Mail, MapPin, Phone, Send } from "lucide-react"
 import { useState } from "react"
 
 interface FormData {
@@ -92,23 +92,11 @@ export default function Contact() {
   }
 
   return (
-    <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <motion.h1
-        className="text-4xl font-bold tracking-tighter sm:text-5xl mb-8 text-center text-gradient"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {t('contact.title')}
-      </motion.h1>
+    <div className="mx-auto max-w-content px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+      <h1 className="type-display max-w-3xl">{t('contact.title')}</h1>
 
-      <motion.div
-        className="max-w-4xl mx-auto"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="mt-12">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14">
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
@@ -158,7 +146,22 @@ export default function Contact() {
                 <div>
                   <h3 className="font-medium">Location</h3>
                   <p className="text-muted-foreground">
-                    São Paulo, Brazil
+                    São Paulo, Brazil (UTC-3)
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="p-3 bg-primary/10 rounded-full">
+                  <Clock className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-medium">Availability</h3>
+                  <p className="text-muted-foreground">
+                    Remote, working with e-commerce brands in the US and Canada.
+                    UTC-3 means near-full overlap with US business hours — same-day
+                    replies, live calls, no overnight handoffs. Fluent English,
+                    invoiced in USD.
                   </p>
                 </div>
               </div>
@@ -177,7 +180,7 @@ export default function Contact() {
                   placeholder={t('contact.form.name.placeholder')}
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
-                  className={`bg-secondary/50 border-none ${errors.name ? 'border-red-500 focus:border-red-500' : ''}`}
+                  className={`bg-card border border-border ${errors.name ? 'border-red-500 focus:border-red-500' : ''}`}
                   disabled={isLoading}
                 />
                 {errors.name && (
@@ -198,7 +201,7 @@ export default function Contact() {
                   placeholder={t('contact.form.email.placeholder')}
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  className={`bg-secondary/50 border-none ${errors.email ? 'border-red-500 focus:border-red-500' : ''}`}
+                  className={`bg-card border border-border ${errors.email ? 'border-red-500 focus:border-red-500' : ''}`}
                   disabled={isLoading}
                 />
                 {errors.email && (
@@ -218,7 +221,7 @@ export default function Contact() {
                   placeholder={t('contact.form.message.placeholder')}
                   value={formData.message}
                   onChange={(e) => handleInputChange('message', e.target.value)}
-                  className={`bg-secondary/50 border-none min-h-[150px] ${errors.message ? 'border-red-500 focus:border-red-500' : ''}`}
+                  className={`bg-card border border-border min-h-[150px] ${errors.message ? 'border-red-500 focus:border-red-500' : ''}`}
                   disabled={isLoading}
                 />
                 {errors.message && (
@@ -231,7 +234,8 @@ export default function Contact() {
 
               <Button
                 type="submit"
-                className="w-full group relative overflow-hidden"
+                size="lg"
+                className="h-12 w-full rounded-full"
                 disabled={isLoading}
               >
                 {isLoading ? (
@@ -250,18 +254,18 @@ export default function Contact() {
 
             {isSubmitted && (
               <motion.div
-                className="flex items-center justify-center text-green-500 mt-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg"
+                className="mt-4 flex items-center gap-2 rounded-xl border border-primary/40 bg-primary/10 p-4 text-sm text-foreground"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
               >
-                <CheckCircle className="mr-2 h-5 w-5" />
+                <CheckCircle className="h-5 w-5 shrink-0 text-primary" aria-hidden />
                 <span className="font-medium">{t('contact.form.success')}</span>
               </motion.div>
             )}
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   )
 }

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Projetos | Matheus Abrahão — E-commerce, Shopify, IA & Full Stack',
-  description: 'Projetos em produção de Matheus Abrahão: marca Martin com $90K+ em vendas, plataforma de luxo internacional (+455% sessões, +74% receita), chatbot de IA com LangChain para govtech, temas Shopify, marketplaces NFT e dashboards IoT. Construídos com Shopify Liquid, React, Next.js, Node.js, TypeScript, Python e Go.',
+  title: { absolute: 'Projetos Shopify & E-commerce | Matheus Abrahão' },
+  description: 'Projetos em produção de Matheus Abrahão: operação Shopify B2C + B2B em escala enterprise, marca de luxo internacional (+455% sessões, +74% receita), marca americana de beleza (+254% vendas), e a marca própria Martin (1.959 pedidos, ~R$552 mil). Construídos com Shopify Liquid, React, Next.js, Node.js, TypeScript, Python e Go.',
   alternates: {
     canonical: 'https://matheusabrahao.com.br/projects',
     languages: {
@@ -12,15 +12,15 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Projetos | Matheus Abrahão — Portfólio Full Stack & Shopify',
+    title: 'Projetos Shopify & E-commerce | Matheus Abrahão',
     description: 'Projetos em produção: e-commerce, sistemas de IA, temas Shopify, automação. Shopify Liquid, React, Next.js, Node.js, TypeScript.',
     url: 'https://matheusabrahao.com.br/projects',
     locale: 'pt_BR',
     alternateLocale: ['en_US'],
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Matheus Abrahão — Portfólio Full Stack & Shopify' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Matheus Abrahão — Shopify & E-commerce' }],
   },
   twitter: {
-    title: 'Projetos | Matheus Abrahão — Full Stack & Shopify Portfolio',
+    title: 'Projetos Shopify & E-commerce | Matheus Abrahão',
     description: 'Production projects: e-commerce, AI chatbots, Shopify themes, automation. Shopify Liquid, React, Next.js, Node.js, TypeScript.',
   },
 }

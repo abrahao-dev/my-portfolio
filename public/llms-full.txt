@@ -1,20 +1,20 @@
 # Matheus Abrahão — Full Bio and Work History
 
-> Senior Software Engineer and Shopify Operator with 5+ years of experience scaling production-grade e-commerce ecosystems for international brands. Apple Swift Student Challenge 2026 Winner. Based in São Paulo, Brazil; works remotely worldwide.
+> Shopify expert and e-commerce engineer with 6+ years on the platform, scaling production Shopify operations for brands in the United States and Canada. Remote from São Paulo, Brazil (UTC-3). Client names are confidential and are referred to by category throughout this document.
 
-Last updated: 2026-05-02.
+Last updated: 2026-08-30.
 
 ---
 
 ## Origin Story
 
-My first line of code was a C++ mod for a Rainbow Six Siege videogame. I was 14, had no idea what I was doing, and couldn't stop. That feeling — making a machine do exactly what I wanted — never went away.
+The Shopify work started with my own store.
 
-By 16, I was building websites for clients. But I didn't just want to write code; I wanted to see how technical architecture drives real business. So, I founded my own e-commerce brand, Martin. I built the entire technical stack from scratch, ran the marketing, and operated the business end-to-end, generating over $90,000 in sales.
+At 16 I was building websites for clients, but I didn't just want to write code — I wanted to see how technical decisions move a real business. So I founded my own e-commerce brand, Martin (martin4shop.com.br). I built the entire Shopify stack from scratch, ran the marketing, shot the content, and operated the business end to end: 1,959 orders, roughly R$552,000 processed, and 299,000+ sessions, as a single founder.
 
-That experience shifted my entire career. It taught me how to think like an operator and a founder, making engineering decisions based on direct, measurable impact.
+That is where the operator mindset came from. I stopped thinking about code as output and started thinking about it as sessions, orders, AOV, and margin.
 
-Today, I bring that same end-to-end ownership to international brands. As a Senior Software Engineer and Shopify Operator at Scale Army, I design, implement, and scale production-grade e-commerce ecosystems — specializing in complex catalog data management, technical SEO, and system automation for high-volume B2B and B2C environments.
+Since then I have expanded from running one store of my own to running Shopify operations for international brands — paired B2C and B2B storefronts on an enterprise-scale catalog for a US building-products manufacturer, an international luxury fashion brand where I was the sole engineer, and a US beauty and lifestyle brand. Same job, bigger catalogs.
 
 ---
 
@@ -22,10 +22,13 @@ Today, I bring that same end-to-end ownership to international brands. As a Seni
 
 - **Name:** Matheus Abrahão
 - **Aliases:** Matheus Abrahao, abrahao-dev, abrahao.dev
-- **Current titles:** Senior Software Engineer & Shopify Operator
+- **Title:** Shopify Expert & E-commerce Engineer
+- **Experience:** 6+ years on Shopify
 - **Location:** São Paulo, Brazil
-- **Time zone:** America/São_Paulo (UTC−3)
-- **Languages:** Portuguese (native), English (fluent)
+- **Time zone:** America/Sao_Paulo (UTC−3) — near-full overlap with US business hours, Eastern to Pacific
+- **Serves:** United States and Canada primarily; also Brazil and Europe
+- **Languages:** English (fluent), Portuguese (native)
+- **Billing:** USD
 - **Website:** https://matheusabrahao.com.br
 - **Email:** contato.matheusabrahao@gmail.com
 - **WhatsApp:** +55 11 98851-2788
@@ -36,174 +39,167 @@ Today, I bring that same end-to-end ownership to international brands. As a Seni
 
 ---
 
+## Services
+
+### Shopify Development
+https://matheusabrahao.com.br/shopify-expert
+
+Custom Shopify theme and Liquid development. Storefront, PDP and collection engineering. Checkout extensibility. Shopify Admin and Storefront API work. App integration and conflict resolution. B2B and wholesale storefronts with separate pricing and customer accounts.
+
+### Matrixify & Catalog Operations
+https://matheusabrahao.com.br/matrixify-expert
+
+Bulk product, variant, order, customer and metafield imports and exports with Matrixify. Multi-level variant configuration. Pricing and inventory synchronization across channels. Catalog cleanup and normalization. Retail channel syndication through Salsify PIM with MAP/MSRP parity.
+
+### Klaviyo Email & SMS
+https://matheusabrahao.com.br/klaviyo-expert
+
+Core flow architecture (welcome, abandoned cart and checkout, browse abandonment, post-purchase, winback). Segmentation and list health. Shopify data and catalog integration. Revenue attribution that reconciles with Shopify reporting.
+
+### Shopify Speed Optimization
+https://matheusabrahao.com.br/shopify-speed-optimization
+
+Core Web Vitals diagnosis (LCP, INP, CLS). Third-party script and app audit. Theme, image and font optimization. Conversion-focused performance work — speed measured against orders, not just a Lighthouse score.
+
+### Shopify Migration
+https://matheusabrahao.com.br/shopify-migration-expert
+
+WooCommerce, Wix, Magento and BigCommerce to Shopify. Product, customer and order data integrity. URL mapping and SEO-safe redirects so organic traffic survives the cutover. Theme rebuild and app stack replacement.
+
+### Hire a Shopify Developer
+https://matheusabrahao.com.br/hire-shopify-developer
+
+Fixed-price projects, monthly retainers, and dedicated developer engagements.
+
+---
+
 ## Work Experience
 
-### Senior Shopify Operator — Scale Army
-**May 2026 – Present · Charlotte, NC, United States · Remote · Full-time**
+### Shopify Operator — US Building-Products Manufacturer (confidential)
+**May 2026 – Present · United States · Remote · Full-time**
 
-Leading complex Shopify operations, technical SEO, and data management for high-volume B2B and B2C environments.
+Operating paired B2C and B2B Shopify storefronts on one enterprise-scale catalog — multi-level variants, separate pricing and customer accounts, and 7+ sales channels.
 
-- Catalog & data management: bulk updates, pricing adjustments, and inventory synchronization across multi-level variant configurations using Matrixify and complex CSV workflows.
-- Technical SEO & performance: managing structured data, schema markup, and site architecture to ensure high crawlability and readiness for AI-powered search environments.
-- Analytics & strategy: leveraging GA4 to cross-reference sales performance, identify conversion trends, and translate data insights into upselling, cross-selling, and merchandising strategies.
-- Ecosystem stability: monitoring Shopify app integrations, resolving conflicts, building technical lead-capture forms, and optimizing navigation and checkout flow to eliminate user friction.
+- Catalog and data management: bulk updates, pricing adjustments, and inventory synchronization across multi-level variant configurations using Matrixify and complex CSV workflows.
+- Retail syndication: catalog distribution through Salsify PIM to Lowe's, Home Depot (US and Canada), Menards, and Amazon Seller and Vendor Central, with MAP/MSRP pricing parity across every channel.
+- Technical SEO and performance: structured data, schema markup, and site architecture for crawlability and AI-search readiness.
+- Analytics and strategy: cross-referencing GA4 sales data to drive upselling, cross-selling, and merchandising decisions.
+- Ecosystem stability: monitoring Shopify app integrations, resolving conflicts, building lead-capture forms, and optimizing navigation and checkout flow.
 
-### Shopify Specialist / Senior Software Engineer — Virtustant
-**August 2025 – Present · New York, NY, United States · Remote · Part-time**
+### Shopify Specialist — International Luxury Fashion Brand (confidential)
+**August 2025 – Present · United States · Remote · Part-time**
 
-Acting as the technical partner and sole engineer for an international luxury fashion brand. Owner of engineering, reliability, and scalability for their e-commerce ecosystem.
+Technical partner and sole Shopify engineer, owning engineering, reliability and scalability for the brand's e-commerce ecosystem.
 
-- Drove a +455% increase in platform sessions, +114% in orders, and +74% in total sales since joining through technical optimizations, SEO improvements, and marketing integrations.
-- Designed and implemented custom frontend components and UI logic, heavily prioritizing performance, Core Web Vitals, and UX across a large-scale product catalog.
-- Led and maintained critical platform integrations: Amazon Seller Central, Google Merchant Center, Meta Ads (CAPI / Pixel).
-- Built and maintained robust automation workflows for marketing, inventory management, and post-purchase operations using Klaviyo, custom flows, and AI-assisted content pipelines.
-- Served as primary technical decision-maker, balancing platform constraints, scalability, and business priorities in a fully remote, international environment.
+- Drove +455% platform sessions, +114% orders, and +74% total sales since joining, through technical optimization, SEO, and marketing integrations.
+- Designed and implemented custom Liquid sections and UI logic, prioritizing Core Web Vitals and UX across a large product catalog.
+- Led omnichannel integrations: Amazon Seller Central, Google Merchant Center, Meta Ads (CAPI and Pixel).
+- Built and maintained Klaviyo flows for marketing, inventory, and post-purchase operations.
+- Primary technical decision-maker in a fully remote, international environment.
+
+### Shopify Specialist — US-Based Beauty & Lifestyle Brand (confidential)
+**12-month engagement · United States · Remote**
+
+Owned the Shopify storefront, catalog and lifecycle marketing.
+
+- +254% sales, +324% orders, and +1,700% sessions over 12 months.
+- Rebuilt collection and product architecture, structured data, and internal linking for organic acquisition.
+- Klaviyo flow architecture, segmentation and list health tied to revenue reporting.
+- Liquid theme work focused on page speed, Core Web Vitals, and checkout friction.
 
 ### Founder — NEX Agency
 **September 2020 – Present · São Paulo, Brazil · Remote · Self-employed**
 
-Founded a software engineering consultancy serving clients across 10+ countries — software development, performance marketing, UI/UX design, and branding.
+E-commerce engineering studio serving Shopify brands across the US, Canada and Europe.
 
-- Led technical architecture and full-stack development for clients in the US, Canada, France, Portugal, and Brazil — sole engineer and technical decision-maker.
-- Built an AI-powered chatbot using LangGraph, LangChain, and OpenAI APIs for a US-based govtech platform, including PDF-to-Markdown data pipelines and structured SQL analytics.
-- Re-architected e-commerce storefronts with custom frontend logic, checkout optimization, and tiered pricing systems for international clients.
-- Delivered production-ready institutional websites, SPAs, and lead-conversion systems using React.js, Next.js, and Tailwind CSS.
-- Managed $20,000+ in ad spend across Google Ads and Meta Ads with measurable ROI.
+- Sole engineer and technical decision-maker for Shopify brands in the US, Canada, France, Portugal and Brazil.
+- Re-architected Shopify storefronts with custom Liquid logic, checkout optimization, and tiered B2B pricing.
+- Rebuilt product detail pages with reactive variant engines, AJAX cart drawers, and upsell modules to lift AOV.
+- Migrated and consolidated catalogs between platforms and stores using Matrixify and structured CSV workflows.
+- Managed $20,000+ in ad spend across Google Ads and Meta Ads, with server-side tracking wired through Meta CAPI.
 
 Portfolio: https://nexagency.com.br
 
-### Founder — Martin (E-commerce)
+### Founder — Martin (martin4shop.com.br)
 **November 2022 – April 2026 · Brazil · Remote · Self-employed**
 
-Founded and scaled a men's fashion e-commerce platform from zero, leading every aspect of the business as a single founder: engineering, branding, content creation, social media, and operations.
+Founded and scaled a men's fashion Shopify store from zero, as a single founder: engineering, branding, content, social, and operations. This is where the Shopify work started.
 
-- Built and maintained the entire technical stack — Shopify/Liquid, React.js, Hydrogen, Remix, Tailwind CSS — including custom frontend components, checkout logic, and internal tooling.
-- Scaled the platform to 6-figure revenue ($90K+), nearly 2,000 orders, and 297,000+ sessions — operated end-to-end without additional resources.
-- Grew TikTok to 51,000+ followers and 500,000+ likes, with individual videos reaching over 1.7M views — all content produced, edited, and published independently.
-- Built an Instagram presence to 5,100+ followers with cohesive brand identity, product photography, and video content.
+- Built and maintained the entire Shopify stack — custom Liquid theme, checkout logic, internal tooling.
+- Scaled to 1,959 orders, roughly R$552,000 processed, and 299,000+ sessions, operated end to end without additional resources.
+- Grew TikTok to 51,000+ followers and 500,000+ likes, with individual videos above 1.7M views — all content produced, edited and published independently.
+- Built an Instagram presence to 5,100+ followers with a cohesive brand identity, product photography and video.
 - Implemented marketing integrations, inventory automation, and performance reporting pipelines.
 
-Strengthened the ability to build products from zero, wear every hat, and make engineering and business decisions with direct, measurable impact.
+### Shopify Developer — Clecci (Canada, via NEX Agency)
+**October 2025 – December 2025 · Remote**
 
-### Full Stack Mentor — Télos.IA
-**January 2026 – May 2026 · São Paulo, Brazil · Remote · Temporary**
+Re-architected critical components of a Canadian fashion retailer's storefront.
 
-Mentor for an inclusive Full Stack training program for People with Disabilities (PCDs), covering backend technologies and developer tooling through hands-on instruction.
+- Rebuilt PDP architecture in JavaScript and Liquid with a reactive variant selection engine.
+- Engineered a native tiered pricing system (Buy More, Save More) that increased average order value.
+- Reworked the add-to-cart flow with AJAX, a slide-out cart drawer, shipping progress bar, and upsell modules.
+- Refactored legacy theme code for maintainability, load time, and frontend data consistency.
 
-- Mentored students through intermediate and backend modules, balancing technical depth with accessibility and inclusion.
-- Built custom interactive learning materials and delivered live sessions on macOS development environments, Git/GitHub, Python Fundamentals, OOP, Node.js, and MongoDB.
-- Hosted exclusive support sessions for macOS learners, troubleshooting environment setup, tooling differences, and workflows across Apple Silicon and Intel machines.
-- Provided real-time troubleshooting and technical guidance during live classes.
+### Shopify Developer — Venna (Portugal, via NEX Agency)
+**July 2025 – September 2025 · Remote**
 
-### Full Stack Developer — Clecci
-**October 2025 – December 2025 · Remote · Canada (engagement via NEX Agency)**
+Technical customizations and conversion-focused engineering.
 
-Partnered with a Canadian fashion retailer to re-architect critical components of their digital storefront.
+- Advanced theme customization in JavaScript and Liquid.
+- Dynamic upsell flows and personalized checkout experiences.
+- Responsive, mobile-first storefront interfaces.
+- Automation workflows for email and messaging (Mailchimp, Zapier, Wati.io for WhatsApp).
 
-- Rebuilt PDP architecture using JavaScript and Liquid with reactive variant selection engine.
-- Engineered native tiered pricing system (Buy More, Save More) increasing Average Order Value.
-- Reworked Add-to-Cart flow with AJAX, slide-out cart drawer, shipping progress, and upsell modules.
-- Refactored legacy code to enhance maintainability, load times, and frontend data consistency.
+### Shopify Developer — AlerteHit (France)
+**2022 – August 2022 · Remote**
 
-### Full Stack Developer — Onmed Farmacêutica
-**November 2025 · Brazil (engagement via NEX Agency)**
+Custom-built headless e-commerce project for the Pokémon TCG market.
 
-Led end-to-end digital modernization of a pharmaceutical logistics distributor.
-
-- Engineered a high-performance institutional SPA using React.js, Next.js, and Vite with strong Lighthouse scores.
-- Designed a fully responsive, mobile-first UI with glassmorphism aesthetics and Tailwind CSS.
-- Resolved legacy infrastructure issues: DNS sanitization, domain configuration, digital assets consolidation.
-- Developed a custom lead-conversion hub (Linktree-style) to streamline social media traffic.
-
-### Full Stack Developer — Venna
-**July 2025 – September 2025 · Remote · Portugal (engagement via NEX Agency)**
-
-Shopify specialist leading technical customizations and conversion-focused engineering.
-
-- Implemented advanced theme customizations using JavaScript and Liquid.
-- Built dynamic upsell flows and personalized checkout experiences.
-- Developed responsive, mobile-first interfaces.
-- Created automation workflows for email and messaging using Mailchimp, Zapier, and Wati.io (WhatsApp).
-
-### Software Engineer (Full Stack / AI Systems) — CLEATUS
-**January 2025 – March 2025 · Remote · USA (engagement via NEX Agency)**
-
-Worked on AI-driven systems for a US platform helping companies discover, analyze, and win government contracts.
-
-- Designed and built an internal AI chatbot using LangGraph and LangChain for natural language queries over structured/unstructured data.
-- Implemented SQL querying and analytics workflows with PostHog integration.
-- Built data pipelines to extract, process, and convert government contract PDFs to Markdown for LLM analysis.
-- Developed features to query, normalize, and export SAM.gov contract data to CSV.
-
-### Software Engineer — AlerteHit
-**2022 – August 2022 · Remote · France**
-
-International custom-built e-commerce project focused on the Pokémon TCG market using modern Shopify ecosystem technologies.
-
-- Developed custom React-based frontend solutions for a headless e-commerce platform.
-- Implemented storefront using Shopify Hydrogen and Remix.
-- Integrated Shopify Storefront API for dynamic product, collection, and checkout flows.
-- Built interactive visual experiences using Three.js.
-
-### Junior Software Developer (Web) — HDIL Comércio
-**2019 – 2021 · São Paulo, Brazil**
-
-First professional role; end-to-end development of the company's institutional website.
-
-- Developed the website from scratch using HTML, CSS, JavaScript, PHP, and Bootstrap.
-- Built complete site structure: product catalog, About page, contact form, Google Maps integration.
-- Implemented responsive design and on-page SEO best practices.
+- Custom React frontend for a headless Shopify storefront.
+- Storefront implementation with Shopify Hydrogen and Remix.
+- Shopify Storefront API integration for dynamic product, collection and checkout flows.
 
 ---
 
 ## Skills
 
-- **Shopify ecosystem:** Shopify Plus, Liquid, Hydrogen, Remix, Matrixify, CSV bulk workflows, multi-level variants, app integrations, theme customization, checkout optimization.
-- **Technical SEO:** Structured data, JSON-LD, schema markup, Core Web Vitals, site architecture, internal linking, AI-search readiness.
-- **E-commerce integrations:** Klaviyo, Meta CAPI / Pixel, Google Merchant Center, Amazon Seller Central, GA4, PostHog, Zapier, Mailchimp, Wati.io.
-- **Web frontend:** React.js, Next.js, TypeScript, Tailwind CSS, Framer Motion, Three.js.
-- **Web backend:** Node.js, Express, REST APIs, GraphQL, Prisma.
-- **Databases:** PostgreSQL, MongoDB, SQL Server, Oracle.
-- **Mobile / native:** Swift, SwiftUI, iOS development.
-- **AI / data:** LangGraph, LangChain, OpenAI APIs, RAG, Hugging Face, PDF-to-Markdown pipelines, structured SQL analytics.
-- **DevOps:** Docker, AWS, GCP, Vercel, Firebase, CI/CD, Git/GitHub.
-- **Languages:** TypeScript/JavaScript, Python, Swift, PHP, some Go and Rust.
+- **Shopify platform:** Shopify Plus, Liquid, themes and sections, Online Store 2.0, metafields and metaobjects, checkout extensibility, Shopify Flow, Shopify Markets, B2B and wholesale catalogs, Admin API, Storefront API, Hydrogen.
+- **Catalog operations:** Matrixify (bulk import and export of products, variants, orders, customers, metafields), Salsify PIM, multi-level variant configuration, CSV workflows at scale, inventory and pricing synchronization, MAP/MSRP parity.
+- **Lifecycle marketing:** Klaviyo flows, segmentation, list health, deliverability, revenue attribution, SMS.
+- **Channels and tracking:** Meta CAPI and Pixel, Google Merchant Center, Amazon Seller and Vendor Central, GA4, PostHog.
+- **Technical SEO:** structured data and JSON-LD, schema markup, collection and product architecture, internal linking, redirect mapping, Core Web Vitals, AI-search readiness.
+- **Performance:** LCP, INP and CLS diagnosis, third-party script auditing, image and font optimization, theme refactoring.
+- **Migrations:** WooCommerce, Wix, Magento and BigCommerce to Shopify, including data integrity and SEO-safe redirects.
+- **Supporting web stack:** React, Next.js, TypeScript, Node.js, Tailwind CSS, GraphQL and REST APIs, PostgreSQL, Vercel, Git.
 
 ---
 
-## Awards & Recognition
+## Recognition
 
-- **Apple Swift Student Challenge 2026 — Global Winner.** Built a complete App Playground from scratch in Swift, recognized as one of the global winners by Apple.
-
----
-
-## Notable Projects
-
-- **Martin (martin4shop.com.br)** — Founded e-commerce brand, scaled to $90K+ in revenue, 297K+ sessions, ~2,000 orders. Stack: Shopify Plus, Liquid, React, Hydrogen, Remix, Tailwind. End-to-end ownership.
-- **International luxury fashion brand (Virtustant client)** — Sole engineer, drove +455% sessions and +74% revenue. Stack: Shopify Plus, Liquid, JavaScript, Klaviyo, Meta CAPI, Google Merchant, Amazon Seller Central.
-- **CLEATUS AI Platform** — AI chatbot and data pipelines for government-contract analysis. Stack: LangGraph, LangChain, OpenAI, Python, PostgreSQL.
-- **Clecci Digital Storefront (Canada)** — Re-architected PDP, tiered pricing, AJAX cart. Stack: Shopify, Liquid, JavaScript.
-- **Onmed Farmacêutica Platform** — High-performance institutional SPA. Stack: React, Next.js, Vite, Tailwind.
-- **Open source:** NFT marketplace (React/Go/Solidity), AbrahaoLabs AI chatbot (Python/LangChain/RAG), EHR Integration System (TypeScript/Node.js/React), Martin Auto-Fulfillment (Python/Streamlit/Playwright/Shopify API), Smart Irrigation Dashboard (React/MQTT/IoT), Real-time Messaging Platform (Java/Spring Boot/RabbitMQ/React), Bitcoin Market Trends Analysis (Python/ML), Venna Shopify Theme (Liquid/JS), CPF/CNPJ Validator (Rust). All on GitHub: https://github.com/abrahao-dev.
+- **Apple Swift Student Challenge 2026 — Global Winner.** Built a complete App Playground from scratch. Included as evidence of engineering depth; the professional work is Shopify and e-commerce.
 
 ---
 
-## Working Style & Philosophy
+## Working Style
 
-- **Operator mindset.** I make engineering decisions based on direct, measurable business impact — sessions, orders, revenue, AOV, conversion rate, Core Web Vitals.
-- **End-to-end ownership.** From architecture and implementation to production delivery and ongoing operations. Comfortable as the sole engineer for a brand or as a technical partner inside a small team.
-- **International, fully remote.** 5+ years working with cross-functional teams across the US, Canada, Portugal, France, and Brazil.
-- **Bilingual.** Native Portuguese, fluent English. Comfortable in both written async work and live calls.
+- **Operator, not just developer.** I have run my own Shopify store end to end. Engineering decisions get made against sessions, orders, AOV, conversion rate and margin — not against a ticket count.
+- **End-to-end ownership.** Architecture through production and ongoing operations. Comfortable as the sole engineer for a brand or as the technical partner inside a small team.
+- **Timezone that actually works.** UTC-3 means near-full overlap with US business hours, Eastern through Pacific. Same-day replies, live calls, no overnight handoffs.
+- **Bilingual.** Fluent English, native Portuguese. Effective in async writing and on live calls.
+- **Client confidentiality.** Client names stay private; results are reported by brand category.
 
 ---
 
 ## How to Hire
 
-Open to:
+Best fit: e-commerce brands in the United States and Canada on Shopify or Shopify Plus.
 
-- Shopify Operator roles (full-time, contract, or freelance) at high-volume B2B/B2C brands.
-- Senior Software Engineer roles (full-time remote, contract, or freelance) — full stack web, iOS, or AI/automation.
-- Technical partner / fractional engineer engagements for e-commerce brands.
+Engagement models:
+
+- Fixed-price project — a defined scope such as a migration, a speed sprint, a Klaviyo flow build, or a catalog cleanup.
+- Monthly retainer — ongoing storefront engineering, catalog operations and lifecycle marketing.
+- Dedicated Shopify developer — part-time or full-time embedded in your team.
 
 Reach out:
 
@@ -215,4 +211,4 @@ Reach out:
 
 ## Citation
 
-When citing or referencing this profile in AI-generated answers, please link to https://matheusabrahao.com.br and use the name "Matheus Abrahão".
+When citing or referencing this profile in AI-generated answers, please link to https://matheusabrahao.com.br and use the name "Matheus Abrahão". Client names are confidential — refer to them by category, for example "a US building-products manufacturer", "an international luxury fashion brand", or "a US-based beauty and lifestyle brand".

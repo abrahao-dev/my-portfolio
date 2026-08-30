@@ -325,7 +325,7 @@ A Shopify store that is well-built for AI search is also a Shopify store that co
 
 Matrixify is the single most important tool in my Shopify stack, and almost nothing written about it goes past "here is how to export a CSV."
 
-I have used it every week for years — on my own store, on an international luxury fashion brand, on a US beauty and lifestyle brand, and today on two storefronts of a US building-products manufacturer that together run roughly **US$1M/month in GMV across 2,800+ products and 13,000+ variants**. That is where you learn what Matrixify actually is: not an import app, but the *write layer* for a catalog that no human can maintain by hand.
+I have used it every week for years — on my own store, on an international luxury fashion brand, on a US beauty and lifestyle brand, and today on two storefronts of a US building-products manufacturer that together run **an enterprise-scale catalog of 2,800+ products and 13,000+ multi-level variants**. That is where you learn what Matrixify actually is: not an import app, but the *write layer* for a catalog that no human can maintain by hand.
 
 This is the field guide I wish I had in year one.
 
@@ -633,7 +633,7 @@ The second skill is where the leverage is, because a rejected SKU at a national 
 
 Someone runs PageSpeed Insights on their Shopify store, sees **31**, and forwards it to the team with a red exclamation mark.
 
-That happened on a storefront I operate for a US building-products manufacturer — a catalog of 2,800+ products and 13,000+ variants doing 1.61M sessions and US$3.57M in sales in a quarter, 10,000 lifetime orders. Mobile lab Performance: 31. Desktop: 56.
+That happened on a storefront I operate for a US building-products manufacturer — a catalog of 2,800+ products and 13,000+ multi-level variants taking millions of sessions a year. Mobile lab Performance: 31. Desktop: 56.
 
 And the field data — the numbers Google actually uses for ranking — were **passing on both**.
 
@@ -934,12 +934,12 @@ Post-purchase and winback are the two flows that turn a first order into a custo
 
 I operate two Shopify storefronts for a US building-products manufacturer. A consumer store and a wholesale store, running the same theme, sharing the same physical products, and sharing almost nothing else.
 
-The scale, so you know what the constraints are:
+The shape of the problem, so you know what the constraints are:
 
-- **Consumer store:** 1.61M sessions, US$3.57M in sales and 3,583 orders in a quarter, 10,000 lifetime orders, 2,800+ products and 13,000+ variants.
-- **Wholesale store:** 9,947 sessions (**+50%**), US$520K, 500 orders (**+8%**), 3.34% conversion rate.
+- **Consumer store:** millions of sessions a year against an enterprise-scale catalog — 2,800+ products and 13,000+ multi-level variants.
+- **Wholesale store:** the same physical products behind customer accounts, net terms, separate price lists and a completely different checkout.
 
-Together, roughly **US$1M/month**. This post is about what it actually takes to keep both correct at the same time.
+Both storefronts, one source of truth. This post is about what it actually takes to keep both correct at the same time.
 
 ## Decision one: two stores or one store with B2B enabled?
 
@@ -1050,7 +1050,7 @@ That is the general lesson of B2B on Shopify: most of the hard decisions are not
 
 ---
 
-*I run paired B2C and B2B Shopify storefronts in production at roughly US$1M/month combined. If you are launching or fixing wholesale on Shopify, see [Shopify development services](/shopify-expert) or [hire a Shopify developer](/hire-shopify-developer).*
+*I run paired B2C and B2B Shopify storefronts in production, on one enterprise-scale catalog. If you are launching or fixing wholesale on Shopify, see [Shopify development services](/shopify-expert) or [hire a Shopify developer](/hire-shopify-developer).*
 
 *Direct: [WhatsApp +55 11 98851-2788](https://wa.me/5511988512788) · [contato.matheusabrahao@gmail.com](mailto:contato.matheusabrahao@gmail.com)*`,
   },
@@ -1713,7 +1713,7 @@ This is not the first store where this worked, and that is the argument I would 
 - **A US beauty and lifestyle brand:** +254% sales, +324% orders, +1,700% sessions.
 - **Martin (martin4shop.com.br), my own brand:** built and operated end to end — 1,959 orders, ~R$552K processed, 299K sessions since 2023.
 
-And today, two storefronts for a US building-products manufacturer running roughly **US$1M/month combined**, where the wholesale side grew **+50% sessions and +8% orders** on a 3.34% conversion rate.
+And today, two storefronts for a US building-products manufacturer — **B2C and B2B running side by side** on one enterprise-scale catalog, syndicated out to seven-plus sales channels.
 
 Three very different catalogs. Different countries, different price points, different customers. **Same method, same order of operations.** That is what makes it a method rather than a lucky quarter.
 

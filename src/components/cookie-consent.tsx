@@ -123,10 +123,10 @@ export default function CookieConsent() {
         </Link>
       </p>
       <div className="flex flex-wrap gap-2">
-        <Button size="sm" onClick={() => decide("accepted")}>
+        <Button size="sm" className="min-h-11 px-5" onClick={() => decide("accepted")}>
           {t("cookie.banner.accept")}
         </Button>
-        <Button size="sm" variant="outline" onClick={() => decide("essential")}>
+        <Button size="sm" variant="outline" className="min-h-11 px-5" onClick={() => decide("essential")}>
           {t("cookie.banner.reject")}
         </Button>
       </div>

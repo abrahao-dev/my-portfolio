@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Blog | Matheus Abrahão — Shopify, E-commerce, Full Stack & IA',
+  title: { absolute: 'Blog — Shopify, Matrixify, Klaviyo & E-commerce Engineering | Matheus Abrahão' },
   description: 'Artigos técnicos de Matheus Abrahão sobre Shopify Operations, SEO técnico, gestão de catálogo, React, Next.js, TypeScript, Docker, CI/CD e IA/ML. Guias práticos para construir aplicações web escaláveis e plataformas de e-commerce de alto volume.',
   alternates: {
     canonical: 'https://matheusabrahao.com.br/blog',
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Blog | Matheus Abrahão — Shopify, E-commerce & Full Stack',
+    title: 'Blog — Shopify, Matrixify & E-commerce Engineering',
     description: 'Artigos técnicos sobre Shopify Operations, SEO técnico, catálogo, React, Next.js, TypeScript e IA/ML.',
     url: 'https://matheusabrahao.com.br/blog',
     locale: 'pt_BR',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Matheus Abrahão — Engineering & Shopify Blog' }],
   },
   twitter: {
-    title: 'Blog | Matheus Abrahão — Shopify, E-commerce & Full Stack',
+    title: 'Blog — Shopify, Matrixify & E-commerce Engineering',
     description: 'Articles on Shopify Operations, technical SEO, catalog management, React, Next.js, and AI by a Senior Software Engineer & Shopify Operator.',
   },
 }
