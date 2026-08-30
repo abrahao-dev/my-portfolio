@@ -246,13 +246,14 @@
     border: 1px solid hsl(var(--border));
   }
 
-  /* Portrait treatment: desaturated, high contrast, per the reference */
+  /* Portrait treatment: foto em cores, só um leve ganho de contraste.
+     Era grayscale(1) — o dono pediu colorida. */
   .portrait-treated {
-    filter: grayscale(1) contrast(1.12) brightness(1.02);
+    filter: contrast(1.08) brightness(1.02);
   }
 
   .dark .portrait-treated {
-    filter: grayscale(1) contrast(1.18) brightness(0.94);
+    filter: contrast(1.1) brightness(0.98);
   }
 
   .tabular {
