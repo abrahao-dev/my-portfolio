@@ -7,6 +7,7 @@
  */
 
 import { useLanguage } from "@/contexts/language-context"
+import { useEffect, useState } from "react"
 
 const WHATSAPP_NUMBER = "5511988512788"
 
@@ -30,13 +31,28 @@ const WhatsAppButton = () => {
   const copy = COPY[language] ?? COPY.en
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(copy.message)}`
 
+  // Some quando o rodapé entra em cena: ali já existe um CTA de WhatsApp
+  // grande, e o balão flutuante só cobria o conteúdo do rodapé.
+  const [hidden, setHidden] = useState(false)
+  useEffect(() => {
+    const footer = document.querySelector("footer")
+    if (!footer) return
+    const io = new IntersectionObserver(([entry]) => setHidden(entry.isIntersecting))
+    io.observe(footer)
+    return () => io.disconnect()
+  }, [])
+
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={copy.label}
-      className="group fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg ring-1 ring-black/10 transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95"
+      aria-hidden={hidden}
+      tabIndex={hidden ? -1 : undefined}
+      className={`group fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg ring-1 ring-black/10 transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 ${
+        hidden ? "pointer-events-none translate-y-24 opacity-0" : ""
+      }`}
       style={{
         bottom: "calc(1.25rem + env(safe-area-inset-bottom, 0px))",
         right: "calc(1.25rem + env(safe-area-inset-right, 0px))",
