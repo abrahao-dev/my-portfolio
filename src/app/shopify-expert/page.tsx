@@ -243,6 +243,7 @@ const data: SeoLandingData = {
     "Senior Shopify expert services: custom Liquid theme development, storefront and PDP engineering, technical SEO, app and custom app integrations, catalog data operations, speed optimisation and CRO for Shopify and Shopify Plus stores.",
   breadcrumb: "Shopify Expert",
   related: [
+    { href: "/shopify-seo-expert", label: "Shopify SEO Expert" },
     { href: "/hire-shopify-developer", label: "Hire a Shopify Developer" },
     { href: "/matrixify-expert", label: "Matrixify Expert" },
     { href: "/klaviyo-expert", label: "Klaviyo Expert" },

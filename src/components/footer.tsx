@@ -16,6 +16,7 @@ const WA_INTRO: Record<Language, string> = {
 // translated the same six links, so the two navs disagreed on pt-BR.
 const SERVICES = [
   { href: "/shopify-expert", key: "services.shopify" },
+  { href: "/shopify-seo-expert", key: "services.seo" },
   { href: "/hire-shopify-developer", key: "services.hire" },
   { href: "/matrixify-expert", key: "services.matrixify" },
   { href: "/klaviyo-expert", key: "services.klaviyo" },

@@ -14,6 +14,1058 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'shopify-canonical-urls-duplicate-content',
+    title: 'Shopify Canonical URLs: The Duplicate Content Trap in Collections and Filters',
+    description:
+      'How Shopify canonical URLs actually work, why collection-scoped product URLs and filter parameters multiply your index, and the theme-level fixes that hold.',
+    date: '2026-08-30',
+    readTime: '11 min read',
+    tags: ['Shopify SEO', 'Technical SEO', 'Canonical URLs', 'Liquid', 'Storefront Filtering'],
+    featured: true,
+    body: `## The same product, at four different addresses
+
+Shopify canonical URLs are the single most misunderstood thing in Shopify technical SEO, and the reason is that the platform mostly gets them right — right up until a theme, an app or a merchandiser gets them wrong, and then nothing tells you.
+
+Here is the shape of the problem. One product, on a stock store, is reachable at least four ways:
+
+- \`/products/linen-shirt\`
+- \`/collections/shirts/products/linen-shirt\`
+- \`/collections/new-arrivals/products/linen-shirt\`
+- \`/products/linen-shirt?variant=4409130\`
+
+Add a collection with filters and it gets worse. Storefront filtering reflects every applied filter in the URL as a query parameter, and Shopify lets a merchant configure up to 25 filters on a collection. Filters combine with AND logic and values within a filter combine with OR, so a collection with a colour filter, a size filter and a price range is a combinatorial URL generator:
+
+\`\`\`
+/collections/shirts?filter.v.option.color=blue
+/collections/shirts?filter.v.option.color=blue,white
+/collections/shirts?filter.v.option.size=m&filter.v.option.color=blue
+/collections/shirts?filter.p.tag=new&filter.v.availability=1
+/collections/shirts?filter.v.price.gte=40&filter.v.price.lte=90
+/collections/shirts?sort_by=price-ascending
+/collections/shirts?page=3
+\`\`\`
+
+None of those are new content. All of them are crawlable if something links to them.
+
+## What Shopify gives you for free
+
+Shopify exposes a global Liquid object, \`canonical_url\`, that holds the canonical URL for the current page. Themes are expected to render it in the head of \`layout/theme.liquid\`:
+
+\`\`\`liquid
+<link rel="canonical" href="{{ canonical_url }}" />
+\`\`\`
+
+That one line does most of the work. On a stock theme, a product reached through a collection path resolves its canonical back to the bare \`/products/<handle>\` address, so the four URLs above consolidate into one.
+
+The trap is that this is a *theme* responsibility, not a platform guarantee. Nothing on the platform forces the tag to exist, forces it to be unique, or stops a second one from being injected below it.
+
+## The three ways it breaks in production
+
+**1. The tag is missing on one template.** Custom templates, landing-page-builder templates and app-generated pages are the usual suspects, because they often bypass the standard layout. Check the head of every template type you have, not just the product page.
+
+**2. There are two canonical tags.** An SEO app injects one, the theme renders one, and they disagree. Search engines will pick one or ignore both. This is the most common finding I have on stores that have installed and uninstalled two or three SEO apps over the years — uninstalling an app does not always remove the snippet it added to \`theme.liquid\`.
+
+**3. Someone hardcoded the host.** A canonical pointing at a host that immediately redirects is a canonical pointing at nothing useful. I did this to my own site: sitemap entries and canonicals pointed at the bare domain while the site served on the \`www\` host and 301'd everything to it. Every canonical named a URL that redirected. Search Console kept the site down to four indexed URLs until I fixed it. Nothing errored, nothing warned, and it took a rank check across every service page to notice.
+
+Verify it the boring way. Open your product page in incognito, view source, and search for \`rel="canonical"\`. Count the matches. There should be exactly one, and it should be an absolute URL on the host you actually serve.
+
+## Internal linking is what creates the duplicates in the first place
+
+Canonicals are damage control. The real fix is not generating the alternate URLs at scale.
+
+In Liquid, \`product.url\` gives you \`/products/<handle>\`. The \`within\` filter is what produces the collection-scoped variant:
+
+\`\`\`liquid
+{% comment %} Emits /collections/shirts/products/linen-shirt {% endcomment %}
+<a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+
+{% comment %} Emits /products/linen-shirt {% endcomment %}
+<a href="{{ product.url }}">{{ product.title }}</a>
+\`\`\`
+
+Many themes use \`within: collection\` on product cards, because it powers the "next/previous product in this collection" navigation on the product page. That is a genuine UX feature and it has a genuine SEO cost: every collection page becomes a source of collection-scoped links to the same products.
+
+The decision I make on most stores is to keep \`within\` only where the collection context is actually used by the template, and to use the bare \`product.url\` everywhere else — related products, search results, cart, upsell blocks, email templates, feeds. Then the canonical is a backstop rather than the primary mechanism.
+
+## Filters: do not noindex your best pages by reflex
+
+The standard advice is "block filtered URLs." I think that is wrong more often than it is right.
+
+Some filtered URLs are genuinely valuable landing pages. \`/collections/shirts?filter.v.option.color=white\` is answering a real query with a real intent. If white shirts are a meaningful part of your business, that URL should probably become a real collection with its own handle, its own title, its own copy and its own place in the sitemap — not a parameter you hide.
+
+The split I use:
+
+- **Promote** the two or three filter combinations that map to real demand. Build them as actual collections. Now they have canonical URLs of their own and can rank.
+- **Leave alone** the ordinary single-value filters. Canonicalised back to the collection, they cost you very little.
+- **Block** the combinatorial tail and anything with no landing intent — sort orders, multi-value stacks, internal search results.
+
+Internal search is the clearest case. Search result pages have no business in an index, and they are the easiest thing in the world to accidentally expose. You can block them at the crawl layer with the \`robots.txt.liquid\` template, adding a rule inside the group that targets all crawlers:
+
+\`\`\`liquid
+{% for group in robots.default_groups %}
+  {{- group.user_agent }}
+  {%- for rule in group.rules -%}
+    {{ rule }}
+  {%- endfor -%}
+  {%- if group.user_agent.value == '*' -%}
+    {{ 'Disallow: /*?q=*' }}
+  {%- endif -%}
+  {%- if group.sitemap != blank -%}
+    {{ group.sitemap }}
+  {%- endif -%}
+{% endfor %}
+\`\`\`
+
+That is Shopify's own documented pattern: loop the default groups so you inherit the rules Shopify maintains, and add yours conditionally. Do not replace the whole file with static text — the default rule set gets updated and you would freeze it.
+
+One thing worth being precise about: \`Disallow\` in robots.txt prevents crawling, not indexing. A URL that is blocked from crawling can still appear in results if enough pages link to it, and because the crawler cannot fetch it, it cannot see your canonical or your noindex either. Use robots.txt for crawl budget on worthless URLs. Use canonicals for consolidation. They are different tools and blocking a page you wanted consolidated is a self-inflicted wound.
+
+## Removing pages from the index, properly
+
+Shopify gives you two levers that most merchants never find:
+
+- **The \`seo.hidden\` metafield.** Set it to \`1\` on a page, blog post or product and Shopify removes it from your sitemap, from search engines, and from your online store's own search.
+- **Unlisted product status.** Sets a product so it stays reachable by direct link but drops out of sitemaps, collection pages and store search.
+
+Both are better than a hand-rolled noindex conditional in \`theme.liquid\`, because they also fix the sitemap. A noindex meta tag on a URL that is still listed in your sitemap is a contradiction you are asking a crawler to resolve, and it wastes crawl budget every time.
+
+## Hreflang, if you run Markets
+
+If your store uses Shopify Markets, Shopify emits hreflang tags automatically through \`content_for_header\`, and those tags stay in sync with each page's canonical URL. That is the important part: the automatic tags and the canonical agree by construction.
+
+Shopify's own warning is worth repeating verbatim in spirit — adding your own hreflang tags on top of the automatic ones produces duplicate or conflicting annotations and can hurt your ranking. If your theme or an app already outputs hreflang, turn one of them off. Two sources is always worse than either source alone.
+
+## The audit, in order
+
+This is what I actually run on a new store, and it takes about an hour:
+
+- View source on one product, one collection, one filtered collection, one page and one blog post. Count canonical tags on each. Exactly one, absolute, on the live host.
+- Grep the theme for \`within:\` and decide, per usage, whether the collection context is real.
+- Open \`/robots.txt\` and read it. If it has been customised, read the \`robots.txt.liquid\` template and check it still loops \`robots.default_groups\` rather than hardcoding rules.
+- Pull the URL list from Search Console's Pages report and sort by "Duplicate, Google chose a different canonical" and "Alternate page with proper canonical tag." The first bucket is your bug list. The second is the system working.
+- Check every canonical resolves with a 200, not a 301. This is the one that took my own site out of the index.
+
+Duplicate content on Shopify is rarely a content problem. It is a URL-generation problem with a one-line fix that four different things can quietly undo.
+
+---
+
+## Related services
+
+Canonicals, filters and index hygiene are implementation work, not advice work — see [Shopify SEO expert services](/shopify-seo-expert) for what that covers, and [Shopify expert development](/shopify-expert) for the theme-level work behind it. If a replatform is what broke your canonicals, [Shopify migration expert](/shopify-migration-expert) covers the redirect and URL-inventory side. Related reading: [robots.txt and sitemap.xml on Shopify](/blog/shopify-robots-txt-sitemap-guide).
+
+---
+
+*I fix Shopify technical SEO on production stores. See [Shopify SEO expert services](/shopify-seo-expert) or [hire a Shopify developer](/hire-shopify-developer).*
+
+*Direct: [WhatsApp +55 11 98851-2788](https://wa.me/5511988512788) · [contato.matheusabrahao@gmail.com](mailto:contato.matheusabrahao@gmail.com)*`,
+  },
+  {
+    slug: 'shopify-schema-markup-rich-results',
+    title: 'Shopify Schema Markup: What Actually Earns Rich Results Now',
+    description:
+      'FAQ rich results are gone. What still earns them: the structured_data Liquid filter, Product vs ProductGroup, and the required merchant listing fields.',
+    date: '2026-08-29',
+    readTime: '12 min read',
+    tags: ['Shopify SEO', 'Schema.org', 'Structured Data', 'JSON-LD', 'Liquid'],
+    featured: false,
+    body: `## Half of what you have been told about Shopify schema markup is now false
+
+Shopify schema markup advice ages badly, because the thing it depends on — which structured data types Google actually renders as a rich result — changes without warning and the blog posts do not.
+
+Two concrete examples of advice that was correct and is not any more:
+
+- **FAQPage.** Google narrowed FAQ rich results in September 2023 so that they only showed for well-known, authoritative government and health sites. It then removed the feature from search results entirely in May 2026 and retired the documentation the following month. Every "add an FAQ app to get rich results" post is now selling you nothing.
+- **HowTo.** Same story, earlier.
+
+Meanwhile the thing that *does* still earn rich results on an ecommerce store got easier, because Shopify now emits it for you. This post is the current state.
+
+## Start by finding out what your theme already emits
+
+Modern Shopify themes do not hand-write product JSON-LD any more. Dawn emits it with one line:
+
+\`\`\`liquid
+<script type="application/ld+json">
+  {{ product | structured_data }}
+</script>
+\`\`\`
+
+\`structured_data\` is a real Liquid filter and it is worth understanding precisely, because almost nobody writing about Shopify SEO mentions it. It converts an object into schema.org structured data, it works on the \`product\` and \`article\` objects, and the output type depends on the data:
+
+- A product **without** variants outputs as a schema.org \`Product\`.
+- A product **with** variants outputs as a \`ProductGroup\`.
+- An article outputs as an \`Article\`.
+
+That \`Product\` versus \`ProductGroup\` split matters. \`ProductGroup\` is how you tell Google that six URLs are colours of one thing rather than six competing products, and getting variant relationships right is the difference between a clean merchant listing and a catalogue that looks duplicated from the outside.
+
+So the first job on any store is not "add schema." It is: view source on a product page, find every \`application/ld+json\` block, and count them. I routinely find three — one from the theme, one from an SEO app, and one hardcoded into \`theme.liquid\` by whoever came before. They disagree about price. That is worse than having none, because you have handed a crawler a contradiction and let it choose.
+
+## What Google actually requires
+
+For merchant listing experiences — the price, availability and shipping detail that shows next to a product result — the required properties are short:
+
+On \`Product\`:
+
+- \`name\`
+- \`image\`
+- \`offers\`
+
+On the \`Offer\`:
+
+- \`price\` (or \`priceSpecification.price\`)
+- \`priceCurrency\` (or \`priceSpecification.priceCurrency\`), a three-letter ISO 4217 code
+
+And one constraint that catches people: merchant listing experiences require a price **greater than zero**. Products priced at 0 as a "call for pricing" placeholder — extremely common on trade and made-to-order catalogues — are not eligible, and no amount of markup fixes that. If you sell that way, the honest answer is that merchant listings are not your channel and you should put the effort into the collection and content pages instead.
+
+Everything beyond those fields is optional enrichment: \`sku\`, \`gtin\`, \`brand\`, \`availability\`, \`itemCondition\`, \`aggregateRating\`, \`review\`, shipping and return policy details. Optional does not mean useless — a listing with GTIN and brand matches to Google's product knowledge graph far more reliably — but it does mean you should fix required-field failures before you go looking for enrichment.
+
+## The JSON-LD bugs I keep finding in themes
+
+If your theme or an agency hand-builds JSON-LD instead of using the filter, there are two failure modes that produce *valid-looking* markup with wrong values. Shopify documents both, and I have found both in production.
+
+**1. Filter order in string concatenation.** This looks harmless:
+
+\`\`\`liquid
+{%- assign json_price = '"price": "' | append: product.price | money_without_currency -%}
+\`\`\`
+
+The \`money_without_currency\` filter applies to the whole concatenated string, not to the price. The string parses as \`0.0\` and the block silently renders \`0.00\`. Your product page says 89.00 and your structured data says 0.00, and nothing in the theme errors.
+
+**2. Money filters in a schema price.** Never use \`money_without_currency\` for a schema.org price at all. It formats using the store's currency settings, so a locale that uses a comma as the decimal separator produces an invalid price value. Output a plain decimal instead:
+
+\`\`\`liquid
+{%- for product in collection.products -%}
+  <script type="application/ld+json">
+  {
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "price": "{{ product.price | divided_by: 100.0 }}"
+  }
+  </script>
+{%- endfor -%}
+\`\`\`
+
+Note \`| json\` on the title. Product titles contain quotes, ampersands and apostrophes, and an unescaped title is how a whole JSON-LD block becomes unparseable — which fails silently, because an invalid block is simply ignored.
+
+Both of these are the same underlying lesson: **structured data fails quietly**. There is no console error, no visual change, no 500. The only way you find out is by testing.
+
+## What is still worth marking up
+
+Given FAQ and HowTo are gone, here is where I still spend the effort on a Shopify store:
+
+**Product / ProductGroup.** The one that earns money. Emit it from Liquid with the source of truth being product fields and metafields, not an app that reads your rendered HTML.
+
+**BreadcrumbList.** Still rendered by Google, and cheap. It should match your actual collection hierarchy, which means if your breadcrumbs are generated from the referring collection rather than a real hierarchy, fix the hierarchy first.
+
+**Organization**, sitewide, with logo, \`sameAs\` links to your real social profiles, and contact details. This is the entity record. It does not produce a rich result on its own and it is disproportionately what answer engines quote when someone asks whether your brand is legitimate.
+
+**Article** on blog posts, which you get from \`{{ article | structured_data }}\`.
+
+**FAQPage — still yes, but for a different reason.** It no longer earns a rich result. It does still give a machine a clean, unambiguous question-and-answer structure on the page, and question-and-answer content is what gets lifted into AI answers and summaries. Mark it up because it makes the content parseable, not because you expect a blue accordion in the SERP. Anyone selling you FAQ schema as a rich-result play in 2026 has not checked in three years.
+
+**Review and AggregateRating — carefully.** Reviews must be genuinely on the page, genuinely from customers, and genuinely about the thing being marked up. Self-serving markup on a page with no visible reviews is a manual-action risk, and the upside is not worth it.
+
+## How to actually verify
+
+Three checks, in this order, every time:
+
+- **Rich Results Test** on the live URL, not on pasted code. Pasted code tests your JSON. The URL test catches the app that injects a second conflicting block after page load.
+- **Search Console's Merchant listings and Product snippets reports.** These show what Google saw at crawl time across the whole site, which is the only way to catch the one template out of six that is broken.
+- **View source and count \`ld+json\` blocks.** Manually. Once per template type. It takes two minutes and it is the check that finds the duplicates.
+
+And the thing to internalise: structured data is a claim about your data, so it can only be as correct as your data. A product with a missing GTIN, an inconsistent brand value and a blank product type will produce technically valid markup that describes an incoherent product. Catalogue hygiene comes first — that is why [bulk catalogue operations](/matrixify-expert) and structured data are the same job on a store of any size.
+
+## The short version
+
+- Find out what your theme already emits before you add anything. Count the \`ld+json\` blocks.
+- Use \`{{ product | structured_data }}\` unless you have a specific reason not to. It handles the Product versus ProductGroup distinction for you.
+- Required for merchant listings: \`name\`, \`image\`, \`offers\`, with \`price\` and \`priceCurrency\`, and the price has to be above zero.
+- Never build a schema price with a money filter. Output a plain decimal.
+- FAQ and HowTo rich results are gone. Keep FAQPage for machine readability, drop it from your rich-result plan.
+- Test the live URL, not the snippet.
+
+---
+
+## Related services
+
+Structured data is one half of [Shopify SEO expert work](/shopify-seo-expert); clean product data is the other, which is [Matrixify catalog operations](/matrixify-expert). Theme-level implementation lives under [Shopify expert development](/shopify-expert). Related reading: [Shopify canonical URLs and the duplicate content trap](/blog/shopify-canonical-urls-duplicate-content).
+
+---
+
+*I implement structured data at the Liquid and metafield level, not with an app that guesses from your HTML. See [Shopify SEO expert services](/shopify-seo-expert) or [hire a Shopify developer](/hire-shopify-developer).*
+
+*Direct: [WhatsApp +55 11 98851-2788](https://wa.me/5511988512788) · [contato.matheusabrahao@gmail.com](mailto:contato.matheusabrahao@gmail.com)*`,
+  },
+  {
+    slug: 'llms-txt-shopify-agents-md-geo',
+    title: 'llms.txt on Shopify Is Already Built: agents.md, UCP, and Being Citable by AI',
+    description:
+      'Shopify now serves llms.txt, llms-full.txt and agents.md for every store. What each file is, how to override them, and what GEO work is actually left to do.',
+    date: '2026-08-25',
+    readTime: '12 min read',
+    tags: ['GEO', 'llms.txt', 'AI Search', 'Shopify', 'agents.md'],
+    featured: true,
+    body: `## The advice changed under everyone's feet
+
+Four months ago I wrote that you should hand-author an \`llms.txt\` for your Shopify store and put a longer version at \`/llms-full.txt\`. That was correct advice at the time and it is now mostly obsolete, because Shopify ships this natively.
+
+If you run a Shopify store, open \`yourdomain.com/agents.md\` right now. There is a file there. You did not put it there.
+
+This post is what those files are, what overrides what, and — the part that matters commercially — what GEO work is actually left once the platform has done the easy part.
+
+## Three URLs, one document
+
+Shopify's canonical agent-facing document is \`/agents.md\`. It describes the store to AI agents and shopping assistants: how to discover the store's commerce capabilities, how to browse it read-only, what the published policies are, and how to transact.
+
+\`/llms.txt\` and \`/llms-full.txt\` are **alternate URLs for the same document**. By default they mirror \`/agents.md\`, so an agent or crawler that requests either of the community-convention filenames still finds a usable description of the store.
+
+Shopify manages all three by default, for every store, and keeps them aligned with the store's actual commerce configuration. No theme file exists for them unless you create one.
+
+Three details that matter operationally:
+
+- These files are served at the **bare primary domain**, without a locale or Shopify Markets subfolder prefix. There is no localized counterpart. One store, one agent document.
+- The default content stays in sync as your commerce configuration changes. A hand-maintained file does not.
+- The Shopify-generated file deliberately omits merchant contact details, because it is broadly cached and served to every agent that asks.
+
+## The override chain, and why you probably should not use it
+
+You can take control with theme templates, and the lookup order is specific:
+
+For \`/agents.md\`: \`agents.md.liquid\` if present, otherwise the Shopify-generated default.
+
+For \`/llms.txt\`: \`llms.txt.liquid\`, then \`agents.md.liquid\`, then the Shopify default.
+
+For \`/llms-full.txt\`: \`llms-full.txt.liquid\`, then \`agents.md.liquid\`, then the Shopify default.
+
+So \`agents.md.liquid\` is the lever that changes all three at once, and a dedicated \`llms.txt.liquid\` only diverges that one URL. None of these templates ship in any theme by default — you create them in the \`templates\` folder the same way you create \`robots.txt.liquid\`.
+
+Shopify's own guidance is to use the managed default unless you have an advanced requirement, and I agree, for a reason that has nothing to do with laziness: **the moment you add the template, you own keeping it current.** The managed file tracks Shopify's agent-discovery capabilities as they ship. A hand-edited file is a snapshot of what was true on the day someone wrote it, and agent discovery is moving faster right now than any other part of the platform.
+
+If you do override it, use the \`agents\` object rather than hardcoding URLs, so the values stay in sync:
+
+\`\`\`liquid
+# Agent Instructions — {{ agents.store_name }}
+
+This document describes how AI agents can interact with the online store
+at {{ agents.store_url }}.
+
+## Commerce Protocol (UCP)
+
+- Discovery: GET {{ agents.ucp_discovery_url }}
+- MCP endpoint: POST {{ agents.mcp_endpoint_url }}
+
+## Read-only browsing
+
+- All products: GET /collections/all
+- Sitemap: {{ agents.sitemap_url }}
+
+Pricing and availability are returned in {{ agents.currency }}.
+\`\`\`
+
+And take Shopify's caution seriously: do not output private merchant data — contact emails, phone numbers — into that file. It is cached broadly and served to everybody.
+
+## What is actually behind those endpoints
+
+The agent document is a pointer. What it points at is the interesting part.
+
+**UCP** — the Universal Commerce Protocol — is the discovery and transaction layer. \`agents.ucp_discovery_url\` is where an agent learns what your store can do; \`agents.mcp_endpoint_url\` is where it acts.
+
+**Storefront Catalog MCP** lets an agent search and discover products from a single merchant's catalogue. This is what a store-scoped shopping assistant uses. **Global Catalog MCP** does the same across the whole Shopify ecosystem, clustering offers from multiple merchants by a universal product ID — that is comparison shopping, and your product is either in that cluster with good data or it is in it with bad data.
+
+**WebMCP** is the one people have not noticed yet. Shopify provides WebMCP tools on every Liquid storefront with nothing to install. When a shopper brings an agent to your store in their browser, the agent can call structured tools to search your catalogue, manage the cart and navigate, instead of scraping your HTML and simulating clicks. Cart tools go through the same standard storefront actions apps use, so if your theme opens a cart drawer on add-to-cart, the agent triggers that too. Agent support is currently limited to Chromium-based browsers, so this is early — but it is live, not announced.
+
+There is also a \`sitemap_agentic_discovery.xml\` sitting inside the sitemap index on stores today, alongside the product, collection, page and blog sitemaps.
+
+## So what is left to do?
+
+This is the honest part, and it is the reason GEO work is still worth paying for.
+
+The platform now handles **discovery**. It publishes the files, the endpoints and the protocol. It cannot handle **substance**. Every one of those surfaces reads your product data, your policies and your content, and returns exactly what is in them.
+
+The work that is left:
+
+**1. Make the catalogue answerable.** An agent asked "does this brand ship to Canada, and what is the return window" reads your policy pages. An agent asked "which of these is waterproof" reads product metafields and body copy. If the attribute a customer would filter on does not exist as structured data on your product, no protocol invents it. This is the same catalogue hygiene work that feeds Google Shopping and on-site filtering — normalised product types, populated metafields, real body copy — which is why [bulk catalogue operations](/matrixify-expert) is the unglamorous foundation of AI visibility.
+
+**2. Do not block the crawlers.** Discovery protocols are for agents acting in a session. Being *cited* in a model's answer still depends on the model's training and retrieval crawlers being allowed in. Plenty of stores block them without knowing it, through an inherited \`robots.txt\` customisation. If you want to be cited, allow them explicitly, and do it inside the \`robots.txt.liquid\` template so you inherit Shopify's maintained default rules rather than freezing a snapshot:
+
+\`\`\`
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+\`\`\`
+
+This does not make you appear. It removes a barrier to appearing. Also: this is a business decision, not only a technical one. Allowing training crawlers is a choice about whether your content contributes to models. Make it deliberately.
+
+**3. Keep prices and availability true at the source.** Agents read \`/products/{handle}.json\` and the catalogue endpoints, which do not pass through your theme. A price your theme hides is still in the JSON. If you run trade pricing or logged-out price gating, test your storefront **logged out**, including the JSON endpoints, before you assume anything is private.
+
+**4. Structured data still matters.** Merchant listing markup, \`ProductGroup\` for variants, \`Organization\` for the entity record. The protocol layer is for agents that already know where you are. Structured data is for the ones that do not.
+
+**5. Measure the only way you can.** There is no click for a citation. What you can watch: branded query volume in Search Console as a leading indicator, no-referrer direct traffic, and a standing fortnightly test where you ask the major assistants the five questions your customers actually ask and read what comes back. If you are not cited, the fix is almost never the markup. It is that the answer is not on your site in plain language anywhere.
+
+## The reframe
+
+For two years, "AI SEO" on Shopify meant writing a text file. Shopify has now written the text file. What it has not done, and cannot do, is make your catalogue worth quoting.
+
+That was always the actual job. The file was just the part that was easy to sell.
+
+---
+
+## Related services
+
+Making a store legible to machines is [Shopify SEO expert work](/shopify-seo-expert) plus [catalog operations](/matrixify-expert) — structured product data is what every one of these surfaces reads. Theme-level implementation sits under [Shopify expert development](/shopify-expert). Related reading: [robots.txt and sitemap.xml on Shopify](/blog/shopify-robots-txt-sitemap-guide) and the earlier, now partly superseded [technical SEO for AI search](/blog/technical-seo-ai-search-shopify).
+
+---
+
+*I get Shopify stores structurally ready to be found and cited by machines, which is mostly a data problem. See [Shopify SEO expert services](/shopify-seo-expert) or [hire a Shopify developer](/hire-shopify-developer).*
+
+*Direct: [WhatsApp +55 11 98851-2788](https://wa.me/5511988512788) · [contato.matheusabrahao@gmail.com](mailto:contato.matheusabrahao@gmail.com)*`,
+  },
+  {
+    slug: 'shopify-robots-txt-sitemap-guide',
+    title: 'robots.txt and sitemap.xml on Shopify: What the Platform Gives You and What It Gets Wrong',
+    description:
+      'Customising Shopify robots.txt with robots.txt.liquid, what is really inside the generated sitemap.xml, and the two levers that remove a URL from it.',
+    date: '2026-08-23',
+    readTime: '11 min read',
+    tags: ['Shopify SEO', 'robots.txt', 'Sitemap', 'Technical SEO', 'Liquid'],
+    featured: false,
+    body: `## Two files you do not own, and one you can
+
+Shopify robots.txt and sitemap.xml are both generated by the platform. One of them you can edit. The other you genuinely cannot, and most of the advice online pretends otherwise.
+
+Knowing which is which saves you a lot of wasted effort.
+
+## robots.txt: editable, via a template most themes do not have
+
+Shopify generates a default \`robots.txt\` that is fine for most stores. If you want to change it, you add a \`robots.txt.liquid\` template — and it will not be there, because it ships in no theme by default. You create it in the theme code editor, in the \`templates\` folder, named exactly \`robots.txt.liquid\`.
+
+Two constraints worth knowing before you start:
+
+- **It cannot be a JSON template.** It has to be \`robots.txt.liquid\`.
+- **It supports only six Liquid objects:** \`robots\`, \`group\`, \`rule\`, \`user_agent\`, \`sitemap\`, and \`request\`. No \`product\`, no \`collection\`, no \`settings\`. This is a text file with a very small window into the store.
+
+The whole default file is mirrored through the \`robots\` object, and the base template is a loop:
+
+\`\`\`liquid
+{% for group in robots.default_groups %}
+  {{- group.user_agent -}}
+  {% for rule in group.rules %}
+    {{- rule -}}
+  {% endfor %}
+  {%- if group.sitemap != blank -%}
+    {{ group.sitemap }}
+  {%- endif -%}
+{% endfor %}
+\`\`\`
+
+**Keep the loop.** You *can* replace the entire template with plain text rules, and Shopify strongly recommends against it, for a reason that is easy to underrate: the default rules are updated regularly to keep SEO best practices applied. Hardcode them and you have frozen a snapshot of what was correct on the day you wrote it, and you will never notice the drift.
+
+### The three edits worth making
+
+**Add a rule to an existing group.** Blocking internal search results is the most common one — check for the group and inject:
+
+\`\`\`liquid
+{%- if group.user_agent.value == '*' -%}
+  {{ 'Disallow: /*?q=*' }}
+{%- endif -%}
+\`\`\`
+
+**Remove a default rule.** Shopify blocks \`/policies/\` by default. If you want your policy pages crawlable — and on a store where returns and shipping terms are a real buying objection, you might — skip that rule while emitting the others:
+
+\`\`\`liquid
+{%- unless rule.directive == 'Disallow' and rule.value == '/policies/' -%}
+  {{ rule }}
+{%- endunless -%}
+\`\`\`
+
+**Add rules for crawlers that are not in the default set.** This is where you allow or block AI crawlers, and it goes outside the default-groups loop as plain text:
+
+\`\`\`
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+\`\`\`
+
+There is also a host-specific pattern using the \`request\` object, which only makes sense if you run Shopify Markets with distinct domains per market:
+
+\`\`\`liquid
+{%- if request.host == 'example.fr' -%}
+  {{ 'Disallow: /en/' }}
+{%- endif -%}
+\`\`\`
+
+That lets a French domain block English content while everything else keeps the defaults. If you do not run multiple market domains, you do not need this and adding it is a way to break something later.
+
+### The thing people get wrong about Disallow
+
+\`Disallow\` stops crawling. It does not stop indexing, and it actively prevents the crawler from seeing anything on the page — including your canonical tag and your noindex meta tag.
+
+So blocking a URL you wanted *consolidated* is counterproductive: the crawler can no longer read the canonical that would have consolidated it. Use robots.txt to save crawl budget on URLs with no value at all. Use canonicals for duplicates. They are not interchangeable and people use the first when they need the second constantly.
+
+## sitemap.xml: generated, and you cannot edit it
+
+Shopify serves a sitemap index at \`/sitemap.xml\`, and it links out to a set of child sitemaps. On a live production store today, that index looks like this:
+
+\`\`\`
+/sitemap_products_1.xml?from=1878194389061&to=7369944137808
+/sitemap_collections_1.xml?from=423410055&to=279444029520
+/sitemap_pages_1.xml?from=248230535&to=94637621328
+/sitemap_blogs_1.xml
+/sitemap_metaobject_pages_1.xml
+/sitemap_agentic_discovery.xml
+\`\`\`
+
+Worth noticing, because most write-ups on this are years old:
+
+- The child sitemaps are **numbered and paginated by resource ID range**, which is what the \`from\` and \`to\` parameters are. Big catalogues get \`_2\`, \`_3\` and so on. If you have ever wondered why a product is "missing from the sitemap," check the later numbered files before concluding anything.
+- **Metaobject pages have their own sitemap.** If you have built content on metaobjects, it is being submitted, which surprises people who assumed metaobjects were invisible to search.
+- **\`sitemap_agentic_discovery.xml\` is new**, and it is part of the same agent-discovery layer that produces \`/agents.md\`, \`/llms.txt\` and \`/llms-full.txt\`. Worth reading once, because it tells you what Shopify thinks an agent should be pointed at.
+
+You cannot add a URL, remove a URL, reorder, set priorities, or change change-frequencies. There is no setting and no template. This is the part where a lot of migration checklists ask for something impossible.
+
+### The two levers that do remove a URL
+
+Since you cannot edit the file, you change what qualifies for it:
+
+- **The \`seo.hidden\` metafield.** Set the value to \`1\` on a page, blog post or product and Shopify removes it from sitemaps, from search engines, and from your online store's internal search. One metafield, three effects.
+- **Unlisted product status.** For products specifically, Unlisted keeps the product reachable by direct link while removing it from sitemaps, collection pages and store search. This is the right status for a product that exists for a specific customer, a warranty replacement part, or a channel-only SKU.
+
+Both are better than a noindex conditional in \`theme.liquid\`, because they fix the sitemap too. A noindexed URL that is still listed in your sitemap is a contradiction — you are submitting a page and asking for it not to be indexed, and you burn crawl budget on it every cycle.
+
+If you inherited a store with noindex conditionals in the theme, audit them against the sitemap. I usually find the theme is noindexing things the sitemap is still submitting, and nobody has looked in years.
+
+## The failure that costs the most, and does not warn you
+
+Everything above assumes the URLs in your sitemap resolve.
+
+I broke this on my own site. The site is served on the \`www\` host and the bare host 301s to it. My sitemap, my canonicals and my agent-discovery files all pointed at the bare host. So every URL in the sitemap redirected, and every canonical named a URL that redirected.
+
+Nothing errored. The site looked perfect. \`site:\` search returned four indexed URLs out of a few dozen, and every service page was outside the top 100 on keywords with a difficulty of zero. I spent time assuming it was a content and authority problem before checking the mechanical one.
+
+So: after any domain change, any migration, any CDN change, take three URLs out of your sitemap, curl them, and confirm they return 200 and not 301. It takes a minute and it is the highest-value minute in technical SEO.
+
+The same check applies to the primary domain more broadly. Shopify serves the sitemap on the primary domain, and stores that have collected extra domains over the years frequently have the sitemap submitted for the wrong one in Search Console.
+
+## The audit
+
+- Open \`/robots.txt\`. Read it. If it has been customised, open \`templates/robots.txt.liquid\` and confirm it still loops \`robots.default_groups\` rather than hardcoding a frozen rule set.
+- Open \`/sitemap.xml\` and read the index. Note the numbered files and follow at least the last one.
+- Curl three URLs from a child sitemap. Confirm 200, not 301.
+- Cross-check: any URL you are noindexing in the theme should be handled with \`seo.hidden\` or Unlisted instead, so it leaves the sitemap too.
+- Confirm Search Console has the sitemap submitted on the host you actually serve.
+
+Neither of these files will win you rankings. Both of them can quietly cost you the entire index, and one of them cost me exactly that.
+
+---
+
+## Related services
+
+Crawl and index mechanics are part of [Shopify SEO expert work](/shopify-seo-expert); the theme-level implementation is [Shopify expert development](/shopify-expert). If the damage came from a replatform, [Shopify migration expert](/shopify-migration-expert) covers URL inventories and redirects. Related reading: [Shopify canonical URLs and the duplicate content trap](/blog/shopify-canonical-urls-duplicate-content) and [llms.txt, agents.md and being citable by AI](/blog/llms-txt-shopify-agents-md-geo).
+
+---
+
+*I audit and fix Shopify crawl and index configuration on stores where the traffic is already paid for. See [Shopify SEO expert services](/shopify-seo-expert) or [hire a Shopify developer](/hire-shopify-developer).*
+
+*Direct: [WhatsApp +55 11 98851-2788](https://wa.me/5511988512788) · [contato.matheusabrahao@gmail.com](mailto:contato.matheusabrahao@gmail.com)*`,
+  },
+  {
+    slug: 'shopify-checkout-extensibility-migration',
+    title: 'Shopify Checkout Extensibility: Every Deadline, and What to Migrate First',
+    description:
+      'The real checkout.liquid sunset dates, the Plus-only limits, block vs static targets, and the October 2026 Polaris deadline nobody has diarised.',
+    date: '2026-08-21',
+    readTime: '12 min read',
+    tags: ['Shopify Checkout Extensibility', 'Shopify Plus', 'Checkout UI Extensions', 'Shopify Functions', 'Migration'],
+    featured: false,
+    body: `## The dates, first, because they are the whole story
+
+Shopify checkout extensibility is not a feature announcement any more, it is a series of deadlines, and if you are still reading blog posts from 2024 you have the wrong ones. Here is the actual sequence, straight from Shopify's deprecation notices:
+
+- **August 13, 2024** — \`checkout.liquid\` becomes unsupported for the Information, Shipping and Payment steps. This one is long past.
+- **August 28, 2025** — \`checkout.liquid\` and additional scripts are sunset for the **Thank you** and **Order status** pages.
+- **August 28, 2025** — script tags are sunset on those pages for **Plus** stores.
+- **August 26, 2026** — script tags are sunset on those pages for **non-Plus** stores. That was four days ago as I write this.
+- **October 1, 2026** — the one almost nobody has diarised. API version 2025-07 was the last to support React-based UI components in checkout UI extensions. After October 1 you are blocked from *updating* an extension that has not moved to Polaris web components.
+
+If you own or maintain a store with checkout customisations, the first three are archaeology and the last two are your quarter.
+
+## What actually broke on August 26
+
+Non-Plus stores that were still injecting script tags into the Thank you and Order status pages lost them. In practice that is: post-purchase survey scripts, referral-program widgets, some analytics and conversion tags, upsell embeds, and review-request pixels.
+
+The failure mode is the ugly kind. The page still renders. Checkout still works. Orders still complete. The only symptom is that a number somewhere goes flat — a conversion count, a referral signup rate, a post-purchase survey response rate — and nobody connects it to a date.
+
+If you have not looked, look now: pull your post-purchase conversion metric and your referral signups for the last two weeks against the two weeks before. A step change on August 26 is not a coincidence.
+
+## The Plus line, stated plainly
+
+This is the thing merchants find out too late.
+
+**Checkout UI extensions for the Information, Shipping and Payment steps are available only to stores on a Shopify Plus plan.**
+
+Thank you and Order status page extensions are not restricted the same way, which is why the practical advice for a non-Plus store is: everything you wanted to do *inside* checkout is not available to you, and the post-purchase pages are where your remaining budget goes.
+
+Custom **payments** extensions are Plus-only as well, and additionally restricted to approved partners on Shopify's Payments Platform. If a proposal you have been sent involves building a bespoke payment method, check both of those before anything else.
+
+## Block targets versus static targets
+
+Once you are building, the first real decision is where the extension renders.
+
+**\`purchase.checkout.block.render\`** is the general-purpose block target. It is not tied to a specific checkout section or feature, and the merchant chooses its placement in the checkout and accounts editor. It renders regardless of which checkout features are available, which makes it the safe default — an extension bound to a feature the store does not use simply does not appear.
+
+**Static targets** render at fixed locations tied to specific sections. Use them when the extension only makes sense in one place, and accept that it will not render if that section is not present.
+
+I default to the block target for anything a merchant might reasonably want to move, and static only when position is semantically load-bearing.
+
+Block targets give you read access to cart contents, buyer identity and delivery details. To store custom data — gift wrap preference, delivery instructions, a PO number — write **cart metafields** through the Metafields API. And check cart instructions before calling a mutation, because which mutations are available depends on the checkout.
+
+## The blocking change from January 2026
+
+This one changed behaviour under existing extensions, and it is worth understanding because it also changes the right architecture.
+
+As of **January 26, 2026**, checkout UI extensions that support blocking default to **non-blocking**. A merchant must explicitly turn on the "Allow app to block checkout" setting in the checkout and accounts editor for blocking to work.
+
+If your extension's entire purpose is validation — "you must accept these terms," "this address is not serviceable," "minimum order quantity not met" — it now silently does nothing until someone flips a switch you cannot flip for them. Shopify's guidance for extension authors is to detect this in the editor with the \`useExtensionEditor()\` hook and warn the merchant, and to include the step in your activation instructions.
+
+The deeper recommendation is the useful one: **build checkout validation with Cart and Checkout Validation Functions, not with UI extensions.** Functions are more secure, more performant, and guaranteed to run across supported checkouts. A UI extension is a rendering surface; validation that matters belongs in a Function that runs server-side and cannot be bypassed by a client hitting the cart API directly. On a wholesale store, somebody will.
+
+That is the same principle as order-quantity rules on a B2B storefront: theme-level or client-level validation is a suggestion, not a rule.
+
+## Thank you and Order status are two different surfaces
+
+They look the same to a merchant and they are not the same to a developer.
+
+**Thank you page** — target \`purchase.thank-you\`. The critical detail: **the order is not yet created when the extension renders.** The order *id* is available. You can use \`OrderConfirmationApi\` to get the confirmation number or the id, and then fetch the rest through the GraphQL API once order creation completes.
+
+That constraint kills a whole class of naive designs. "Show the customer their loyalty points balance including this order" does not work on the Thank you page if you assumed the order exists. Design for the id, fetch later.
+
+**Order status page** — target \`customer-account.order-status\`. Here the order is always available, and \`OrderStatusApi\` gives you the id, name and confirmation number directly. This is where post-purchase surveys, review requests, digital download links and order-lookup experiences belong.
+
+And a limitation to plan around from the start: **there is no support for mutating an order from a UI extension.** You can \`fetch\` out to your own service, but if the customer needs to change what they bought, that is a post-purchase extension, not a UI extension on these pages.
+
+## The migration order that saves the most work
+
+Shopify's own recommendation, and I have not found a case where it was wrong: **plan the in-checkout, Thank you and Order status upgrades together.**
+
+The reasons are practical. You avoid maintaining two tech stacks in parallel. You apply styling once across the whole experience. And you manage one deadline instead of two.
+
+If you genuinely cannot do them together, do in-checkout first and the after-purchase pages second.
+
+Before any of that, use the **report in the Shopify admin** that identifies your existing checkout customisations and maps them to Shopify Extensions in Checkout. It exists specifically to make this review shorter, and I have watched teams reverse-engineer their own checkout by hand without knowing it was there.
+
+## The practical sequence
+
+This is how I actually run one of these:
+
+- **Inventory what is live.** The admin report plus a manual pass over the checkout in a real session. Every script, every app, every injected element. Status per item: KEEP / REPLACE WITH APP / REBUILD AS EXTENSION / REBUILD AS FUNCTION / DROP.
+- **Sort by whether it is validation or presentation.** Validation goes to Functions. Presentation goes to UI extensions. Getting this split right up front avoids building the same thing twice.
+- **Check the Plus line for each item.** If you are not on Plus, in-checkout items are not migrations, they are deletions or business cases for upgrading.
+- **Look for a public app first.** Shopify keeps adding checkout apps built on extensions. Building custom is the last resort, not the first instinct, and this is one of the few places where I mean that.
+- **Rebuild against a current API version, with Polaris web components.** Not React. The October 1, 2026 cutoff is real and it blocks updates, which means it blocks your ability to fix a bug in an extension you shipped.
+- **Test conversions last and watch them live.** The single most expensive way to get a checkout migration wrong is to break the purchase event while fixing a survey widget. Order matters, and a broken conversion tag costs more than a missing feature.
+
+## The short version
+
+- Non-Plus script tags on Thank you and Order status died on August 26, 2026. Check your post-purchase metrics for a step change.
+- In-checkout UI extensions are Plus-only. Custom payments extensions are Plus-only and partner-gated.
+- Use \`purchase.checkout.block.render\` unless position is semantically required.
+- Validation belongs in Cart and Checkout Validation Functions, not UI extensions — and extensions no longer block by default anyway.
+- On the Thank you page the order does not exist yet. Only the id does.
+- Move to Polaris web components before October 1, 2026, or you cannot update your own extension.
+
+---
+
+## Related services
+
+Checkout customisation, Functions and extension work sit under [Shopify expert development](/shopify-expert). B2B checkout requirements — PO numbers, net terms, quantity rules — are covered in [Shopify B2B: company accounts, catalogs and price lists](/blog/shopify-b2b-company-accounts-catalogs). If you need senior capacity on a deadline, [hire a Shopify developer](/hire-shopify-developer).
+
+---
+
+*I migrate checkout customisations on stores where a broken checkout is not an option, and I do the conversion-tracking verification as part of the job. See [Shopify expert development](/shopify-expert) or [hire a Shopify developer](/hire-shopify-developer).*
+
+*Direct: [WhatsApp +55 11 98851-2788](https://wa.me/5511988512788) · [contato.matheusabrahao@gmail.com](mailto:contato.matheusabrahao@gmail.com)*`,
+  },
+  {
+    slug: 'shopify-stripe-integration',
+    title: 'Shopify and Stripe: Why You Probably Cannot Use Stripe as Your Gateway',
+    description:
+      'Stripe is Shopify Payments’ banking partner, so it is not offered as a separate gateway. What to build instead, and how to reconcile the two.',
+    date: '2026-08-19',
+    readTime: '10 min read',
+    tags: ['Shopify Stripe Integration', 'Shopify Payments', 'Payments', 'Reconciliation', 'Shopify Expert'],
+    featured: false,
+    body: `## The answer nobody wants
+
+"Shopify Stripe integration" is a search with a disappointing answer, and I would rather give you the disappointing answer in the first paragraph than sell you around it.
+
+**In countries where Shopify Payments is available, Stripe is not offered as a separate third-party payment gateway.** Shopify's own documentation gives the reason directly: Stripe is Shopify Payments' banking partner, and all payment reporting and management takes place in your Shopify admin.
+
+You are already on Stripe. You just do not have a Stripe dashboard, because the merchant-facing layer is Shopify's.
+
+There is a narrow exception — merchants in a Shopify Payments region who cannot activate Shopify Payments for eligibility reasons can contact Shopify support to ask about standalone Stripe access. That is a support conversation about your specific account, not an integration you can plan around.
+
+So if you came here to swap gateways, the project is usually over. What follows is what people actually need when they ask this question, because in my experience they are asking one of four different things.
+
+## Question 1: "I want lower fees"
+
+Adding a third-party gateway is almost never how you get them.
+
+Shopify applies **third-party transaction fees on all third-party and alternate payment gateways, even when Shopify Payments is activated.** That fee is a percentage that varies by plan, and it stacks on top of whatever the gateway itself charges you. So the comparison is not "Shopify's rate versus Stripe's rate" — it is "Shopify's rate" versus "the other processor's rate plus Shopify's third-party fee."
+
+One structural exception: on the Shopify Plus plan, third-party transaction fees may be waived when Shopify Payments is activated, depending on your location. If you are on Plus and running a second gateway for a specific market, that is worth confirming with Shopify for your region rather than assuming either way.
+
+The genuinely useful version of "lower fees" on Shopify is usually not a gateway change at all. It is: getting off manual card entry, reducing international-card mix by localising properly with Markets, and killing the chargebacks you are eating because your fulfilment communication is bad. Those move the number. Gateway shopping mostly moves it sideways.
+
+## Question 2: "I need a payment method Shopify Payments does not offer"
+
+This one is legitimate and it is the actual use case for a third-party gateway. Shopify supports over a hundred credit card payment providers, and running one alongside Shopify Payments is a supported configuration — you keep Shop Pay and the local payment methods that come with Shopify Payments, and add the specific method you need on top.
+
+The trade is the third-party fee on those transactions, and a second reconciliation surface. Both are fine if the payment method is genuinely unlocking revenue. Neither is fine if you added a gateway "for flexibility."
+
+If you need something deeper than an available provider — a bespoke payment method, custom authorisation and capture timing — that is a **payments app extension**, and there are two gates: only approved partners can build on Shopify's Payments Platform, and building a custom payments extension is limited to eligible Shopify Plus merchants. Check eligibility before scoping anything.
+
+## Question 3: "I need Stripe for something that is not the storefront checkout"
+
+This is the request I get most often, and it is the one where the answer is yes.
+
+Plenty of businesses running a Shopify storefront also need Stripe for money that does not flow through a cart:
+
+- **Subscriptions and recurring billing** managed outside the storefront — memberships, service retainers, SaaS-style plans sold alongside physical goods.
+- **B2B invoicing on net terms**, where the order is placed in Shopify but the invoice is issued and collected separately.
+- **Marketplace or multi-vendor payouts** through Stripe Connect, where the storefront takes the order and a second system splits the money.
+- **Deposits, quotes and custom orders** — high-ticket, made-to-measure or freight-quoted items where the final amount is not known at the time of order.
+
+These are integrations, not gateway swaps, and they are perfectly buildable. The architecture is always the same shape: **Shopify owns the order, Stripe owns that payment, and a small service keeps them consistent.**
+
+The rules I hold on those builds:
+
+**One system owns each payment.** A payment that both Shopify and Stripe think they own is a double charge waiting for a race condition. Decide per payment type, write it down, and never let the two paths overlap.
+
+**Webhooks must be idempotent.** Both platforms retry. A webhook handler that creates a record without checking whether it already exists will, on a bad day, create it four times. Key on the event id, store what you have processed, and make replays free.
+
+**Reconcile against the order, not the total.** Which brings me to the fourth question.
+
+## Question 4: "The numbers do not match"
+
+This is the least glamorous and most valuable work in this whole area, and it applies whether you are on Shopify Payments or a third-party gateway.
+
+Your Shopify order totals will never equal your payout amounts, and the reasons are all boring:
+
+- Payouts are batched on a schedule and cross day boundaries, so a payout contains orders from more than one reporting day.
+- Processing fees are deducted from the payout, not from the order.
+- Refunds land in a different payout than the original charge, often in a different month.
+- Chargebacks, reversals and their fees appear as separate transactions with their own timing.
+- Multi-currency orders settle at a conversion rate applied at settlement, not at checkout.
+- Gift cards, store credit and third-party financing mean part of an order total never touches the processor at all.
+
+Finance teams see the gap, assume something is wrong, and ask engineering to explain it. The deliverable that ends that conversation forever is a reconciliation table, not a dashboard: one row per payout, joined to its constituent transactions, joined to Shopify orders, with an explicit column for every deduction. Anything that does not reconcile gets a reason code.
+
+My stack for this is deliberately dull — export the payout data and the order data, join them in Python or DuckDB, and produce a small table. It is the same approach I use for [custom Shopify reporting](/blog/shopify-custom-reports-ga4-analytics), and for the same reason: the answer is a table and three sentences, not a BI tool nobody logs into.
+
+Build it once, run it monthly, and you convert a recurring argument into a lookup.
+
+## The short version
+
+- In Shopify Payments countries, Stripe is not available as a separate gateway, because it is Shopify Payments' banking partner. You are already on it.
+- Third-party transaction fees apply to third-party gateways even with Shopify Payments active. Adding a gateway rarely reduces total cost.
+- Custom payments extensions are approved-partner and Plus-gated. Confirm eligibility before scoping.
+- The real Shopify-plus-Stripe builds are subscriptions, invoicing, marketplace payouts and deposits — money that does not go through the storefront cart.
+- One system owns each payment. Webhooks are idempotent. Reconcile per payout, with a reason code for every gap.
+
+---
+
+## Related services
+
+Payment integrations, custom apps and Admin API work sit under [Shopify expert development](/shopify-expert). Checkout-side customisation has its own constraints — see [Shopify checkout extensibility](/blog/shopify-checkout-extensibility-migration). For B2B net terms and company-level payment configuration, see [Shopify B2B: company accounts, catalogs and price lists](/blog/shopify-b2b-company-accounts-catalogs).
+
+---
+
+*I build the integrations around Shopify's payment layer and the reconciliation that keeps finance from having to guess. See [Shopify expert development](/shopify-expert) or [hire a Shopify developer](/hire-shopify-developer).*
+
+*Direct: [WhatsApp +55 11 98851-2788](https://wa.me/5511988512788) · [contato.matheusabrahao@gmail.com](mailto:contato.matheusabrahao@gmail.com)*`,
+  },
+  {
+    slug: 'shopify-csv-import-bulk-product-upload',
+    title: 'Shopify CSV Import: Where the Native Importer Breaks and When to Stop Using It',
+    description:
+      'The Shopify CSV import rules nobody tells you: the 15 MB cap, the option-column edit that destroys variant IDs, no bulk delete, no cancel.',
+    date: '2026-08-17',
+    readTime: '11 min read',
+    tags: ['Shopify CSV Import', 'Bulk Product Upload', 'Matrixify', 'Catalog Operations', 'Shopify'],
+    featured: false,
+    body: `## The importer is better than its reputation and worse than you need
+
+Shopify CSV import is the first bulk tool every merchant meets. It is free, it is built in, and it will get you from zero to a few hundred products faster than anything else.
+
+It also has a small set of behaviours that are not obvious, are not warned about, and can quietly destroy data that other systems depend on. This post is those behaviours, and the honest line for when to stop using it.
+
+## The rules that are not on the screen
+
+**The file cannot exceed 15 MB.** If your upload errors or times out, the fix is to split it into smaller files. Note that 15 MB of CSV is a lot of rows — you will usually hit this because of long HTML product descriptions, not because of SKU count.
+
+**\`Handle\` is the key.** With "Overwrite any current products that have the same handle" enabled, a handle in your file that matches an existing product means the CSV values overwrite the matching columns on that product. That is the whole update mechanism. There is no ID matching, no SKU matching, no "update if newer."
+
+**One row per variant, product fields on the first row only.** The first row of a handle carries title, body, vendor, type, tags. Subsequent rows for the same handle carry only variant data. Additional images get their own rows with just the handle and the image columns.
+
+**Never sort the file in a spreadsheet editor.** This is Shopify's own warning and it is the one that catches people: sorting a product CSV in Excel or Numbers can separate products from their image rows, and the images are lost. The row order is structural. If you need to sort to review the data, sort a copy and import the original.
+
+**You cannot delete products with a CSV.** There is no delete command. Bulk deletion is a different workflow entirely.
+
+**An import cannot be cancelled once it starts.** There is no stop button. If you realise thirty seconds in that you uploaded the wrong file, your options are to wait and then repair. Which is why the next section exists.
+
+**There is no import history.** You cannot open a list of past imports and see what changed. The activity log is the closest thing, and it is not a diff.
+
+## The one that costs the most
+
+This is the behaviour I would put on a warning sticker:
+
+**Changing data in the Option1/Option2/Option3 value columns deletes the existing variant IDs and creates new ones.**
+
+Renaming "Med" to "Medium" is not an edit. It is a delete and a create. The variant is gone and a new variant with a new ID takes its place.
+
+Shopify says plainly that any change to variant ID values can break third-party dependencies, and in practice the list is long: inventory records tied to the old variant, third-party inventory and ERP syncs keyed on variant ID, subscription contracts, back-in-stock waitlists, wishlist entries, Klaviyo product references, ad platform catalogues, and any \`?variant=\` URL sitting in a live campaign or an email that has already gone out.
+
+Nothing about the import tells you this happened. The product page looks correct afterward. The store looks fine. What breaks is everything downstream, days later, in a way that never gets traced back to a tidy-up of option names.
+
+If you need to normalise option values across a catalogue — and everyone does eventually, because "Med / Medium / M" accumulates — treat it as a migration with a plan for the downstream systems, not as a spreadsheet cleanup.
+
+## Working safely inside the native importer
+
+If the native importer is the right tool for where you are, these five habits cover most of the risk:
+
+**Export first, always.** The export you take before the import is your rollback file. There is no undo, so this is the undo.
+
+**Import only the columns you are changing, plus the handle.** The importer overwrites matching columns. Every extra column you include is an assertion about a field you did not look at. A price update is a handle, a SKU and a price — not forty-one columns.
+
+**Test on five rows.** Import five, open them in the admin, look at them. Then import the rest. The five-row test catches encoding problems, column-name typos and option-value surprises for the cost of two minutes.
+
+**Format ID-shaped columns as Text before you paste.** A 13-digit identifier pasted into Excel becomes \`1.05E+13\`. This is the single most common cause of an import that reports success against zero matched rows.
+
+**Never sort. Never re-save through a tool that re-encodes.** Especially watch out for anything that converts to UTF-16 or strips the BOM.
+
+## Where the native importer stops being enough
+
+There is a real line, and it is not about SKU count. It is about what you need to touch.
+
+The native product CSV covers products, variants, images and the basic Google Shopping fields. It does not give you a comfortable path to:
+
+- **Metafields** across the catalogue, which is where the actual differentiating product data lives on any serious store.
+- **Inventory per location**, once you have more than one.
+- **URL redirects**, which you need every time a handle changes.
+- **Collections, customers, orders, pages and discounts** as bulk-editable objects.
+- **A dry run.** There is no "tell me what this would do" pass. You find out by doing it.
+- **A results file.** You cannot open a per-row report of what changed after the fact.
+- **Deletion**, at all.
+
+The moment your recurring work includes metafields, redirects, or multi-location inventory, you are fighting the tool. And the moment a bad import would cost real money — a price change, a status flip on a live product, a redirect on a page with paid traffic pointed at it — the absence of a dry run stops being an inconvenience and becomes the actual risk.
+
+That is where I move stores to [Matrixify for bulk catalogue operations](/matrixify-expert). What you buy is not speed, it is safety: an Analyze pass that reports what would change per row before anything is written, per-field commands so a tag import appends instead of wiping, a results file you can read afterwards, and coverage of every object type instead of just products.
+
+The discipline I run there is a separate piece — [the Matrixify field guide](/blog/matrixify-shopify-bulk-operations-guide) covers the command columns, the key-column choice, and the rollback-asymmetry rule that decides how hard I review a given file.
+
+## The honest recommendation
+
+If you are under a few hundred products, changing only product-level fields, and not syncing to anything downstream: the native importer is fine. Use it. Keep an export as your rollback and test five rows.
+
+If any of these are true, you have outgrown it:
+
+- Your catalogue feeds a marketplace, an ERP, a PIM or a retail partner.
+- Your product data lives in metafields.
+- You have more than one inventory location.
+- Anyone will notice within an hour if a price is wrong.
+- You have ever needed to answer "what exactly did that import change?"
+
+The upgrade is cheap relative to a single bad import. And the muscle you are building either way is the same one: never let an unreviewed change reach a live catalogue.
+
+---
+
+## Related services
+
+Bulk product upload, CSV and Excel workflows, metafield backfills and inventory sync are [Matrixify expert services](/matrixify-expert). If the catalogue problem is really a platform problem, see [Shopify migration expert](/shopify-migration-expert). For everything else on the storefront, [Shopify expert development](/shopify-expert). Related reading: [the Matrixify field guide](/blog/matrixify-shopify-bulk-operations-guide).
+
+---
+
+*I run catalogue operations on stores from a few hundred SKUs to enterprise-scale multi-variant catalogues. See [Matrixify expert services](/matrixify-expert) or [hire a Shopify developer](/hire-shopify-developer).*
+
+*Direct: [WhatsApp +55 11 98851-2788](https://wa.me/5511988512788) · [contato.matheusabrahao@gmail.com](mailto:contato.matheusabrahao@gmail.com)*`,
+  },
+  {
+    slug: 'shopify-b2b-company-accounts-catalogs',
+    title: 'Shopify B2B: Company Accounts, Catalogs and Price Lists Next to a B2C Storefront',
+    description:
+      'How native Shopify B2B models wholesale — companies, locations, catalogs, price lists — and the Liquid that makes one theme serve both audiences.',
+    date: '2026-08-15',
+    readTime: '12 min read',
+    tags: ['Shopify B2B', 'Shopify Plus', 'Wholesale', 'Liquid', 'Price Lists'],
+    featured: false,
+    body: `## One store, two audiences, one theme
+
+Native Shopify B2B lets you run wholesale inside the same store as your consumer storefront. I have also run the alternative — two entirely separate stores on one catalogue — and I have written about [why we made that trade and what it costs](/blog/shopify-b2b-wholesale-alongside-b2c).
+
+This post is the other side: what native B2B actually is, how it models a wholesale relationship, and what you have to write in the theme to make one storefront serve a contractor and a consumer without either of them noticing the other exists.
+
+If you are choosing today and you do not have a hard reason for separation — a different tax engine, a genuinely different app stack, a different catalogue — native B2B in one store is the right answer. The duplication tax on two stores is real and it is paid every single week.
+
+## The object model, in the order it matters
+
+Shopify B2B is four objects and one configuration, and once you hold them in your head the rest of the platform makes sense.
+
+**Company.** The business you sell to. A company organises multiple locations and multiple contacts who can place orders on behalf of the organisation. Note that a company is not a customer — customers are attached to it.
+
+**Company location.** A location or branch of a company. This is the object that carries almost everything operational: its own billing and shipping addresses, its own tax settings, its own checkout configuration. Locations are why a national contractor with fourteen branches works on Shopify at all.
+
+**Catalog.** Attached to a company location, a catalog determines **which products are published** to that location and **what they cost**. Different locations of the same company can have different catalogs.
+
+**Price list.** The pricing inside a catalog. This is where wholesale pricing actually lives — not as a discount code, not as a customer tag conditional in the theme, but as a first-class price for a specific set of buyers.
+
+**Buyer experience configuration.** Attached to the location, this determines checkout behaviour — payment terms, and whether orders require merchant review before they are accepted. Plus tax exemption values on the location.
+
+The crucial mechanic: **a B2B customer selects which location they are purchasing for**, and that selection determines the applicable catalogs, pricing, tax exemption and checkout settings for the order. Everything downstream of that choice is derived. Which is why the location picker is not a nice-to-have — it is the control that makes the entire model work.
+
+## What you need turned on
+
+Before any of this exists in your store:
+
+- A plan that supports B2B capabilities, with B2B enabled.
+- **New customer accounts activated.** B2B does not work on the legacy account system.
+- At least one company with customer access configured.
+
+That second one strands people. If your store is still on classic accounts, enabling B2B is an account-system migration first and a wholesale project second, and the account-system change touches every login link in every email flow you have ever sent.
+
+## The theme work: six Liquid properties
+
+Shopify gives you a small, clean set of B2B objects in Liquid. This is the whole surface you need:
+
+- \`customer.b2b?\`
+- \`customer.current_company\`
+- \`customer.current_location\`
+- \`customer.company_available_locations\`
+- \`company\` and \`company_location\`
+
+The location picker is the first thing to build, and it is genuinely simple:
+
+\`\`\`liquid
+{% if customer.b2b? %}
+  <div>
+    <h2>Welcome, {{ customer.name }} from {{ customer.current_company.name }}!</h2>
+    <p>You are purchasing for the {{ customer.current_location.name }} location.</p>
+
+    {% if customer.company_available_locations.size > 1 %}
+      <h3>Select a different location:</h3>
+      <ul>
+        {% for location in customer.company_available_locations %}
+          {% unless location.current? %}
+            <li>
+              <a href="{{ location.url_to_set_as_current }}">{{ location.name }}</a>
+            </li>
+          {% endunless %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+{% endif %}
+\`\`\`
+
+\`location.url_to_set_as_current\` is the piece to notice. You do not write a form, a POST handler or a session variable — Shopify gives you a URL that switches the buying context, and the catalog and price list follow.
+
+The \`current?\` check on each location is what keeps the currently-selected branch out of the "switch to" list. Small thing, and it is the difference between a picker that reads clearly and one that makes a buyer second-guess which branch they are on.
+
+## Serving two audiences from one theme
+
+\`customer.b2b?\` is the conditional that does the heavy lifting. On a store serving both audiences, or on a dedicated B2B store, the elements you typically gate are:
+
+- Product prices
+- The cart icon in the header
+- Add to cart buttons
+- Other calls to action on the product page
+
+\`\`\`liquid
+{%- if customer.b2b? -%}
+  {% comment %} trade price and add-to-cart {% endcomment %}
+{%- else -%}
+  {% comment %} log in to see trade pricing {% endcomment %}
+{%- endif -%}
+\`\`\`
+
+You can also branch on the company or the location itself, which is how you do account-specific merchandising without an app:
+
+\`\`\`liquid
+{% if customer.current_company.name == 'Northline Supply' %}
+  <h3>Delivery and installation included.</h3>
+{% endif %}
+\`\`\`
+
+Two design notes from having shipped this:
+
+**Do not build the B2B experience as a hidden layer under the B2C one.** A logged-out contractor researching your product is a lead. If your product pages show nothing useful until login, you have suppressed the exact top-of-funnel that generates trade signups. Show the product, show the specs, show a "get trade pricing" call to action — hide the number, not the page.
+
+**Cross-link the audiences deliberately.** A visible trade-pricing prompt on the consumer storefront is, in my experience, one of the highest-converting acquisition paths in a mixed setup, because contractors land on the consumer site constantly while researching. It costs one link.
+
+## Quantity rules and volume pricing
+
+Two B2B pricing mechanics that people try to build in theme JavaScript and should not.
+
+**Quantity rules** are per-product and carry a **minimum**, a **maximum** and an **increment**. Case packs, pallet quantities, and "you can only buy these in fours" are all this feature. The increment is the one themes get wrong — the plus and minus buttons on a quantity selector have to step by the increment, and the decrement has to stop at the minimum rather than at 1.
+
+**Volume price breaks** are quantity-based tiers within a price list — buy 10, get the tier-2 price. Surfacing these on the product page is a real conversion lever on a wholesale storefront, because a buyer who cannot see the break does not buy up to it.
+
+The rule I hold: **quantity rules must be enforced server-side, not in the theme.** Theme-level quantity validation is trivially bypassed by anyone hitting the cart API directly, and on a wholesale store somebody eventually will — usually not maliciously, usually through a punchout system or a bulk-order script. Shopify's own recommendation for checkout validation is Cart and Checkout Validation Functions, and that is the right place for anything that must be true about an order.
+
+If you are on headless or Hydrogen, the equivalent discipline is that **every product query must be contextualised with buyer information** — company location plus customer token. An uncontextualised query returns consumer pricing, and it will do so silently and correctly-looking. That is the single most common B2B headless bug.
+
+## Checkout, and what B2B needs that B2C does not
+
+The consumer checkout is optimised for speed. The wholesale checkout has different jobs: purchase order numbers, net payment terms, quantity minimums, tax exemption certificates, freight quoting for palletised goods, and a sales rep attached to the order.
+
+Payment terms and merchant order review come from the buyer experience configuration on the location, so those are configuration rather than code. Tax exemption is on the location too.
+
+The custom fields — a PO number input, a "ship to my yard" toggle, a certificate upload — are Checkout UI extensions, and here is the constraint that decides your project: **checkout UI extensions for the Information, Shipping and Payment steps are Shopify Plus only.** Off Plus, you push what you can into cart attributes and accept the ceiling. The full set of deadlines and targets is in [the checkout extensibility piece](/blog/shopify-checkout-extensibility-migration).
+
+## The thing to test before you launch
+
+One finding I would want every merchant to read before turning wholesale on.
+
+Test your storefront **logged out**, with a normal browser user agent, including \`/products.json\` and \`/collections/<handle>/products.json\`.
+
+The theme can be perfectly correct — hiding prices, showing "contact us for pricing" — and the number can still be sitting in the JSON embedded in the product page and in those public endpoints. Those are native platform endpoints that do not pass through Liquid. No theme code opens them and no theme code can close them.
+
+The levers are configuration, not code: Shopify's catalog restriction settings, the store-wide password or login-required setting, or a CDN edge rule blocking the JSON endpoints for unauthenticated requests.
+
+Choose your position on that trade-off consciously. The alternative is discovering it when a retail partner emails you a screenshot of your trade pricing.
+
+## The short version
+
+- Company → company location → catalog → price list. The location is where the operational configuration lives.
+- The customer picks a location, and that choice determines pricing, catalogue, tax and checkout behaviour.
+- New customer accounts are required. If you are on classic accounts, that migration comes first.
+- The theme work is six Liquid properties and a location picker built on \`url_to_set_as_current\`.
+- Hide the price, not the page. A logged-out contractor is a lead.
+- Quantity rules go server-side. Theme validation is a suggestion.
+- On headless, contextualise every product query with buyer identity or you will silently serve consumer prices.
+- Test logged out, including the JSON endpoints, before launch.
+
+---
+
+## Related services
+
+B2B setup, theme work and checkout extensions sit under [Shopify expert development](/shopify-expert); the catalogue and price-list data work is [Matrixify catalog operations](/matrixify-expert). Related reading: [running B2B wholesale alongside B2C on separate storefronts](/blog/shopify-b2b-wholesale-alongside-b2c) and [Shopify checkout extensibility](/blog/shopify-checkout-extensibility-migration).
+
+---
+
+*I run B2B and B2C Shopify storefronts in production on shared catalogues, including the pricing, tagging and checkout work underneath them. See [Shopify expert development](/shopify-expert) or [hire a Shopify developer](/hire-shopify-developer).*
+
+*Direct: [WhatsApp +55 11 98851-2788](https://wa.me/5511988512788) · [contato.matheusabrahao@gmail.com](mailto:contato.matheusabrahao@gmail.com)*`,
+  },
+  {
     slug: 'scalable-ecommerce-shopify-react',
     title: 'How I Drove +455% Sessions and +74% Sales on a Luxury Shopify Store',
     description:

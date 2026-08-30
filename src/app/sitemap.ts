@@ -59,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Shopify service pages (English, targeting US/Canada search)
     ...[
       'shopify-expert',
+      'shopify-seo-expert',
       'hire-shopify-developer',
       'matrixify-expert',
       'klaviyo-expert',

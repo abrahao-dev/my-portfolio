@@ -34,6 +34,7 @@ export function MobileNav() {
   const primary = [
     { href: "/", label: pt ? "Início" : "Home" },
     { href: "/shopify-expert", label: "Shopify Expert" },
+    { href: "/shopify-seo-expert", label: pt ? "SEO para Shopify" : "Shopify SEO Expert" },
     { href: "/hire-shopify-developer", label: pt ? "Contratar Dev Shopify" : "Hire a Shopify Dev" },
     { href: "/klaviyo-expert", label: "Klaviyo Expert" },
     { href: "/matrixify-expert", label: "Matrixify Expert" },

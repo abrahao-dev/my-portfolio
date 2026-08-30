@@ -116,6 +116,12 @@ const SERVICES = {
       body: "Abandoned carts, welcome sequences, win-backs. Email should be a fifth to a third of your revenue. When it is not, it is almost never the copy — it is the setup underneath it.",
     },
     {
+      href: "/shopify-seo-expert",
+      tag: "SEO & AI search",
+      problem: "Google barely shows your store, and AI never mentions it",
+      body: "Shopify quietly creates duplicate URLs, thin collection pages and canonicals that fight each other. I fix what is keeping pages out of the index, then make the store readable to ChatGPT, Perplexity and AI Overviews so it gets named when someone asks for a recommendation.",
+    },
+    {
       href: "/matrixify-expert",
       tag: "Catalog operations",
       problem: "Updating your catalog eats your whole week",
@@ -152,6 +158,12 @@ const SERVICES = {
       tag: "Klaviyo e-mail e SMS",
       problem: "Seus e-mails não trazem ninguém de volta",
       body: "Carrinho abandonado, boas-vindas, recuperação de cliente. E-mail deveria ser de um quinto a um terço do seu faturamento. Se não é, quase nunca é o texto — é a estrutura por baixo.",
+    },
+    {
+      href: "/shopify-seo-expert",
+      tag: "SEO e busca com IA",
+      problem: "O Google mal mostra sua loja, e a IA nunca cita ela",
+      body: "O Shopify cria URL duplicada, página de coleção vazia e canonical brigando entre si sem você perceber. Eu corrijo o que está mantendo páginas fora do índice e depois deixo a loja legível para ChatGPT, Perplexity e AI Overviews, para ela ser citada quando alguém pede recomendação.",
     },
     {
       href: "/matrixify-expert",

@@ -18,7 +18,7 @@ Volume no Brasil para termos Shopify é irrelevante (10-40/mês). **O público �
 | shopify developer partner | 14.800 | 16 | US$22 | US | `/shopify-expert` (seção) |
 | shopify expert developer | 1.300 | 26 | US$37 | US | `/shopify-expert` |
 | **matrixify** | **1.300** | — | **US$24** | US | `/matrixify-expert` ✅ criada |
-| shopify seo expert | 480 | **0** | US$2 | US | `/shopify-expert` (seção SEO) |
+| shopify seo expert | 480 | **0** | US$2 | US | `/shopify-seo-expert` ✅ criada 30/ago |
 | hire shopify developer | 480 | 46 | US$26 | US | `/hire-shopify-developer` |
 | shopify consultant | 260 | — | **US$61** | US | `/hire-shopify-developer` |
 | freelance shopify developer | 210 | 19 | US$49 | US | `/hire-shopify-developer` |
@@ -134,6 +134,47 @@ a redação literal, porque é ela que aciona o rich result:
 
 ---
 
+## Tier 1C — SEO e GEO/AEO, medidos em 30/ago/2026
+
+Dados: DataForSEO Google Ads search volume + Labs bulk keyword difficulty, US, inglês.
+Custo total da medição: US$0,10 (2 chamadas).
+
+| Keyword | Vol/mês | KD | CPC | Onde ficou |
+|---|---|---|---|---|
+| **answer engine optimization** | **2.400** | 36 | **US$32,53** | `/shopify-seo-expert` — seção "GEO and AEO — getting cited by AI" |
+| **shopify seo services** | **1.300** | **9** | **US$54,31** | `/shopify-seo-expert` — H2 dos service cards ("What Shopify SEO services actually cover") |
+| **shopify seo agency** | **1.300** | **0** | **US$54,31** | `/shopify-seo-expert` — FAQ "What is the difference between you and an SEO agency?" |
+| ai search optimization | 1.300 | 33 | **US$45,41** | `/shopify-seo-expert` — service card "AI search optimization — GEO and AEO" |
+| ai seo agency | 1.300 | **0** | US$29,36 | `/shopify-seo-expert` — menção na seção GEO (não vale H2 próprio: intenção de agência) |
+| shopify sitemap | 320 | 19 | US$5,90 | `/shopify-seo-expert` — seção "robots.txt and sitemap on Shopify" |
+| shopify robots.txt | 110 | **6** | US$2,91 | mesma seção + item "robots.txt.liquid customisation" |
+| shopify seo audit | 50 | **3** | **US$27,93** | `/shopify-seo-expert` — passo 02 "Shopify SEO audit" + FAQ de preço |
+| shopify schema markup | 40 | **0** | US$3,02 | `/shopify-seo-expert` — seção "Shopify schema markup and structured data" |
+| shopify structured data | 20 | **0** | — | mesma seção (título usa os dois termos) |
+| shopify technical seo | 10 | — | — | `/shopify-seo-expert` — seção "Technical SEO for Shopify" |
+| generative engine optimization | **sem volume no Google Ads** | 54 | — | citado na seção GEO e na FAQ, **não** no title |
+| llms.txt | **sem volume no Google Ads** | — | — | item próprio na seção GEO; diferencial, não alvo de busca |
+
+### Leitura
+
+**O title da página é "Shopify SEO Expert"**, não "generative engine optimization". GEO não tem
+volume mensurável no Google Ads e KD 54 — é o termo mais difícil da lista e o único sem demanda.
+Cobrir sim, construir a página em cima dele não.
+
+**Os dois achados que ninguém tinha medido:** `shopify seo services` e `shopify seo agency`,
+1.300/mês cada, **CPC US$54** e KD 9 e 0. É o CPC mais alto de qualquer keyword de SEO no mapa,
+e a dificuldade é a mesma de "shopify seo expert" (KD 0). Os dois viraram H2 e FAQ na página nova.
+
+**`answer engine optimization` (2.400/mês, KD 36) tem 
+volume real; `generative engine optimization` não.** Quando os dois aparecem juntos no texto,
+AEO vem primeiro. A seção da página usa os dois termos por extenso na intro.
+
+**`ai seo agency` KD 0 com 1.300/mês** parece bom demais — provavelmente é um cluster novo sem
+concorrência estabelecida. Vale um post de blog, não uma página: a intenção é procurar agência,
+e a página nova vende explicitamente o oposto de agência.
+
+---
+
 ## Tier 2 — nichos de serviço (menor volume, ticket alto)
 
 KD medido em 30/ago/2026. Status = onde a keyword realmente está no site hoje.
@@ -180,8 +221,10 @@ exigiriam tradução de verdade (fase 2, só depois que o inglês estiver rankea
 ## Prioridade de execução
 
 1. `/shopify-expert` — maior volume + KD 7
-2. `/hire-shopify-developer` — intenção de compra mais direta
-3. `/klaviyo-expert` — CPC US$82, quase sem concorrência
-4. `/matrixify-expert` — "matrixify" 1.300/mês é o achado mais subestimado
-5. `/shopify-speed-optimization` e `/shopify-migration-expert`
-6. Blog: 1 post por keyword de Tier 2, cada um linkando para a página de serviço
+2. `/shopify-seo-expert` — KD 0 em "shopify seo expert", KD 0-9 em "shopify seo agency/services"
+   (CPC US$54), e é a única página que vende GEO/AEO. Aquisição mais barata do mapa inteiro.
+3. `/hire-shopify-developer` — intenção de compra mais direta
+4. `/klaviyo-expert` — CPC US$82, quase sem concorrência
+5. `/matrixify-expert` — "matrixify" 1.300/mês é o achado mais subestimado
+6. `/shopify-speed-optimization` e `/shopify-migration-expert`
+7. Blog: 1 post por keyword de Tier 2, cada um linkando para a página de serviço

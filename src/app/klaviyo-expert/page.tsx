@@ -160,6 +160,7 @@ const data: SeoLandingData = {
   breadcrumb: "Klaviyo Expert",
   related: [
     { href: "/shopify-expert", label: "Shopify Expert" },
+    { href: "/shopify-seo-expert", label: "Shopify SEO Expert" },
     { href: "/hire-shopify-developer", label: "Hire a Shopify Developer" },
     { href: "/shopify-speed-optimization", label: "Shopify Speed Optimization" },
     { href: "/shopify-migration-expert", label: "Shopify Migration Expert" },

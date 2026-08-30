@@ -315,6 +315,15 @@ export default function RootLayout({
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
+                      "name": "Shopify SEO and AI Search Optimization",
+                      "url": "https://www.matheusabrahao.com.br/shopify-seo-expert",
+                      "description": "Technical SEO for Shopify: canonical and duplicate-URL handling, structured data, robots.txt.liquid and sitemaps, plus GEO/AEO work — llms.txt and content structured to be cited accurately by ChatGPT, Claude, Perplexity and AI Overviews."
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
                       "name": "Matrixify & Catalog Operations",
                       "url": "https://www.matheusabrahao.com.br/matrixify-expert",
                       "description": "Bulk product, order and customer imports and exports with Matrixify, multi-level variant configuration, pricing and inventory synchronization, and retail channel syndication via Salsify PIM."

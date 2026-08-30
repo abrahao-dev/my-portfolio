@@ -115,6 +115,7 @@ const translations = {
 
     // Service links — shared wording between the footer and the mobile nav
     'services.shopify': 'Shopify Expert',
+    'services.seo': 'Shopify SEO Expert',
     'services.hire': 'Hire a Shopify Developer',
     'services.matrixify': 'Matrixify Expert',
     'services.klaviyo': 'Klaviyo Expert',
@@ -261,6 +262,7 @@ const translations = {
 
     // Links de serviço — mesma redação usada no menu mobile
     'services.shopify': 'Shopify Expert',
+    'services.seo': 'SEO para Shopify',
     'services.hire': 'Contratar Dev Shopify',
     'services.matrixify': 'Matrixify Expert',
     'services.klaviyo': 'Klaviyo Expert',

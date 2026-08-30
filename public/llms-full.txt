@@ -46,6 +46,15 @@ https://www.matheusabrahao.com.br/shopify-expert
 
 Custom Shopify theme and Liquid development. Storefront, PDP and collection engineering. Checkout extensibility. Shopify Admin and Storefront API work. App integration and conflict resolution. B2B and wholesale storefronts with separate pricing and customer accounts.
 
+### Shopify SEO & AI Search (GEO / AEO)
+https://www.matheusabrahao.com.br/shopify-seo-expert
+
+Technical SEO for Shopify, implemented rather than recommended: crawlability, canonical rules, duplicate collection and filter URLs, index bloat from variants and tag pages, pagination, internal linking and collection architecture. Schema markup written into the theme — Product, Offer, AggregateRating, BreadcrumbList, FAQPage, Organization — validated on live URLs and de-duplicated against app-injected markup. robots.txt.liquid customisation and sitemap discipline, including deliberate AI-crawler access decisions.
+
+Generative engine optimization and answer engine optimization (GEO / AEO): llms.txt and llms-full.txt, crawler access verified rather than assumed, and content structured in liftable passages so ChatGPT, Claude, Perplexity, Gemini and Google AI Overviews cite the store accurately instead of inferring its prices and policies. Blog topical clusters linked into the collection and product pages they support.
+
+Expectations are stated explicitly on the page and no rankings are guaranteed: indexability fixes are verifiable in Search Console within days to two weeks, structured data appears in enhancement reports within days, ranking movement on long-tail terms typically starts in the four-to-twelve-week range, and content authority is a three-to-nine-month horizon. The page also states that in several commercial Shopify queries the number one result is a platform-owned page that cannot be outranked.
+
 ### Matrixify & Catalog Operations
 https://www.matheusabrahao.com.br/matrixify-expert
 

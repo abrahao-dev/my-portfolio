@@ -121,6 +121,7 @@ const data: SeoLandingData = {
   breadcrumb: "Shopify Migration Expert",
   related: [
     { href: "/shopify-expert", label: "Shopify Expert" },
+    { href: "/shopify-seo-expert", label: "Shopify SEO Expert" },
     { href: "/hire-shopify-developer", label: "Hire a Shopify Developer" },
     { href: "/matrixify-expert", label: "Matrixify Expert" },
     { href: "/shopify-speed-optimization", label: "Shopify Speed Optimization" },
