@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://matheusabrahao.com.br'
-  const lastUpdate = new Date('2026-05-02')
+  const lastUpdate = new Date('2026-08-30')
 
   const blogSlugs = blogPosts.map((p) => ({ slug: p.slug, date: p.date }))
 
@@ -56,6 +56,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.7,
     },
+    // Shopify service pages (English, targeting US/Canada search)
+    ...[
+      'shopify-expert',
+      'hire-shopify-developer',
+      'matrixify-expert',
+      'klaviyo-expert',
+      'shopify-speed-optimization',
+      'shopify-migration-expert',
+    ].map((slug) => ({
+      url: `${baseUrl}/${slug}`,
+      lastModified: lastUpdate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+      alternates: {
+        languages: {
+          'en-US': `${baseUrl}/${slug}`,
+          'en-CA': `${baseUrl}/${slug}`,
+        },
+      },
+    })),
     {
       url: `${baseUrl}/llms.txt`,
       lastModified: lastUpdate,
@@ -67,6 +87,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: lastUpdate,
       changeFrequency: 'monthly',
       priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: new Date('2026-08-30'),
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/cookie-policy`,
+      lastModified: new Date('2026-08-30'),
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
     },
   ]
 

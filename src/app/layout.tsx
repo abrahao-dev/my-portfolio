@@ -1,8 +1,10 @@
+import CookieConsent from "@/components/cookie-consent"
 import ErrorBoundary from "@/components/error-boundary"
 import { Footer } from "@/components/footer"
 import { Navigation } from "@/components/navigation"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ScrollProgress } from "@/components/ui/scroll-progress"
+import WhatsAppButton from "@/components/whatsapp-button"
 import { LanguageProvider } from "@/contexts/language-context"
 import type { Metadata } from 'next'
 import './globals.css'
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
     default: 'Matheus Abrahão | Engenheiro de Software Sênior & Shopify Operator',
     template: '%s | Matheus Abrahão',
   },
-  description: 'Engenheiro de Software Sênior e Shopify Operator com 5+ anos escalando ecossistemas de e-commerce. Vencedor do Apple Swift Student Challenge 2026. Fundador de marca com $90K+ em vendas. Gerei +455% de sessões e +74% de receita para uma marca de luxo internacional via SEO técnico, gestão de catálogo e automação. Especialista em Shopify, React, Next.js, Node.js, TypeScript, Swift e SwiftUI. Disponível para trabalho remoto a partir de São Paulo, Brasil.',
+  description: 'Shopify Expert e Engenheiro de E-commerce com 6+ anos operando lojas Shopify. Opera uma operação de ~US$1M/mês (B2C e B2B) e gerou +455% de sessões e +74% de receita para uma marca de moda de luxo internacional. Especialista em Matrixify, catálogo, Klaviyo, SEO técnico, performance e Liquid. Atende marcas nos EUA e Canadá — fuso UTC-3, sobreposição total com o horário comercial americano.',
   keywords: [
     // Portuguese keywords (primary — domain is .com.br)
     'Engenheiro de Software Sênior',
@@ -89,7 +91,7 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US'],
     url: 'https://matheusabrahao.com.br',
     title: 'Matheus Abrahão | Engenheiro de Software Sênior & Shopify Operator',
-    description: 'Engenheiro de Software Sênior e Shopify Operator. Vencedor do Apple Swift Student Challenge 2026. Fundador com $90K+ em vendas. +455% de sessões e +74% de receita para marca de luxo internacional. Shopify, React, Next.js, Node.js, Swift, TypeScript.',
+    description: 'Shopify Expert e Engenheiro de E-commerce. Opera ~US$1M/mês em Shopify (B2C + B2B). +455% sessões e +74% receita para marca de moda de luxo internacional. Matrixify, Klaviyo, SEO técnico, Liquid. Disponível para marcas nos EUA e Canadá.',
     siteName: 'Matheus Abrahão — Senior Software Engineer & Shopify Operator',
     images: [
       {
@@ -104,7 +106,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Matheus Abrahão | Engenheiro de Software Sênior & Shopify Operator',
-    description: 'Senior Software Engineer & Shopify Operator. Apple Swift Student Challenge 2026 Winner. $90K+ e-commerce founder. +455% sessions and +74% revenue for an international luxury brand.',
+    description: 'Shopify Expert & E-commerce Engineer. Runs a ~US$1M/month Shopify operation (B2C + B2B). +455% sessions and +74% revenue for an international luxury fashion brand. Available for US and Canadian brands.',
     creator: '@abrahao_dev',
     images: ['/og-image.jpg'],
   },
@@ -422,7 +424,7 @@ export default function RootLayout({
                   "name": "Quem é Matheus Abrahão?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Matheus Abrahão é Engenheiro de Software Sênior e Shopify Operator, atualmente atuando na Scale Army (Charlotte, NC, EUA, remoto) e como engenheiro técnico para uma marca de luxo internacional via Virtustant (NY, EUA, remoto). Vencedor global do Apple Swift Student Challenge 2026, fundou e operou a marca de e-commerce Martin gerando $90.000+ em vendas como fundador único. É baseado em São Paulo, Brasil."
+                    "text": "Matheus Abrahão é Engenheiro de Software Sênior e Shopify Operator com mais de 6 anos de experiência. Hoje opera uma operação Shopify que fatura em média US$ 1 milhão por mês (lojas B2C e B2B de uma fabricante americana) e atua como engenheiro técnico de uma marca de moda de luxo internacional. Vencedor global do Apple Swift Student Challenge 2026, fundou e opera a marca de e-commerce Martin (martin4shop.com.br). É baseado em Atibaia, São Paulo, Brasil, e atende marcas nos Estados Unidos e Canadá."
                   }
                 },
                 {
@@ -438,7 +440,7 @@ export default function RootLayout({
                   "name": "Quais resultados Matheus Abrahão já entregou?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Para uma marca de luxo internacional (via Virtustant), Matheus gerou +455% de aumento em sessões da plataforma, +114% em pedidos e +74% em vendas totais através de otimizações técnicas, melhorias de SEO e integrações de marketing. Como fundador da Martin, escalou a operação a $90.000+ em receita, quase 2.000 pedidos e 297.000+ sessões — operando ponta a ponta sem recursos adicionais. Entregou soluções para clientes em 10+ países via NEX Agency."
+                    "text": "Para uma marca de moda de luxo internacional, gerou +455% em sessões, +114% em pedidos e +74% em vendas totais através de SEO técnico, performance e integrações de marketing. Para uma marca de beleza e lifestyle dos EUA, +254% em vendas e +324% em pedidos em 12 meses. Opera uma operação Shopify de aproximadamente US$ 1 milhão por mês (B2C e B2B) para uma fabricante americana, com sindicalização de catálogo para Lowe's, Home Depot, Menards e Amazon via Salsify PIM e Matrixify. Como fundador da Martin (martin4shop.com.br), escalou a loja a quase 2.000 pedidos e 297.000+ sessões operando ponta a ponta."
                   }
                 },
                 {
@@ -462,7 +464,7 @@ export default function RootLayout({
                   "name": "Who is Matheus Abrahão?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Matheus Abrahão is a Senior Software Engineer and Shopify Operator currently at Scale Army (Charlotte, NC, USA, remote) and the sole engineer for an international luxury brand via Virtustant (NY, USA, remote). Global winner of the Apple Swift Student Challenge 2026 and founder of the e-commerce brand Martin, which he scaled to $90,000+ in sales as a single founder. Based in São Paulo, Brazil."
+                    "text": "Matheus Abrahão is a Senior Software Engineer and Shopify Operator with 6+ years of experience. He currently runs a ~US$1M/month Shopify operation (B2C and B2B storefronts) for a US building-products manufacturer, and is the sole engineer behind an international luxury fashion brand's Shopify ecosystem. Global winner of the Apple Swift Student Challenge 2026 and founder of the e-commerce brand Martin (martin4shop.com.br). Based in Atibaia, São Paulo, Brazil, working with US and Canadian brands."
                   }
                 },
                 {
@@ -511,6 +513,8 @@ export default function RootLayout({
                 </main>
                 <Footer />
               </div>
+              <WhatsAppButton />
+              <CookieConsent />
             </ThemeProvider>
           </LanguageProvider>
         </ErrorBoundary>

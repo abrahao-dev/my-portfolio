@@ -1,207 +1,118 @@
-# Matheus Abrahão - Software Engineer Portfolio
+# Matheus Abrahão — Shopify & E-commerce Engineering Portfolio
 
-A modern, SEO-optimized portfolio website built with Next.js, TypeScript, and Tailwind CSS. Showcasing expertise in full-stack development, AI integration, and e-commerce solutions with proven track record of generating $80K+ revenue.
+Portfolio and SEO surface for a Shopify operator who runs stores for a living, built with
+Next.js 15 (App Router), TypeScript and Tailwind. Live at
+**[matheusabrahao.com.br](https://matheusabrahao.com.br)**.
 
-## 🚀 Features
+This repository is public on purpose: the site sells engineering work, so the code that
+builds it is part of the pitch.
 
-- **SEO Optimized**: Comprehensive meta tags, structured data, and search engine optimization
-- **Modern Design**: Clean, professional design with smooth animations
-- **Responsive**: Optimized for all devices and screen sizes
-- **Dark/Light Mode**: Toggle between themes with system preference detection
-- **Performance**: Fast loading with Next.js optimization and Core Web Vitals
-- **Accessibility**: WCAG compliant with proper focus states and ARIA labels
-- **PWA Ready**: Progressive Web App support with manifest and service workers
-- **Error Handling**: Graceful error boundaries and loading states
+## What this site is for
 
-## 🛠️ Tech Stack
+Most developer portfolios list technologies. This one is built to be **found** and to
+**convert** — it targets the searches a US or Canadian brand actually types when they need
+someone to run their Shopify store, and answers them with measured results instead of
+adjectives.
 
-- **Framework**: Next.js 14 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS with custom design system
-- **Animations**: Framer Motion
-- **UI Components**: Radix UI + shadcn/ui
-- **Icons**: Lucide React
-- **Deployment**: Vercel
-- **SEO**: Structured data, meta tags, sitemap, robots.txt
+Every keyword targeted here was measured with DataForSEO (volume, difficulty and CPC),
+not guessed. The full research lives in [`SEO_KEYWORD_MAP.md`](./SEO_KEYWORD_MAP.md).
 
-## 📱 Pages
+## Service pages
 
-- **Home**: Hero section with stats, skills, and social links
-- **About**: Professional experience, achievements, and philosophy
-- **Projects**: Portfolio showcase with GitHub and demo links
-- **Contact**: Contact form with validation and contact information
+Six server-rendered landing pages, each mapped to a validated search intent:
 
-## 🎨 Design System
+| Route | Primary keyword | Vol/mo (US) | KD |
+|---|---|---|---|
+| `/shopify-expert` | shopify expert | 1,300 | 7 |
+| `/matrixify-expert` | matrixify | 1,300 | 14 |
+| `/hire-shopify-developer` | hire shopify developer | 480 | 46 |
+| `/klaviyo-expert` | klaviyo expert | 140 | — |
+| `/shopify-speed-optimization` | shopify speed optimization | 170 | — |
+| `/shopify-migration-expert` | shopify migration expert | 110 | 0 |
 
-- **Colors**: Custom CSS variables for consistent theming
-- **Typography**: Inter font with proper hierarchy
-- **Spacing**: Consistent spacing scale
-- **Components**: Reusable UI components with variants
+All six share a single server component (`src/components/seo-landing.tsx`) — each page is a
+data object, so proof metrics and schema stay consistent and change in one place.
 
-## 🚀 Getting Started
+## Tech stack
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/abrahao-dev/my-portfolio.git
-   cd my-portfolio
-   ```
+- **Framework:** Next.js 15 (App Router, React Server Components)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS with CSS-variable design tokens
+- **UI:** Radix primitives, custom components
+- **Animation:** Framer Motion
+- **3D:** React Three Fiber
+- **Deployment:** Vercel
+- **i18n:** custom lightweight context (en / pt-BR)
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+## SEO & AI discoverability
 
-3. **Set up images** (see [IMAGE_SETUP.md](./IMAGE_SETUP.md))
-   - Replace placeholder images in `public/` directory
-   - Add your profile photo, OG image, and resume
+- JSON-LD `@graph` per service page: `Person` + `Service` + `FAQPage` + `BreadcrumbList`
+- `sitemap.ts` and `robots.ts` generated at build time, with `en-US` / `en-CA` alternates
+- `llms.txt` and `llms-full.txt` so LLM crawlers (ChatGPT, Claude, Perplexity) can read and
+  cite the profile accurately — the same GEO work described in the blog
+- Server-rendered pages: no client JS required for crawlers to read content
+- Static generation with aggressive asset caching and security headers (`next.config.mjs`)
 
-4. **Run the development server**
-   ```bash
-   npm run dev
-   ```
+## Local development
 
-5. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+```bash
+git clone https://github.com/abrahao-dev/my-portfolio.git
+cd my-portfolio
+npm install
+npm run dev          # http://localhost:3000
+```
 
-## 📦 Available Scripts
+```bash
+npm run build        # production build
+npm run start        # serve the production build
+npm run lint         # eslint
+```
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
+Node 18+ recommended.
 
-## 🎯 Key Improvements Made
+## Project structure
 
-### SEO Enhancements
-- ✅ Comprehensive meta tags and Open Graph data
-- ✅ Structured data (JSON-LD) for rich snippets
-- ✅ Sitemap.xml and robots.txt
-- ✅ Geographic and business metadata
-- ✅ Twitter cards and social media optimization
-- ✅ Canonical URLs and proper redirects
+```
+src/
+├── app/                    # App Router pages
+│   ├── shopify-expert/     # service landing pages
+│   ├── matrixify-expert/
+│   ├── hire-shopify-developer/
+│   ├── klaviyo-expert/
+│   ├── shopify-speed-optimization/
+│   ├── shopify-migration-expert/
+│   ├── blog/[slug]/        # technical blog
+│   ├── projects/           # case studies
+│   ├── about/  contact/
+│   ├── sitemap.ts  robots.ts
+│   └── layout.tsx          # metadata + global schema
+├── components/
+│   ├── seo-landing.tsx     # shared landing renderer + schema builder
+│   ├── whatsapp-button.tsx
+│   └── ui/                 # design system primitives
+├── contexts/               # language context
+└── lib/
+    └── blog-posts.ts       # blog content as data
+```
 
-### Professional Profile
-- ✅ Updated content to reflect $80K+ revenue achievement
-- ✅ Enhanced about page with professional philosophy
-- ✅ Improved project descriptions and links
-- ✅ Added achievements and statistics section
+## Content policy
 
-### UI/UX Enhancements
-- ✅ Improved responsive design for all screen sizes
-- ✅ Enhanced color scheme with better gradients
-- ✅ Added smooth animations and transitions
-- ✅ Improved accessibility with proper focus states
-- ✅ Better typography and spacing
+Client and employer names never appear next to performance metrics. Results are attributed
+to anonymous descriptors ("an international luxury fashion brand", "a US building-products
+manufacturer"); only the author's own brand is named alongside numbers. Retailer and tool
+names (Shopify, Matrixify, Salsify, Klaviyo, Amazon, Lowe's, Home Depot, Menards) appear as
+channels and tooling, never as client attribution.
 
-### Functionality Improvements
-- ✅ Fixed broken project links
-- ✅ Added proper form validation in contact page
-- ✅ Implemented loading states and error boundaries
-- ✅ Enhanced SEO with comprehensive meta tags
-- ✅ Added proper error handling
-- ✅ Removed services page and updated navigation
-- ✅ Set Portuguese as default language
-- ✅ Created image placeholders and optimization system
+## Contact
 
-### Code Quality
-- ✅ Fixed ESLint errors and warnings
-- ✅ Improved TypeScript types
-- ✅ Better component organization
-- ✅ Added proper error boundaries
-- ✅ Updated dependencies
+- **Email:** contato.matheusabrahao@gmail.com
+- **WhatsApp:** [+55 11 98851-2788](https://wa.me/5511988512788)
+- **LinkedIn:** [abrahao-dev](https://linkedin.com/in/abrahao-dev)
+- **Website:** [matheusabrahao.com.br](https://matheusabrahao.com.br)
 
-### Performance
-- ✅ Optimized bundle size
-- ✅ Improved loading performance
-- ✅ Better image optimization
-- ✅ Enhanced caching strategies
+Available for Shopify engineering and e-commerce operations work with US and Canadian
+brands. Timezone UTC-3 — full overlap with US business hours.
 
-## 🌐 SEO Optimization
+## License
 
-### Meta Tags
-- Comprehensive title and description tags
-- Open Graph and Twitter Card metadata
-- Geographic and business information
-- Proper keyword targeting for freelance and job searches
-
-### Structured Data
-- Person schema for professional information
-- WebSite schema for portfolio details
-- Organization schema for business relationships
-- Proper linking to social profiles and projects
-
-### Technical SEO
-- Sitemap.xml for search engine indexing
-- Robots.txt for crawling instructions
-- Canonical URLs to prevent duplicate content
-- Proper heading hierarchy and semantic HTML
-
-### Local SEO
-- Geographic metadata for São Paulo, Brazil
-- Business contact information
-- Professional services categorization
-- Industry-specific keywords
-
-## 🚀 Deployment
-
-### Vercel Deployment
-1. Connect your GitHub repository to Vercel
-2. Configure environment variables if needed
-3. Deploy automatically on push to main branch
-
-### Custom Domain Setup
-1. Add your domain in Vercel dashboard
-2. Configure DNS records
-3. Update metadata with your domain
-4. Set up SSL certificate
-
-### SEO Verification
-1. Submit sitemap to Google Search Console
-2. Verify ownership with meta tags
-3. Monitor Core Web Vitals
-4. Set up Google Analytics
-
-## 📊 Performance Metrics
-
-- **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices, SEO)
-- **Core Web Vitals**: Optimized for all metrics
-- **Bundle Size**: Optimized with code splitting
-- **Loading Speed**: < 2 seconds on 3G
-
-## 🔍 Search Engine Optimization
-
-### Target Keywords
-- Software Engineer Brazil
-- Full Stack Developer São Paulo
-- TypeScript Developer Freelance
-- E-commerce Developer
-- AI Integration Expert
-- Shopify Developer
-- React Developer Brazil
-
-### Content Strategy
-- Professional services page for freelance work
-- Detailed project descriptions with technologies
-- Comprehensive about page with achievements
-- Contact information for business inquiries
-- Blog-ready structure for future content
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-Feel free to submit issues and enhancement requests!
-
-## 📞 Contact
-
-- **Email**: contato.matheusabrahao@gmail.com
-- **LinkedIn**: [abrahao-dev](https://linkedin.com/in/abrahao-dev)
-- **GitHub**: [abrahao-dev](https://github.com/abrahao-dev)
-- **Website**: [matheusabrahao.com.br](https://matheusabrahao.com.br)
-- **Software House**: [abrahaolabs.com.br](https://www.abrahaolabs.com.br)
-
----
-
-Built with ❤️ using Next.js, TypeScript, and Tailwind CSS
+MIT — see [LICENSE](./LICENSE).

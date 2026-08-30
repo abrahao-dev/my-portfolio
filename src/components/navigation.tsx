@@ -26,6 +26,7 @@ export function Navigation() {
           <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {[
               { href: '/about', label: t('nav.about') },
+              { href: '/shopify-expert', label: 'Shopify Expert' },
               { href: '/projects', label: t('nav.projects') },
               { href: '/blog', label: t('nav.blog') },
               { href: '/contact', label: t('nav.contact') },

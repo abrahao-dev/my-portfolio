@@ -26,7 +26,10 @@ Engenheiro de Software Sênior e Shopify Operator baseado em São Paulo, Brasil.
 ## Key Achievements
 
 - Apple Swift Student Challenge 2026 — global winner, built a complete App Playground from scratch in Swift
-- +455% platform sessions, +114% orders, +74% total sales for an international luxury brand (Virtustant)
+- +455% platform sessions, +114% orders, +74% total sales for an international luxury fashion brand
+- +254% sales, +324% orders, +1,700% sessions in 12 months for a US-based beauty & lifestyle brand
+- Operates a ~US$1M/month Shopify operation (B2C + B2B storefronts) for a US building-products manufacturer
+- Catalog syndication to Lowe's, Home Depot (US & Canada), Menards and Amazon via Salsify PIM and Matrixify
 - $90,000+ in revenue, 297,000+ sessions, ~2,000 orders as solo founder of Martin (e-commerce, 2022–2026)
 - 51,000+ TikTok followers / 500,000+ likes / individual videos at 1.7M+ views (Martin, all content self-produced)
 - Delivered solutions to clients across 10+ countries via NEX Agency

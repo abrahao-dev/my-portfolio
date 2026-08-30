@@ -14,6 +14,8 @@ export function MobileNav() {
   const navItems = [
     { href: "/", label: language === 'pt-BR' ? "Início" : "Home" },
     { href: "/about", label: t('nav.about') },
+    { href: "/shopify-expert", label: "Shopify Expert" },
+    { href: "/hire-shopify-developer", label: language === 'pt-BR' ? "Contratar Dev Shopify" : "Hire a Shopify Dev" },
     { href: "/projects", label: t('nav.projects') },
     { href: "/blog", label: t('nav.blog') },
     { href: "/contact", label: t('nav.contact') },

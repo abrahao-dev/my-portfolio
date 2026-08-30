@@ -74,21 +74,18 @@ export default function Contact() {
     setIsLoading(true)
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000))
-
-      // Here you would typically send the form data to your backend
-      // For now, we'll just simulate a successful submission
-      console.log('Form submitted:', formData)
+      // Sem backend: a mensagem é entregue pelo cliente de e-mail do visitante.
+      // É feio, mas chega — o setTimeout que estava aqui antes descartava o lead.
+      const subject = `New project inquiry from ${formData.name}`
+      const body = `${formData.message}\n\n---\nFrom: ${formData.name}\nEmail: ${formData.email}\nSent from matheusabrahao.com.br`
+      window.location.href =
+        `mailto:contato.matheusabrahao@gmail.com` +
+        `?subject=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body)}`
 
       setIsSubmitted(true)
       setFormData({ name: '', email: '', message: '' })
-
-      // Reset after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000)
-    } catch (error) {
-      console.error('Error submitting form:', error)
-      // Handle error state here
+      setTimeout(() => setIsSubmitted(false), 8000)
     } finally {
       setIsLoading(false)
     }

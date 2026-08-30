@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <footer className="mt-16 py-12 px-6 bg-secondary/5 border-t border-border/50">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <h3 className="text-lg font-semibold mb-2 text-foreground">{t('footer.title')}</h3>
@@ -42,6 +42,25 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Shopify services (English money pages) */}
+          <div>
+            <h3 className="text-sm font-semibold mb-3 text-foreground uppercase tracking-wider">Shopify Services</h3>
+            <div className="space-y-2 text-sm">
+              {[
+                { href: '/shopify-expert', label: 'Shopify Expert' },
+                { href: '/hire-shopify-developer', label: 'Hire a Shopify Developer' },
+                { href: '/matrixify-expert', label: 'Matrixify Expert' },
+                { href: '/klaviyo-expert', label: 'Klaviyo Expert' },
+                { href: '/shopify-speed-optimization', label: 'Speed Optimization' },
+                { href: '/shopify-migration-expert', label: 'Shopify Migration' },
+              ].map((item) => (
+                <Link key={item.href} href={item.href} className="block text-muted-foreground hover:text-primary transition-colors">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           {/* Contact */}
           <div>
             <h3 className="text-sm font-semibold mb-3 text-foreground uppercase tracking-wider">{t('footer.connect')}</h3>
@@ -62,8 +81,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-border/50 pt-6 text-center">
+        <div className="border-t border-border/50 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-sm text-muted-foreground">{t('footer.copyright')}</p>
+          <nav aria-label={t('footer.legal')} className="flex items-center gap-4 text-sm">
+            <Link href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.privacy')}</Link>
+            <Link href="/cookie-policy" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.cookies')}</Link>
+          </nav>
         </div>
       </div>
     </footer>
