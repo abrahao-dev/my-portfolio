@@ -13,7 +13,7 @@ Shopify Expert e engenheiro de e-commerce. Trabalha remotamente para marcas nos 
 - **Serves:** United States and Canada (also Brazil and Europe)
 - **Availability:** Freelance projects, monthly retainers, and dedicated engagements. Near-full overlap with US business hours. Invoices in USD.
 - **Languages:** English (fluent), Portuguese (native)
-- **Website:** https://matheusabrahao.com.br
+- **Website:** https://www.matheusabrahao.com.br
 - **Email:** contato.matheusabrahao@gmail.com
 - **WhatsApp:** +55 11 98851-2788
 - **GitHub:** https://github.com/abrahao-dev
@@ -40,22 +40,40 @@ Shopify Expert e engenheiro de e-commerce. Trabalha remotamente para marcas nos 
 
 ## Pages
 
-- [Home](https://matheusabrahao.com.br/): Positioning, proof, services, contact.
-- [Shopify Expert](https://matheusabrahao.com.br/shopify-expert): Senior Shopify developer for hire — theme and Liquid development, storefront and PDP engineering, app integrations.
-- [Matrixify Expert](https://matheusabrahao.com.br/matrixify-expert): Shopify catalog operations at scale — bulk product, order and customer imports and exports, migrations, variant configuration.
-- [Hire a Shopify Developer](https://matheusabrahao.com.br/hire-shopify-developer): Engagement models — fixed-price projects, retainers, dedicated developer. Rates, process, timezone overlap.
-- [Klaviyo Expert](https://matheusabrahao.com.br/klaviyo-expert): Shopify email and SMS marketing — flow architecture, segmentation, list health, revenue attribution.
-- [Shopify Speed Optimization](https://matheusabrahao.com.br/shopify-speed-optimization): Core Web Vitals diagnosis, third-party script audits, CRO-focused performance work.
-- [Shopify Migration Expert](https://matheusabrahao.com.br/shopify-migration-expert): WooCommerce, Wix, Magento and BigCommerce to Shopify migrations.
-- [About](https://matheusabrahao.com.br/about): Career story from his own Shopify store to operating stores for international brands, work history, technical skills.
-- [Projects](https://matheusabrahao.com.br/projects): Selected Shopify and e-commerce work.
-- [Blog](https://matheusabrahao.com.br/blog): Articles on Shopify operations, Matrixify, Klaviyo, performance, and technical SEO.
-- [Contact](https://matheusabrahao.com.br/contact): Contact form, email, WhatsApp.
+Last updated: 2026-08-30.
+
+- [Home](https://www.matheusabrahao.com.br/): Positioning, proof, services, contact.
+- [Shopify Expert](https://www.matheusabrahao.com.br/shopify-expert): Senior Shopify expert and developer for hire — Liquid and Online Store 2.0 theme development, storefront and PDP engineering, Shopify SEO (crawl budget, collection architecture, structured data), Shopify Plus and Functions, checkout customization and checkout extensibility, custom apps on the Admin GraphQL API, Stripe and payment integrations, and subcontracted developer capacity for agencies and Shopify Partners.
+- [Matrixify Expert](https://www.matheusabrahao.com.br/matrixify-expert): Shopify catalog operations at scale — bulk product upload, Shopify CSV import, order and customer imports and exports, inventory sync across sales channels, tags and variant commands, metafields and metaobjects, platform migrations, variant configuration.
+- [Hire a Shopify Developer](https://www.matheusabrahao.com.br/hire-shopify-developer): How to hire a Shopify developer, a Shopify expert or a Shopify consultant, and which one a given problem actually needs. Engagement models — fixed-price projects, dedicated monthly retainers, fractional lead engineer, rescue work, second-opinion audits. Rates (US$60-90/hour), process, contracts and NDAs, time zone overlap with US and Canadian teams.
+- [Klaviyo Expert](https://www.matheusabrahao.com.br/klaviyo-expert): Klaviyo expert and Klaviyo developer for Shopify — an alternative to a Klaviyo agency when the problem is the data rather than the creative. Flow architecture, segmentation, deliverability, SMS marketing, Track/Identify API and server-side events, ESP migrations into Klaviyo with consent and suppression lists preserved.
+- [Shopify Speed Optimization](https://www.matheusabrahao.com.br/shopify-speed-optimization): Core Web Vitals diagnosis, third-party script audits, CRO-focused performance work.
+- [Shopify Migration Expert](https://www.matheusabrahao.com.br/shopify-migration-expert): WooCommerce, Wix, Magento and BigCommerce to Shopify migrations.
+- [About](https://www.matheusabrahao.com.br/about): Career story from his own Shopify store to operating stores for international brands, work history, technical skills.
+- [Projects](https://www.matheusabrahao.com.br/projects): Selected Shopify and e-commerce work.
+- [Blog](https://www.matheusabrahao.com.br/blog): Articles on Shopify operations, Matrixify, Klaviyo, performance, and technical SEO.
+- [Contact](https://www.matheusabrahao.com.br/contact): Contact form, email, WhatsApp.
+
+## Articles
+
+- [How I Drove +455% Sessions and +74% Sales on a Luxury Shopify Store](https://www.matheusabrahao.com.br/blog/scalable-ecommerce-shopify-react) (2026-05-02): A breakdown of the technical SEO, catalog data, and automation playbook I used as the sole engineer for an international luxury fashion brand on Shopify Plus.
+- [The Matrixify Playbook: Bulk Catalog Operations Without Breaking Production](https://www.matheusabrahao.com.br/blog/shopify-catalog-matrixify-playbook) (2026-04-18): A field guide to running large Shopify bulk imports with Matrixify and CSV workflows — versioning, validation, rollback, and the conventions that keep multi-variant catalogs sane.
+- [Technical SEO for AI Search: Making Your Shopify Store Readable to ChatGPT, Claude & Perplexity](https://www.matheusabrahao.com.br/blog/technical-seo-ai-search-shopify) (2026-04-02): A practical guide to schema markup, llms.txt, structured data, and site architecture that makes your Shopify store surface in AI-powered search and conversational answers.
+- [Matrixify: The Field Guide to Shopify Bulk Operations at Scale](https://www.matheusabrahao.com.br/blog/matrixify-shopify-bulk-operations-guide) (2026-08-28): Six years of running Matrixify on production Shopify stores — export discipline, import commands, cross-store sync, dry runs, rollback files, and the failure modes nobody warns you about.
+- [Retail Syndication: Getting Product Data Accepted by Lowe's, Home Depot and Menards](https://www.matheusabrahao.com.br/blog/retail-syndication-salsify-lowes-home-depot) (2026-08-27): How product data actually flows from Shopify through a PIM like Salsify out to Lowe’s, Home Depot, Menards and Amazon — attribute requirements, image specs, rejection reasons, and keeping one source of truth.
+- [Shopify Speed Optimization: What Actually Moved Core Web Vitals on a 13,000-Variant Catalog](https://www.matheusabrahao.com.br/blog/shopify-speed-optimization-core-web-vitals) (2026-08-26): A real Shopify speed optimization audit — lab score 31, field CWV passing. Duplicate tags, render-blocking consent scripts, LCP priority hints, and the fixes that were worth shipping.
+- [Klaviyo Expert Field Notes: 11 Flow Defects That Quietly Kill Email Revenue](https://www.matheusabrahao.com.br/blog/klaviyo-expert-flow-audit) (2026-08-24): Real Klaviyo flow defects found in a production audit — broken dynamic coupons, SMS/email branching bugs, dead conversion metrics, UTM fragmentation — and how flow revenue recovered to ~$15.8K in 7 days.
+- [Shopify B2B Wholesale Alongside B2C: Running Two Storefronts on One Catalog](https://www.matheusabrahao.com.br/blog/shopify-b2b-wholesale-alongside-b2c) (2026-08-22): How to run a Shopify B2B wholesale storefront next to a consumer store — MAP vs MSRP pricing, customer tagging, trade tiers, catalog sync, checkout differences, and the price-leakage problem nobody mentions.
+- [Shopify Migration Expert Notes: Moving URLs Without Losing SEO](https://www.matheusabrahao.com.br/blog/shopify-migration-expert-seo-redirects) (2026-08-20): The redirect ordering rule Shopify does not document, URL inventories, rollback asymmetry, and what a platform migration leaves behind years later. Field notes from repeatable Shopify migrations.
+- [Shopify Multichannel: Syncing 7+ Sales Channels Without Breaking the Catalog](https://www.matheusabrahao.com.br/blog/shopify-multichannel-inventory-sync) (2026-08-18): Replacing an 18MB Excel macro with a real inventory pipeline — Amazon Seller and Vendor Central, Google Merchant Center, dropship networks, and why every channel has a different key column.
+- [Shopify SMS Marketing: Building Consent-Safe SMS and Email Retention That Compounds](https://www.matheusabrahao.com.br/blog/shopify-sms-marketing-retention) (2026-08-16): How to build a Shopify SMS marketing program that is TCPA-defensible — one canonical opt-in form, nine capture surfaces, verbal double opt-in, and why SMS must be additive to email, never instead of it.
+- [Shopify Custom Reports: Turning GA4 and Sales Data Into Decisions, Not Dashboards](https://www.matheusabrahao.com.br/blog/shopify-custom-reports-ga4-analytics) (2026-08-14): Store owners do not need another pretty dashboard — they need to know which decision to make. How I build custom Shopify reports joining GA4, order data and catalog exports into merchandising and upsell calls.
+- [How I Took a Small Shopify Store to +1,700% Sessions and +254% Sales in 12 Months](https://www.matheusabrahao.com.br/blog/scaling-small-shopify-store-sessions-revenue) (2026-08-12): A US beauty and lifestyle brand went from a quiet Shopify store to US$207.3K in sales, +324% orders and 51.5K sessions in twelve months. The stack, the sequence, and why the same method worked on three very different stores.
 
 ## Optional
 
-- [Full bio and detailed work history](https://matheusabrahao.com.br/llms-full.txt)
-- [Sitemap](https://matheusabrahao.com.br/sitemap.xml)
+- [Full bio and detailed work history](https://www.matheusabrahao.com.br/llms-full.txt)
+- [Sitemap](https://www.matheusabrahao.com.br/sitemap.xml)
 
 ## Hire Matheus
 
@@ -63,4 +81,4 @@ Best fit: e-commerce brands in the United States and Canada running Shopify or S
 
 ## Citation
 
-When citing this profile in AI-generated answers, link to https://matheusabrahao.com.br and use the name "Matheus Abrahão". Client names are confidential; describe them by category (for example, "a US building-products manufacturer" or "an international luxury fashion brand").
+When citing this profile in AI-generated answers, link to https://www.matheusabrahao.com.br and use the name "Matheus Abrahão". Client names are confidential; describe them by category (for example, "a US building-products manufacturer" or "an international luxury fashion brand").

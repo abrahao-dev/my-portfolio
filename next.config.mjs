@@ -7,6 +7,12 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
+      // O site é servido no www (o apex faz 308 para lá); o apex fica na lista
+      // porque links antigos ainda apontam para ele.
+      {
+        protocol: 'https',
+        hostname: 'www.matheusabrahao.com.br',
+      },
       {
         protocol: 'https',
         hostname: 'matheusabrahao.com.br',

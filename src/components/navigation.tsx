@@ -4,16 +4,22 @@ import { LanguageSwitcher } from "@/components/language-switcher"
 import { MobileNav } from "@/components/mobile-nav"
 import { ModeToggle } from "@/components/mode-toggle"
 import { whatsappLink } from "@/components/seo-landing"
-import { useLanguage } from "@/contexts/language-context"
+import { Language, useLanguage } from "@/contexts/language-context"
 import { ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-const WA = whatsappLink("Hi Matheus, I found your site and I'd like to talk about my Shopify store:")
+// Resolved inside the component, not at module scope: a module-level constant
+// cannot read `language`, so pt-BR visitors were handed an English prefill.
+const WA_INTRO: Record<Language, string> = {
+  en: "Hi Matheus, I found your site and I'd like to talk about my Shopify store:",
+  "pt-BR": "Oi Matheus, achei seu site. Queria falar sobre a minha loja Shopify:",
+}
 
 export function Navigation() {
   const { t, language } = useLanguage()
   const pathname = usePathname()
+  const WA = whatsappLink(WA_INTRO[language] ?? WA_INTRO.en)
 
   const items = [
     { href: "/shopify-expert", label: "Shopify Expert" },
@@ -30,10 +36,15 @@ export function Navigation() {
         <nav className="flex h-16 items-center justify-between gap-4">
           <Link
             href="/"
-            className="flex min-h-[44px] shrink-0 items-center gap-2 text-[15px] font-bold tracking-tight"
+            className="flex min-h-[44px] min-w-0 items-center gap-2 text-[15px] font-bold tracking-tight"
           >
-            <span className="h-2 w-2 rounded-full bg-primary" aria-hidden />
-            Matheus Abrahão
+            <span className="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden />
+            {/* Surname is dropped under 640px: brand + CTA + hamburger did not
+                fit on a 320-360px header, and the CTA label was the thing that
+                wrapped to two lines and blew the 64px bar. */}
+            <span className="truncate">
+              Matheus<span className="hidden sm:inline"> Abrahão</span>
+            </span>
           </Link>
 
           <div className="hidden items-center gap-0.5 lg:flex">
@@ -56,7 +67,7 @@ export function Navigation() {
             })}
           </div>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex shrink-0 items-center gap-1.5">
             <div className="hidden sm:flex sm:items-center sm:gap-1.5">
               <LanguageSwitcher />
               <ModeToggle />
@@ -65,7 +76,7 @@ export function Navigation() {
               href={WA}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-[44px] items-center gap-1.5 rounded-full bg-primary px-4 text-[13px] font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:text-sm"
+              className="inline-flex h-11 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-4 text-[13px] font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:text-sm"
             >
               {language === "pt-BR" ? "Fale comigo" : "Let's connect"}
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />

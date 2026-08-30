@@ -43,8 +43,8 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
         <div className="min-h-screen flex items-center justify-center p-4">
           <div className="max-w-md w-full text-center space-y-6">
             <div className="flex justify-center">
-              <div className="p-4 bg-red-100 dark:bg-red-900/20 rounded-full">
-                <AlertTriangle className="h-8 w-8 text-red-600 dark:text-red-400" />
+              <div className="p-4 bg-destructive/10 rounded-full">
+                <AlertTriangle className="h-8 w-8 text-destructive" />
               </div>
             </div>
             <div className="space-y-2">

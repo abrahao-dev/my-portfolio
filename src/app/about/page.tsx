@@ -183,7 +183,7 @@ export default function About() {
   ]
 
   return (
-    <div className="container mx-auto py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-content py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
       <motion.h1
         className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter mb-6 sm:mb-8 text-center"
         initial={{ opacity: 0, y: -20 }}
@@ -202,7 +202,7 @@ export default function About() {
         transition={{ delay: 0.2, duration: 0.5 }}
       >
         {/* Professional Summary */}
-        <Card className="bg-secondary/10 backdrop-blur-sm border-none shadow-lg">
+        <Card className="bg-card backdrop-blur-sm border border-border shadow-lg">
           <CardContent className="pt-6">
             <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed mb-4 sm:mb-6">
               {t('about.summary.paragraph1')}
@@ -227,7 +227,7 @@ export default function About() {
           transition={{ delay: 0.3, duration: 0.5 }}
         >
           {achievements.map((achievement, index) => (
-            <Card key={index} className="bg-secondary/10 backdrop-blur-sm border-none shadow-lg text-center">
+            <Card key={index} className="bg-card backdrop-blur-sm border border-border shadow-lg text-center">
               <CardContent className="pt-6">
                 <achievement.icon className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-3 text-primary" />
                 <h3 className="font-semibold mb-2 text-sm sm:text-base">{achievement.title}</h3>
@@ -242,8 +242,14 @@ export default function About() {
             {["about", "skills", "experience", "timeline"].map((tab) => (
               <button
                 key={tab}
+                type="button"
                 onClick={() => setActiveTab(tab)}
-                className={`flex items-center px-3 py-2 sm:px-4 sm:py-2 rounded-md transition-all duration-200 text-xs sm:text-sm ${activeTab === tab
+                // aria-pressed: these are a toggle group, but nothing told a
+                // screen reader which one was active — the state was carried
+                // by colour alone. rounded-full/min-h-11 match the site's
+                // button language and the 44px tap target.
+                aria-pressed={activeTab === tab}
+                className={`flex min-h-11 items-center px-4 py-2 rounded-full transition-all duration-200 text-xs sm:text-sm ${activeTab === tab
                   ? "bg-primary text-primary-foreground shadow-lg"
                   : "bg-secondary text-secondary-foreground hover:bg-primary/10 hover:shadow-md"
                   }`}
@@ -396,10 +402,15 @@ export default function About() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
                     >
-                      <span className="absolute flex items-center justify-center w-4 h-4 sm:w-6 sm:h-6 bg-primary rounded-full -left-2 sm:-left-3 ring-4 sm:ring-8 ring-background">
-                        <Briefcase className="w-2 h-2 sm:w-3 sm:h-3 text-primary-foreground" />
+                      {/* ring-card, not ring-background: this sits on a Card,
+                          so ring-background punched a page-coloured halo
+                          through it. */}
+                      <span className="absolute flex items-center justify-center w-4 h-4 sm:w-6 sm:h-6 bg-primary rounded-full -left-2 sm:-left-3 ring-4 sm:ring-8 ring-card">
+                        <Briefcase className="w-2 h-2 sm:w-3 sm:h-3 text-primary-foreground" aria-hidden />
                       </span>
-                      <h3 className="flex items-center mb-1 text-sm sm:text-base lg:text-lg font-semibold">{exp.title} at {exp.company}</h3>
+                      {/* Was "{title} at {company}" — a hardcoded English word
+                          on a bilingual page. */}
+                      <h3 className="flex items-center mb-1 text-sm sm:text-base lg:text-lg font-semibold">{exp.title} · {exp.company}</h3>
                       <time className="block mb-2 text-xs sm:text-sm font-normal text-muted-foreground">{exp.period}</time>
                       <p className="mb-3 sm:mb-4 text-xs sm:text-sm lg:text-base font-normal text-muted-foreground">{exp.description}</p>
                     </motion.div>

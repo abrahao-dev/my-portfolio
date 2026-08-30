@@ -2,7 +2,7 @@ import { blogPosts } from '@/lib/blog-posts'
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://matheusabrahao.com.br'
+  const baseUrl = 'https://www.matheusabrahao.com.br'
   const lastUpdate = new Date('2026-08-30')
 
   const blogSlugs = blogPosts.map((p) => ({ slug: p.slug, date: p.date }))

@@ -80,7 +80,7 @@ const data: SeoLandingData = {
   faqTitle: "Migration FAQ",
   faq: [
     {
-      q: "How much does a Shopify migration cost?",
+      q: "How much would it cost to migrate my website to Shopify?",
       a:
         "It depends almost entirely on catalog complexity and how much custom logic your current platform holds. A small, clean WooCommerce store is a fixed-price project; a Magento store with configurable products, customer groups and B2B pricing is a different scale of work. I scope every migration from an audit first, so the price you get is based on your actual data rather than an average. Hourly work is US$60 to US$90.",
     },

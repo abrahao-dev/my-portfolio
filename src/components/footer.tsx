@@ -1,20 +1,27 @@
 "use client"
 
 import { EMAIL, WHATSAPP_DISPLAY, whatsappLink } from "@/components/seo-landing"
-import { useLanguage } from "@/contexts/language-context"
+import { Language, useLanguage } from "@/contexts/language-context"
 import { Github, Instagram, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
 
-const WA = whatsappLink("Hi Matheus, I found your site and I'd like to talk about my Shopify store:")
+// Resolved inside the component, not at module scope: a module-level constant
+// cannot read `language`, so pt-BR visitors were handed an English prefill.
+const WA_INTRO: Record<Language, string> = {
+  en: "Hi Matheus, I found your site and I'd like to talk about my Shopify store:",
+  "pt-BR": "Oi Matheus, achei seu site. Queria falar sobre a minha loja Shopify:",
+}
 
+// Labels go through t() — these were hardcoded English while the mobile nav
+// translated the same six links, so the two navs disagreed on pt-BR.
 const SERVICES = [
-  { href: "/shopify-expert", label: "Shopify Expert" },
-  { href: "/hire-shopify-developer", label: "Hire a Shopify Developer" },
-  { href: "/matrixify-expert", label: "Matrixify Expert" },
-  { href: "/klaviyo-expert", label: "Klaviyo Expert" },
-  { href: "/shopify-speed-optimization", label: "Speed Optimization" },
-  { href: "/shopify-migration-expert", label: "Shopify Migration" },
-]
+  { href: "/shopify-expert", key: "services.shopify" },
+  { href: "/hire-shopify-developer", key: "services.hire" },
+  { href: "/matrixify-expert", key: "services.matrixify" },
+  { href: "/klaviyo-expert", key: "services.klaviyo" },
+  { href: "/shopify-speed-optimization", key: "services.speed" },
+  { href: "/shopify-migration-expert", key: "services.migration" },
+] as const
 
 const SOCIALS = [
   { href: "https://github.com/abrahao-dev", icon: Github, label: "GitHub" },
@@ -24,7 +31,8 @@ const SOCIALS = [
 ]
 
 export function Footer() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
+  const WA = whatsappLink(WA_INTRO[language] ?? WA_INTRO.en)
 
   return (
     <footer className="border-t border-border bg-secondary/25 px-4 py-14 sm:px-6 lg:px-8">
@@ -55,7 +63,7 @@ export function Footer() {
 
           {/* Services */}
           <div className="lg:col-span-3">
-            <h2 className="type-eyebrow text-muted-foreground">Shopify Services</h2>
+            <h2 className="type-eyebrow text-muted-foreground">{t("footer.services")}</h2>
             <ul className="mt-4 space-y-1">
               {SERVICES.map((item) => (
                 <li key={item.href}>
@@ -63,7 +71,7 @@ export function Footer() {
                     href={item.href}
                     className="flex min-h-[44px] items-center text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
-                    {item.label}
+                    {t(item.key)}
                   </Link>
                 </li>
               ))}
@@ -109,9 +117,13 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="flex min-h-[44px] items-center break-words text-sm text-muted-foreground transition-colors hover:text-primary"
+                  className="flex min-h-[44px] items-center text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
-                  {EMAIL}
+                  {/* The address is one unbreakable token wider than the column.
+                      `break-words` on the flex container never applied to the
+                      anonymous text item; the item also needs min-w-0 before it
+                      is allowed to shrink at all. */}
+                  <span className="min-w-0 break-all">{EMAIL}</span>
                 </a>
               </li>
               <li className="pt-1 text-sm text-muted-foreground">São Paulo, Brazil · UTC-3</li>

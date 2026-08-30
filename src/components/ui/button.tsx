@@ -5,7 +5,12 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  // rounded-full is the site's button language (header CTA, hero CTAs, footer
+  // socials). It used to live only in per-call-site overrides, so every Button
+  // that forgot the override rendered as a foreign rounded-md box.
+  // [&_svg]:shrink-0 keeps leading icons from being squashed next to long or
+  // truncating labels.
+  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -19,11 +24,14 @@ const buttonVariants = cva(
         ghost: "hover:bg-secondary hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
+      // Heights are on a 4px rhythm and never below 40px; `icon` is 44px so it
+      // meets the coarse-pointer tap target without the global min-height rule
+      // stretching it into a lozenge.
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        default: "h-11 px-5 py-2",
+        sm: "h-10 px-4",
+        lg: "h-12 px-8",
+        icon: "h-11 w-11",
       },
     },
     defaultVariants: {

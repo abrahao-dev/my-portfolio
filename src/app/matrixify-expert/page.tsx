@@ -5,7 +5,7 @@ export const metadata: Metadata = seoMeta({
   slug: "matrixify-expert",
   title: "Matrixify Expert — Shopify Catalog Operations at Scale | Matheus Abrahão",
   description:
-    "Matrixify expert for Shopify: product and order imports, tags and variant commands, metafields, collections, images, translations and platform migrations. Daily Matrixify operator running two storefronts and 7+ sales channels for a US manufacturer.",
+    "Matrixify expert for Shopify: bulk product upload, CSV import, inventory sync, tags and variant commands, metafields, collections, images, translations and platform migrations. Daily Matrixify operator running two storefronts and 7+ sales channels for a US manufacturer.",
 })
 
 const data: SeoLandingData = {
@@ -24,9 +24,9 @@ const data: SeoLandingData = {
   servicesTitle: "Matrixify commands and jobs I run",
   services: [
     {
-      title: "Product import",
+      title: "Bulk product upload and import",
       body:
-        "Bulk creation and updates across thousands of SKUs — titles, descriptions, vendors, types, pricing, SEO fields and status. I always match on Handle or Variant ID rather than title, run a NEW-only pass before a full update, and keep the pre-import export as a rollback file.",
+        "Bulk product upload to Shopify across thousands of SKUs — titles, descriptions, vendors, types, pricing, SEO fields and status. I always match on Handle or Variant ID rather than title, run a NEW-only pass before a full update, and keep the pre-import export as a rollback file.",
     },
     {
       title: "Order import",
@@ -178,12 +178,12 @@ const data: SeoLandingData = {
   faqTitle: "Matrixify FAQ",
   faq: [
     {
-      q: "What is Matrixify?",
+      q: "What is Matrixify used for?",
       a:
         "Matrixify, formerly called Excelify, is a Shopify app for bulk import and export of store data using Excel, CSV or Google Sheets. It handles products, variants, inventory, collections, customers, orders, draft orders, discounts, metafields, translations, redirects, pages, blogs and more — far beyond what Shopify's built-in CSV import supports. It is the standard tool for large catalog edits, platform migrations and scheduled data syncs.",
     },
     {
-      q: "What does Matrixify cost?",
+      q: "How much does Matrixify cost?",
       a:
         "Matrixify is billed by Shopify as a monthly subscription tiered by how many rows you import and export per month, with a free tier for very small jobs and higher plans for large catalogs and migrations. The app fee is paid by you directly to Shopify, separate from my fee. For a one-off migration it is common to subscribe to a higher tier for a single month and step back down afterwards, which I will tell you how to do.",
     },

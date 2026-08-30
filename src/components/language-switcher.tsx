@@ -38,7 +38,9 @@ export function LanguageSwitcher() {
         <Button
           variant="outline"
           size="sm"
-          className="flex items-center gap-1.5 h-9 px-3 text-xs sm:text-sm"
+          // h-11 so the header control row (language / theme / CTA) is one
+          // consistent 44px height instead of 36 / 40 / 44.
+          className="flex items-center gap-1.5 h-11 px-3 text-xs sm:text-sm"
         >
           <span className="text-base">{currentLanguage?.flag}</span>
           <span className="hidden sm:inline">{currentLanguage?.name}</span>

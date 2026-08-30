@@ -11,19 +11,25 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { useLanguage } from "@/contexts/language-context"
+import { Language, useLanguage } from "@/contexts/language-context"
 import { Menu, MessageCircle } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useCallback, useState } from "react"
 
-const WA = whatsappLink("Hi Matheus, I found your site and I'd like to talk about my Shopify store:")
+// Resolved inside the component, not at module scope: a module-level constant
+// cannot read `language`, so pt-BR visitors were handed an English prefill.
+const WA_INTRO: Record<Language, string> = {
+  en: "Hi Matheus, I found your site and I'd like to talk about my Shopify store:",
+  "pt-BR": "Oi Matheus, achei seu site. Queria falar sobre a minha loja Shopify:",
+}
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
   const { t, language } = useLanguage()
   const pathname = usePathname()
   const pt = language === "pt-BR"
+  const WA = whatsappLink(WA_INTRO[language] ?? WA_INTRO.en)
 
   const primary = [
     { href: "/", label: pt ? "Início" : "Home" },
@@ -60,7 +66,7 @@ export function MobileNav() {
         <Button
           variant="ghost"
           size="icon"
-          className="relative z-50 h-10 w-10 touch-manipulation"
+          className="relative z-50 touch-manipulation"
           aria-label={pt ? "Abrir menu" : "Open menu"}
         >
           <Menu className="h-5 w-5" />
@@ -118,7 +124,7 @@ export function MobileNav() {
             </Button>
             <a
               href={`mailto:${EMAIL}`}
-              className="block truncate text-center text-sm text-muted-foreground hover:text-primary"
+              className="block break-all text-center text-sm text-muted-foreground hover:text-primary"
             >
               {EMAIL}
             </a>

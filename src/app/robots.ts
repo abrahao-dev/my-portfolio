@@ -44,7 +44,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       })),
     ],
-    sitemap: 'https://matheusabrahao.com.br/sitemap.xml',
-    host: 'https://matheusabrahao.com.br',
+    sitemap: 'https://www.matheusabrahao.com.br/sitemap.xml',
+    host: 'https://www.matheusabrahao.com.br',
   }
 }

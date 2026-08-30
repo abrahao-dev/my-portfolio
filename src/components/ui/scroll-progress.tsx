@@ -12,7 +12,9 @@ export function ScrollProgress() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-primary z-50 origin-left"
+      // z-[60]: the sticky header is also z-50 and paints later in the DOM, so
+      // at z-50 the bar was drawn behind it and never visible.
+      className="fixed top-0 left-0 right-0 h-1 bg-primary z-[60] origin-left"
       style={{ scaleX }}
     />
   )

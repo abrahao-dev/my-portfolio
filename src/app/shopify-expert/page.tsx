@@ -3,9 +3,9 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = seoMeta({
   slug: "shopify-expert",
-  title: "Shopify Expert — Senior Shopify Developer for Hire | Matheus Abrahão",
-    description:
-    "Shopify expert and senior Shopify developer for hire, working with US and Canadian brands. 6+ years on Shopify, currently operating paired B2C and B2B Shopify storefronts for a US manufacturer. Liquid themes, custom apps, integrations, technical SEO and CRO. +455% sessions and +74% revenue for an international luxury fashion brand.",
+  title: "Shopify Expert — Senior Shopify Developer & SEO Expert for Hire | Matheus Abrahão",
+  description:
+    "Shopify expert developer for hire, working with US and Canadian brands. 6+ years on Shopify, currently operating paired B2C and B2B Shopify Plus storefronts for a US manufacturer. Shopify theme development, checkout customization, custom apps, Shopify SEO and CRO. +455% sessions and +74% revenue for an international luxury fashion brand.",
 })
 
 const data: SeoLandingData = {
@@ -82,6 +82,75 @@ const data: SeoLandingData = {
         },
       ],
     },
+    {
+      title: "Shopify SEO expert work",
+      intro:
+        "Search is the cheapest traffic a Shopify store will ever buy, and on most stores it is broken in ways an SEO agency cannot fix because the fix lives in Liquid. I work as a Shopify SEO expert and a developer at the same time, which removes the usual handoff where a consultant writes a recommendation nobody can implement.",
+      items: [
+        {
+          title: "Crawl budget and index bloat",
+          body:
+            "Shopify generates duplicate product URLs under every collection, paginated facets, and tag pages that multiply into thousands of near-identical documents. I map what Google is actually crawling, canonicalise the duplicates, block what should never have been crawlable and get the crawl budget pointed at pages that can rank.",
+        },
+        {
+          title: "Collection and facet architecture",
+          body:
+            "Most stores put every product in one flat collection and lose every mid-tail search term. I design the collection tree around how people actually search, build filterable sub-collections that are indexable when they have real demand behind them, and keep the rest out of the index.",
+        },
+        {
+          title: "Structured data that validates",
+          body:
+            "Product, Offer, AggregateRating, BreadcrumbList, FAQPage and Organization markup written into the theme rather than injected by an app. Valid schema is what gets a store into rich results, and increasingly what gets it quoted by AI answer engines.",
+        },
+        {
+          title: "Internal linking and content structure",
+          body:
+            "Heading hierarchy, descriptive anchor text, collection-to-product and blog-to-collection links, and hub pages for the terms worth owning. This is unglamorous work that compounds for years, and it is the largest single contributor to the +455% sessions result on the luxury fashion storefront.",
+        },
+        {
+          title: "Migration and redirect safety",
+          body:
+            "If your SEO fell off a cliff after a replatform or a theme change, the cause is almost always a redirect map that was never built properly. I diagnose it against server logs and Search Console rather than guessing. See the dedicated Shopify migration page for the full process.",
+        },
+      ],
+    },
+    {
+      title: "Specialisations inside Shopify",
+      intro:
+        "Shopify is one platform with a dozen very different jobs inside it. These are the ones I am hired for most often, and the ones where a generalist agency usually stalls.",
+      items: [
+        {
+          title: "Shopify theme developer",
+          body:
+            "Online Store 2.0 sections, blocks, JSON templates and metaobjects, written so a merchandiser can rearrange a page without opening a ticket. I extend Dawn and commercial themes as often as I build from scratch, and I refuse to ship a theme that depends on a page-builder subscription to stay editable.",
+        },
+        {
+          title: "Shopify Plus developer",
+          body:
+            "Shopify Functions for discounts, payment and delivery customisation, checkout extensibility with UI extensions, B2B company accounts and catalogs, Shopify Flow automations, Markets and multi-store setups. I also tell clients when a problem they have does not actually justify the Plus price tag.",
+        },
+        {
+          title: "Shopify checkout customization",
+          body:
+            "Since checkout.liquid was retired, checkout customization means checkout extensibility: UI extensions, branding API, and Functions that change how discounts, shipping and payment options behave. Anything still relying on checkout.liquid scripts needs migrating, and that migration is a project of its own rather than an afternoon.",
+        },
+        {
+          title: "Custom apps and the Admin API",
+          body:
+            "Private and custom Shopify apps in Node or Remix against the Admin GraphQL API, webhooks with proper retry and idempotency handling, and ERP, PIM or 3PL integrations. Built when no app in the store solves it, not as a default.",
+        },
+        {
+          title: "Stripe and payment integrations",
+          body:
+            "Shopify Payments, Stripe, PayPal and local gateways, plus the reconciliation work nobody scopes for: matching payouts to orders, handling partial refunds and chargebacks, and getting the numbers in your accounting system to agree with the numbers in Shopify.",
+        },
+        {
+          title: "Shopify developer partner work",
+          body:
+            "I also work as a subcontracted developer for agencies and Shopify Partners who need senior Liquid, catalog or integration capacity without hiring a full-time engineer. White-labelled, under your paperwork, invoiced to you.",
+        },
+      ],
+    },
   ],
   stepsTitle: "How working with me goes",
   steps: [
@@ -109,7 +178,7 @@ const data: SeoLandingData = {
   faqTitle: "Shopify expert FAQ",
   faq: [
     {
-      q: "What do you charge?",
+      q: "How much does a Shopify expert cost?",
       a:
         "Small scoped jobs — a section, a bug, a speed pass — are usually fixed-price and start around US$500. Larger builds are quoted from the written scope. Ongoing work runs as a monthly retainer with an agreed number of hours per week, which is the cheapest way to buy senior Shopify time. My hourly rate for ad-hoc work is US$60 to US$90 depending on the type of work and urgency, and I always tell you the number before anything starts.",
     },
@@ -134,6 +203,31 @@ const data: SeoLandingData = {
         "Yes. Plus work includes Shopify Functions, checkout extensibility, B2B catalogs and company accounts, Shopify Flow automations, and multi-store or multi-market setups. I also work on standard Shopify plans, and I will tell you honestly when a problem you have does not actually require upgrading to Plus.",
     },
     {
+      q: "Can I hire someone to manage my Shopify store?",
+      a:
+        "Yes, that is the monthly retainer. It covers the ongoing work a store generates whether or not anyone plans for it: theme and app updates, new sections and landing pages, catalog and pricing changes, broken tracking, performance regressions, and the occasional emergency. You get a reserved block of senior hours, a shared backlog we reprioritise on a weekly call, and the same person every month rather than whoever is free. It is not a managed-services contract you cannot leave — 30 days' notice, and you keep the code, the documentation and every account.",
+    },
+    {
+      q: "Is it worth it to hire a Shopify expert?",
+      a:
+        "It depends entirely on what your traffic is already worth. If a store does US$20,000 a month and converts at 1.2%, a two-point improvement in checkout completion pays for a month of senior work several times over, and speed, catalog and SEO fixes compound for years after. If the store has almost no traffic yet, engineering is the wrong spend — you need demand first, and I will say so rather than sell you a theme rebuild. The honest test is whether you can name the number you expect to move. If you cannot, start with a paid audit instead of a build.",
+    },
+    {
+      q: "Are you a Shopify expert agency or an individual?",
+      a:
+        "An individual, deliberately. A Shopify expert agency sells you a senior name in the pitch and staffs the work with whoever is free that sprint, and you pay for the account manager, the project manager and the sales commission on top of the code. You get me directly, at one rate, with no layer in between. Where a project genuinely needs more hands — design, copy, paid media — I bring in people I have worked with and you contract them yourself, so nothing is marked up.",
+    },
+    {
+      q: "How do I tell a top Shopify developer from a cheap one?",
+      a:
+        "Ask for a store they operated, not just built, and ask what the numbers did afterwards. Ask them to explain a decision they got wrong and what it cost. Ask what happens to your store the day they stop working on it — a good answer involves documentation and a repository you own, a bad answer involves a retainer you cannot leave. Rates on Shopify work range from roughly US$25 to over US$200 an hour, and the cheap end almost always gets re-done within a year.",
+    },
+    {
+      q: "Do you do Shopify SEO, or only development?",
+      a:
+        "Both, and on Shopify they are the same job. Most Shopify SEO problems — duplicate collection URLs, index bloat from tag pages, missing or invalid structured data, a redirect map that was never built after a replatform — are fixed in Liquid and in the store settings, not in a content calendar. I audit, prioritise and then implement, which is the part a standalone Shopify SEO consultant usually cannot do.",
+    },
+    {
       q: "Can you take over a store another developer built?",
       a:
         "That is a large part of what I do. I start with a read-only audit: theme code quality, app conflicts, broken tracking, SEO regressions and anything that will bite during the next update. You get the findings as a prioritised list with effort and impact estimates, and you decide what to fix. There is no obligation to continue with me after the audit.",
@@ -150,6 +244,7 @@ const data: SeoLandingData = {
   breadcrumb: "Shopify Expert",
   related: [
     { href: "/hire-shopify-developer", label: "Hire a Shopify Developer" },
+    { href: "/matrixify-expert", label: "Matrixify Expert" },
     { href: "/klaviyo-expert", label: "Klaviyo Expert" },
     { href: "/shopify-speed-optimization", label: "Shopify Speed Optimization" },
     { href: "/shopify-migration-expert", label: "Shopify Migration Expert" },

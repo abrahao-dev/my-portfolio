@@ -76,8 +76,12 @@
     --accent: 84 71% 58%;
     --accent-foreground: 80 30% 6%;
 
-    --destructive: 4 72% 58%;
-    --destructive-foreground: 0 0% 100%;
+    /* 65% not 58%: form error text at 58% measured ~4.4:1 on the near-black
+       canvas, just under AA. At 65% it is ~6.4:1 and still reads as red. */
+    --destructive: 4 72% 65%;
+    /* Near-black on the lightened red, mirroring how primary-foreground sits
+       on lime. White would have been 2.8:1 against the new value. */
+    --destructive-foreground: 4 40% 10%;
 
     --border: 55 4% 16%;
     --input: 55 4% 16%;

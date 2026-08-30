@@ -3,19 +3,99 @@
 import {
   EMAIL,
   HEADLINE_PROOF,
-  ProofBand,
+  STORES,
   StackStrip,
   WHATSAPP_DISPLAY,
   whatsappLink,
 } from "@/components/seo-landing"
 import { Button } from "@/components/ui/button"
-import { useLanguage } from "@/contexts/language-context"
+import { useLanguage, type Language } from "@/contexts/language-context"
 import { ArrowUpRight, Github, Instagram, Linkedin, Mail, MessageCircle } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useCallback, useState } from "react"
 
-const WA_TEXT = "Hi Matheus, I found your site. I'd like to talk about my Shopify store:"
+/**
+ * Home-page copy that is data, not prose: the WhatsApp prefill and the proof
+ * numbers. Kept as a per-language record rather than t() keys because a
+ * missing language here is a TypeScript error, while a missing t() key only
+ * shows up as a raw key printed on the page.
+ */
+const COPY: Record<Language, { waText: string; serviceCta: string; proofNote: string }> = {
+  en: {
+    waText: "Hi Matheus, I found your site. I'd like to talk about my Shopify store:",
+    serviceCta: "See how it works",
+    proofNote: "Four stores, four verticals, the same operational playbook behind the growth.",
+  },
+  "pt-BR": {
+    waText: "Oi Matheus, achei seu site. Queria falar sobre a minha loja Shopify:",
+    serviceCta: "Ver detalhes",
+    proofNote:
+      "Quatro lojas, quatro segmentos, o mesmo trabalho de operação por trás do crescimento.",
+  },
+}
+
+type Store = (typeof STORES)[number]
+
+/**
+ * The four client cards under the services grid.
+ *
+ * `STORES` and `HEADLINE_PROOF` in seo-landing.tsx are written for the
+ * English-only SEO landing pages, so the pt-BR home needs its own copy —
+ * including the number formatting (1.959, not 1,959).
+ */
+const PROOF: Record<Language, { headline: typeof HEADLINE_PROOF; stores: Store[] }> = {
+  en: { headline: HEADLINE_PROOF, stores: STORES },
+  "pt-BR": {
+    headline: [
+      {
+        value: "B2C + B2B",
+        unit: "lojas",
+        label: "operação Shopify que opero hoje, ponta a ponta",
+      },
+      { value: "+455%", unit: "sessões", label: "marca internacional de moda de luxo" },
+      { value: "+254%", unit: "vendas", label: "marca de beleza e lifestyle dos EUA" },
+    ],
+    stores: [
+      {
+        name: "Fabricante americana de material de construção",
+        role: "Operação do dia a dia, lojas B2C + B2B",
+        metrics: [
+          { value: "2", label: "lojas (B2C + B2B)" },
+          { value: "7+", label: "canais de venda" },
+          { value: "PIM", label: "catálogo sindicalizado no Salsify" },
+        ],
+      },
+      {
+        name: "Marca internacional de moda de luxo",
+        role: "Engenheiro único",
+        metrics: [
+          { value: "+455%", label: "sessões" },
+          { value: "+114%", label: "pedidos" },
+          { value: "+74%", label: "faturamento" },
+        ],
+      },
+      {
+        name: "Marca americana de beleza e lifestyle",
+        role: "Assumi a operação",
+        metrics: [
+          { value: "+254%", label: "vendas totais" },
+          { value: "+324%", label: "pedidos" },
+          { value: "+1.700%", label: "sessões" },
+        ],
+      },
+      {
+        name: "Martin — minha própria marca",
+        role: "Fundador e operador",
+        metrics: [
+          { value: "1.959", label: "pedidos" },
+          { value: "~R$552 mil", label: "processados" },
+          { value: "299 mil", label: "sessões" },
+        ],
+      },
+    ],
+  },
+}
 
 /**
  * Services written for a store owner, not a developer.
@@ -101,18 +181,15 @@ const SERVICES = {
 } as const
 
 /**
- * Hero photo slot.
- *
- * `public/profile.jpg` is currently a 152-byte text placeholder, not an image,
- * so pointing at it renders a broken-image glyph. Commit a real portrait
- * (roughly 800x1000, shot against a plain background) and set PORTRAIT_SRC to
- * its path — that is the only change needed. Until then the slot renders a
- * monogram card with the same dimensions, so the layout does not shift when
- * the photo lands.
+ * Hero photo slot. `public/profile.jpg` is 1003x1254 — a 4:5 portrait, which is
+ * why the frame below is `aspect-[4/5]`. Swapping in a differently-shaped photo
+ * means changing that ratio too, or `object-cover` will crop it. Set to null to
+ * fall back to the monogram card, which has identical dimensions.
  */
-const PORTRAIT_SRC: string | null = null
+const PORTRAIT_SRC: string | null = "/profile.jpg"
 
 function HeroPortrait() {
+  const { t } = useLanguage()
   // Belt and braces: if the file at PORTRAIT_SRC ever 404s or is unreadable,
   // fall back to the monogram instead of a broken glyph.
   const [ok, setOk] = useState(true)
@@ -131,7 +208,7 @@ function HeroPortrait() {
           <Image
             ref={check}
             src={PORTRAIT_SRC}
-            alt="Matheus Abrahão"
+            alt={t("home.portrait.alt")}
             fill
             sizes="(max-width: 1024px) 320px, 440px"
             priority
@@ -151,20 +228,13 @@ function HeroPortrait() {
 
 export default function Home() {
   const { t, language } = useLanguage()
-  const wa = whatsappLink(WA_TEXT)
+  const copy = COPY[language]
+  const wa = whatsappLink(copy.waText)
   const services = SERVICES[language]
+  const { headline, stores } = PROOF[language]
 
-  // HEADLINE_PROOF is written for the English landing pages; translate the
-  // units and captions so the pt-BR home is not half in English.
-  const proofPt = [
-    { unit: "lojas", label: "operação Shopify que opero hoje, ponta a ponta" },
-    { unit: "sessões", label: "marca internacional de moda de luxo" },
-    { unit: "vendas", label: "marca de beleza e lifestyle dos EUA" },
-  ]
   const proof = [
-    ...HEADLINE_PROOF.map((p, i) =>
-      language === "pt-BR" ? { ...p, ...(proofPt[i] ?? {}) } : p
-    ),
+    ...headline,
     {
       value: "6+",
       unit: language === "pt-BR" ? "anos" : "years",
@@ -287,7 +357,7 @@ export default function Home() {
                   {s.body}
                 </p>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                  {language === "pt-BR" ? "Ver detalhes" : "See how it works"}
+                  {copy.serviceCta}
                   <ArrowUpRight
                     className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                     aria-hidden
@@ -299,13 +369,35 @@ export default function Home() {
         </div>
       </section>
 
-      <ProofBand
-        note={
-          language === "pt-BR"
-            ? "Quatro lojas, quatro segmentos, o mesmo trabalho de operação por trás do crescimento."
-            : "Four stores, four verticals, the same operational playbook behind the growth."
-        }
-      />
+      {/* Same layout as <ProofBand> in seo-landing.tsx, but fed localized store
+          data — that component hardcodes the English STORES array. If it ever
+          grows a `stores` prop, delete this block and go back to using it. */}
+      <section className="border-y border-border bg-secondary/25 px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
+        <div className="mx-auto max-w-content">
+          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {stores.map((store) => (
+              <div key={store.name} className="bg-card p-5 sm:p-6">
+                <p className="text-sm font-semibold leading-snug text-foreground">{store.name}</p>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{store.role}</p>
+                <dl className="mt-4">
+                  {store.metrics.map((m) => (
+                    <div
+                      key={m.label}
+                      className="flex items-baseline justify-between gap-4 border-t border-border/70 py-2.5"
+                    >
+                      <dt className="text-xs leading-snug text-muted-foreground">{m.label}</dt>
+                      <dd className="tabular whitespace-nowrap text-lg font-bold leading-none text-primary sm:text-xl">
+                        {m.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 text-sm text-muted-foreground sm:text-center">{copy.proofNote}</p>
+        </div>
+      </section>
 
       {/* ---------- Closing pitch ---------- */}
       <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">

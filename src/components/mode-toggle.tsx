@@ -1,40 +1,35 @@
 "use client"
 
-import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 
+/**
+ * Single-tap theme toggle.
+ *
+ * Was a three-item dropdown (Light / Dark / System) for what is a two-state
+ * choice — two taps, a second popover in an already crowded header, and a
+ * `Moon` positioned `absolute` inside a button that was never `relative`, so
+ * it escaped to the sticky header's coordinate space.
+ *
+ * The icons stay CSS-driven (`dark:` variants) rather than reading
+ * `resolvedTheme` during render, so there is nothing to hydrate and no
+ * mounted-flag boilerplate.
+ */
 export function ModeToggle() {
-  const { setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Button
+      variant="outline"
+      size="icon"
+      className="relative"
+      aria-label="Toggle light and dark theme"
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+    >
+      <Sun className="h-[18px] w-[18px] rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0" />
+      <Moon className="absolute h-[18px] w-[18px] rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100" />
+    </Button>
   )
 }

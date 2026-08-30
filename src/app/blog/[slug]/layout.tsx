@@ -12,14 +12,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const post = getPostBySlug(params.slug)
   if (!post) return {}
 
-  const url = `https://matheusabrahao.com.br/blog/${post.slug}`
+  const url = `https://www.matheusabrahao.com.br/blog/${post.slug}`
   const image = post.image ?? '/og-image.jpg'
 
   return {
     title: `${post.title} | Matheus Abrahão`,
     description: post.description,
     keywords: post.tags,
-    authors: [{ name: 'Matheus Abrahão', url: 'https://matheusabrahao.com.br' }],
+    authors: [{ name: 'Matheus Abrahão', url: 'https://www.matheusabrahao.com.br' }],
     alternates: {
       canonical: url,
       languages: {

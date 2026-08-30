@@ -85,6 +85,11 @@ const data: SeoLandingData = {
         "A full audit with a prioritised, written action plan is a fixed fee starting around US$500. Implementation is quoted from that audit and depends on how customised the theme is — a clean Dawn-based theme is far cheaper than a heavily modified legacy one. Ad-hoc work is US$60 to US$90 per hour, and you always approve the number in advance.",
     },
     {
+      q: "Why is my Shopify store so slow?",
+      a:
+        "On the large majority of stores I audit it is not Shopify — it is what was added on top. The usual causes, in order of how often they turn up: a stack of apps each injecting its own render-blocking script into the head, two or three copies of the same analytics or consent tag, an unoptimised hero image with no priority hint or explicit dimensions, a slider or review widget that shifts layout after paint, fonts loaded without a display strategy, and Liquid loops that hit the same collection repeatedly on a page that could cache it. Shopify's own infrastructure is fast; almost all of the latency in a slow store is added after the theme is installed.",
+    },
+    {
       q: "How do you handle working from a different time zone?",
       a:
         "I am in São Paulo, UTC-3, one to two hours ahead of US Eastern, so a normal US business day leaves four to six hours of live overlap. Publishing happens in your store's lowest-traffic window, which usually means late night your time — that is my morning, so I am awake and watching when it goes live.",
@@ -124,6 +129,7 @@ const data: SeoLandingData = {
     { href: "/hire-shopify-developer", label: "Hire a Shopify Developer" },
     { href: "/klaviyo-expert", label: "Klaviyo Expert" },
     { href: "/shopify-migration-expert", label: "Shopify Migration Expert" },
+    { href: "/matrixify-expert", label: "Matrixify Expert" },
   ],
 }
 

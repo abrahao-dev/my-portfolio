@@ -31,6 +31,7 @@ const translations = {
     'home.stats.projects': 'Production Systems',
     'home.stats.remote': 'Countries Served',
     'home.stats.years': 'running Shopify stores end to end',
+    'home.portrait.alt': 'Matheus Abrahão, Shopify expert and e-commerce operator',
     'home.cta.projects': 'See my work',
     'home.cta.contact': 'Talk on WhatsApp',
     'home.cta.title': 'Tell me what your store is doing.',
@@ -110,6 +111,15 @@ const translations = {
     'footer.legal': 'Legal',
     'footer.privacy': 'Privacy Policy',
     'footer.cookies': 'Cookie Policy',
+    'footer.services': 'Shopify Services',
+
+    // Service links — shared wording between the footer and the mobile nav
+    'services.shopify': 'Shopify Expert',
+    'services.hire': 'Hire a Shopify Developer',
+    'services.matrixify': 'Matrixify Expert',
+    'services.klaviyo': 'Klaviyo Expert',
+    'services.speed': 'Speed Optimization',
+    'services.migration': 'Shopify Migration',
 
     // Cookie consent banner
     'cookie.banner.title': 'A quick question about analytics',
@@ -167,6 +177,7 @@ const translations = {
     'home.stats.projects': 'Sistemas em Produção',
     'home.stats.remote': 'Países Atendidos',
     'home.stats.years': 'operando lojas Shopify de ponta a ponta',
+    'home.portrait.alt': 'Matheus Abrahão, Shopify Expert e operador de e-commerce',
     'home.cta.projects': 'Ver meu trabalho',
     'home.cta.contact': 'Chamar no WhatsApp',
     'home.cta.title': 'Me conta o que a sua loja está fazendo.',
@@ -219,7 +230,7 @@ const translations = {
     'contact.connect.title': 'Vamos Conectar',
     'contact.connect.subtitle': 'Me conta sobre a sua loja. Tema lento, catálogo que ninguém dá conta de atualizar, Klaviyo que não fatura, migração para o Shopify ou só alguém de confiança à disposição — manda que eu te digo o que faria primeiro. O WhatsApp é o jeito mais rápido de me achar.',
     'contact.form.name': 'Nome *',
-    'contact.form.email': 'Email *',
+    'contact.form.email': 'E-mail *',
     'contact.form.message': 'Mensagem *',
     'contact.form.name.placeholder': 'Seu nome',
     'contact.form.email.placeholder': 'seu.email@exemplo.com',
@@ -229,8 +240,8 @@ const translations = {
     'contact.form.success': 'Seu app de e-mail está abrindo com a mensagem pronta — é só enviar. Prefere WhatsApp? Use o botão abaixo.',
     'contact.form.error.name': 'Nome é obrigatório',
     'contact.form.error.name.length': 'Nome deve ter pelo menos 2 caracteres',
-    'contact.form.error.email': 'Email é obrigatório',
-    'contact.form.error.email.invalid': 'Por favor, insira um email válido',
+    'contact.form.error.email': 'E-mail é obrigatório',
+    'contact.form.error.email.invalid': 'Por favor, insira um e-mail válido',
     'contact.form.error.message': 'Mensagem é obrigatória',
     'contact.form.error.message.length': 'Mensagem deve ter pelo menos 10 caracteres',
 
@@ -246,6 +257,15 @@ const translations = {
     'footer.legal': 'Legal',
     'footer.privacy': 'Política de Privacidade',
     'footer.cookies': 'Política de Cookies',
+    'footer.services': 'Serviços Shopify',
+
+    // Links de serviço — mesma redação usada no menu mobile
+    'services.shopify': 'Shopify Expert',
+    'services.hire': 'Contratar Dev Shopify',
+    'services.matrixify': 'Matrixify Expert',
+    'services.klaviyo': 'Klaviyo Expert',
+    'services.speed': 'Otimização de Velocidade',
+    'services.migration': 'Migração para Shopify',
 
     // Banner de consentimento de cookies
     'cookie.banner.title': 'Uma pergunta rápida sobre analytics',

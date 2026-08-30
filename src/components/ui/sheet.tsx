@@ -65,8 +65,11 @@ const SheetContent = React.forwardRef<
       {...props}
     >
       {children}
-      <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
-        <X className="h-4 w-4" />
+      {/* Was a bare 16x16 icon — an unhittable tap target on the mobile menu,
+          and `data-[state=open]` never matches on a Dialog.Close, so that
+          background was dead. Now a 44px circle matching the footer socials. */}
+      <SheetPrimitive.Close className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full text-muted-foreground ring-offset-background transition-colors hover:bg-secondary hover:text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none">
+        <X className="h-5 w-5" />
         <span className="sr-only">Close</span>
       </SheetPrimitive.Close>
     </SheetPrimitive.Content>

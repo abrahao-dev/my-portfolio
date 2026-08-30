@@ -28,12 +28,15 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://matheusabrahao.com.br'),
+  metadataBase: new URL('https://www.matheusabrahao.com.br'),
+  // Título e descrição em inglês de propósito: o mercado alvo é EUA e Canadá, e
+  // as keywords com volume são todas em inglês (ver SEO_KEYWORD_MAP.md). O
+  // conteúdo continua bilíngue — só o metadata segue a busca que traz cliente.
   title: {
-    default: 'Matheus Abrahão | Shopify Expert & Desenvolvedor Shopify',
+    default: 'Matheus Abrahão | Shopify Expert & E-commerce Developer',
     template: '%s | Matheus Abrahão',
   },
-  description: 'Shopify Expert e Engenheiro de E-commerce com 6+ anos operando lojas Shopify. Opera lojas B2C e B2B simultâneas em escala enterprise e gerou +455% de sessões e +74% de receita para uma marca de moda de luxo internacional. Especialista em Matrixify, catálogo, Klaviyo, SEO técnico, performance e Liquid. Atende marcas nos EUA e Canadá — fuso UTC-3, sobreposição total com o horário comercial americano.',
+  description: 'Shopify expert and e-commerce engineer with 6+ years running Shopify stores. Operates simultaneous B2C and B2B storefronts at enterprise scale, and drove +455% sessions and +74% revenue for an international luxury fashion brand. Matrixify, catalog operations, Klaviyo, technical SEO, performance and Liquid. Working with brands in the US and Canada — UTC-3, near-full overlap with US business hours.',
   keywords: [
     // English keywords (primary — target market is US and Canada; DataForSEO-validated)
     'shopify expert',
@@ -69,7 +72,7 @@ export const metadata: Metadata = {
     'Migração para Shopify',
     'Otimização de Velocidade Shopify',
   ],
-  authors: [{ name: 'Matheus Abrahão', url: 'https://matheusabrahao.com.br' }],
+  authors: [{ name: 'Matheus Abrahão', url: 'https://www.matheusabrahao.com.br' }],
   creator: 'Matheus Abrahão',
   publisher: 'Matheus Abrahão',
   category: 'Technology',
@@ -78,7 +81,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pt_BR',
     alternateLocale: ['en_US'],
-    url: 'https://matheusabrahao.com.br',
+    url: 'https://www.matheusabrahao.com.br',
     title: 'Matheus Abrahão | Shopify Expert & Desenvolvedor Shopify',
     description: 'Shopify Expert e Engenheiro de E-commerce. Opera lojas Shopify B2C + B2B em escala enterprise. +455% sessões e +74% receita para marca de moda de luxo internacional. Matrixify, Klaviyo, SEO técnico, Liquid. Disponível para marcas nos EUA e Canadá.',
     siteName: 'Matheus Abrahão — Shopify Expert & E-commerce Engineer',
@@ -111,11 +114,11 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://matheusabrahao.com.br',
+    canonical: 'https://www.matheusabrahao.com.br',
     languages: {
-      'pt-BR': 'https://matheusabrahao.com.br',
-      'en': 'https://matheusabrahao.com.br',
-      'x-default': 'https://matheusabrahao.com.br',
+      'pt-BR': 'https://www.matheusabrahao.com.br',
+      'en': 'https://www.matheusabrahao.com.br',
+      'x-default': 'https://www.matheusabrahao.com.br',
     },
   },
   other: {
@@ -132,7 +135,7 @@ export const metadata: Metadata = {
     'DC.date': '2026',
     'DC.type': 'Text',
     'DC.format': 'text/html',
-    'DC.identifier': 'https://matheusabrahao.com.br',
+    'DC.identifier': 'https://www.matheusabrahao.com.br',
     'DC.language': 'pt-BR',
     'DC.coverage': 'World',
     'DC.rights': 'Copyright 2026 Matheus Abrahão',
@@ -154,9 +157,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="alternate" hrefLang="pt-BR" href="https://matheusabrahao.com.br" />
-        <link rel="alternate" hrefLang="en" href="https://matheusabrahao.com.br" />
-        <link rel="alternate" hrefLang="x-default" href="https://matheusabrahao.com.br" />
+        <link rel="alternate" hrefLang="pt-BR" href="https://www.matheusabrahao.com.br" />
+        <link rel="alternate" hrefLang="en" href="https://www.matheusabrahao.com.br" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.matheusabrahao.com.br" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#0B0B0B" />
         <meta name="msapplication-TileColor" content="#0B0B0B" />
@@ -177,8 +180,8 @@ export default function RootLayout({
               "alternateName": ["Matheus Abrahao", "abrahao-dev", "abrahao.dev"],
               "jobTitle": "Shopify Expert & E-commerce Engineer",
               "description": "Shopify expert and e-commerce engineer with 6+ years on the platform, starting with his own Shopify store (Martin, martin4shop.com.br) and growing into running stores for international brands. Currently operates paired B2C and B2B Shopify storefronts for a US building-products manufacturer on one enterprise-scale catalog, with catalog syndication to Lowe's, Home Depot, Menards and Amazon via Salsify PIM and Matrixify. Drove +455% sessions, +114% orders, and +74% revenue as sole engineer for an international luxury fashion brand, and +254% sales, +324% orders and +1,700% sessions for a US beauty and lifestyle brand. Expert in Shopify Plus, Liquid, Matrixify, Klaviyo, technical SEO, speed optimization, and platform migrations. Remote from São Paulo, Brazil (UTC-3), working with brands in the US and Canada.",
-              "url": "https://matheusabrahao.com.br",
-              "image": "https://matheusabrahao.com.br/profile.jpg",
+              "url": "https://www.matheusabrahao.com.br",
+              "image": "https://www.matheusabrahao.com.br/profile.jpg",
               "sameAs": [
                 "https://github.com/abrahao-dev",
                 "https://linkedin.com/in/abrahao-dev",
@@ -250,7 +253,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "Matheus Abrahão — Shopify Expert & E-commerce Engineer",
-              "url": "https://matheusabrahao.com.br",
+              "url": "https://www.matheusabrahao.com.br",
               "description": "Portfólio do Shopify Expert Matheus Abrahão — desenvolvimento de tema Liquid, operações de catálogo com Matrixify, Klaviyo, otimização de velocidade, SEO técnico e migrações para Shopify.",
               "inLanguage": ["pt-BR", "en"],
               "author": {
@@ -260,7 +263,7 @@ export default function RootLayout({
               "potentialAction": {
                 "@type": "ContactAction",
                 "name": "Contact Matheus Abrahão",
-                "target": "https://matheusabrahao.com.br/contact"
+                "target": "https://www.matheusabrahao.com.br/contact"
               }
             })
           }}
@@ -275,7 +278,7 @@ export default function RootLayout({
               "@type": "ProfessionalService",
               "name": "Matheus Abrahão — Shopify Development & E-commerce Engineering",
               "description": "Shopify expert services for e-commerce brands in the US and Canada: Shopify theme and Liquid development, Matrixify and catalog operations at scale, Klaviyo email and SMS flows, Shopify speed optimization and Core Web Vitals, technical SEO, and platform migrations to Shopify. 6+ years on the platform. Remote, UTC-3 with near-full overlap with US business hours. Available for freelance, contract, and dedicated engagements.",
-              "url": "https://matheusabrahao.com.br",
+              "url": "https://www.matheusabrahao.com.br",
               "telephone": "+55-11-98851-2788",
               "email": "contato.matheusabrahao@gmail.com",
               "priceRange": "$$",
@@ -304,7 +307,7 @@ export default function RootLayout({
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Shopify Development",
-                      "url": "https://matheusabrahao.com.br/shopify-expert",
+                      "url": "https://www.matheusabrahao.com.br/shopify-expert",
                       "description": "Custom Shopify theme and Liquid development, storefront and PDP engineering, checkout extensibility, app integrations, and B2B storefronts for high-volume stores."
                     }
                   },
@@ -313,7 +316,7 @@ export default function RootLayout({
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Matrixify & Catalog Operations",
-                      "url": "https://matheusabrahao.com.br/matrixify-expert",
+                      "url": "https://www.matheusabrahao.com.br/matrixify-expert",
                       "description": "Bulk product, order and customer imports and exports with Matrixify, multi-level variant configuration, pricing and inventory synchronization, and retail channel syndication via Salsify PIM."
                     }
                   },
@@ -322,7 +325,7 @@ export default function RootLayout({
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Klaviyo Email & SMS Marketing",
-                      "url": "https://matheusabrahao.com.br/klaviyo-expert",
+                      "url": "https://www.matheusabrahao.com.br/klaviyo-expert",
                       "description": "Klaviyo flow architecture, segmentation, list health, Shopify data integration, and revenue attribution for e-commerce brands."
                     }
                   },
@@ -331,7 +334,7 @@ export default function RootLayout({
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Shopify Speed Optimization",
-                      "url": "https://matheusabrahao.com.br/shopify-speed-optimization",
+                      "url": "https://www.matheusabrahao.com.br/shopify-speed-optimization",
                       "description": "Core Web Vitals diagnosis, third-party script audits, theme and image optimization, and conversion-focused performance work."
                     }
                   },
@@ -340,7 +343,7 @@ export default function RootLayout({
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Shopify Migration",
-                      "url": "https://matheusabrahao.com.br/shopify-migration-expert",
+                      "url": "https://www.matheusabrahao.com.br/shopify-migration-expert",
                       "description": "WooCommerce, Wix, Magento and BigCommerce to Shopify migrations with catalog, customer and order data integrity plus SEO-safe redirects."
                     }
                   },
@@ -349,7 +352,7 @@ export default function RootLayout({
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Hire a Shopify Developer",
-                      "url": "https://matheusabrahao.com.br/hire-shopify-developer",
+                      "url": "https://www.matheusabrahao.com.br/hire-shopify-developer",
                       "description": "Fixed-price projects, retainers, and dedicated Shopify developer engagements. Remote, UTC-3, near-full overlap with US business hours, invoiced in USD."
                     }
                   }
@@ -371,31 +374,31 @@ export default function RootLayout({
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Home",
-                  "item": "https://matheusabrahao.com.br"
+                  "item": "https://www.matheusabrahao.com.br"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "About",
-                  "item": "https://matheusabrahao.com.br/about"
+                  "item": "https://www.matheusabrahao.com.br/about"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
                   "name": "Projects",
-                  "item": "https://matheusabrahao.com.br/projects"
+                  "item": "https://www.matheusabrahao.com.br/projects"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
                   "name": "Blog",
-                  "item": "https://matheusabrahao.com.br/blog"
+                  "item": "https://www.matheusabrahao.com.br/blog"
                 },
                 {
                   "@type": "ListItem",
                   "position": 5,
                   "name": "Contact",
-                  "item": "https://matheusabrahao.com.br/contact"
+                  "item": "https://www.matheusabrahao.com.br/contact"
                 }
               ]
             })
@@ -497,10 +500,14 @@ export default function RootLayout({
         </a>
         <ErrorBoundary>
           <LanguageProvider>
+            {/*
+              Sem enableSystem de propósito: a identidade do site é o tema escuro
+              com lima. Com enableSystem, quem usa o SO em modo claro caía no tema
+              claro já na primeira visita. O toggle continua disponível.
+            */}
             <ThemeProvider
               attribute="class"
               defaultTheme="dark"
-              enableSystem
               disableTransitionOnChange
             >
               <ScrollProgress />

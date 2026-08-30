@@ -102,7 +102,13 @@ That's what a Shopify Operator does. And it's the job I love most.
 
 ---
 
-*Want this kind of work on your store? [Get in touch](/contact) — I take on a small number of senior engineering and operations engagements each quarter.*`,
+## Where this work lives on this site
+
+The pieces of this playbook each have their own page: [Shopify expert development](/shopify-expert) for the theme, technical SEO and integration work; [Shopify speed optimization](/shopify-speed-optimization) for the Core Web Vitals half of the story; [Matrixify catalog operations](/matrixify-expert) for the bulk data cleanup that made the SEO gains possible; and [Klaviyo email and SMS](/klaviyo-expert) for the owned-channel stack.
+
+---
+
+*Want this kind of work on your store? You can [hire a Shopify developer](/hire-shopify-developer) directly, or [get in touch](/contact) — I take on a small number of senior engineering and operations engagements each quarter.*`,
   },
   {
     slug: 'shopify-catalog-matrixify-playbook',
@@ -198,7 +204,13 @@ That's what Matrixify gives you when you respect it.
 
 ---
 
-*Need help wiring this up on your store? [Reach out](/contact) — happy to do a one-week catalog hygiene sprint.*`,
+## Getting help with this
+
+The full service page for this work is [Matrixify expert and Shopify catalog operations](/matrixify-expert) — bulk product imports, CSV and Excel workflows, multi-level variant configuration and inventory sync. If the catalog problem is really a platform problem, see [Shopify migration expert](/shopify-migration-expert). For everything else on the storefront, [Shopify expert development](/shopify-expert).
+
+---
+
+*Need help wiring this up on your store? [Hire a Shopify developer](/hire-shopify-developer) for a one-week catalog hygiene sprint, or [reach out](/contact) first if you want a second opinion on scope.*`,
   },
   {
     slug: 'technical-seo-ai-search-shopify',
@@ -310,7 +322,13 @@ A Shopify store that is well-built for AI search is also a Shopify store that co
 
 ---
 
-*This is part of how I work as a Shopify Operator. If your store needs a technical SEO and AI-readiness audit, [let's talk](/contact).*`,
+## Related services
+
+Technical SEO on Shopify is implementation work, not advice work — see [Shopify SEO and expert development](/shopify-expert) for what that covers. Page speed is half of it: [Shopify speed optimization](/shopify-speed-optimization). Clean structured product data is the other half: [Matrixify catalog operations](/matrixify-expert). And if a replatform is what damaged your rankings, [Shopify migration expert](/shopify-migration-expert) covers the redirect work.
+
+---
+
+*This is part of how I work as a Shopify Operator. If your store needs a technical SEO and AI-readiness audit, [hire a Shopify developer](/hire-shopify-developer) or [let's talk](/contact).*`,
   },
   {
     slug: 'matrixify-shopify-bulk-operations-guide',

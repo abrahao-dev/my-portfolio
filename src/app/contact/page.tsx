@@ -107,15 +107,18 @@ export default function Contact() {
             </div>
 
             <div className="space-y-6">
+              {/* min-w-0 + break-all: the address is a single 241px token and
+                  the icon is 48px, so at 320px this row pushed the whole page
+                  into horizontal scroll. shrink-0 keeps the icon circular. */}
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-primary/10 rounded-full">
-                  <Mail className="h-6 w-6 text-primary" />
+                <div className="p-3 bg-primary/10 rounded-full shrink-0">
+                  <Mail className="h-6 w-6 text-primary" aria-hidden />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h3 className="font-medium">Email</h3>
                   <a
                     href="mailto:contato.matheusabrahao@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="break-all text-muted-foreground hover:text-primary transition-colors"
                   >
                     contato.matheusabrahao@gmail.com
                   </a>
@@ -123,8 +126,8 @@ export default function Contact() {
               </div>
 
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-primary/10 rounded-full">
-                  <Phone className="h-6 w-6 text-primary" />
+                <div className="p-3 bg-primary/10 rounded-full shrink-0">
+                  <Phone className="h-6 w-6 text-primary" aria-hidden />
                 </div>
                 <div>
                   <h3 className="font-medium">WhatsApp</h3>
@@ -140,8 +143,8 @@ export default function Contact() {
               </div>
 
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-primary/10 rounded-full">
-                  <MapPin className="h-6 w-6 text-primary" />
+                <div className="p-3 bg-primary/10 rounded-full shrink-0">
+                  <MapPin className="h-6 w-6 text-primary" aria-hidden />
                 </div>
                 <div>
                   <h3 className="font-medium">Location</h3>
@@ -152,8 +155,8 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="p-3 bg-primary/10 rounded-full">
-                  <Clock className="h-6 w-6 text-primary" />
+                <div className="p-3 bg-primary/10 rounded-full shrink-0">
+                  <Clock className="h-6 w-6 text-primary" aria-hidden />
                 </div>
                 <div>
                   <h3 className="font-medium">Availability</h3>
@@ -180,12 +183,14 @@ export default function Contact() {
                   placeholder={t('contact.form.name.placeholder')}
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
-                  className={`bg-card border border-border ${errors.name ? 'border-red-500 focus:border-red-500' : ''}`}
+                  className={`bg-card border border-border ${errors.name ? 'border-destructive focus-visible:ring-destructive' : ''}`}
                   disabled={isLoading}
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? 'name-error' : undefined}
                 />
                 {errors.name && (
-                  <p className="text-sm text-red-500 flex items-center">
-                    <AlertCircle className="h-4 w-4 mr-1" />
+                  <p id="name-error" role="alert" className="text-sm text-destructive flex items-center">
+                    <AlertCircle className="h-4 w-4 mr-1 shrink-0" aria-hidden />
                     {errors.name}
                   </p>
                 )}
@@ -201,12 +206,14 @@ export default function Contact() {
                   placeholder={t('contact.form.email.placeholder')}
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  className={`bg-card border border-border ${errors.email ? 'border-red-500 focus:border-red-500' : ''}`}
+                  className={`bg-card border border-border ${errors.email ? 'border-destructive focus-visible:ring-destructive' : ''}`}
                   disabled={isLoading}
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? 'email-error' : undefined}
                 />
                 {errors.email && (
-                  <p className="text-sm text-red-500 flex items-center">
-                    <AlertCircle className="h-4 w-4 mr-1" />
+                  <p id="email-error" role="alert" className="text-sm text-destructive flex items-center">
+                    <AlertCircle className="h-4 w-4 mr-1 shrink-0" aria-hidden />
                     {errors.email}
                   </p>
                 )}
@@ -221,12 +228,14 @@ export default function Contact() {
                   placeholder={t('contact.form.message.placeholder')}
                   value={formData.message}
                   onChange={(e) => handleInputChange('message', e.target.value)}
-                  className={`bg-card border border-border min-h-[150px] ${errors.message ? 'border-red-500 focus:border-red-500' : ''}`}
+                  className={`bg-card border border-border min-h-[150px] ${errors.message ? 'border-destructive focus-visible:ring-destructive' : ''}`}
                   disabled={isLoading}
+                  aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? 'message-error' : undefined}
                 />
                 {errors.message && (
-                  <p className="text-sm text-red-500 flex items-center">
-                    <AlertCircle className="h-4 w-4 mr-1" />
+                  <p id="message-error" role="alert" className="text-sm text-destructive flex items-center">
+                    <AlertCircle className="h-4 w-4 mr-1 shrink-0" aria-hidden />
                     {errors.message}
                   </p>
                 )}

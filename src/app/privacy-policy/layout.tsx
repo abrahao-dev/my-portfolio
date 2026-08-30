@@ -5,18 +5,18 @@ export const metadata: Metadata = {
   description:
     'How matheusabrahao.com.br handles personal data: what is collected, what is not, third parties involved, and your rights under LGPD, GDPR, CCPA/CPRA and PIPEDA.',
   alternates: {
-    canonical: 'https://matheusabrahao.com.br/privacy-policy',
+    canonical: 'https://www.matheusabrahao.com.br/privacy-policy',
     languages: {
-      'pt-BR': 'https://matheusabrahao.com.br/privacy-policy',
-      'en': 'https://matheusabrahao.com.br/privacy-policy',
-      'x-default': 'https://matheusabrahao.com.br/privacy-policy',
+      'pt-BR': 'https://www.matheusabrahao.com.br/privacy-policy',
+      'en': 'https://www.matheusabrahao.com.br/privacy-policy',
+      'x-default': 'https://www.matheusabrahao.com.br/privacy-policy',
     },
   },
   openGraph: {
     title: 'Privacy Policy | Matheus Abrahão',
     description:
       'What data this site collects (almost none), who processes it, and how to exercise your rights.',
-    url: 'https://matheusabrahao.com.br/privacy-policy',
+    url: 'https://www.matheusabrahao.com.br/privacy-policy',
   },
   robots: { index: true, follow: true },
 }

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowUpRight, Check, Mail, MessageCircle } from "lucide-react"
 import Link from "next/link"
 
-export const SITE = "https://matheusabrahao.com.br"
+export const SITE = "https://www.matheusabrahao.com.br"
 export const EMAIL = "contato.matheusabrahao@gmail.com"
 export const WHATSAPP_DISPLAY = "+55 11 98851-2788"
 

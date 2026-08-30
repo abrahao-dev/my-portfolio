@@ -5,7 +5,7 @@ export const metadata: Metadata = seoMeta({
   slug: "klaviyo-expert",
   title: "Klaviyo Expert & Developer — Shopify Email and SMS Marketing | Matheus Abrahão",
   description:
-    "Klaviyo expert and developer for Shopify: flow architecture, segmentation, deliverability, SMS marketing, custom API integrations and server-side tracking. Built the Klaviyo stack for an international luxury fashion brand that grew +74% in revenue.",
+    "Klaviyo expert and Klaviyo developer for Shopify — an alternative to a Klaviyo agency when the problem is the data, not the creative. Flow architecture, segmentation, deliverability, SMS marketing, custom API integrations and server-side tracking. Built the Klaviyo stack for an international luxury fashion brand that grew +74% in revenue.",
 })
 
 const data: SeoLandingData = {
@@ -54,6 +54,40 @@ const data: SeoLandingData = {
         "Responsive, on-brand email templates with dynamic product blocks pulled from live Shopify catalog data, so recommendations, prices and stock status are correct at the moment the email opens rather than when it was designed.",
     },
   ],
+  extraSections: [
+    {
+      title: "Klaviyo developer, or Klaviyo agency?",
+      intro:
+        "Owned-channel work splits into two very different jobs, and most stores buy the wrong one. An agency sells campaigns and creative. A Klaviyo developer fixes the data underneath, which is what determines whether any of the creative can work. Below is the honest division, including the parts I do not do.",
+      items: [
+        {
+          title: "What a Klaviyo developer fixes",
+          body:
+            "Events that never fire, identifiers that do not stitch a browsing session to a purchasing customer, custom properties that arrive as strings when the segment expects numbers, webhooks with no retry, and Shopify metafield data that never reaches the profile at all. None of this is visible in the Klaviyo UI, and none of it gets fixed by better subject lines. This is the half I am hired for most.",
+        },
+        {
+          title: "What a Klaviyo agency is better at",
+          body:
+            "High-volume campaign calendars, brand creative and photography, and copy production at a pace one person cannot sustain. If that is your gap, hire an agency — and hire me first to make sure the data they are targeting is real. I frequently work alongside an agency rather than instead of one, and I have no interest in replacing a team that is performing.",
+        },
+        {
+          title: "Where the two overlap",
+          body:
+            "Flow architecture, segmentation logic and deliverability sit in the middle. They need marketing judgement and technical execution at the same time, which is exactly where handoffs between an agency and a developer break down. This is the work I would rather own end to end.",
+        },
+        {
+          title: "SMS marketing on Shopify",
+          body:
+            "Klaviyo SMS with compliant collection, double opt-in where the jurisdiction requires it, quiet hours, carrier filtering rules and a cadence that does not exhaust the channel in six weeks. SMS earns far more per send than email and burns far faster if it is abused, so it gets built with tighter exclusion logic than any other channel.",
+        },
+        {
+          title: "Migrating into or out of Klaviyo",
+          body:
+            "Mailchimp, Omnisend, Attentive, Postscript or a legacy ESP into Klaviyo with consent status, engagement history and suppression lists preserved — losing the suppression list is how a good sender reputation dies on migration day. I also do the reverse honestly: if Klaviyo is genuinely oversized for your volume, I will say so.",
+        },
+      ],
+    },
+  ],
   stepsTitle: "How a Klaviyo engagement runs",
   steps: [
     {
@@ -79,6 +113,11 @@ const data: SeoLandingData = {
   ],
   faqTitle: "Klaviyo expert FAQ",
   faq: [
+    {
+      q: "How much does Klaviyo cost per month?",
+      a:
+        "Klaviyo's own pricing is by active profile and send volume, and it starts free up to a few hundred profiles. The number that matters more is the ratio: Klaviyo's list-based pricing means a bloated list of people who never open anything is a bill you pay every month for nothing. Cleaning and sunsetting dead profiles routinely cuts the subscription cost and lifts deliverability at the same time, which is why list health is one of the first things I audit. My own fees are separate from the platform fee and are described below.",
+    },
     {
       q: "What does Klaviyo work cost?",
       a:
@@ -124,6 +163,7 @@ const data: SeoLandingData = {
     { href: "/hire-shopify-developer", label: "Hire a Shopify Developer" },
     { href: "/shopify-speed-optimization", label: "Shopify Speed Optimization" },
     { href: "/shopify-migration-expert", label: "Shopify Migration Expert" },
+    { href: "/matrixify-expert", label: "Matrixify Expert" },
   ],
 }
 

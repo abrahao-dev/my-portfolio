@@ -101,7 +101,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = getPostBySlug(params.slug)
   if (!post) notFound()
 
-  const url = `https://matheusabrahao.com.br/blog/${post.slug}`
+  const url = `https://www.matheusabrahao.com.br/blog/${post.slug}`
   const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -113,21 +113,21 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     '@type': 'Article',
     headline: post.title,
     description: post.description,
-    image: post.image ? `https://matheusabrahao.com.br${post.image}` : 'https://matheusabrahao.com.br/og-image.jpg',
+    image: post.image ? `https://www.matheusabrahao.com.br${post.image}` : 'https://www.matheusabrahao.com.br/og-image.jpg',
     datePublished: new Date(post.date).toISOString(),
     dateModified: new Date(post.date).toISOString(),
     author: {
       '@type': 'Person',
       name: 'Matheus Abrahão',
-      url: 'https://matheusabrahao.com.br',
+      url: 'https://www.matheusabrahao.com.br',
     },
     publisher: {
       '@type': 'Person',
       name: 'Matheus Abrahão',
-      url: 'https://matheusabrahao.com.br',
+      url: 'https://www.matheusabrahao.com.br',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://matheusabrahao.com.br/apple-touch-icon.png',
+        url: 'https://www.matheusabrahao.com.br/apple-touch-icon.png',
       },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
@@ -139,8 +139,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://matheusabrahao.com.br' },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://matheusabrahao.com.br/blog' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.matheusabrahao.com.br' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.matheusabrahao.com.br/blog' },
       { '@type': 'ListItem', position: 3, name: post.title, item: url },
     ],
   }
@@ -185,7 +185,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         </div>
       </header>
 
-      <div className="prose prose-invert max-w-none">{renderBody(post.body)}</div>
+      <div className="max-w-none">{renderBody(post.body)}</div>
 
       <Card className="mt-16 bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 border-primary/20">
         <CardContent className="py-8 px-6 sm:px-8 text-center">

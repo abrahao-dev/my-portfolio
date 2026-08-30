@@ -6,17 +6,17 @@ export const metadata: Metadata = {
   title: { absolute: 'Contato Matheus Abrahão | Contratar Shopify Expert & Desenvolvedor Shopify' },
   description: 'Entre em contato com Matheus Abrahão para projetos Shopify: desenvolvimento de tema Liquid, Matrixify e operações de catálogo, Klaviyo, otimização de velocidade, SEO técnico e migrações — freelance, contrato ou dedicado. WhatsApp +55 11 98851-2788, contato.matheusabrahao@gmail.com. Remoto de São Paulo (UTC-3), atendendo marcas nos EUA e Canadá.',
   alternates: {
-    canonical: 'https://matheusabrahao.com.br/contact',
+    canonical: 'https://www.matheusabrahao.com.br/contact',
     languages: {
-      'pt-BR': 'https://matheusabrahao.com.br/contact',
-      'en': 'https://matheusabrahao.com.br/contact',
-      'x-default': 'https://matheusabrahao.com.br/contact',
+      'pt-BR': 'https://www.matheusabrahao.com.br/contact',
+      'en': 'https://www.matheusabrahao.com.br/contact',
+      'x-default': 'https://www.matheusabrahao.com.br/contact',
     },
   },
   openGraph: {
     title: 'Contato Matheus Abrahão | Contratar Shopify Expert',
     description: 'Contrate um Shopify Expert com 6+ anos de plataforma. Liquid, Matrixify, Klaviyo, performance, migrações — remoto, fuso UTC-3, atendendo marcas nos EUA e Canadá.',
-    url: 'https://matheusabrahao.com.br/contact',
+    url: 'https://www.matheusabrahao.com.br/contact',
     locale: 'pt_BR',
     alternateLocale: ['en_US'],
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Contato Matheus Abrahão — Contratar Shopify Expert' }],

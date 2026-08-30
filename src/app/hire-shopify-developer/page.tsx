@@ -3,9 +3,9 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = seoMeta({
   slug: "hire-shopify-developer",
-  title: "Hire a Shopify Developer — Freelance Shopify Contractor | Matheus Abrahão",
+  title: "Hire a Shopify Developer, Expert or Consultant — Freelance | Matheus Abrahão",
   description:
-    "Hire a dedicated freelance Shopify developer for US and Canadian brands. 6+ years on Shopify, currently operating paired B2C and B2B Shopify storefronts for a US manufacturer. Fixed-price projects, monthly retainers, rescue work. US$60-90/hour, fluent English, full North American time zone overlap.",
+    "Hire a freelance Shopify developer, expert or consultant for US and Canadian brands. 6+ years on Shopify, currently operating paired B2C and B2B storefronts for a US manufacturer. Fixed-price projects, dedicated monthly retainers, rescue work. US$60-90/hour, fluent English, full North American time zone overlap.",
 })
 
 const data: SeoLandingData = {
@@ -87,6 +87,38 @@ const data: SeoLandingData = {
         },
       ],
     },
+    {
+      title: "Hire a Shopify expert, a developer, or a consultant?",
+      intro:
+        "These three job titles get used interchangeably and they should not be. The one you need depends on whether your problem is a decision, an implementation, or both. I do all three, but the engagement looks different in each case — and telling you which one you actually need is free.",
+      items: [
+        {
+          title: "Hire a Shopify expert",
+          body:
+            "You know something is wrong but not what. The engagement starts with a paid audit — theme code, app conflicts, tracking, catalog integrity, Core Web Vitals, search visibility — and ends with a prioritised list of findings scored by effort and revenue impact. You are free to hand that list to anyone. Most people ask me to execute the top three items, but that is a second decision, not a condition.",
+        },
+        {
+          title: "Hire a Shopify developer",
+          body:
+            "You already know the work: a section, a checkout customisation, a private app, an integration, a bug that has been open for a month. Scope is written, price is fixed, timeline is agreed, and it ships on a staging theme you review before anything goes live. This is the most common way people start with me.",
+        },
+        {
+          title: "Hire a Shopify consultant",
+          body:
+            "You are making a decision with a long tail: replatform or rebuild, Plus or standard, headless or Liquid, in-house team or contractor, which of the four apps in front of you to actually buy. Sold as a small number of paid hours with a written recommendation at the end. I will happily tell you not to spend money, and I have — a consultant who never says that is a salesperson.",
+        },
+        {
+          title: "A dedicated Shopify developer, monthly",
+          body:
+            "For brands that have enough work to keep an engineer busy but not enough to justify a full-time hire. An agreed block of hours per week, a shared backlog, a weekly call, and priorities you can reshuffle. Cancel with 30 days' notice. This is where most engagements end up after the first project.",
+        },
+        {
+          title: "Looking for a Shopify expert near you?",
+          body:
+            "Proximity stopped mattering on this kind of work some time ago; overlap did not. I am in São Paulo at UTC-3, which is one to two hours ahead of US Eastern, so I am online for essentially your whole business day whether your team sits in New York, Toronto, Chicago, Denver or Los Angeles. Calls in fluent English, invoices in USD, and no work handed to a night shift you cannot reach.",
+        },
+      ],
+    },
   ],
   stepsTitle: "How hiring works",
   steps: [
@@ -117,6 +149,11 @@ const data: SeoLandingData = {
       q: "How much does it cost to hire a Shopify developer?",
       a:
         "In North America, agencies typically bill US$120 to US$250 per hour, US and Canadian freelancers US$75 to US$150, and offshore marketplaces US$15 to US$40 — where you usually pay again to have the work redone. I sit deliberately in the middle: US$60 to US$90 per hour, senior level, working directly with you. A small scoped job such as a bug fix, a new section or a speed pass starts around US$500. A full theme build or a migration is quoted from a written scope. The honest answer is that the hourly rate matters far less than how many hours the person needs, which is where experience actually saves you money.",
+    },
+    {
+      q: "How much does it cost to hire a Shopify expert?",
+      a:
+        "The same range as a developer, because on Shopify it is usually the same person — US$60 to US$90 per hour with me, against US$120 to US$250 at a North American agency. What changes is the shape of the engagement. Expert work normally starts with a paid audit, priced at a fixed US$500 to US$1,500 depending on catalog size and how many apps are involved, and you receive a written prioritised findings list you own outright. A Shopify consultant engagement — a replatform decision, a Plus-versus-standard call, an app selection — is sold in blocks of hours with a written recommendation at the end.",
     },
     {
       q: "What are your rates and how do retainers work?",
@@ -168,6 +205,7 @@ const data: SeoLandingData = {
     { href: "/klaviyo-expert", label: "Klaviyo Expert" },
     { href: "/shopify-speed-optimization", label: "Shopify Speed Optimization" },
     { href: "/shopify-migration-expert", label: "Shopify Migration Expert" },
+    { href: "/matrixify-expert", label: "Matrixify Expert" },
   ],
 }
 

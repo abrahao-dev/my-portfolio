@@ -143,15 +143,44 @@ const projects: Project[] = [
   },
 ]
 
+/**
+ * Card actions.
+ *
+ * These were `<button onClick={window.open}>`: announced as buttons to screen
+ * readers, invisible to crawlers, and impossible to middle-click or long-press.
+ * They are links, so they are anchors — which also makes the `disabled` guard
+ * against a '#' href unnecessary, since a missing href just renders nothing.
+ */
+function ProjectLinks({ project, codeLabel, liveLabel }: {
+  project: Project
+  codeLabel: string
+  liveLabel: string
+}) {
+  return (
+    <CardFooter className="pt-2 gap-2">
+      {project.hasCode && project.link && (
+        <Button asChild variant="outline" size="sm" className="flex-1 group/btn">
+          <a href={project.link} target="_blank" rel="noopener noreferrer">
+            <Github className="mr-2 h-4 w-4 transition-transform group-hover/btn:scale-110" aria-hidden />
+            {codeLabel}
+          </a>
+        </Button>
+      )}
+      {project.hasDemo && project.demoLink && (
+        <Button asChild variant="default" size="sm" className="flex-1 group/btn">
+          <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+            <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover/btn:scale-110" aria-hidden />
+            {liveLabel}
+          </a>
+        </Button>
+      )}
+    </CardFooter>
+  )
+}
+
 export default function Projects() {
   const { t, language } = useLanguage()
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
-
-  const handleProjectClick = (link?: string) => {
-    if (link && link !== '#') {
-      window.open(link, '_blank', 'noopener,noreferrer')
-    }
-  }
 
   const featuredProjects = projects.filter((p) => p.featured)
   const otherProjects = projects.filter((p) => !p.featured)
@@ -162,7 +191,7 @@ export default function Projects() {
   const pickImpact = (p: Project) => (language === 'pt-BR' ? p.impactPt : p.impactEn)
 
   return (
-    <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-content py-12 px-4 sm:px-6 lg:px-8">
       <motion.h1
         className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter mb-4 text-center"
         initial={{ opacity: 0, y: -20 }}
@@ -190,7 +219,7 @@ export default function Projects() {
         <h2 className="text-xl sm:text-2xl font-semibold mb-6 flex items-center gap-2">
           <ShoppingBag className="h-5 w-5 text-primary" />
           {t('projects.featured')}
-          <TrendingUp className="h-5 w-5 text-primary ml-auto sm:ml-2" />
+          <TrendingUp className="h-5 w-5 text-primary" aria-hidden />
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {featuredProjects.map((project, index) => (
@@ -200,8 +229,6 @@ export default function Projects() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               className="relative group"
-              onMouseEnter={() => setHoveredProject(index)}
-              onMouseLeave={() => setHoveredProject(null)}
             >
               <TiltCard className="h-full" tiltAmount={5} glareEnabled={true}>
                 <Card className="h-full flex flex-col bg-gradient-to-br from-primary/5 to-secondary/10 backdrop-blur-sm border border-primary/20 shadow-lg hover:shadow-xl transition-all duration-300 relative z-10 overflow-hidden glass-card">
@@ -252,32 +279,11 @@ export default function Projects() {
                       )}
                     </div>
                   </CardContent>
-                  <CardFooter className="pt-2 gap-2">
-                    {project.hasCode && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 group/btn"
-                        onClick={() => handleProjectClick(project.link)}
-                        disabled={!project.link || project.link === '#'}
-                      >
-                        <Github className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                        {t('projects.code')}
-                      </Button>
-                    )}
-                    {project.hasDemo && (
-                      <Button
-                        variant="default"
-                        size="sm"
-                        className="flex-1 group/btn"
-                        onClick={() => handleProjectClick(project.demoLink)}
-                        disabled={!project.demoLink || project.demoLink === '#'}
-                      >
-                        <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                        {t('projects.live')}
-                      </Button>
-                    )}
-                  </CardFooter>
+                  <ProjectLinks
+                    project={project}
+                    codeLabel={t('projects.code')}
+                    liveLabel={t('projects.live')}
+                  />
                 </Card>
               </TiltCard>
             </motion.div>
@@ -302,7 +308,7 @@ export default function Projects() {
               onMouseEnter={() => setHoveredProject(index + featuredProjects.length)}
               onMouseLeave={() => setHoveredProject(null)}
             >
-              <Card className="h-full flex flex-col bg-secondary/10 backdrop-blur-sm border-none shadow-lg hover:shadow-xl transition-all duration-300 relative z-10 overflow-hidden group-hover:scale-[1.02]">
+              <Card className="h-full flex flex-col bg-card backdrop-blur-sm border border-border shadow-lg hover:shadow-xl transition-all duration-300 relative z-10 overflow-hidden group-hover:scale-[1.02]">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-lg sm:text-xl font-semibold leading-tight group-hover:text-primary transition-colors duration-300">
                     {pickTitle(project)}
@@ -332,44 +338,23 @@ export default function Projects() {
                       <Badge
                         key={tag}
                         variant="secondary"
-                        className="bg-primary/20 text-primary-foreground text-xs hover:bg-primary/30 transition-colors duration-200"
+                        className="bg-primary/20 text-primary text-xs hover:bg-primary/30 transition-colors duration-200"
                       >
                         {tag}
                       </Badge>
                     ))}
                     {project.tags.length > 4 && (
-                      <Badge variant="secondary" className="bg-primary/20 text-primary-foreground text-xs">
+                      <Badge variant="secondary" className="bg-primary/20 text-primary text-xs">
                         +{project.tags.length - 4}
                       </Badge>
                     )}
                   </div>
                 </CardContent>
-                <CardFooter className="pt-2 gap-2">
-                  {project.hasCode && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex-1 group/btn"
-                      onClick={() => handleProjectClick(project.link)}
-                      disabled={!project.link || project.link === '#'}
-                    >
-                      <Github className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                      {t('projects.code')}
-                    </Button>
-                  )}
-                  {project.hasDemo && (
-                    <Button
-                      variant="default"
-                      size="sm"
-                      className="flex-1 group/btn"
-                      onClick={() => handleProjectClick(project.demoLink)}
-                      disabled={!project.demoLink || project.demoLink === '#'}
-                    >
-                      <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
-                      {t('projects.live')}
-                    </Button>
-                  )}
-                </CardFooter>
+                <ProjectLinks
+                  project={project}
+                  codeLabel={t('projects.code')}
+                  liveLabel={t('projects.live')}
+                />
               </Card>
               <AnimatePresence>
                 {hoveredProject === index + featuredProjects.length && (
@@ -398,13 +383,11 @@ export default function Projects() {
             <Github className="h-10 w-10 mx-auto mb-4 text-primary" />
             <h3 className="text-xl font-semibold mb-2">{t('projects.github.title')}</h3>
             <p className="text-muted-foreground mb-6">{t('projects.github.desc')}</p>
-            <Button
-              variant="default"
-              size="lg"
-              onClick={() => window.open('https://github.com/abrahao-dev', '_blank', 'noopener,noreferrer')}
-            >
-              <Github className="mr-2 h-5 w-5" />
-              {t('projects.github.cta')}
+            <Button asChild variant="default" size="lg">
+              <a href="https://github.com/abrahao-dev" target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 h-5 w-5" aria-hidden />
+                {t('projects.github.cta')}
+              </a>
             </Button>
           </CardContent>
         </Card>
@@ -418,7 +401,7 @@ export default function Projects() {
             '@context': 'https://schema.org',
             '@type': 'CollectionPage',
             'name': 'Projetos | Matheus Abrahão',
-            'url': 'https://matheusabrahao.com.br/projects',
+            'url': 'https://www.matheusabrahao.com.br/projects',
             'inLanguage': ['pt-BR', 'en'],
             'mainEntity': {
               '@type': 'ItemList',
