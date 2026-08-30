@@ -213,7 +213,7 @@ function HeroPortrait() {
             sizes="(max-width: 1024px) 320px, 440px"
             priority
             onError={() => setOk(false)}
-            className="portrait-treated object-cover"
+            className="object-cover"
           />
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-[linear-gradient(155deg,hsl(var(--secondary)),hsl(var(--card)))]">

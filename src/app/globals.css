@@ -246,15 +246,13 @@
     border: 1px solid hsl(var(--border));
   }
 
-  /* Portrait treatment: foto em cores, só um leve ganho de contraste.
-     Era grayscale(1) — o dono pediu colorida. */
-  .portrait-treated {
-    filter: contrast(1.08) brightness(1.02);
-  }
-
-  .dark .portrait-treated {
-    filter: contrast(1.1) brightness(0.98);
-  }
+  /* Sem `filter` no retrato, de propósito.
+     O hero é um <img> absoluto preenchendo um container arredondado com
+     overflow:hidden. Com `filter` aplicado nele, o Chrome cria uma camada
+     composta que pinta VAZIA na primeira carga — o retrato só aparecia
+     depois de alguma invalidação de estilo. Reproduzia em todo reload, ou
+     seja, todo visitante via um retângulo preto no lugar da foto.
+     O tratamento era só contrast(1.1); não vale um hero invisível. */
 
   .tabular {
     font-variant-numeric: tabular-nums;
