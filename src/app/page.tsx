@@ -414,34 +414,38 @@ export default function Home() {
       {/* ---------- Closing pitch ---------- */}
       <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="brand-glow relative mx-auto max-w-content overflow-hidden rounded-3xl border border-border bg-card p-7 sm:p-12">
+          {/* min-w-0 nos dois filhos: item de grid nasce com min-width:auto e se
+              recusa a encolher. O e-mail é uma palavra única e longa — sem isso
+              ele define a largura mínima da coluna, estoura o card e o
+              overflow-hidden corta o parágrafo ao lado. */}
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
-            <div className="lg:col-span-7">
+            <div className="min-w-0 lg:col-span-7">
               <h2 className="type-display">{t("home.connect.title")}</h2>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
                 {t("home.connect.subtitle")}
               </p>
             </div>
 
-            <div className="lg:col-span-5">
+            <div className="min-w-0 lg:col-span-5">
               <p className="text-lg font-semibold">{t("home.cta.title")}</p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {t("home.cta.desc")}
               </p>
 
               <div className="mt-6 flex flex-col gap-3">
-                <Button asChild size="lg" className="h-12 rounded-full px-7 text-[15px]">
+                <Button asChild size="lg" className="h-12 w-full rounded-full px-5 text-[15px] sm:px-7">
                   <a href={wa} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="mr-2 h-[18px] w-[18px]" aria-hidden />
-                    WhatsApp {WHATSAPP_DISPLAY}
+                    <MessageCircle className="mr-2 h-[18px] w-[18px] shrink-0" aria-hidden />
+                    <span className="truncate">WhatsApp {WHATSAPP_DISPLAY}</span>
                   </a>
                 </Button>
                 <Button
                   asChild
                   variant="outline"
                   size="lg"
-                  className="h-12 max-w-full rounded-full px-7 text-[15px]"
+                  className="h-12 w-full min-w-0 rounded-full px-5 text-[15px] sm:px-7"
                 >
-                  <a href={`mailto:${EMAIL}`}>
+                  <a href={`mailto:${EMAIL}`} className="min-w-0">
                     <Mail className="mr-2 h-[18px] w-[18px] shrink-0" aria-hidden />
                     <span className="truncate">{EMAIL}</span>
                   </a>

@@ -495,20 +495,27 @@ export function SeoLanding({ data }: { data: SeoLandingData }) {
           <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             {data.ctaBody}
           </p>
+          {/* min-w-0 nos botões: item de flex nasce com min-width:auto, e o
+              e-mail é uma palavra única e longa. Sem isso ele estoura o card,
+              que tem overflow-hidden, e o texto ao redor sai cortado. */}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" className="h-12 rounded-full px-7 text-[15px]">
-              <a href={wa} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-[18px] w-[18px]" aria-hidden />
-                WhatsApp {WHATSAPP_DISPLAY}
+            <Button
+              asChild
+              size="lg"
+              className="h-12 w-full min-w-0 rounded-full px-5 text-[15px] sm:w-auto sm:px-7"
+            >
+              <a href={wa} target="_blank" rel="noopener noreferrer" className="min-w-0">
+                <MessageCircle className="mr-2 h-[18px] w-[18px] shrink-0" aria-hidden />
+                <span className="truncate">WhatsApp {WHATSAPP_DISPLAY}</span>
               </a>
             </Button>
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="h-12 max-w-full rounded-full px-7 text-[15px]"
+              className="h-12 w-full min-w-0 rounded-full px-5 text-[15px] sm:w-auto sm:px-7"
             >
-              <a href={mailto}>
+              <a href={mailto} className="min-w-0">
                 <Mail className="mr-2 h-[18px] w-[18px] shrink-0" aria-hidden />
                 <span className="truncate">{EMAIL}</span>
               </a>
