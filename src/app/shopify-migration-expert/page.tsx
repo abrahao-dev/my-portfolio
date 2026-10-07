@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = seoMeta({
   slug: "shopify-migration-expert",
-  title: "Shopify Migration Expert — WooCommerce, Wix & Magento to Shopify | Matheus Abrahão",
+  title: "Shopify Migration Expert: WooCommerce, Wix & Magento to Shopify | Matheus Abrahão",
   description:
     "Shopify migration expert: WooCommerce, Wix, Magento, BigCommerce and custom platforms moved to Shopify without losing SEO, customers or order history. Catalog, redirects, data integrity and a launch plan that does not cost you rankings.",
 })
@@ -13,10 +13,10 @@ const data: SeoLandingData = {
   eyebrow: "Replatforming without losing rankings",
   h1: "Shopify Migration Expert",
   lede:
-    "WooCommerce, Wix, Magento or BigCommerce moved to Shopify with the catalog intact, the customers intact, the order history intact — and, most importantly, the organic traffic intact.",
+    "WooCommerce, Wix, Magento or BigCommerce moved to Shopify with the catalog intact, the customers intact, the order history intact and, most importantly, the organic traffic intact.",
   intro: [
     "The scary part of a Shopify migration is not moving the products. It is everything attached to them: URL structures that Google has indexed for years, customer accounts and their password hashes, historical orders your finance team still needs, subscriptions mid-cycle, reviews, metafields, and the tax and shipping rules nobody documented. Migrations fail on those details, and the failure usually shows up as a traffic collapse three weeks after launch when it is expensive to undo.",
-    "I have spent 6+ years inside Shopify, starting with my own store — I built and ran Martin (martin4shop.com.br) through 1,959 orders and roughly R$552,000 in revenue, which is where I learned what actually breaks when store data moves. Since then I have handled catalog and data operations at scale: two storefronts (B2C and B2B) with 7+ sales channels for a US manufacturer, and the technical SEO foundation for an international luxury fashion brand where sessions grew +455%, orders +114% and revenue +74%.",
+    "I have spent 6+ years inside Shopify, starting with my own store: I built and ran Martin (martin4shop.com.br) through 1,959 orders and roughly R$552,000 in revenue, which is where I learned what actually breaks when store data moves. Since then I have handled catalog and data operations at scale: two storefronts (B2C and B2B) with 7+ sales channels for a US manufacturer, and the technical SEO foundation for an international luxury fashion brand where sessions grew +455%, orders +114% and revenue +74%.",
     "A migration done properly is boring. You should launch, watch rankings stay flat for a week, and then start seeing them improve because the new store is faster and better structured. That outcome comes from a redirect map built before anything is exported, not from hope.",
   ],
   playbookLine:
@@ -31,7 +31,7 @@ const data: SeoLandingData = {
     {
       title: "Magento and BigCommerce to Shopify",
       body:
-        "Complex attribute sets, configurable products, customer groups and tiered B2B pricing translated into Shopify variants, metafields, markets and B2B company accounts — including what has to be rethought rather than copied.",
+        "Complex attribute sets, configurable products, customer groups and tiered B2B pricing translated into Shopify variants, metafields, markets and B2B company accounts, including what has to be rethought rather than copied.",
     },
     {
       title: "Wix, Squarespace and custom platforms",
@@ -95,9 +95,9 @@ const data: SeoLandingData = {
         "A straightforward store of a few hundred products is usually two to four weeks including the redirect work. Large or complex catalogs, B2B pricing, subscriptions or heavy custom integrations run six to twelve weeks. I give you a dated plan in the scope document, and your current store stays live and selling the entire time.",
     },
     {
-      q: "You are in Brazil — how does the launch window work?",
+      q: "You are in Brazil. How does the launch window work?",
       a:
-        "I am in São Paulo, UTC-3, one to two hours ahead of US Eastern, giving four to six hours of live overlap with a US business day. Cutovers happen in your store's quietest window, typically the small hours in your time zone — which is my early morning, so I am fully awake and monitoring rather than half asleep at 3am.",
+        "I am in São Paulo, UTC-3, one to two hours ahead of US Eastern, giving four to six hours of live overlap with a US business day. Cutovers happen in your store's quietest window, typically the small hours in your time zone, which is my early morning, so I am fully awake and monitoring rather than half asleep at 3am.",
     },
     {
       q: "Do you sign an NDA, and how do you handle customer data?",
@@ -107,14 +107,14 @@ const data: SeoLandingData = {
     {
       q: "Who owns the store and the code afterwards?",
       a:
-        "You do, entirely. The Shopify account is yours, the theme code and any custom apps are assigned to you in the contract on payment, and I hand over documentation, the redirect map and the import files. There is no ongoing licence and no dependency on me — you can hire any other developer the day after launch.",
+        "You do, entirely. The Shopify account is yours, the theme code and any custom apps are assigned to you in the contract on payment, and I hand over documentation, the redirect map and the import files. There is no ongoing licence and no dependency on me: you can hire any other developer the day after launch.",
     },
   ],
   ctaTitle: "Thinking about moving to Shopify?",
   ctaBody:
     "Tell me what platform you are on and roughly how many products. I will tell you honestly what the migration involves and what it should cost.",
   waText:
-    "Hi Matheus, I found your Shopify migration page. I want to migrate my store to Shopify — here are the details:",
+    "Hi Matheus, I found your Shopify migration page. I want to migrate my store to Shopify. Here are the details:",
   serviceName: "Shopify Migration Expert",
   serviceDescription:
     "Shopify migration services from WooCommerce, Wix, Squarespace, Magento, BigCommerce and custom platforms: catalog and customer data migration, order history, SEO-preserving 301 redirect maps, theme rebuild, integration reconnection and post-launch monitoring.",

@@ -12,7 +12,7 @@ const WA_INTRO: Record<Language, string> = {
   "pt-BR": "Oi Matheus, achei seu site. Queria falar sobre a minha loja Shopify:",
 }
 
-// Labels go through t() — these were hardcoded English while the mobile nav
+// Labels go through t(). These were hardcoded English while the mobile nav
 // translated the same six links, so the two navs disagreed on pt-BR.
 const SERVICES = [
   { href: "/shopify-expert", key: "services.shopify" },

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: 'https://www.matheusabrahao.com.br/projects',
     locale: 'pt_BR',
     alternateLocale: ['en_US'],
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Matheus Abrahão — Shopify & E-commerce' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Matheus Abrahão | Shopify & E-commerce' }],
   },
   twitter: {
     title: 'Projetos Shopify & E-commerce | Matheus Abrahão',

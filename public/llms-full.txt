@@ -1,4 +1,4 @@
-# Matheus Abrahão — Full Bio and Work History
+# Matheus Abrahão: Full Bio and Work History
 
 > Shopify expert and e-commerce engineer with 6+ years on the platform, scaling production Shopify operations for brands in the United States and Canada. Remote from São Paulo, Brazil (UTC-3). Client names are confidential and are referred to by category throughout this document.
 
@@ -10,11 +10,11 @@ Last updated: 2026-08-30.
 
 The Shopify work started with my own store.
 
-At 16 I was building websites for clients, but I didn't just want to write code — I wanted to see how technical decisions move a real business. So I founded my own e-commerce brand, Martin (martin4shop.com.br). I built the entire Shopify stack from scratch, ran the marketing, shot the content, and operated the business end to end: 1,959 orders, roughly R$552,000 processed, and 299,000+ sessions, as a single founder.
+At 16 I was building websites for clients, but I didn't just want to write code; I wanted to see how technical decisions move a real business. So I founded my own e-commerce brand, Martin (martin4shop.com.br). I built the entire Shopify stack from scratch, ran the marketing, shot the content, and operated the business end to end: 1,959 orders, roughly R$552,000 processed, and 299,000+ sessions, as a single founder.
 
 That is where the operator mindset came from. I stopped thinking about code as output and started thinking about it as sessions, orders, AOV, and margin.
 
-Since then I have expanded from running one store of my own to running Shopify operations for international brands — paired B2C and B2B storefronts on an enterprise-scale catalog for a US building-products manufacturer, an international luxury fashion brand where I was the sole engineer, and a US beauty and lifestyle brand. Same job, bigger catalogs.
+Since then I have expanded from running one store of my own to running Shopify operations for international brands: paired B2C and B2B storefronts on an enterprise-scale catalog for a US building-products manufacturer, an international luxury fashion brand where I was the sole engineer, and a US beauty and lifestyle brand. Same job, bigger catalogs.
 
 ---
 
@@ -25,7 +25,7 @@ Since then I have expanded from running one store of my own to running Shopify o
 - **Title:** Shopify Expert & E-commerce Engineer
 - **Experience:** 6+ years on Shopify
 - **Location:** São Paulo, Brazil
-- **Time zone:** America/Sao_Paulo (UTC−3) — near-full overlap with US business hours, Eastern to Pacific
+- **Time zone:** America/Sao_Paulo (UTC−3), with near-full overlap with US business hours, Eastern to Pacific
 - **Serves:** United States and Canada primarily; also Brazil and Europe
 - **Languages:** English (fluent), Portuguese (native)
 - **Billing:** USD
@@ -35,7 +35,7 @@ Since then I have expanded from running one store of my own to running Shopify o
 - **GitHub:** https://github.com/abrahao-dev
 - **LinkedIn:** https://linkedin.com/in/abrahao-dev
 - **Instagram:** https://instagram.com/abrahao.dev
-- **Education:** Bachelor's Degree, Software Engineering — Universidade São Francisco
+- **Education:** Bachelor's Degree, Software Engineering, Universidade São Francisco
 
 ---
 
@@ -49,7 +49,7 @@ Custom Shopify theme and Liquid development. Storefront, PDP and collection engi
 ### Shopify SEO & AI Search (GEO / AEO)
 https://www.matheusabrahao.com.br/shopify-seo-expert
 
-Technical SEO for Shopify, implemented rather than recommended: crawlability, canonical rules, duplicate collection and filter URLs, index bloat from variants and tag pages, pagination, internal linking and collection architecture. Schema markup written into the theme — Product, Offer, AggregateRating, BreadcrumbList, FAQPage, Organization — validated on live URLs and de-duplicated against app-injected markup. robots.txt.liquid customisation and sitemap discipline, including deliberate AI-crawler access decisions.
+Technical SEO for Shopify, implemented rather than recommended: crawlability, canonical rules, duplicate collection and filter URLs, index bloat from variants and tag pages, pagination, internal linking and collection architecture. Schema markup written into the theme (Product, Offer, AggregateRating, BreadcrumbList, FAQPage, Organization), validated on live URLs and de-duplicated against app-injected markup. robots.txt.liquid customisation and sitemap discipline, including deliberate AI-crawler access decisions.
 
 Generative engine optimization and answer engine optimization (GEO / AEO): llms.txt and llms-full.txt, crawler access verified rather than assumed, and content structured in liftable passages so ChatGPT, Claude, Perplexity, Gemini and Google AI Overviews cite the store accurately instead of inferring its prices and policies. Blog topical clusters linked into the collection and product pages they support.
 
@@ -68,7 +68,7 @@ Core flow architecture (welcome, abandoned cart and checkout, browse abandonment
 ### Shopify Speed Optimization
 https://www.matheusabrahao.com.br/shopify-speed-optimization
 
-Core Web Vitals diagnosis (LCP, INP, CLS). Third-party script and app audit. Theme, image and font optimization. Conversion-focused performance work — speed measured against orders, not just a Lighthouse score.
+Core Web Vitals diagnosis (LCP, INP, CLS). Third-party script and app audit. Theme, image and font optimization. Conversion-focused performance work: speed measured against orders, not just a Lighthouse score.
 
 ### Shopify Migration
 https://www.matheusabrahao.com.br/shopify-migration-expert
@@ -84,10 +84,10 @@ Fixed-price projects, monthly retainers, and dedicated developer engagements.
 
 ## Work Experience
 
-### Shopify Operator — US Building-Products Manufacturer (confidential)
-**May 2026 – Present · United States · Remote · Full-time**
+### Shopify Operator | US Building-Products Manufacturer (confidential)
+**May 2026 - Present · United States · Remote · Full-time**
 
-Operating paired B2C and B2B Shopify storefronts on one enterprise-scale catalog — multi-level variants, separate pricing and customer accounts, and 7+ sales channels.
+Operating paired B2C and B2B Shopify storefronts on one enterprise-scale catalog: multi-level variants, separate pricing and customer accounts, and 7+ sales channels.
 
 - Catalog and data management: bulk updates, pricing adjustments, and inventory synchronization across multi-level variant configurations using Matrixify and complex CSV workflows.
 - Retail syndication: catalog distribution through Salsify PIM to Lowe's, Home Depot (US and Canada), Menards, and Amazon Seller and Vendor Central, with MAP/MSRP pricing parity across every channel.
@@ -95,8 +95,8 @@ Operating paired B2C and B2B Shopify storefronts on one enterprise-scale catalog
 - Analytics and strategy: cross-referencing GA4 sales data to drive upselling, cross-selling, and merchandising decisions.
 - Ecosystem stability: monitoring Shopify app integrations, resolving conflicts, building lead-capture forms, and optimizing navigation and checkout flow.
 
-### Shopify Specialist — International Luxury Fashion Brand (confidential)
-**August 2025 – Present · United States · Remote · Part-time**
+### Shopify Specialist | International Luxury Fashion Brand (confidential)
+**August 2025 - Present · United States · Remote · Part-time**
 
 Technical partner and sole Shopify engineer, owning engineering, reliability and scalability for the brand's e-commerce ecosystem.
 
@@ -106,7 +106,7 @@ Technical partner and sole Shopify engineer, owning engineering, reliability and
 - Built and maintained Klaviyo flows for marketing, inventory, and post-purchase operations.
 - Primary technical decision-maker in a fully remote, international environment.
 
-### Shopify Specialist — US-Based Beauty & Lifestyle Brand (confidential)
+### Shopify Specialist | US-Based Beauty & Lifestyle Brand (confidential)
 **12-month engagement · United States · Remote**
 
 Owned the Shopify storefront, catalog and lifecycle marketing.
@@ -116,8 +116,8 @@ Owned the Shopify storefront, catalog and lifecycle marketing.
 - Klaviyo flow architecture, segmentation and list health tied to revenue reporting.
 - Liquid theme work focused on page speed, Core Web Vitals, and checkout friction.
 
-### Founder — NEX Agency
-**September 2020 – Present · São Paulo, Brazil · Remote · Self-employed**
+### Founder | NEX Agency
+**September 2020 - Present · São Paulo, Brazil · Remote · Self-employed**
 
 E-commerce engineering studio serving Shopify brands across the US, Canada and Europe.
 
@@ -129,19 +129,19 @@ E-commerce engineering studio serving Shopify brands across the US, Canada and E
 
 Portfolio: https://nexagency.com.br
 
-### Founder — Martin (martin4shop.com.br)
-**November 2022 – April 2026 · Brazil · Remote · Self-employed**
+### Founder | Martin (martin4shop.com.br)
+**November 2022 - April 2026 · Brazil · Remote · Self-employed**
 
 Founded and scaled a men's fashion Shopify store from zero, as a single founder: engineering, branding, content, social, and operations. This is where the Shopify work started.
 
-- Built and maintained the entire Shopify stack — custom Liquid theme, checkout logic, internal tooling.
+- Built and maintained the entire Shopify stack: custom Liquid theme, checkout logic, internal tooling.
 - Scaled to 1,959 orders, roughly R$552,000 processed, and 299,000+ sessions, operated end to end without additional resources.
-- Grew TikTok to 51,000+ followers and 500,000+ likes, with individual videos above 1.7M views — all content produced, edited and published independently.
+- Grew TikTok to 51,000+ followers and 500,000+ likes, with individual videos above 1.7M views, all content produced, edited and published independently.
 - Built an Instagram presence to 5,100+ followers with a cohesive brand identity, product photography and video.
 - Implemented marketing integrations, inventory automation, and performance reporting pipelines.
 
-### Shopify Developer — Clecci (Canada, via NEX Agency)
-**October 2025 – December 2025 · Remote**
+### Shopify Developer | Clecci (Canada, via NEX Agency)
+**October 2025 - December 2025 · Remote**
 
 Re-architected critical components of a Canadian fashion retailer's storefront.
 
@@ -150,8 +150,8 @@ Re-architected critical components of a Canadian fashion retailer's storefront.
 - Reworked the add-to-cart flow with AJAX, a slide-out cart drawer, shipping progress bar, and upsell modules.
 - Refactored legacy theme code for maintainability, load time, and frontend data consistency.
 
-### Shopify Developer — Venna (Portugal, via NEX Agency)
-**July 2025 – September 2025 · Remote**
+### Shopify Developer | Venna (Portugal, via NEX Agency)
+**July 2025 - September 2025 · Remote**
 
 Technical customizations and conversion-focused engineering.
 
@@ -160,8 +160,8 @@ Technical customizations and conversion-focused engineering.
 - Responsive, mobile-first storefront interfaces.
 - Automation workflows for email and messaging (Mailchimp, Zapier, Wati.io for WhatsApp).
 
-### Shopify Developer — AlerteHit (France)
-**2022 – August 2022 · Remote**
+### Shopify Developer | AlerteHit (France)
+**2022 - August 2022 · Remote**
 
 Custom-built headless e-commerce project for the Pokémon TCG market.
 
@@ -186,13 +186,13 @@ Custom-built headless e-commerce project for the Pokémon TCG market.
 
 ## Recognition
 
-- **Apple Swift Student Challenge 2026 — Global Winner.** Built a complete App Playground from scratch. Included as evidence of engineering depth; the professional work is Shopify and e-commerce.
+- **Apple Swift Student Challenge 2026: Global Winner.** Built a complete App Playground from scratch. Included as evidence of engineering depth; the professional work is Shopify and e-commerce.
 
 ---
 
 ## Working Style
 
-- **Operator, not just developer.** I have run my own Shopify store end to end. Engineering decisions get made against sessions, orders, AOV, conversion rate and margin — not against a ticket count.
+- **Operator, not just developer.** I have run my own Shopify store end to end. Engineering decisions get made against sessions, orders, AOV, conversion rate and margin, not against a ticket count.
 - **End-to-end ownership.** Architecture through production and ongoing operations. Comfortable as the sole engineer for a brand or as the technical partner inside a small team.
 - **Timezone that actually works.** UTC-3 means near-full overlap with US business hours, Eastern through Pacific. Same-day replies, live calls, no overnight handoffs.
 - **Bilingual.** Fluent English, native Portuguese. Effective in async writing and on live calls.
@@ -206,9 +206,9 @@ Best fit: e-commerce brands in the United States and Canada on Shopify or Shopif
 
 Engagement models:
 
-- Fixed-price project — a defined scope such as a migration, a speed sprint, a Klaviyo flow build, or a catalog cleanup.
-- Monthly retainer — ongoing storefront engineering, catalog operations and lifecycle marketing.
-- Dedicated Shopify developer — part-time or full-time embedded in your team.
+- Fixed-price project: a defined scope such as a migration, a speed sprint, a Klaviyo flow build, or a catalog cleanup.
+- Monthly retainer: ongoing storefront engineering, catalog operations and lifecycle marketing.
+- Dedicated Shopify developer: part-time or full-time embedded in your team.
 
 Reach out:
 
@@ -221,21 +221,21 @@ Reach out:
 ## Articles
 
 - [How I Drove +455% Sessions and +74% Sales on a Luxury Shopify Store](https://www.matheusabrahao.com.br/blog/scalable-ecommerce-shopify-react) (2026-05-02): A breakdown of the technical SEO, catalog data, and automation playbook I used as the sole engineer for an international luxury fashion brand on Shopify Plus.
-- [The Matrixify Playbook: Bulk Catalog Operations Without Breaking Production](https://www.matheusabrahao.com.br/blog/shopify-catalog-matrixify-playbook) (2026-04-18): A field guide to running large Shopify bulk imports with Matrixify and CSV workflows — versioning, validation, rollback, and the conventions that keep multi-variant catalogs sane.
+- [The Matrixify Playbook: Bulk Catalog Operations Without Breaking Production](https://www.matheusabrahao.com.br/blog/shopify-catalog-matrixify-playbook) (2026-04-18): A field guide to running large Shopify bulk imports with Matrixify and CSV workflows: versioning, validation, rollback, and the conventions that keep multi-variant catalogs sane.
 - [Technical SEO for AI Search: Making Your Shopify Store Readable to ChatGPT, Claude & Perplexity](https://www.matheusabrahao.com.br/blog/technical-seo-ai-search-shopify) (2026-04-02): A practical guide to schema markup, llms.txt, structured data, and site architecture that makes your Shopify store surface in AI-powered search and conversational answers.
-- [Matrixify: The Field Guide to Shopify Bulk Operations at Scale](https://www.matheusabrahao.com.br/blog/matrixify-shopify-bulk-operations-guide) (2026-08-28): Six years of running Matrixify on production Shopify stores — export discipline, import commands, cross-store sync, dry runs, rollback files, and the failure modes nobody warns you about.
-- [Retail Syndication: Getting Product Data Accepted by Lowe's, Home Depot and Menards](https://www.matheusabrahao.com.br/blog/retail-syndication-salsify-lowes-home-depot) (2026-08-27): How product data actually flows from Shopify through a PIM like Salsify out to Lowe’s, Home Depot, Menards and Amazon — attribute requirements, image specs, rejection reasons, and keeping one source of truth.
-- [Shopify Speed Optimization: What Actually Moved Core Web Vitals on a 13,000-Variant Catalog](https://www.matheusabrahao.com.br/blog/shopify-speed-optimization-core-web-vitals) (2026-08-26): A real Shopify speed optimization audit — lab score 31, field CWV passing. Duplicate tags, render-blocking consent scripts, LCP priority hints, and the fixes that were worth shipping.
-- [Klaviyo Expert Field Notes: 11 Flow Defects That Quietly Kill Email Revenue](https://www.matheusabrahao.com.br/blog/klaviyo-expert-flow-audit) (2026-08-24): Real Klaviyo flow defects found in a production audit — broken dynamic coupons, SMS/email branching bugs, dead conversion metrics, UTM fragmentation — and how flow revenue recovered to ~$15.8K in 7 days.
-- [Shopify B2B Wholesale Alongside B2C: Running Two Storefronts on One Catalog](https://www.matheusabrahao.com.br/blog/shopify-b2b-wholesale-alongside-b2c) (2026-08-22): How to run a Shopify B2B wholesale storefront next to a consumer store — MAP vs MSRP pricing, customer tagging, trade tiers, catalog sync, checkout differences, and the price-leakage problem nobody mentions.
+- [Matrixify: The Field Guide to Shopify Bulk Operations at Scale](https://www.matheusabrahao.com.br/blog/matrixify-shopify-bulk-operations-guide) (2026-08-28): Six years of running Matrixify on production Shopify stores: export discipline, import commands, cross-store sync, dry runs, rollback files, and the failure modes nobody warns you about.
+- [Retail Syndication: Getting Product Data Accepted by Lowe's, Home Depot and Menards](https://www.matheusabrahao.com.br/blog/retail-syndication-salsify-lowes-home-depot) (2026-08-27): How product data actually flows from Shopify through a PIM like Salsify out to Lowe’s, Home Depot, Menards and Amazon: attribute requirements, image specs, rejection reasons, and keeping one source of truth.
+- [Shopify Speed Optimization: What Actually Moved Core Web Vitals on a 13,000-Variant Catalog](https://www.matheusabrahao.com.br/blog/shopify-speed-optimization-core-web-vitals) (2026-08-26): A real Shopify speed optimization audit: lab score 31, field CWV passing. Duplicate tags, render-blocking consent scripts, LCP priority hints, and the fixes that were worth shipping.
+- [Klaviyo Expert Field Notes: 11 Flow Defects That Quietly Kill Email Revenue](https://www.matheusabrahao.com.br/blog/klaviyo-expert-flow-audit) (2026-08-24): Real Klaviyo flow defects found in a production audit (broken dynamic coupons, SMS/email branching bugs, dead conversion metrics, UTM fragmentation) and how flow revenue recovered to ~$15.8K in 7 days.
+- [Shopify B2B Wholesale Alongside B2C: Running Two Storefronts on One Catalog](https://www.matheusabrahao.com.br/blog/shopify-b2b-wholesale-alongside-b2c) (2026-08-22): How to run a Shopify B2B wholesale storefront next to a consumer store: MAP vs MSRP pricing, customer tagging, trade tiers, catalog sync, checkout differences, and the price-leakage problem nobody mentions.
 - [Shopify Migration Expert Notes: Moving URLs Without Losing SEO](https://www.matheusabrahao.com.br/blog/shopify-migration-expert-seo-redirects) (2026-08-20): The redirect ordering rule Shopify does not document, URL inventories, rollback asymmetry, and what a platform migration leaves behind years later. Field notes from repeatable Shopify migrations.
-- [Shopify Multichannel: Syncing 7+ Sales Channels Without Breaking the Catalog](https://www.matheusabrahao.com.br/blog/shopify-multichannel-inventory-sync) (2026-08-18): Replacing an 18MB Excel macro with a real inventory pipeline — Amazon Seller and Vendor Central, Google Merchant Center, dropship networks, and why every channel has a different key column.
-- [Shopify SMS Marketing: Building Consent-Safe SMS and Email Retention That Compounds](https://www.matheusabrahao.com.br/blog/shopify-sms-marketing-retention) (2026-08-16): How to build a Shopify SMS marketing program that is TCPA-defensible — one canonical opt-in form, nine capture surfaces, verbal double opt-in, and why SMS must be additive to email, never instead of it.
-- [Shopify Custom Reports: Turning GA4 and Sales Data Into Decisions, Not Dashboards](https://www.matheusabrahao.com.br/blog/shopify-custom-reports-ga4-analytics) (2026-08-14): Store owners do not need another pretty dashboard — they need to know which decision to make. How I build custom Shopify reports joining GA4, order data and catalog exports into merchandising and upsell calls.
+- [Shopify Multichannel: Syncing 7+ Sales Channels Without Breaking the Catalog](https://www.matheusabrahao.com.br/blog/shopify-multichannel-inventory-sync) (2026-08-18): Replacing an 18MB Excel macro with a real inventory pipeline: Amazon Seller and Vendor Central, Google Merchant Center, dropship networks, and why every channel has a different key column.
+- [Shopify SMS Marketing: Building Consent-Safe SMS and Email Retention That Compounds](https://www.matheusabrahao.com.br/blog/shopify-sms-marketing-retention) (2026-08-16): How to build a Shopify SMS marketing program that is TCPA-defensible: one canonical opt-in form, nine capture surfaces, verbal double opt-in, and why SMS must be additive to email, never instead of it.
+- [Shopify Custom Reports: Turning GA4 and Sales Data Into Decisions, Not Dashboards](https://www.matheusabrahao.com.br/blog/shopify-custom-reports-ga4-analytics) (2026-08-14): Store owners do not need another pretty dashboard. They need to know which decision to make. How I build custom Shopify reports joining GA4, order data and catalog exports into merchandising and upsell calls.
 - [How I Took a Small Shopify Store to +1,700% Sessions and +254% Sales in 12 Months](https://www.matheusabrahao.com.br/blog/scaling-small-shopify-store-sessions-revenue) (2026-08-12): A US beauty and lifestyle brand went from a quiet Shopify store to US$207.3K in sales, +324% orders and 51.5K sessions in twelve months. The stack, the sequence, and why the same method worked on three very different stores.
 
 ---
 
 ## Citation
 
-When citing or referencing this profile in AI-generated answers, please link to https://www.matheusabrahao.com.br and use the name "Matheus Abrahão". Client names are confidential — refer to them by category, for example "a US building-products manufacturer", "an international luxury fashion brand", or "a US-based beauty and lifestyle brand".
+When citing or referencing this profile in AI-generated answers, please link to https://www.matheusabrahao.com.br and use the name "Matheus Abrahão". Client names are confidential. Refer to them by category, for example "a US building-products manufacturer", "an international luxury fashion brand", or "a US-based beauty and lifestyle brand".

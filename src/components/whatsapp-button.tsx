@@ -2,7 +2,7 @@
 
 /**
  * Botão flutuante de WhatsApp com o logo oficial.
- * Fica em todas as páginas — é o caminho de contato mais curto para
+ * Fica em todas as páginas. É o caminho de contato mais curto para
  * quem chega por busca ("hire shopify developer" e afins).
  */
 

@@ -41,7 +41,7 @@ type Store = (typeof STORES)[number]
  * The four client cards under the services grid.
  *
  * `STORES` and `HEADLINE_PROOF` in seo-landing.tsx are written for the
- * English-only SEO landing pages, so the pt-BR home needs its own copy —
+ * English-only SEO landing pages, so the pt-BR home needs its own copy,
  * including the number formatting (1.959, not 1,959).
  */
 const PROOF: Record<Language, { headline: typeof HEADLINE_PROOF; stores: Store[] }> = {
@@ -85,7 +85,7 @@ const PROOF: Record<Language, { headline: typeof HEADLINE_PROOF; stores: Store[]
         ],
       },
       {
-        name: "Martin — minha própria marca",
+        name: "Martin (minha própria marca)",
         role: "Fundador e operador",
         metrics: [
           { value: "1.959", label: "pedidos" },
@@ -107,13 +107,13 @@ const SERVICES = {
       href: "/shopify-speed-optimization",
       tag: "Speed & conversion",
       problem: "Your store is slow and you are losing sales",
-      body: "Pages that take four seconds to load quietly cost you orders every day. I find what is dragging the store down — apps, images, theme code — and fix it, and you see it in the checkout numbers.",
+      body: "Pages that take four seconds to load quietly cost you orders every day. I find what is dragging the store down (apps, images, theme code) and fix it, and you see it in the checkout numbers.",
     },
     {
       href: "/klaviyo-expert",
       tag: "Klaviyo email & SMS",
       problem: "Your emails are not bringing anyone back",
-      body: "Abandoned carts, welcome sequences, win-backs. Email should be a fifth to a third of your revenue. When it is not, it is almost never the copy — it is the setup underneath it.",
+      body: "Abandoned carts, welcome sequences, win-backs. Email should be a fifth to a third of your revenue. When it is not, it is almost never the copy. It is the setup underneath it.",
     },
     {
       href: "/shopify-seo-expert",
@@ -131,7 +131,7 @@ const SERVICES = {
       href: "/shopify-migration-expert",
       tag: "Migration",
       problem: "You need to move to Shopify without losing Google",
-      body: "Coming off WooCommerce, Magento or Wix. Products, customers, orders — and the part most people get wrong, your search rankings, with every redirect in place.",
+      body: "Coming off WooCommerce, Magento or Wix. Products, customers, orders, and the part most people get wrong (your search rankings), with every redirect in place.",
     },
     {
       href: "/shopify-expert",
@@ -143,7 +143,7 @@ const SERVICES = {
       href: "/hire-shopify-developer",
       tag: "Ongoing support",
       problem: "You just need a reliable person on call",
-      body: "Ongoing hours for the things that keep coming up — a broken app, a launch, a report nobody can pull. The same person every time, who already knows your store.",
+      body: "Ongoing hours for the things that keep coming up: a broken app, a launch, a report nobody can pull. The same person every time, who already knows your store.",
     },
   ],
   "pt-BR": [
@@ -151,13 +151,13 @@ const SERVICES = {
       href: "/shopify-speed-optimization",
       tag: "Velocidade e conversão",
       problem: "Sua loja está lenta e perde venda",
-      body: "Página que demora quatro segundos para abrir custa pedido todo dia, em silêncio. Eu descubro o que está travando a loja — apps, imagens, código do tema — e arrumo. Isso aparece no número do checkout.",
+      body: "Página que demora quatro segundos para abrir custa pedido todo dia, em silêncio. Eu descubro o que está travando a loja (apps, imagens, código do tema) e arrumo. Isso aparece no número do checkout.",
     },
     {
       href: "/klaviyo-expert",
       tag: "Klaviyo e-mail e SMS",
       problem: "Seus e-mails não trazem ninguém de volta",
-      body: "Carrinho abandonado, boas-vindas, recuperação de cliente. E-mail deveria ser de um quinto a um terço do seu faturamento. Se não é, quase nunca é o texto — é a estrutura por baixo.",
+      body: "Carrinho abandonado, boas-vindas, recuperação de cliente. E-mail deveria ser de um quinto a um terço do seu faturamento. Se não é, quase nunca é o texto. É a estrutura por baixo.",
     },
     {
       href: "/shopify-seo-expert",
@@ -175,7 +175,7 @@ const SERVICES = {
       href: "/shopify-migration-expert",
       tag: "Migração",
       problem: "Precisa migrar para o Shopify sem perder o Google",
-      body: "Saindo de WooCommerce, Magento ou Wix. Produtos, clientes, pedidos — e a parte que quase todo mundo erra, seu posicionamento na busca, com todos os redirects certos.",
+      body: "Saindo de WooCommerce, Magento ou Wix. Produtos, clientes, pedidos, e a parte que quase todo mundo erra (seu posicionamento na busca), com todos os redirects certos.",
     },
     {
       href: "/shopify-expert",
@@ -187,13 +187,13 @@ const SERVICES = {
       href: "/hire-shopify-developer",
       tag: "Suporte contínuo",
       problem: "Você só quer alguém de confiança à disposição",
-      body: "Horas contínuas para o que sempre aparece — um app quebrado, um lançamento, um relatório que ninguém consegue tirar. Sempre a mesma pessoa, que já conhece sua loja.",
+      body: "Horas contínuas para o que sempre aparece: um app quebrado, um lançamento, um relatório que ninguém consegue tirar. Sempre a mesma pessoa, que já conhece sua loja.",
     },
   ],
 } as const
 
 /**
- * Hero photo slot. `public/profile.jpg` is 1003x1254 — a 4:5 portrait, which is
+ * Hero photo slot. `public/profile.jpg` is 970x1212, a 4:5 portrait, which is
  * why the frame below is `aspect-[4/5]`. Swapping in a differently-shaped photo
  * means changing that ratio too, or `object-cover` will crop it. Set to null to
  * fall back to the monogram card, which has identical dimensions.
@@ -327,7 +327,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Headline numbers — value and label stack, so nothing can collide */}
+          {/* Headline numbers: value and label stack, so nothing can collide */}
           <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-border pt-8 lg:mt-16 lg:grid-cols-4">
             {proof.map((p) => (
               <div key={p.label}>
@@ -382,7 +382,7 @@ export default function Home() {
       </section>
 
       {/* Same layout as <ProofBand> in seo-landing.tsx, but fed localized store
-          data — that component hardcodes the English STORES array. If it ever
+          data, since that component hardcodes the English STORES array. If it ever
           grows a `stores` prop, delete this block and go back to using it. */}
       <section className="border-y border-border bg-secondary/25 px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
         <div className="mx-auto max-w-content">
@@ -415,7 +415,7 @@ export default function Home() {
       <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="brand-glow relative mx-auto max-w-content overflow-hidden rounded-3xl border border-border bg-card p-7 sm:p-12">
           {/* min-w-0 nos dois filhos: item de grid nasce com min-width:auto e se
-              recusa a encolher. O e-mail é uma palavra única e longa — sem isso
+              recusa a encolher. O e-mail é uma palavra única e longa. Sem isso
               ele define a largura mínima da coluna, estoura o card e o
               overflow-hidden corta o parágrafo ao lado. */}
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">

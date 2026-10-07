@@ -1,7 +1,7 @@
 /**
  * Gera public/og-image.jpg (1200x630) a partir de public/profile.jpg.
  * One-off: rode `node scripts/make-og.mjs` quando a foto ou o posicionamento mudar.
- * Usa next/og (já é dependência do Next) — nenhum pacote extra.
+ * Usa next/og (já é dependência do Next), nenhum pacote extra.
  */
 import { ImageResponse } from 'next/og.js'
 import { readFileSync, writeFileSync } from 'node:fs'

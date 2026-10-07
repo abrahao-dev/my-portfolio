@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ============================================================
-   Design tokens — dark-first.
+   Design tokens: dark-first.
    Near-black canvas + a single vibrant lime accent.
    Light mode keeps the same structure with a deep moss green,
    because lime on white fails contrast.
@@ -21,7 +21,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 40 8% 8%;
 
-    /* Deep moss — readable accent for light surfaces (AA on paper) */
+    /* Deep moss: readable accent for light surfaces (AA on paper) */
     --primary: 88 64% 24%;
     --primary-foreground: 60 30% 98%;
 
@@ -41,7 +41,7 @@
     --input: 42 12% 87%;
     --ring: 88 64% 24%;
 
-    /* Decorative lime — glows, fills, never body text on light */
+    /* Decorative lime: glows, fills, never body text on light */
     --brand: 84 71% 46%;
     --brand-soft: 84 71% 58%;
 
@@ -63,7 +63,7 @@
     --popover: 60 3% 7.5%;
     --popover-foreground: 60 8% 96%;
 
-    /* Lime — 12.5:1 on the near-black canvas */
+    /* Lime: 12.5:1 on the near-black canvas */
     --primary: 84 71% 58%;
     --primary-foreground: 80 30% 6%;
 
@@ -227,7 +227,7 @@
     );
   }
 
-  /* Fine grid texture — reads as "engineered", not as decoration */
+  /* Fine grid texture: reads as "engineered", not as decoration */
   .grid-texture {
     background-image:
       linear-gradient(to right, hsl(var(--foreground) / 0.045) 1px, transparent 1px),
@@ -249,7 +249,7 @@
   /* Sem `filter` no retrato, de propósito.
      O hero é um <img> absoluto preenchendo um container arredondado com
      overflow:hidden. Com `filter` aplicado nele, o Chrome cria uma camada
-     composta que pinta VAZIA na primeira carga — o retrato só aparecia
+     composta que pinta VAZIA na primeira carga: o retrato só aparecia
      depois de alguma invalidação de estilo. Reproduzia em todo reload, ou
      seja, todo visitante via um retângulo preto no lugar da foto.
      O tratamento era só contrast(1.1); não vale um hero invisível. */
@@ -315,7 +315,7 @@
   }
 }
 
-/* Marquee for the stack strip — CSS only, no JS, no layout shift */
+/* Marquee for the stack strip: CSS only, no JS, no layout shift */
 @keyframes marquee {
   from {
     transform: translateX(0);

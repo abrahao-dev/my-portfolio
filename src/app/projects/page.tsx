@@ -28,10 +28,10 @@ type Project = {
 
 const projects: Project[] = [
   {
-    titleEn: "US Building-Products Manufacturer — B2C + B2B Shopify Operations",
-    titlePt: "Fabricante Americana de Construção — Operação Shopify B2C + B2B",
-    problemEn: "Two Shopify storefronts (consumer and wholesale) sharing one physical catalog of 2,800+ products and 13,000+ variants, feeding 7+ sales channels — with MAP/MSRP pricing rules that cannot drift and separate product IDs per store.",
-    problemPt: "Duas lojas Shopify (consumidor e atacado) compartilhando um catálogo físico de 2.800+ produtos e 13.000+ variantes, alimentando 7+ canais de venda — com regras de preço MAP/MSRP que não podem divergir e IDs de produto separados por loja.",
+    titleEn: "US Building-Products Manufacturer: B2C + B2B Shopify Operations",
+    titlePt: "Fabricante Americana de Construção: Operação Shopify B2C + B2B",
+    problemEn: "Two Shopify storefronts (consumer and wholesale) sharing one physical catalog of 2,800+ products and 13,000+ variants, feeding 7+ sales channels, with MAP/MSRP pricing rules that cannot drift and separate product IDs per store.",
+    problemPt: "Duas lojas Shopify (consumidor e atacado) compartilhando um catálogo físico de 2.800+ produtos e 13.000+ variantes, alimentando 7+ canais de venda, com regras de preço MAP/MSRP que não podem divergir e IDs de produto separados por loja.",
     solutionEn: "Operate both storefronts end to end: Matrixify bulk catalog workflows keyed on SKU across stores, MAP/MSRP pricing governance, Shopify Flow automation, Search & Discovery, Markets, and retail syndication through Salsify PIM to Lowe's, Home Depot US & Canada, Menards, Amazon Seller and Vendor Central. Built a Python inventory pipeline replacing an 18MB 48-tab Excel macro.",
     solutionPt: "Opero as duas lojas ponta a ponta: fluxos de catálogo em massa via Matrixify chaveados por SKU entre lojas, governança de preços MAP/MSRP, automação com Shopify Flow, Search & Discovery, Markets e sindicalização de catálogo via Salsify PIM para Lowe's, Home Depot EUA e Canadá, Menards, Amazon Seller e Vendor Central. Construí um pipeline de inventário em Python que substitui uma macro Excel de 18MB e 48 abas.",
     impactEn: "Two storefronts kept correct at the same time: one enterprise-scale catalog with multi-level variants, MAP/MSRP pricing that never drifts across 7+ channels, and product data accepted by every major retail partner from a single source of truth.",
@@ -40,46 +40,46 @@ const projects: Project[] = [
     featured: true,
   },
   {
-    titleEn: "International Luxury Fashion Brand — Shopify Plus",
-    titlePt: "Marca Internacional de Moda de Luxo — Shopify Plus",
-    problemEn: "A large-scale luxury catalog with multi-level variants needed reliability, technical SEO, Core Web Vitals and multi-channel operations — with a single engineer owning all of it.",
-    problemPt: "Um catálogo de luxo de larga escala com variantes multi-nível precisava de confiabilidade, SEO técnico, Core Web Vitals e operações multicanal — com um único engenheiro responsável por tudo.",
+    titleEn: "International Luxury Fashion Brand: Shopify Plus",
+    titlePt: "Marca Internacional de Moda de Luxo: Shopify Plus",
+    problemEn: "A large-scale luxury catalog with multi-level variants needed reliability, technical SEO, Core Web Vitals and multi-channel operations, with a single engineer owning all of it.",
+    problemPt: "Um catálogo de luxo de larga escala com variantes multi-nível precisava de confiabilidade, SEO técnico, Core Web Vitals e operações multicanal, com um único engenheiro responsável por tudo.",
     solutionEn: "Sole engineer: custom Liquid components for Core Web Vitals, JSON-LD schema emitted from product metafields, llms.txt for AI search readiness, omnichannel integrations (Amazon Seller Central, Google Merchant Center, Meta CAPI/Pixel) and Klaviyo automation flows.",
     solutionPt: "Engenheiro único: componentes Liquid customizados para Core Web Vitals, schema JSON-LD emitido a partir de metafields de produto, llms.txt para prontidão em busca com IA, integrações omnichannel (Amazon Seller Central, Google Merchant Center, Meta CAPI/Pixel) e fluxos de automação Klaviyo.",
-    impactEn: "+455% platform sessions, +114% orders, +74% total sales — compounding wins across technical SEO, catalog hygiene, performance and marketing automation.",
-    impactPt: "+455% de sessões, +114% de pedidos, +74% em vendas totais — ganhos compostos em SEO técnico, higiene de catálogo, performance e automação de marketing.",
+    impactEn: "+455% platform sessions, +114% orders, +74% total sales: compounding wins across technical SEO, catalog hygiene, performance and marketing automation.",
+    impactPt: "+455% de sessões, +114% de pedidos, +74% em vendas totais: ganhos compostos em SEO técnico, higiene de catálogo, performance e automação de marketing.",
     tags: ["Shopify Plus", "Liquid", "Klaviyo", "Meta CAPI", "Google Merchant", "Technical SEO", "Core Web Vitals"],
     featured: true,
   },
   {
-    titleEn: "US Beauty & Lifestyle Brand — Shopify Growth",
-    titlePt: "Marca Americana de Beleza & Lifestyle — Crescimento Shopify",
-    problemEn: "A quiet Shopify store with an incoherent catalog, silently rejecting product feeds, no discovery layer and unreliable analytics — technically live, commercially invisible.",
-    problemPt: "Uma loja Shopify parada, com catálogo incoerente, feeds de produto sendo rejeitados em silêncio, sem camada de descoberta e analytics não confiável — tecnicamente no ar, comercialmente invisível.",
+    titleEn: "US Beauty & Lifestyle Brand: Shopify Growth",
+    titlePt: "Marca Americana de Beleza & Lifestyle: Crescimento Shopify",
+    problemEn: "A quiet Shopify store with an incoherent catalog, silently rejecting product feeds, no discovery layer and unreliable analytics. Technically live, commercially invisible.",
+    problemPt: "Uma loja Shopify parada, com catálogo incoerente, feeds de produto sendo rejeitados em silêncio, sem camada de descoberta e analytics não confiável. Tecnicamente no ar, comercialmente invisível.",
     solutionEn: "Normalized the entire catalog through Matrixify (types, vendors, handles, Google Shopping fields, SEO titles/descriptions, tags), fixed Merchant Center disapprovals by class, then layered Google & YouTube, Meta, Pinterest, Shopify Collective, Flow, Search & Discovery and Markets.",
     solutionPt: "Normalizei todo o catálogo via Matrixify (tipos, vendors, handles, campos Google Shopping, SEO title/description, tags), corrigi as reprovações do Merchant Center por classe e então adicionei Google & YouTube, Meta, Pinterest, Shopify Collective, Flow, Search & Discovery e Markets.",
-    impactEn: "US$207.3K in total sales (+254%), 157 orders (+324%) and 51.5K sessions (+1,700%) in 12 months — no redesign, no rebrand.",
-    impactPt: "US$207,3K em vendas totais (+254%), 157 pedidos (+324%) e 51,5K sessões (+1.700%) em 12 meses — sem redesign, sem rebranding.",
+    impactEn: "US$207.3K in total sales (+254%), 157 orders (+324%) and 51.5K sessions (+1,700%) in 12 months. No redesign, no rebrand.",
+    impactPt: "US$207,3K em vendas totais (+254%), 157 pedidos (+324%) e 51,5K sessões (+1.700%) em 12 meses. Sem redesign, sem rebranding.",
     tags: ["Shopify", "Matrixify", "Google Merchant Center", "Pinterest", "Search & Discovery", "Markets", "Technical SEO"],
     featured: true,
   },
   {
-    titleEn: "Martin — Founder E-commerce Brand",
-    titlePt: "Martin — Marca de E-commerce Própria",
+    titleEn: "Martin: Founder E-commerce Brand",
+    titlePt: "Martin: Marca de E-commerce Própria",
     problemEn: "Build a profitable men's fashion brand from zero, owning every layer: technical, brand, content, and operations. This is where the six-plus years of Shopify started.",
     problemPt: "Construir uma marca de moda masculina lucrativa do zero, com ownership total: técnico, marca, conteúdo e operações. Foi aqui que começaram os 6+ anos de Shopify.",
     solutionEn: "Designed and operated the full stack on Shopify/Liquid + Hydrogen + Remix + Tailwind. Built custom checkout logic, internal tooling, marketing integrations, inventory automation, and content (TikTok, Instagram).",
     solutionPt: "Projetei e operei toda a stack em Shopify/Liquid + Hydrogen + Remix + Tailwind. Construí lógica de checkout customizada, ferramentas internas, integrações de marketing, automação de inventário e conteúdo (TikTok, Instagram).",
-    impactEn: "1,959 orders, ~R$552,000 processed and 299,000+ sessions since 2023. TikTok grown to 51K followers and 500K+ likes; individual videos at 1.7M+ views — all solo.",
-    impactPt: "1.959 pedidos, ~R$552.000 processados e 299.000+ sessões desde 2023. TikTok com 51K seguidores e 500K+ curtidas; vídeos individuais com 1,7M+ visualizações — tudo solo.",
+    impactEn: "1,959 orders, ~R$552,000 processed and 299,000+ sessions since 2023. TikTok grown to 51K followers and 500K+ likes; individual videos at 1.7M+ views. All solo.",
+    impactPt: "1.959 pedidos, ~R$552.000 processados e 299.000+ sessões desde 2023. TikTok com 51K seguidores e 500K+ curtidas; vídeos individuais com 1,7M+ visualizações. Tudo solo.",
     tags: ["Shopify", "Hydrogen", "Remix", "React", "Tailwind CSS", "E-commerce", "Founder"],
     demoLink: "https://martin4shop.com.br",
     hasDemo: true,
     featured: true,
   },
   {
-    titleEn: "AlerteHit — Pokémon TCG Headless Storefront (France)",
-    titlePt: "AlerteHit — Storefront Headless Pokémon TCG (França)",
+    titleEn: "AlerteHit: Pokémon TCG Headless Storefront (France)",
+    titlePt: "AlerteHit: Storefront Headless Pokémon TCG (França)",
     problemEn: "International e-commerce project for the Pokémon TCG market needed a custom, performant, headless storefront.",
     problemPt: "Projeto internacional de e-commerce para o mercado de Pokémon TCG precisava de um storefront headless customizado e performático.",
     solutionEn: "Custom React-based frontend on Shopify Hydrogen + Remix, Storefront API integration for product/collection/checkout flows, and interactive Three.js visuals.",
@@ -90,8 +90,8 @@ const projects: Project[] = [
     featured: true,
   },
   {
-    titleEn: "Venna — Shopify Conversion Engineering (Portugal)",
-    titlePt: "Venna — Engenharia de Conversão Shopify (Portugal)",
+    titleEn: "Venna: Shopify Conversion Engineering (Portugal)",
+    titlePt: "Venna: Engenharia de Conversão Shopify (Portugal)",
     problemEn: "Shopify store needed conversion-focused engineering and personalized checkout experiences.",
     problemPt: "Loja Shopify precisava de engenharia focada em conversão e experiências de checkout personalizadas.",
     solutionEn: "Advanced Liquid customizations, dynamic upsell flows, personalized checkout, and multi-channel automation via Mailchimp, Zapier, and Wati.io (WhatsApp).",
@@ -102,8 +102,8 @@ const projects: Project[] = [
     featured: true,
   },
   {
-    titleEn: "Clecci — Canadian Fashion Storefront",
-    titlePt: "Clecci — Storefront Canadense de Moda",
+    titleEn: "Clecci: Canadian Fashion Storefront",
+    titlePt: "Clecci: Storefront Canadense de Moda",
     problemEn: "Canadian fashion retailer needed advanced customizations beyond standard Shopify theme limitations to lift AOV and conversion.",
     problemPt: "Varejista de moda canadense precisava de customizações avançadas além das limitações do tema Shopify padrão para aumentar AOV e conversão.",
     solutionEn: "Re-architected PDP with reactive variant selection engine, engineered native tiered pricing (Buy More, Save More), rebuilt Add-to-Cart with AJAX, slide-out cart drawer, shipping progress, and upsell modules.",
@@ -148,7 +148,7 @@ const projects: Project[] = [
  *
  * These were `<button onClick={window.open}>`: announced as buttons to screen
  * readers, invisible to crawlers, and impossible to middle-click or long-press.
- * They are links, so they are anchors — which also makes the `disabled` guard
+ * They are links, so they are anchors, which also makes the `disabled` guard
  * against a '#' href unnecessary, since a missing href just renders nothing.
  */
 function ProjectLinks({ project, codeLabel, liveLabel }: {

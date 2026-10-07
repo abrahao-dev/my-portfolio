@@ -10,7 +10,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 
-// Self-hosted variable fonts already vendored in the repo — no webfont request,
+// Self-hosted variable fonts already vendored in the repo: no webfont request,
 // no FOUT, identical rendering on Android and Windows (the old SF Pro stack
 // silently fell back to Roboto/Arial for most visitors).
 const geist = localFont({
@@ -31,14 +31,14 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.matheusabrahao.com.br'),
   // Título e descrição em inglês de propósito: o mercado alvo é EUA e Canadá, e
   // as keywords com volume são todas em inglês (ver SEO_KEYWORD_MAP.md). O
-  // conteúdo continua bilíngue — só o metadata segue a busca que traz cliente.
+  // conteúdo continua bilíngue. Só o metadata segue a busca que traz cliente.
   title: {
     default: 'Matheus Abrahão | Shopify Expert & E-commerce Developer',
     template: '%s | Matheus Abrahão',
   },
-  description: 'Shopify expert and e-commerce engineer with 6+ years running Shopify stores. Operates simultaneous B2C and B2B storefronts at enterprise scale, and drove +455% sessions and +74% revenue for an international luxury fashion brand. Matrixify, catalog operations, Klaviyo, technical SEO, performance and Liquid. Working with brands in the US and Canada — UTC-3, near-full overlap with US business hours.',
+  description: 'Shopify expert and e-commerce engineer with 6+ years running Shopify stores. Operates simultaneous B2C and B2B storefronts at enterprise scale, and drove +455% sessions and +74% revenue for an international luxury fashion brand. Matrixify, catalog operations, Klaviyo, technical SEO, performance and Liquid. Working with brands in the US and Canada (UTC-3, near-full overlap with US business hours).',
   keywords: [
-    // English keywords (primary — target market is US and Canada; DataForSEO-validated)
+    // English keywords (primary: target market is US and Canada; DataForSEO-validated)
     'shopify expert',
     'shopify developer',
     'hire shopify developer',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     'shopify b2b developer',
     'freelance shopify developer',
     'klaviyo shopify integration',
-    // Portuguese keywords (secondary — domain is .com.br)
+    // Portuguese keywords (secondary: domain is .com.br)
     'Especialista Shopify',
     'Desenvolvedor Shopify',
     'Contratar Especialista Shopify',
@@ -84,13 +84,13 @@ export const metadata: Metadata = {
     url: 'https://www.matheusabrahao.com.br',
     title: 'Matheus Abrahão | Shopify Expert & Desenvolvedor Shopify',
     description: 'Shopify Expert e Engenheiro de E-commerce. Opera lojas Shopify B2C + B2B em escala enterprise. +455% sessões e +74% receita para marca de moda de luxo internacional. Matrixify, Klaviyo, SEO técnico, Liquid. Disponível para marcas nos EUA e Canadá.',
-    siteName: 'Matheus Abrahão — Shopify Expert & E-commerce Engineer',
+    siteName: 'Matheus Abrahão | Shopify Expert & E-commerce Engineer',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Matheus Abrahão — Shopify Expert & E-commerce Engineer',
+        alt: 'Matheus Abrahão | Shopify Expert & E-commerce Engineer',
         type: 'image/jpeg',
       }
     ],
@@ -252,9 +252,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "Matheus Abrahão — Shopify Expert & E-commerce Engineer",
+              "name": "Matheus Abrahão | Shopify Expert & E-commerce Engineer",
               "url": "https://www.matheusabrahao.com.br",
-              "description": "Portfólio do Shopify Expert Matheus Abrahão — desenvolvimento de tema Liquid, operações de catálogo com Matrixify, Klaviyo, otimização de velocidade, SEO técnico e migrações para Shopify.",
+              "description": "Portfólio do Shopify Expert Matheus Abrahão: desenvolvimento de tema Liquid, operações de catálogo com Matrixify, Klaviyo, otimização de velocidade, SEO técnico e migrações para Shopify.",
               "inLanguage": ["pt-BR", "en"],
               "author": {
                 "@type": "Person",
@@ -276,7 +276,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
-              "name": "Matheus Abrahão — Shopify Development & E-commerce Engineering",
+              "name": "Matheus Abrahão | Shopify Development & E-commerce Engineering",
               "description": "Shopify expert services for e-commerce brands in the US and Canada: Shopify theme and Liquid development, Matrixify and catalog operations at scale, Klaviyo email and SMS flows, Shopify speed optimization and Core Web Vitals, technical SEO, and platform migrations to Shopify. 6+ years on the platform. Remote, UTC-3 with near-full overlap with US business hours. Available for freelance, contract, and dedicated engagements.",
               "url": "https://www.matheusabrahao.com.br",
               "telephone": "+55-11-98851-2788",
@@ -317,7 +317,7 @@ export default function RootLayout({
                       "@type": "Service",
                       "name": "Shopify SEO and AI Search Optimization",
                       "url": "https://www.matheusabrahao.com.br/shopify-seo-expert",
-                      "description": "Technical SEO for Shopify: canonical and duplicate-URL handling, structured data, robots.txt.liquid and sitemaps, plus GEO/AEO work — llms.txt and content structured to be cited accurately by ChatGPT, Claude, Perplexity and AI Overviews."
+                      "description": "Technical SEO for Shopify: canonical and duplicate-URL handling, structured data, robots.txt.liquid and sitemaps, plus GEO/AEO work: llms.txt and content structured to be cited accurately by ChatGPT, Claude, Perplexity and AI Overviews."
                     }
                   },
                   {

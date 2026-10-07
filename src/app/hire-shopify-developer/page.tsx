@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = seoMeta({
   slug: "hire-shopify-developer",
-  title: "Hire a Shopify Developer, Expert or Consultant — Freelance | Matheus Abrahão",
+  title: "Hire a Shopify Developer, Expert or Consultant (Freelance) | Matheus Abrahão",
   description:
     "Hire a freelance Shopify developer, expert or consultant for US and Canadian brands. 6+ years on Shopify, currently operating paired B2C and B2B storefronts for a US manufacturer. Fixed-price projects, dedicated monthly retainers, rescue work. US$60-90/hour, fluent English, full North American time zone overlap.",
 })
@@ -13,14 +13,14 @@ const data: SeoLandingData = {
   eyebrow: "Taking on new contracts",
   h1: "Hire a Shopify Developer",
   lede:
-    "A senior freelance Shopify developer for hire — no agency markup, no junior handoff. Contract, dedicated monthly retainer or fractional lead engineer, working directly with US and Canadian brands in your own time zone.",
+    "A senior freelance Shopify developer for hire: no agency markup, no junior handoff. Contract, dedicated monthly retainer or fractional lead engineer, working directly with US and Canadian brands in your own time zone.",
   intro: [
     "Hiring a Shopify developer usually goes one of two ways. You go to an agency and pay for an account manager, a project manager and a junior who does the work. Or you gamble on a marketplace freelancer, get something that works for a month, and then discover nobody can maintain it. I am the third option: a senior engineer working as an independent Shopify contractor, engaged directly, with six years of stores behind me.",
-    "The reason I am worth hiring is that I have been the client too. I founded and ran Martin (martin4shop.com.br), a Shopify brand that processed 1,959 orders and roughly R$552,000 — I built the theme, ran the ads, handled the fulfilment and lived with every technical shortcut I took. Since then I have been the sole engineer for an international luxury fashion brand, where sessions grew +455%, orders +114% and revenue +74%, and I have maintained two storefronts (B2C and B2B) plus 7+ sales channels for a US manufacturer. I have also won the Apple Swift Student Challenge 2026, which is a way of saying that when your problem needs real software rather than a theme setting, I can write it.",
-    "Most clients start with a small paid scope — a broken checkout flow, a slow product page, a migration nobody wants to touch. If that goes well it usually becomes a retainer. I have no interest in selling you a twelve-month contract on day one.",
+    "The reason I am worth hiring is that I have been the client too. I founded and ran Martin (martin4shop.com.br), a Shopify brand that processed 1,959 orders and roughly R$552,000. I built the theme, ran the ads, handled the fulfilment and lived with every technical shortcut I took. Since then I have been the sole engineer for an international luxury fashion brand, where sessions grew +455%, orders +114% and revenue +74%, and I have maintained two storefronts (B2C and B2B) plus 7+ sales channels for a US manufacturer. I have also won the Apple Swift Student Challenge 2026, which is a way of saying that when your problem needs real software rather than a theme setting, I can write it.",
+    "Most clients start with a small paid scope: a broken checkout flow, a slow product page, a migration nobody wants to touch. If that goes well it usually becomes a retainer. I have no interest in selling you a twelve-month contract on day one.",
   ],
   playbookLine:
-    "Four stores, four verticals, one engineer — from my own brand to an enterprise-scale B2C + B2B operation. That is what you are hiring.",
+    "Four stores, four verticals, one engineer, from my own brand to an enterprise-scale B2C + B2B operation. That is what you are hiring.",
   servicesTitle: "Ways to hire me",
   services: [
     {
@@ -36,7 +36,7 @@ const data: SeoLandingData = {
     {
       title: "Fractional lead developer",
       body:
-        "For brands with a marketing team but no engineer. I own the technical side of the store: architecture decisions, code review of other vendors, roadmap, security and release process — typically one or two days a week.",
+        "For brands with a marketing team but no engineer. I own the technical side of the store: architecture decisions, code review of other vendors, roadmap, security and release process, typically one or two days a week.",
     },
     {
       title: "Emergency and rescue work",
@@ -51,7 +51,7 @@ const data: SeoLandingData = {
     {
       title: "Hire a Shopify web developer for your team",
       body:
-        "I plug into your existing sprint process, repo and Slack as a Shopify contractor alongside your in-house developers. Pull requests, code review, standups in English — the same as a hire, without the headcount or the recruiting cycle.",
+        "I plug into your existing sprint process, repo and Slack as a Shopify contractor alongside your in-house developers. Pull requests, code review, standups in English: the same as a hire, without the headcount or the recruiting cycle.",
     },
     {
       title: "Shopify theme developer for hire",
@@ -68,7 +68,7 @@ const data: SeoLandingData = {
         {
           title: "Operating experience, not just build experience",
           body:
-            "I am the day-to-day operator of a US building-products manufacturer's Shopify business — an enterprise-scale catalog with multi-level variants, spread across two storefronts and 7+ sales channels. That is a very different job from shipping a theme and disappearing, and it shows in the decisions I make about your store.",
+            "I am the day-to-day operator of a US building-products manufacturer's Shopify business: an enterprise-scale catalog with multi-level variants, spread across two storefronts and 7+ sales channels. That is a very different job from shipping a theme and disappearing, and it shows in the decisions I make about your store.",
         },
         {
           title: "B2B as well as B2C",
@@ -90,12 +90,12 @@ const data: SeoLandingData = {
     {
       title: "Hire a Shopify expert, a developer, or a consultant?",
       intro:
-        "These three job titles get used interchangeably and they should not be. The one you need depends on whether your problem is a decision, an implementation, or both. I do all three, but the engagement looks different in each case — and telling you which one you actually need is free.",
+        "These three job titles get used interchangeably and they should not be. The one you need depends on whether your problem is a decision, an implementation, or both. I do all three, but the engagement looks different in each case, and telling you which one you actually need is free.",
       items: [
         {
           title: "Hire a Shopify expert",
           body:
-            "You know something is wrong but not what. The engagement starts with a paid audit — theme code, app conflicts, tracking, catalog integrity, Core Web Vitals, search visibility — and ends with a prioritised list of findings scored by effort and revenue impact. You are free to hand that list to anyone. Most people ask me to execute the top three items, but that is a second decision, not a condition.",
+            "You know something is wrong but not what. The engagement starts with a paid audit (theme code, app conflicts, tracking, catalog integrity, Core Web Vitals, search visibility) and ends with a prioritised list of findings scored by effort and revenue impact. You are free to hand that list to anyone. Most people ask me to execute the top three items, but that is a second decision, not a condition.",
         },
         {
           title: "Hire a Shopify developer",
@@ -105,7 +105,7 @@ const data: SeoLandingData = {
         {
           title: "Hire a Shopify consultant",
           body:
-            "You are making a decision with a long tail: replatform or rebuild, Plus or standard, headless or Liquid, in-house team or contractor, which of the four apps in front of you to actually buy. Sold as a small number of paid hours with a written recommendation at the end. I will happily tell you not to spend money, and I have — a consultant who never says that is a salesperson.",
+            "You are making a decision with a long tail: replatform or rebuild, Plus or standard, headless or Liquid, in-house team or contractor, which of the four apps in front of you to actually buy. Sold as a small number of paid hours with a written recommendation at the end. I will happily tell you not to spend money, and I have. A consultant who never says that is a salesperson.",
         },
         {
           title: "A dedicated Shopify developer, monthly",
@@ -148,12 +148,12 @@ const data: SeoLandingData = {
     {
       q: "How much does it cost to hire a Shopify developer?",
       a:
-        "In North America, agencies typically bill US$120 to US$250 per hour, US and Canadian freelancers US$75 to US$150, and offshore marketplaces US$15 to US$40 — where you usually pay again to have the work redone. I sit deliberately in the middle: US$60 to US$90 per hour, senior level, working directly with you. A small scoped job such as a bug fix, a new section or a speed pass starts around US$500. A full theme build or a migration is quoted from a written scope. The honest answer is that the hourly rate matters far less than how many hours the person needs, which is where experience actually saves you money.",
+        "In North America, agencies typically bill US$120 to US$250 per hour, US and Canadian freelancers US$75 to US$150, and offshore marketplaces US$15 to US$40, where you usually pay again to have the work redone. I sit deliberately in the middle: US$60 to US$90 per hour, senior level, working directly with you. A small scoped job such as a bug fix, a new section or a speed pass starts around US$500. A full theme build or a migration is quoted from a written scope. The honest answer is that the hourly rate matters far less than how many hours the person needs, which is where experience actually saves you money.",
     },
     {
       q: "How much does it cost to hire a Shopify expert?",
       a:
-        "The same range as a developer, because on Shopify it is usually the same person — US$60 to US$90 per hour with me, against US$120 to US$250 at a North American agency. What changes is the shape of the engagement. Expert work normally starts with a paid audit, priced at a fixed US$500 to US$1,500 depending on catalog size and how many apps are involved, and you receive a written prioritised findings list you own outright. A Shopify consultant engagement — a replatform decision, a Plus-versus-standard call, an app selection — is sold in blocks of hours with a written recommendation at the end.",
+        "The same range as a developer, because on Shopify it is usually the same person: US$60 to US$90 per hour with me, against US$120 to US$250 at a North American agency. What changes is the shape of the engagement. Expert work normally starts with a paid audit, priced at a fixed US$500 to US$1,500 depending on catalog size and how many apps are involved, and you receive a written prioritised findings list you own outright. A Shopify consultant engagement (a replatform decision, a Plus-versus-standard call, an app selection) is sold in blocks of hours with a written recommendation at the end.",
     },
     {
       q: "What are your rates and how do retainers work?",
@@ -163,7 +163,7 @@ const data: SeoLandingData = {
     {
       q: "What time zone are you in and how much overlap do I get?",
       a:
-        "São Paulo, UTC-3. That is one to two hours ahead of US Eastern depending on daylight saving, so a full US or Canadian business day gives me almost complete overlap with your team — from Toronto and New York to Vancouver and Los Angeles. I take calls in English, work your hours when the project needs it, and I am reachable on WhatsApp for anything urgent.",
+        "São Paulo, UTC-3. That is one to two hours ahead of US Eastern depending on daylight saving, so a full US or Canadian business day gives me almost complete overlap with your team, from Toronto and New York to Vancouver and Los Angeles. I take calls in English, work your hours when the project needs it, and I am reachable on WhatsApp for anything urgent.",
     },
     {
       q: "Do you work with Canadian brands?",

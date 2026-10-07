@@ -69,7 +69,7 @@ export const STORES = [
     ],
   },
   {
-    name: "Martin — my own brand",
+    name: "Martin (my own brand)",
     role: "Founder and operator",
     metrics: [
       { value: "1,959", label: "orders" },
@@ -102,11 +102,11 @@ export const ECOM_STACK = [
 ]
 
 const CREDIBILITY = [
-  "I currently operate paired B2C and B2B Shopify storefronts for a US building-products manufacturer — an enterprise-scale catalog with multi-level variants, separate pricing and customer accounts, across 7+ connected sales channels.",
+  "I currently operate paired B2C and B2B Shopify storefronts for a US building-products manufacturer: an enterprise-scale catalog with multi-level variants, separate pricing and customer accounts, across 7+ connected sales channels.",
   "Sole engineer for an international luxury fashion brand: +455% sessions, +114% orders and +74% revenue after taking over the storefront.",
   "US-based beauty & lifestyle brand: +254% in total sales, +324% in orders and +1,700% in sessions in twelve months.",
-  "Founder and operator of Martin (martin4shop.com.br) — 1,959 orders and roughly R$552,000 processed on a store I built, ran and marketed myself.",
-  "Product data flowing from Shopify out to Lowe's, Home Depot (US and Canada), Menards, Amazon and KB — managed through Salsify PIM and Matrixify.",
+  "Founder and operator of Martin (martin4shop.com.br): 1,959 orders and roughly R$552,000 processed on a store I built, ran and marketed myself.",
+  "Product data flowing from Shopify out to Lowe's, Home Depot (US and Canada), Menards, Amazon and KB, managed through Salsify PIM and Matrixify.",
   "6+ years on Shopify, and it started with my own store. I did not learn this from a ticket queue.",
 ]
 
@@ -179,7 +179,7 @@ export function ProofBand({ note }: { note?: string }) {
   )
 }
 
-/** Small, discreet stack strip. Text wordmarks — no icon CDN, no layout shift. */
+/** Small, discreet stack strip. Text wordmarks: no icon CDN, no layout shift. */
 export function StackStrip({ label }: { label: string }) {
   const items = [...ECOM_STACK, ...ECOM_STACK]
   return (
@@ -295,7 +295,7 @@ export function SeoLanding({ data }: { data: SeoLandingData }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero — asymmetric: headline left, hard numbers right */}
+      {/* Hero (asymmetric): headline left, hard numbers right */}
       <section className="brand-glow relative overflow-hidden px-4 pb-10 pt-12 sm:px-6 sm:pb-14 sm:pt-16 lg:px-8">
         <div
           aria-hidden
@@ -339,7 +339,7 @@ export function SeoLanding({ data }: { data: SeoLandingData }) {
             </p>
           </div>
 
-          {/* Proof panel — gives the hero weight and removes the dead space */}
+          {/* Proof panel: gives the hero weight and removes the dead space */}
           <div className="lg:col-span-5">
             <div className="surface rounded-2xl p-6 sm:p-7">
               <p className="type-eyebrow text-muted-foreground">Currently on my desk</p>
@@ -460,7 +460,7 @@ export function SeoLanding({ data }: { data: SeoLandingData }) {
         </div>
       </section>
 
-      {/* FAQ — native <details>, keyboard accessible, no JS */}
+      {/* FAQ: native <details>, keyboard accessible, no JS */}
       <section className="border-t border-border bg-secondary/25 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto grid max-w-content gap-10 lg:grid-cols-12 lg:gap-14">
           <h2 className="type-section lg:col-span-4">{data.faqTitle}</h2>

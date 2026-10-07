@@ -6,7 +6,7 @@
  *
  * Run: node scripts/check-i18n-parity.mjs   (exits 1 on drift)
  *
- * ponytail: parses the file with a scoped regex instead of the TS AST — the
+ * ponytail: parses the file with a scoped regex instead of the TS AST; the
  * translations object is a flat string-literal map and stays that way. If it
  * ever gains nesting or computed keys, swap in typescript's parser.
  */
@@ -56,4 +56,4 @@ if (missingInPt.length || missingInEn.length) {
   process.exit(1)
 }
 
-console.log(`i18n parity OK — ${en.size} keys in both en and pt-BR.`)
+console.log(`i18n parity OK: ${en.size} keys in both en and pt-BR.`)

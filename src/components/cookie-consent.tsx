@@ -10,7 +10,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
  *
  * Deliberate design: this site currently has NO analytics and sets NO cookies,
  * so there is nothing to consent to and the banner does not render. It only
- * appears once NEXT_PUBLIC_GA_ID is set — and then it genuinely gates the
+ * appears once NEXT_PUBLIC_GA_ID is set, and then it genuinely gates the
  * script: gtag.js is never inserted into the page unless the visitor accepts.
  * No "load it anyway and pretend" consent theater.
  *
@@ -64,7 +64,7 @@ export default function CookieConsent() {
   const restoreFocusTo = useRef<Element | null>(null)
 
   useEffect(() => {
-    if (!ANALYTICS_ID) return // nothing to consent to — stay out of the way
+    if (!ANALYTICS_ID) return // nothing to consent to: stay out of the way
     const choice = readChoice()
     if (choice === "accepted") loadAnalytics(ANALYTICS_ID)
     if (choice === null) setVisible(true)
@@ -74,7 +74,7 @@ export default function CookieConsent() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ choice, at: Date.now() } satisfies Stored))
     } catch {
-      // storage blocked (private mode / cookies disabled) — nothing to gate anyway
+      // storage blocked (private mode / cookies disabled): nothing to gate anyway
     }
     if (choice === "accepted" && ANALYTICS_ID) loadAnalytics(ANALYTICS_ID)
     setVisible(false)

@@ -24,7 +24,7 @@ export const blogPosts: BlogPost[] = [
     featured: true,
     body: `## The same product, at four different addresses
 
-Shopify canonical URLs are the single most misunderstood thing in Shopify technical SEO, and the reason is that the platform mostly gets them right — right up until a theme, an app or a merchandiser gets them wrong, and then nothing tells you.
+Shopify canonical URLs are the single most misunderstood thing in Shopify technical SEO, and the reason is that the platform mostly gets them right, right up until a theme, an app or a merchandiser gets them wrong, and then nothing tells you.
 
 Here is the shape of the problem. One product, on a stock store, is reachable at least four ways:
 
@@ -63,7 +63,7 @@ The trap is that this is a *theme* responsibility, not a platform guarantee. Not
 
 **1. The tag is missing on one template.** Custom templates, landing-page-builder templates and app-generated pages are the usual suspects, because they often bypass the standard layout. Check the head of every template type you have, not just the product page.
 
-**2. There are two canonical tags.** An SEO app injects one, the theme renders one, and they disagree. Search engines will pick one or ignore both. This is the most common finding I have on stores that have installed and uninstalled two or three SEO apps over the years — uninstalling an app does not always remove the snippet it added to \`theme.liquid\`.
+**2. There are two canonical tags.** An SEO app injects one, the theme renders one, and they disagree. Search engines will pick one or ignore both. This is the most common finding I have on stores that have installed and uninstalled two or three SEO apps over the years. Uninstalling an app does not always remove the snippet it added to \`theme.liquid\`.
 
 **3. Someone hardcoded the host.** A canonical pointing at a host that immediately redirects is a canonical pointing at nothing useful. I did this to my own site: sitemap entries and canonicals pointed at the bare domain while the site served on the \`www\` host and 301'd everything to it. Every canonical named a URL that redirected. Search Console kept the site down to four indexed URLs until I fixed it. Nothing errored, nothing warned, and it took a rank check across every service page to notice.
 
@@ -85,19 +85,19 @@ In Liquid, \`product.url\` gives you \`/products/<handle>\`. The \`within\` filt
 
 Many themes use \`within: collection\` on product cards, because it powers the "next/previous product in this collection" navigation on the product page. That is a genuine UX feature and it has a genuine SEO cost: every collection page becomes a source of collection-scoped links to the same products.
 
-The decision I make on most stores is to keep \`within\` only where the collection context is actually used by the template, and to use the bare \`product.url\` everywhere else — related products, search results, cart, upsell blocks, email templates, feeds. Then the canonical is a backstop rather than the primary mechanism.
+The decision I make on most stores is to keep \`within\` only where the collection context is actually used by the template, and to use the bare \`product.url\` everywhere else: related products, search results, cart, upsell blocks, email templates, feeds. Then the canonical is a backstop rather than the primary mechanism.
 
 ## Filters: do not noindex your best pages by reflex
 
 The standard advice is "block filtered URLs." I think that is wrong more often than it is right.
 
-Some filtered URLs are genuinely valuable landing pages. \`/collections/shirts?filter.v.option.color=white\` is answering a real query with a real intent. If white shirts are a meaningful part of your business, that URL should probably become a real collection with its own handle, its own title, its own copy and its own place in the sitemap — not a parameter you hide.
+Some filtered URLs are genuinely valuable landing pages. \`/collections/shirts?filter.v.option.color=white\` is answering a real query with a real intent. If white shirts are a meaningful part of your business, that URL should probably become a real collection with its own handle, its own title, its own copy and its own place in the sitemap, not a parameter you hide.
 
 The split I use:
 
 - **Promote** the two or three filter combinations that map to real demand. Build them as actual collections. Now they have canonical URLs of their own and can rank.
 - **Leave alone** the ordinary single-value filters. Canonicalised back to the collection, they cost you very little.
-- **Block** the combinatorial tail and anything with no landing intent — sort orders, multi-value stacks, internal search results.
+- **Block** the combinatorial tail and anything with no landing intent: sort orders, multi-value stacks, internal search results.
 
 Internal search is the clearest case. Search result pages have no business in an index, and they are the easiest thing in the world to accidentally expose. You can block them at the crawl layer with the \`robots.txt.liquid\` template, adding a rule inside the group that targets all crawlers:
 
@@ -116,7 +116,7 @@ Internal search is the clearest case. Search result pages have no business in an
 {% endfor %}
 \`\`\`
 
-That is Shopify's own documented pattern: loop the default groups so you inherit the rules Shopify maintains, and add yours conditionally. Do not replace the whole file with static text — the default rule set gets updated and you would freeze it.
+That is Shopify's own documented pattern: loop the default groups so you inherit the rules Shopify maintains, and add yours conditionally. Do not replace the whole file with static text: the default rule set gets updated and you would freeze it.
 
 One thing worth being precise about: \`Disallow\` in robots.txt prevents crawling, not indexing. A URL that is blocked from crawling can still appear in results if enough pages link to it, and because the crawler cannot fetch it, it cannot see your canonical or your noindex either. Use robots.txt for crawl budget on worthless URLs. Use canonicals for consolidation. They are different tools and blocking a page you wanted consolidated is a self-inflicted wound.
 
@@ -133,7 +133,7 @@ Both are better than a hand-rolled noindex conditional in \`theme.liquid\`, beca
 
 If your store uses Shopify Markets, Shopify emits hreflang tags automatically through \`content_for_header\`, and those tags stay in sync with each page's canonical URL. That is the important part: the automatic tags and the canonical agree by construction.
 
-Shopify's own warning is worth repeating verbatim in spirit — adding your own hreflang tags on top of the automatic ones produces duplicate or conflicting annotations and can hurt your ranking. If your theme or an app already outputs hreflang, turn one of them off. Two sources is always worse than either source alone.
+Shopify's own warning is worth repeating verbatim in spirit: adding your own hreflang tags on top of the automatic ones produces duplicate or conflicting annotations and can hurt your ranking. If your theme or an app already outputs hreflang, turn one of them off. Two sources is always worse than either source alone.
 
 ## The audit, in order
 
@@ -151,7 +151,7 @@ Duplicate content on Shopify is rarely a content problem. It is a URL-generation
 
 ## Related services
 
-Canonicals, filters and index hygiene are implementation work, not advice work — see [Shopify SEO expert services](/shopify-seo-expert) for what that covers, and [Shopify expert development](/shopify-expert) for the theme-level work behind it. If a replatform is what broke your canonicals, [Shopify migration expert](/shopify-migration-expert) covers the redirect and URL-inventory side. Related reading: [robots.txt and sitemap.xml on Shopify](/blog/shopify-robots-txt-sitemap-guide).
+Canonicals, filters and index hygiene are implementation work, not advice work. See [Shopify SEO expert services](/shopify-seo-expert) for what that covers, and [Shopify expert development](/shopify-expert) for the theme-level work behind it. If a replatform is what broke your canonicals, [Shopify migration expert](/shopify-migration-expert) covers the redirect and URL-inventory side. Related reading: [robots.txt and sitemap.xml on Shopify](/blog/shopify-robots-txt-sitemap-guide).
 
 ---
 
@@ -170,7 +170,7 @@ Canonicals, filters and index hygiene are implementation work, not advice work �
     featured: false,
     body: `## Half of what you have been told about Shopify schema markup is now false
 
-Shopify schema markup advice ages badly, because the thing it depends on — which structured data types Google actually renders as a rich result — changes without warning and the blog posts do not.
+Shopify schema markup advice ages badly, because the thing it depends on (which structured data types Google actually renders as a rich result) changes without warning and the blog posts do not.
 
 Two concrete examples of advice that was correct and is not any more:
 
@@ -197,11 +197,11 @@ Modern Shopify themes do not hand-write product JSON-LD any more. Dawn emits it 
 
 That \`Product\` versus \`ProductGroup\` split matters. \`ProductGroup\` is how you tell Google that six URLs are colours of one thing rather than six competing products, and getting variant relationships right is the difference between a clean merchant listing and a catalogue that looks duplicated from the outside.
 
-So the first job on any store is not "add schema." It is: view source on a product page, find every \`application/ld+json\` block, and count them. I routinely find three — one from the theme, one from an SEO app, and one hardcoded into \`theme.liquid\` by whoever came before. They disagree about price. That is worse than having none, because you have handed a crawler a contradiction and let it choose.
+So the first job on any store is not "add schema." It is: view source on a product page, find every \`application/ld+json\` block, and count them. I routinely find three: one from the theme, one from an SEO app, and one hardcoded into \`theme.liquid\` by whoever came before. They disagree about price. That is worse than having none, because you have handed a crawler a contradiction and let it choose.
 
 ## What Google actually requires
 
-For merchant listing experiences — the price, availability and shipping detail that shows next to a product result — the required properties are short:
+For merchant listing experiences (the price, availability and shipping detail that shows next to a product result), the required properties are short:
 
 On \`Product\`:
 
@@ -214,9 +214,9 @@ On the \`Offer\`:
 - \`price\` (or \`priceSpecification.price\`)
 - \`priceCurrency\` (or \`priceSpecification.priceCurrency\`), a three-letter ISO 4217 code
 
-And one constraint that catches people: merchant listing experiences require a price **greater than zero**. Products priced at 0 as a "call for pricing" placeholder — extremely common on trade and made-to-order catalogues — are not eligible, and no amount of markup fixes that. If you sell that way, the honest answer is that merchant listings are not your channel and you should put the effort into the collection and content pages instead.
+And one constraint that catches people: merchant listing experiences require a price **greater than zero**. Products priced at 0 as a "call for pricing" placeholder, extremely common on trade and made-to-order catalogues, are not eligible, and no amount of markup fixes that. If you sell that way, the honest answer is that merchant listings are not your channel and you should put the effort into the collection and content pages instead.
 
-Everything beyond those fields is optional enrichment: \`sku\`, \`gtin\`, \`brand\`, \`availability\`, \`itemCondition\`, \`aggregateRating\`, \`review\`, shipping and return policy details. Optional does not mean useless — a listing with GTIN and brand matches to Google's product knowledge graph far more reliably — but it does mean you should fix required-field failures before you go looking for enrichment.
+Everything beyond those fields is optional enrichment: \`sku\`, \`gtin\`, \`brand\`, \`availability\`, \`itemCondition\`, \`aggregateRating\`, \`review\`, shipping and return policy details. Optional does not mean useless (a listing with GTIN and brand matches to Google's product knowledge graph far more reliably), but it does mean you should fix required-field failures before you go looking for enrichment.
 
 ## The JSON-LD bugs I keep finding in themes
 
@@ -244,7 +244,7 @@ The \`money_without_currency\` filter applies to the whole concatenated string, 
 {%- endfor -%}
 \`\`\`
 
-Note \`| json\` on the title. Product titles contain quotes, ampersands and apostrophes, and an unescaped title is how a whole JSON-LD block becomes unparseable — which fails silently, because an invalid block is simply ignored.
+Note \`| json\` on the title. Product titles contain quotes, ampersands and apostrophes, and an unescaped title is how a whole JSON-LD block becomes unparseable, which fails silently, because an invalid block is simply ignored.
 
 Both of these are the same underlying lesson: **structured data fails quietly**. There is no console error, no visual change, no 500. The only way you find out is by testing.
 
@@ -260,9 +260,9 @@ Given FAQ and HowTo are gone, here is where I still spend the effort on a Shopif
 
 **Article** on blog posts, which you get from \`{{ article | structured_data }}\`.
 
-**FAQPage — still yes, but for a different reason.** It no longer earns a rich result. It does still give a machine a clean, unambiguous question-and-answer structure on the page, and question-and-answer content is what gets lifted into AI answers and summaries. Mark it up because it makes the content parseable, not because you expect a blue accordion in the SERP. Anyone selling you FAQ schema as a rich-result play in 2026 has not checked in three years.
+**FAQPage: still yes, but for a different reason.** It no longer earns a rich result. It does still give a machine a clean, unambiguous question-and-answer structure on the page, and question-and-answer content is what gets lifted into AI answers and summaries. Mark it up because it makes the content parseable, not because you expect a blue accordion in the SERP. Anyone selling you FAQ schema as a rich-result play in 2026 has not checked in three years.
 
-**Review and AggregateRating — carefully.** Reviews must be genuinely on the page, genuinely from customers, and genuinely about the thing being marked up. Self-serving markup on a page with no visible reviews is a manual-action risk, and the upside is not worth it.
+**Review and AggregateRating: carefully.** Reviews must be genuinely on the page, genuinely from customers, and genuinely about the thing being marked up. Self-serving markup on a page with no visible reviews is a manual-action risk, and the upside is not worth it.
 
 ## How to actually verify
 
@@ -272,7 +272,7 @@ Three checks, in this order, every time:
 - **Search Console's Merchant listings and Product snippets reports.** These show what Google saw at crawl time across the whole site, which is the only way to catch the one template out of six that is broken.
 - **View source and count \`ld+json\` blocks.** Manually. Once per template type. It takes two minutes and it is the check that finds the duplicates.
 
-And the thing to internalise: structured data is a claim about your data, so it can only be as correct as your data. A product with a missing GTIN, an inconsistent brand value and a blank product type will produce technically valid markup that describes an incoherent product. Catalogue hygiene comes first — that is why [bulk catalogue operations](/matrixify-expert) and structured data are the same job on a store of any size.
+And the thing to internalise: structured data is a claim about your data, so it can only be as correct as your data. A product with a missing GTIN, an inconsistent brand value and a blank product type will produce technically valid markup that describes an incoherent product. Catalogue hygiene comes first. That is why [bulk catalogue operations](/matrixify-expert) and structured data are the same job on a store of any size.
 
 ## The short version
 
@@ -310,7 +310,7 @@ Four months ago I wrote that you should hand-author an \`llms.txt\` for your Sho
 
 If you run a Shopify store, open \`yourdomain.com/agents.md\` right now. There is a file there. You did not put it there.
 
-This post is what those files are, what overrides what, and — the part that matters commercially — what GEO work is actually left once the platform has done the easy part.
+This post is what those files are, what overrides what, and (the part that matters commercially) what GEO work is actually left once the platform has done the easy part.
 
 ## Three URLs, one document
 
@@ -336,14 +336,14 @@ For \`/llms.txt\`: \`llms.txt.liquid\`, then \`agents.md.liquid\`, then the Shop
 
 For \`/llms-full.txt\`: \`llms-full.txt.liquid\`, then \`agents.md.liquid\`, then the Shopify default.
 
-So \`agents.md.liquid\` is the lever that changes all three at once, and a dedicated \`llms.txt.liquid\` only diverges that one URL. None of these templates ship in any theme by default — you create them in the \`templates\` folder the same way you create \`robots.txt.liquid\`.
+So \`agents.md.liquid\` is the lever that changes all three at once, and a dedicated \`llms.txt.liquid\` only diverges that one URL. None of these templates ship in any theme by default. You create them in the \`templates\` folder the same way you create \`robots.txt.liquid\`.
 
 Shopify's own guidance is to use the managed default unless you have an advanced requirement, and I agree, for a reason that has nothing to do with laziness: **the moment you add the template, you own keeping it current.** The managed file tracks Shopify's agent-discovery capabilities as they ship. A hand-edited file is a snapshot of what was true on the day someone wrote it, and agent discovery is moving faster right now than any other part of the platform.
 
 If you do override it, use the \`agents\` object rather than hardcoding URLs, so the values stay in sync:
 
 \`\`\`liquid
-# Agent Instructions — {{ agents.store_name }}
+# Agent Instructions: {{ agents.store_name }}
 
 This document describes how AI agents can interact with the online store
 at {{ agents.store_url }}.
@@ -361,17 +361,17 @@ at {{ agents.store_url }}.
 Pricing and availability are returned in {{ agents.currency }}.
 \`\`\`
 
-And take Shopify's caution seriously: do not output private merchant data — contact emails, phone numbers — into that file. It is cached broadly and served to everybody.
+And take Shopify's caution seriously: do not output private merchant data (contact emails, phone numbers) into that file. It is cached broadly and served to everybody.
 
 ## What is actually behind those endpoints
 
 The agent document is a pointer. What it points at is the interesting part.
 
-**UCP** — the Universal Commerce Protocol — is the discovery and transaction layer. \`agents.ucp_discovery_url\` is where an agent learns what your store can do; \`agents.mcp_endpoint_url\` is where it acts.
+**UCP** (the Universal Commerce Protocol) is the discovery and transaction layer. \`agents.ucp_discovery_url\` is where an agent learns what your store can do; \`agents.mcp_endpoint_url\` is where it acts.
 
-**Storefront Catalog MCP** lets an agent search and discover products from a single merchant's catalogue. This is what a store-scoped shopping assistant uses. **Global Catalog MCP** does the same across the whole Shopify ecosystem, clustering offers from multiple merchants by a universal product ID — that is comparison shopping, and your product is either in that cluster with good data or it is in it with bad data.
+**Storefront Catalog MCP** lets an agent search and discover products from a single merchant's catalogue. This is what a store-scoped shopping assistant uses. **Global Catalog MCP** does the same across the whole Shopify ecosystem, clustering offers from multiple merchants by a universal product ID. That is comparison shopping, and your product is either in that cluster with good data or it is in it with bad data.
 
-**WebMCP** is the one people have not noticed yet. Shopify provides WebMCP tools on every Liquid storefront with nothing to install. When a shopper brings an agent to your store in their browser, the agent can call structured tools to search your catalogue, manage the cart and navigate, instead of scraping your HTML and simulating clicks. Cart tools go through the same standard storefront actions apps use, so if your theme opens a cart drawer on add-to-cart, the agent triggers that too. Agent support is currently limited to Chromium-based browsers, so this is early — but it is live, not announced.
+**WebMCP** is the one people have not noticed yet. Shopify provides WebMCP tools on every Liquid storefront with nothing to install. When a shopper brings an agent to your store in their browser, the agent can call structured tools to search your catalogue, manage the cart and navigate, instead of scraping your HTML and simulating clicks. Cart tools go through the same standard storefront actions apps use, so if your theme opens a cart drawer on add-to-cart, the agent triggers that too. Agent support is currently limited to Chromium-based browsers, so this is early, but it is live, not announced.
 
 There is also a \`sitemap_agentic_discovery.xml\` sitting inside the sitemap index on stores today, alongside the product, collection, page and blog sitemaps.
 
@@ -383,7 +383,7 @@ The platform now handles **discovery**. It publishes the files, the endpoints an
 
 The work that is left:
 
-**1. Make the catalogue answerable.** An agent asked "does this brand ship to Canada, and what is the return window" reads your policy pages. An agent asked "which of these is waterproof" reads product metafields and body copy. If the attribute a customer would filter on does not exist as structured data on your product, no protocol invents it. This is the same catalogue hygiene work that feeds Google Shopping and on-site filtering — normalised product types, populated metafields, real body copy — which is why [bulk catalogue operations](/matrixify-expert) is the unglamorous foundation of AI visibility.
+**1. Make the catalogue answerable.** An agent asked "does this brand ship to Canada, and what is the return window" reads your policy pages. An agent asked "which of these is waterproof" reads product metafields and body copy. If the attribute a customer would filter on does not exist as structured data on your product, no protocol invents it. This is the same catalogue hygiene work that feeds Google Shopping and on-site filtering (normalised product types, populated metafields, real body copy), which is why [bulk catalogue operations](/matrixify-expert) is the unglamorous foundation of AI visibility.
 
 **2. Do not block the crawlers.** Discovery protocols are for agents acting in a session. Being *cited* in a model's answer still depends on the model's training and retrieval crawlers being allowed in. Plenty of stores block them without knowing it, through an inherited \`robots.txt\` customisation. If you want to be cited, allow them explicitly, and do it inside the \`robots.txt.liquid\` template so you inherit Shopify's maintained default rules rather than freezing a snapshot:
 
@@ -419,7 +419,7 @@ That was always the actual job. The file was just the part that was easy to sell
 
 ## Related services
 
-Making a store legible to machines is [Shopify SEO expert work](/shopify-seo-expert) plus [catalog operations](/matrixify-expert) — structured product data is what every one of these surfaces reads. Theme-level implementation sits under [Shopify expert development](/shopify-expert). Related reading: [robots.txt and sitemap.xml on Shopify](/blog/shopify-robots-txt-sitemap-guide) and the earlier, now partly superseded [technical SEO for AI search](/blog/technical-seo-ai-search-shopify).
+Making a store legible to machines is [Shopify SEO expert work](/shopify-seo-expert) plus [catalog operations](/matrixify-expert): structured product data is what every one of these surfaces reads. Theme-level implementation sits under [Shopify expert development](/shopify-expert). Related reading: [robots.txt and sitemap.xml on Shopify](/blog/shopify-robots-txt-sitemap-guide) and the earlier, now partly superseded [technical SEO for AI search](/blog/technical-seo-ai-search-shopify).
 
 ---
 
@@ -444,7 +444,7 @@ Knowing which is which saves you a lot of wasted effort.
 
 ## robots.txt: editable, via a template most themes do not have
 
-Shopify generates a default \`robots.txt\` that is fine for most stores. If you want to change it, you add a \`robots.txt.liquid\` template — and it will not be there, because it ships in no theme by default. You create it in the theme code editor, in the \`templates\` folder, named exactly \`robots.txt.liquid\`.
+Shopify generates a default \`robots.txt\` that is fine for most stores. If you want to change it, you add a \`robots.txt.liquid\` template, and it will not be there, because it ships in no theme by default. You create it in the theme code editor, in the \`templates\` folder, named exactly \`robots.txt.liquid\`.
 
 Two constraints worth knowing before you start:
 
@@ -469,7 +469,7 @@ The whole default file is mirrored through the \`robots\` object, and the base t
 
 ### The three edits worth making
 
-**Add a rule to an existing group.** Blocking internal search results is the most common one — check for the group and inject:
+**Add a rule to an existing group.** Blocking internal search results is the most common one. Check for the group and inject:
 
 \`\`\`liquid
 {%- if group.user_agent.value == '*' -%}
@@ -477,7 +477,7 @@ The whole default file is mirrored through the \`robots\` object, and the base t
 {%- endif -%}
 \`\`\`
 
-**Remove a default rule.** Shopify blocks \`/policies/\` by default. If you want your policy pages crawlable — and on a store where returns and shipping terms are a real buying objection, you might — skip that rule while emitting the others:
+**Remove a default rule.** Shopify blocks \`/policies/\` by default. If you want your policy pages crawlable (and on a store where returns and shipping terms are a real buying objection, you might), skip that rule while emitting the others:
 
 \`\`\`liquid
 {%- unless rule.directive == 'Disallow' and rule.value == '/policies/' -%}
@@ -507,7 +507,7 @@ That lets a French domain block English content while everything else keeps the 
 
 ### The thing people get wrong about Disallow
 
-\`Disallow\` stops crawling. It does not stop indexing, and it actively prevents the crawler from seeing anything on the page — including your canonical tag and your noindex meta tag.
+\`Disallow\` stops crawling. It does not stop indexing, and it actively prevents the crawler from seeing anything on the page, including your canonical tag and your noindex meta tag.
 
 So blocking a URL you wanted *consolidated* is counterproductive: the crawler can no longer read the canonical that would have consolidated it. Use robots.txt to save crawl budget on URLs with no value at all. Use canonicals for duplicates. They are not interchangeable and people use the first when they need the second constantly.
 
@@ -539,7 +539,7 @@ Since you cannot edit the file, you change what qualifies for it:
 - **The \`seo.hidden\` metafield.** Set the value to \`1\` on a page, blog post or product and Shopify removes it from sitemaps, from search engines, and from your online store's internal search. One metafield, three effects.
 - **Unlisted product status.** For products specifically, Unlisted keeps the product reachable by direct link while removing it from sitemaps, collection pages and store search. This is the right status for a product that exists for a specific customer, a warranty replacement part, or a channel-only SKU.
 
-Both are better than a noindex conditional in \`theme.liquid\`, because they fix the sitemap too. A noindexed URL that is still listed in your sitemap is a contradiction — you are submitting a page and asking for it not to be indexed, and you burn crawl budget on it every cycle.
+Both are better than a noindex conditional in \`theme.liquid\`, because they fix the sitemap too. A noindexed URL that is still listed in your sitemap is a contradiction: you are submitting a page and asking for it not to be indexed, and you burn crawl budget on it every cycle.
 
 If you inherited a store with noindex conditionals in the theme, audit them against the sitemap. I usually find the theme is noindexing things the sitemap is still submitting, and nobody has looked in years.
 
@@ -590,11 +590,11 @@ Crawl and index mechanics are part of [Shopify SEO expert work](/shopify-seo-exp
 
 Shopify checkout extensibility is not a feature announcement any more, it is a series of deadlines, and if you are still reading blog posts from 2024 you have the wrong ones. Here is the actual sequence, straight from Shopify's deprecation notices:
 
-- **August 13, 2024** — \`checkout.liquid\` becomes unsupported for the Information, Shipping and Payment steps. This one is long past.
-- **August 28, 2025** — \`checkout.liquid\` and additional scripts are sunset for the **Thank you** and **Order status** pages.
-- **August 28, 2025** — script tags are sunset on those pages for **Plus** stores.
-- **August 26, 2026** — script tags are sunset on those pages for **non-Plus** stores. That was four days ago as I write this.
-- **October 1, 2026** — the one almost nobody has diarised. API version 2025-07 was the last to support React-based UI components in checkout UI extensions. After October 1 you are blocked from *updating* an extension that has not moved to Polaris web components.
+- **August 13, 2024**: \`checkout.liquid\` becomes unsupported for the Information, Shipping and Payment steps. This one is long past.
+- **August 28, 2025**: \`checkout.liquid\` and additional scripts are sunset for the **Thank you** and **Order status** pages.
+- **August 28, 2025**: script tags are sunset on those pages for **Plus** stores.
+- **August 26, 2026**: script tags are sunset on those pages for **non-Plus** stores. That was four days ago as I write this.
+- **October 1, 2026**: the one almost nobody has diarised. API version 2025-07 was the last to support React-based UI components in checkout UI extensions. After October 1 you are blocked from *updating* an extension that has not moved to Polaris web components.
 
 If you own or maintain a store with checkout customisations, the first three are archaeology and the last two are your quarter.
 
@@ -602,7 +602,7 @@ If you own or maintain a store with checkout customisations, the first three are
 
 Non-Plus stores that were still injecting script tags into the Thank you and Order status pages lost them. In practice that is: post-purchase survey scripts, referral-program widgets, some analytics and conversion tags, upsell embeds, and review-request pixels.
 
-The failure mode is the ugly kind. The page still renders. Checkout still works. Orders still complete. The only symptom is that a number somewhere goes flat — a conversion count, a referral signup rate, a post-purchase survey response rate — and nobody connects it to a date.
+The failure mode is the ugly kind. The page still renders. Checkout still works. Orders still complete. The only symptom is that a number somewhere goes flat (a conversion count, a referral signup rate, a post-purchase survey response rate), and nobody connects it to a date.
 
 If you have not looked, look now: pull your post-purchase conversion metric and your referral signups for the last two weeks against the two weeks before. A step change on August 26 is not a coincidence.
 
@@ -620,13 +620,13 @@ Custom **payments** extensions are Plus-only as well, and additionally restricte
 
 Once you are building, the first real decision is where the extension renders.
 
-**\`purchase.checkout.block.render\`** is the general-purpose block target. It is not tied to a specific checkout section or feature, and the merchant chooses its placement in the checkout and accounts editor. It renders regardless of which checkout features are available, which makes it the safe default — an extension bound to a feature the store does not use simply does not appear.
+**\`purchase.checkout.block.render\`** is the general-purpose block target. It is not tied to a specific checkout section or feature, and the merchant chooses its placement in the checkout and accounts editor. It renders regardless of which checkout features are available, which makes it the safe default: an extension bound to a feature the store does not use simply does not appear.
 
 **Static targets** render at fixed locations tied to specific sections. Use them when the extension only makes sense in one place, and accept that it will not render if that section is not present.
 
 I default to the block target for anything a merchant might reasonably want to move, and static only when position is semantically load-bearing.
 
-Block targets give you read access to cart contents, buyer identity and delivery details. To store custom data — gift wrap preference, delivery instructions, a PO number — write **cart metafields** through the Metafields API. And check cart instructions before calling a mutation, because which mutations are available depends on the checkout.
+Block targets give you read access to cart contents, buyer identity and delivery details. To store custom data (gift wrap preference, delivery instructions, a PO number), write **cart metafields** through the Metafields API. And check cart instructions before calling a mutation, because which mutations are available depends on the checkout.
 
 ## The blocking change from January 2026
 
@@ -634,7 +634,7 @@ This one changed behaviour under existing extensions, and it is worth understand
 
 As of **January 26, 2026**, checkout UI extensions that support blocking default to **non-blocking**. A merchant must explicitly turn on the "Allow app to block checkout" setting in the checkout and accounts editor for blocking to work.
 
-If your extension's entire purpose is validation — "you must accept these terms," "this address is not serviceable," "minimum order quantity not met" — it now silently does nothing until someone flips a switch you cannot flip for them. Shopify's guidance for extension authors is to detect this in the editor with the \`useExtensionEditor()\` hook and warn the merchant, and to include the step in your activation instructions.
+If your extension's entire purpose is validation ("you must accept these terms," "this address is not serviceable," "minimum order quantity not met"), it now silently does nothing until someone flips a switch you cannot flip for them. Shopify's guidance for extension authors is to detect this in the editor with the \`useExtensionEditor()\` hook and warn the merchant, and to include the step in your activation instructions.
 
 The deeper recommendation is the useful one: **build checkout validation with Cart and Checkout Validation Functions, not with UI extensions.** Functions are more secure, more performant, and guaranteed to run across supported checkouts. A UI extension is a rendering surface; validation that matters belongs in a Function that runs server-side and cannot be bypassed by a client hitting the cart API directly. On a wholesale store, somebody will.
 
@@ -644,11 +644,11 @@ That is the same principle as order-quantity rules on a B2B storefront: theme-le
 
 They look the same to a merchant and they are not the same to a developer.
 
-**Thank you page** — target \`purchase.thank-you\`. The critical detail: **the order is not yet created when the extension renders.** The order *id* is available. You can use \`OrderConfirmationApi\` to get the confirmation number or the id, and then fetch the rest through the GraphQL API once order creation completes.
+**Thank you page**: target \`purchase.thank-you\`. The critical detail: **the order is not yet created when the extension renders.** The order *id* is available. You can use \`OrderConfirmationApi\` to get the confirmation number or the id, and then fetch the rest through the GraphQL API once order creation completes.
 
 That constraint kills a whole class of naive designs. "Show the customer their loyalty points balance including this order" does not work on the Thank you page if you assumed the order exists. Design for the id, fetch later.
 
-**Order status page** — target \`customer-account.order-status\`. Here the order is always available, and \`OrderStatusApi\` gives you the id, name and confirmation number directly. This is where post-purchase surveys, review requests, digital download links and order-lookup experiences belong.
+**Order status page**: target \`customer-account.order-status\`. Here the order is always available, and \`OrderStatusApi\` gives you the id, name and confirmation number directly. This is where post-purchase surveys, review requests, digital download links and order-lookup experiences belong.
 
 And a limitation to plan around from the start: **there is no support for mutating an order from a UI extension.** You can \`fetch\` out to your own service, but if the customer needs to change what they bought, that is a post-purchase extension, not a UI extension on these pages.
 
@@ -678,7 +678,7 @@ This is how I actually run one of these:
 - Non-Plus script tags on Thank you and Order status died on August 26, 2026. Check your post-purchase metrics for a step change.
 - In-checkout UI extensions are Plus-only. Custom payments extensions are Plus-only and partner-gated.
 - Use \`purchase.checkout.block.render\` unless position is semantically required.
-- Validation belongs in Cart and Checkout Validation Functions, not UI extensions — and extensions no longer block by default anyway.
+- Validation belongs in Cart and Checkout Validation Functions, not UI extensions, and extensions no longer block by default anyway.
 - On the Thank you page the order does not exist yet. Only the id does.
 - Move to Polaris web components before October 1, 2026, or you cannot update your own extension.
 
@@ -686,7 +686,7 @@ This is how I actually run one of these:
 
 ## Related services
 
-Checkout customisation, Functions and extension work sit under [Shopify expert development](/shopify-expert). B2B checkout requirements — PO numbers, net terms, quantity rules — are covered in [Shopify B2B: company accounts, catalogs and price lists](/blog/shopify-b2b-company-accounts-catalogs). If you need senior capacity on a deadline, [hire a Shopify developer](/hire-shopify-developer).
+Checkout customisation, Functions and extension work sit under [Shopify expert development](/shopify-expert). B2B checkout requirements (PO numbers, net terms, quantity rules) are covered in [Shopify B2B: company accounts, catalogs and price lists](/blog/shopify-b2b-company-accounts-catalogs). If you need senior capacity on a deadline, [hire a Shopify developer](/hire-shopify-developer).
 
 ---
 
@@ -711,7 +711,7 @@ Checkout customisation, Functions and extension work sit under [Shopify expert d
 
 You are already on Stripe. You just do not have a Stripe dashboard, because the merchant-facing layer is Shopify's.
 
-There is a narrow exception — merchants in a Shopify Payments region who cannot activate Shopify Payments for eligibility reasons can contact Shopify support to ask about standalone Stripe access. That is a support conversation about your specific account, not an integration you can plan around.
+There is a narrow exception: merchants in a Shopify Payments region who cannot activate Shopify Payments for eligibility reasons can contact Shopify support to ask about standalone Stripe access. That is a support conversation about your specific account, not an integration you can plan around.
 
 So if you came here to swap gateways, the project is usually over. What follows is what people actually need when they ask this question, because in my experience they are asking one of four different things.
 
@@ -719,7 +719,7 @@ So if you came here to swap gateways, the project is usually over. What follows 
 
 Adding a third-party gateway is almost never how you get them.
 
-Shopify applies **third-party transaction fees on all third-party and alternate payment gateways, even when Shopify Payments is activated.** That fee is a percentage that varies by plan, and it stacks on top of whatever the gateway itself charges you. So the comparison is not "Shopify's rate versus Stripe's rate" — it is "Shopify's rate" versus "the other processor's rate plus Shopify's third-party fee."
+Shopify applies **third-party transaction fees on all third-party and alternate payment gateways, even when Shopify Payments is activated.** That fee is a percentage that varies by plan, and it stacks on top of whatever the gateway itself charges you. So the comparison is not "Shopify's rate versus Stripe's rate". It is "Shopify's rate" versus "the other processor's rate plus Shopify's third-party fee."
 
 One structural exception: on the Shopify Plus plan, third-party transaction fees may be waived when Shopify Payments is activated, depending on your location. If you are on Plus and running a second gateway for a specific market, that is worth confirming with Shopify for your region rather than assuming either way.
 
@@ -727,11 +727,11 @@ The genuinely useful version of "lower fees" on Shopify is usually not a gateway
 
 ## Question 2: "I need a payment method Shopify Payments does not offer"
 
-This one is legitimate and it is the actual use case for a third-party gateway. Shopify supports over a hundred credit card payment providers, and running one alongside Shopify Payments is a supported configuration — you keep Shop Pay and the local payment methods that come with Shopify Payments, and add the specific method you need on top.
+This one is legitimate and it is the actual use case for a third-party gateway. Shopify supports over a hundred credit card payment providers, and running one alongside Shopify Payments is a supported configuration: you keep Shop Pay and the local payment methods that come with Shopify Payments, and add the specific method you need on top.
 
 The trade is the third-party fee on those transactions, and a second reconciliation surface. Both are fine if the payment method is genuinely unlocking revenue. Neither is fine if you added a gateway "for flexibility."
 
-If you need something deeper than an available provider — a bespoke payment method, custom authorisation and capture timing — that is a **payments app extension**, and there are two gates: only approved partners can build on Shopify's Payments Platform, and building a custom payments extension is limited to eligible Shopify Plus merchants. Check eligibility before scoping anything.
+If you need something deeper than an available provider (a bespoke payment method, custom authorisation and capture timing), that is a **payments app extension**, and there are two gates: only approved partners can build on Shopify's Payments Platform, and building a custom payments extension is limited to eligible Shopify Plus merchants. Check eligibility before scoping anything.
 
 ## Question 3: "I need Stripe for something that is not the storefront checkout"
 
@@ -739,10 +739,10 @@ This is the request I get most often, and it is the one where the answer is yes.
 
 Plenty of businesses running a Shopify storefront also need Stripe for money that does not flow through a cart:
 
-- **Subscriptions and recurring billing** managed outside the storefront — memberships, service retainers, SaaS-style plans sold alongside physical goods.
+- **Subscriptions and recurring billing** managed outside the storefront: memberships, service retainers, SaaS-style plans sold alongside physical goods.
 - **B2B invoicing on net terms**, where the order is placed in Shopify but the invoice is issued and collected separately.
 - **Marketplace or multi-vendor payouts** through Stripe Connect, where the storefront takes the order and a second system splits the money.
-- **Deposits, quotes and custom orders** — high-ticket, made-to-measure or freight-quoted items where the final amount is not known at the time of order.
+- **Deposits, quotes and custom orders**: high-ticket, made-to-measure or freight-quoted items where the final amount is not known at the time of order.
 
 These are integrations, not gateway swaps, and they are perfectly buildable. The architecture is always the same shape: **Shopify owns the order, Stripe owns that payment, and a small service keeps them consistent.**
 
@@ -769,7 +769,7 @@ Your Shopify order totals will never equal your payout amounts, and the reasons 
 
 Finance teams see the gap, assume something is wrong, and ask engineering to explain it. The deliverable that ends that conversation forever is a reconciliation table, not a dashboard: one row per payout, joined to its constituent transactions, joined to Shopify orders, with an explicit column for every deduction. Anything that does not reconcile gets a reason code.
 
-My stack for this is deliberately dull — export the payout data and the order data, join them in Python or DuckDB, and produce a small table. It is the same approach I use for [custom Shopify reporting](/blog/shopify-custom-reports-ga4-analytics), and for the same reason: the answer is a table and three sentences, not a BI tool nobody logs into.
+My stack for this is deliberately dull: export the payout data and the order data, join them in Python or DuckDB, and produce a small table. It is the same approach I use for [custom Shopify reporting](/blog/shopify-custom-reports-ga4-analytics), and for the same reason: the answer is a table and three sentences, not a BI tool nobody logs into.
 
 Build it once, run it monthly, and you convert a recurring argument into a lookup.
 
@@ -778,14 +778,14 @@ Build it once, run it monthly, and you convert a recurring argument into a looku
 - In Shopify Payments countries, Stripe is not available as a separate gateway, because it is Shopify Payments' banking partner. You are already on it.
 - Third-party transaction fees apply to third-party gateways even with Shopify Payments active. Adding a gateway rarely reduces total cost.
 - Custom payments extensions are approved-partner and Plus-gated. Confirm eligibility before scoping.
-- The real Shopify-plus-Stripe builds are subscriptions, invoicing, marketplace payouts and deposits — money that does not go through the storefront cart.
+- The real Shopify-plus-Stripe builds are subscriptions, invoicing, marketplace payouts and deposits: money that does not go through the storefront cart.
 - One system owns each payment. Webhooks are idempotent. Reconcile per payout, with a reason code for every gap.
 
 ---
 
 ## Related services
 
-Payment integrations, custom apps and Admin API work sit under [Shopify expert development](/shopify-expert). Checkout-side customisation has its own constraints — see [Shopify checkout extensibility](/blog/shopify-checkout-extensibility-migration). For B2B net terms and company-level payment configuration, see [Shopify B2B: company accounts, catalogs and price lists](/blog/shopify-b2b-company-accounts-catalogs).
+Payment integrations, custom apps and Admin API work sit under [Shopify expert development](/shopify-expert). Checkout-side customisation has its own constraints. See [Shopify checkout extensibility](/blog/shopify-checkout-extensibility-migration). For B2B net terms and company-level payment configuration, see [Shopify B2B: company accounts, catalogs and price lists](/blog/shopify-b2b-company-accounts-catalogs).
 
 ---
 
@@ -810,7 +810,7 @@ It also has a small set of behaviours that are not obvious, are not warned about
 
 ## The rules that are not on the screen
 
-**The file cannot exceed 15 MB.** If your upload errors or times out, the fix is to split it into smaller files. Note that 15 MB of CSV is a lot of rows — you will usually hit this because of long HTML product descriptions, not because of SKU count.
+**The file cannot exceed 15 MB.** If your upload errors or times out, the fix is to split it into smaller files. Note that 15 MB of CSV is a lot of rows. You will usually hit this because of long HTML product descriptions, not because of SKU count.
 
 **\`Handle\` is the key.** With "Overwrite any current products that have the same handle" enabled, a handle in your file that matches an existing product means the CSV values overwrite the matching columns on that product. That is the whole update mechanism. There is no ID matching, no SKU matching, no "update if newer."
 
@@ -836,7 +836,7 @@ Shopify says plainly that any change to variant ID values can break third-party 
 
 Nothing about the import tells you this happened. The product page looks correct afterward. The store looks fine. What breaks is everything downstream, days later, in a way that never gets traced back to a tidy-up of option names.
 
-If you need to normalise option values across a catalogue — and everyone does eventually, because "Med / Medium / M" accumulates — treat it as a migration with a plan for the downstream systems, not as a spreadsheet cleanup.
+If you need to normalise option values across a catalogue (and everyone does eventually, because "Med / Medium / M" accumulates), treat it as a migration with a plan for the downstream systems, not as a spreadsheet cleanup.
 
 ## Working safely inside the native importer
 
@@ -844,7 +844,7 @@ If the native importer is the right tool for where you are, these five habits co
 
 **Export first, always.** The export you take before the import is your rollback file. There is no undo, so this is the undo.
 
-**Import only the columns you are changing, plus the handle.** The importer overwrites matching columns. Every extra column you include is an assertion about a field you did not look at. A price update is a handle, a SKU and a price — not forty-one columns.
+**Import only the columns you are changing, plus the handle.** The importer overwrites matching columns. Every extra column you include is an assertion about a field you did not look at. A price update is a handle, a SKU and a price, not forty-one columns.
 
 **Test on five rows.** Import five, open them in the admin, look at them. Then import the rest. The five-row test catches encoding problems, column-name typos and option-value surprises for the cost of two minutes.
 
@@ -866,11 +866,11 @@ The native product CSV covers products, variants, images and the basic Google Sh
 - **A results file.** You cannot open a per-row report of what changed after the fact.
 - **Deletion**, at all.
 
-The moment your recurring work includes metafields, redirects, or multi-location inventory, you are fighting the tool. And the moment a bad import would cost real money — a price change, a status flip on a live product, a redirect on a page with paid traffic pointed at it — the absence of a dry run stops being an inconvenience and becomes the actual risk.
+The moment your recurring work includes metafields, redirects, or multi-location inventory, you are fighting the tool. And the moment a bad import would cost real money (a price change, a status flip on a live product, a redirect on a page with paid traffic pointed at it), the absence of a dry run stops being an inconvenience and becomes the actual risk.
 
 That is where I move stores to [Matrixify for bulk catalogue operations](/matrixify-expert). What you buy is not speed, it is safety: an Analyze pass that reports what would change per row before anything is written, per-field commands so a tag import appends instead of wiping, a results file you can read afterwards, and coverage of every object type instead of just products.
 
-The discipline I run there is a separate piece — [the Matrixify field guide](/blog/matrixify-shopify-bulk-operations-guide) covers the command columns, the key-column choice, and the rollback-asymmetry rule that decides how hard I review a given file.
+The discipline I run there is a separate piece: [the Matrixify field guide](/blog/matrixify-shopify-bulk-operations-guide) covers the command columns, the key-column choice, and the rollback-asymmetry rule that decides how hard I review a given file.
 
 ## The honest recommendation
 
@@ -902,34 +902,34 @@ Bulk product upload, CSV and Excel workflows, metafield backfills and inventory 
     slug: 'shopify-b2b-company-accounts-catalogs',
     title: 'Shopify B2B: Company Accounts, Catalogs and Price Lists Next to a B2C Storefront',
     description:
-      'How native Shopify B2B models wholesale — companies, locations, catalogs, price lists — and the Liquid that makes one theme serve both audiences.',
+      'How native Shopify B2B models wholesale (companies, locations, catalogs, price lists) and the Liquid that makes one theme serve both audiences.',
     date: '2026-08-15',
     readTime: '12 min read',
     tags: ['Shopify B2B', 'Shopify Plus', 'Wholesale', 'Liquid', 'Price Lists'],
     featured: false,
     body: `## One store, two audiences, one theme
 
-Native Shopify B2B lets you run wholesale inside the same store as your consumer storefront. I have also run the alternative — two entirely separate stores on one catalogue — and I have written about [why we made that trade and what it costs](/blog/shopify-b2b-wholesale-alongside-b2c).
+Native Shopify B2B lets you run wholesale inside the same store as your consumer storefront. I have also run the alternative, two entirely separate stores on one catalogue, and I have written about [why we made that trade and what it costs](/blog/shopify-b2b-wholesale-alongside-b2c).
 
 This post is the other side: what native B2B actually is, how it models a wholesale relationship, and what you have to write in the theme to make one storefront serve a contractor and a consumer without either of them noticing the other exists.
 
-If you are choosing today and you do not have a hard reason for separation — a different tax engine, a genuinely different app stack, a different catalogue — native B2B in one store is the right answer. The duplication tax on two stores is real and it is paid every single week.
+If you are choosing today and you do not have a hard reason for separation (a different tax engine, a genuinely different app stack, a different catalogue), native B2B in one store is the right answer. The duplication tax on two stores is real and it is paid every single week.
 
 ## The object model, in the order it matters
 
 Shopify B2B is four objects and one configuration, and once you hold them in your head the rest of the platform makes sense.
 
-**Company.** The business you sell to. A company organises multiple locations and multiple contacts who can place orders on behalf of the organisation. Note that a company is not a customer — customers are attached to it.
+**Company.** The business you sell to. A company organises multiple locations and multiple contacts who can place orders on behalf of the organisation. Note that a company is not a customer: customers are attached to it.
 
 **Company location.** A location or branch of a company. This is the object that carries almost everything operational: its own billing and shipping addresses, its own tax settings, its own checkout configuration. Locations are why a national contractor with fourteen branches works on Shopify at all.
 
 **Catalog.** Attached to a company location, a catalog determines **which products are published** to that location and **what they cost**. Different locations of the same company can have different catalogs.
 
-**Price list.** The pricing inside a catalog. This is where wholesale pricing actually lives — not as a discount code, not as a customer tag conditional in the theme, but as a first-class price for a specific set of buyers.
+**Price list.** The pricing inside a catalog. This is where wholesale pricing actually lives: not as a discount code, not as a customer tag conditional in the theme, but as a first-class price for a specific set of buyers.
 
-**Buyer experience configuration.** Attached to the location, this determines checkout behaviour — payment terms, and whether orders require merchant review before they are accepted. Plus tax exemption values on the location.
+**Buyer experience configuration.** Attached to the location, this determines checkout behaviour: payment terms, and whether orders require merchant review before they are accepted. Plus tax exemption values on the location.
 
-The crucial mechanic: **a B2B customer selects which location they are purchasing for**, and that selection determines the applicable catalogs, pricing, tax exemption and checkout settings for the order. Everything downstream of that choice is derived. Which is why the location picker is not a nice-to-have — it is the control that makes the entire model work.
+The crucial mechanic: **a B2B customer selects which location they are purchasing for**, and that selection determines the applicable catalogs, pricing, tax exemption and checkout settings for the order. Everything downstream of that choice is derived. Which is why the location picker is not a nice-to-have. It is the control that makes the entire model work.
 
 ## What you need turned on
 
@@ -975,7 +975,7 @@ The location picker is the first thing to build, and it is genuinely simple:
 {% endif %}
 \`\`\`
 
-\`location.url_to_set_as_current\` is the piece to notice. You do not write a form, a POST handler or a session variable — Shopify gives you a URL that switches the buying context, and the catalog and price list follow.
+\`location.url_to_set_as_current\` is the piece to notice. You do not write a form, a POST handler or a session variable. Shopify gives you a URL that switches the buying context, and the catalog and price list follow.
 
 The \`current?\` check on each location is what keeps the currently-selected branch out of the "switch to" list. Small thing, and it is the difference between a picker that reads clearly and one that makes a buyer second-guess which branch they are on.
 
@@ -1006,7 +1006,7 @@ You can also branch on the company or the location itself, which is how you do a
 
 Two design notes from having shipped this:
 
-**Do not build the B2B experience as a hidden layer under the B2C one.** A logged-out contractor researching your product is a lead. If your product pages show nothing useful until login, you have suppressed the exact top-of-funnel that generates trade signups. Show the product, show the specs, show a "get trade pricing" call to action — hide the number, not the page.
+**Do not build the B2B experience as a hidden layer under the B2C one.** A logged-out contractor researching your product is a lead. If your product pages show nothing useful until login, you have suppressed the exact top-of-funnel that generates trade signups. Show the product, show the specs, show a "get trade pricing" call to action. Hide the number, not the page.
 
 **Cross-link the audiences deliberately.** A visible trade-pricing prompt on the consumer storefront is, in my experience, one of the highest-converting acquisition paths in a mixed setup, because contractors land on the consumer site constantly while researching. It costs one link.
 
@@ -1014,13 +1014,13 @@ Two design notes from having shipped this:
 
 Two B2B pricing mechanics that people try to build in theme JavaScript and should not.
 
-**Quantity rules** are per-product and carry a **minimum**, a **maximum** and an **increment**. Case packs, pallet quantities, and "you can only buy these in fours" are all this feature. The increment is the one themes get wrong — the plus and minus buttons on a quantity selector have to step by the increment, and the decrement has to stop at the minimum rather than at 1.
+**Quantity rules** are per-product and carry a **minimum**, a **maximum** and an **increment**. Case packs, pallet quantities, and "you can only buy these in fours" are all this feature. The increment is the one themes get wrong: the plus and minus buttons on a quantity selector have to step by the increment, and the decrement has to stop at the minimum rather than at 1.
 
-**Volume price breaks** are quantity-based tiers within a price list — buy 10, get the tier-2 price. Surfacing these on the product page is a real conversion lever on a wholesale storefront, because a buyer who cannot see the break does not buy up to it.
+**Volume price breaks** are quantity-based tiers within a price list: buy 10, get the tier-2 price. Surfacing these on the product page is a real conversion lever on a wholesale storefront, because a buyer who cannot see the break does not buy up to it.
 
-The rule I hold: **quantity rules must be enforced server-side, not in the theme.** Theme-level quantity validation is trivially bypassed by anyone hitting the cart API directly, and on a wholesale store somebody eventually will — usually not maliciously, usually through a punchout system or a bulk-order script. Shopify's own recommendation for checkout validation is Cart and Checkout Validation Functions, and that is the right place for anything that must be true about an order.
+The rule I hold: **quantity rules must be enforced server-side, not in the theme.** Theme-level quantity validation is trivially bypassed by anyone hitting the cart API directly, and on a wholesale store somebody eventually will, usually not maliciously, usually through a punchout system or a bulk-order script. Shopify's own recommendation for checkout validation is Cart and Checkout Validation Functions, and that is the right place for anything that must be true about an order.
 
-If you are on headless or Hydrogen, the equivalent discipline is that **every product query must be contextualised with buyer information** — company location plus customer token. An uncontextualised query returns consumer pricing, and it will do so silently and correctly-looking. That is the single most common B2B headless bug.
+If you are on headless or Hydrogen, the equivalent discipline is that **every product query must be contextualised with buyer information**: company location plus customer token. An uncontextualised query returns consumer pricing, and it will do so silently and correctly-looking. That is the single most common B2B headless bug.
 
 ## Checkout, and what B2B needs that B2C does not
 
@@ -1028,7 +1028,7 @@ The consumer checkout is optimised for speed. The wholesale checkout has differe
 
 Payment terms and merchant order review come from the buyer experience configuration on the location, so those are configuration rather than code. Tax exemption is on the location too.
 
-The custom fields — a PO number input, a "ship to my yard" toggle, a certificate upload — are Checkout UI extensions, and here is the constraint that decides your project: **checkout UI extensions for the Information, Shipping and Payment steps are Shopify Plus only.** Off Plus, you push what you can into cart attributes and accept the ceiling. The full set of deadlines and targets is in [the checkout extensibility piece](/blog/shopify-checkout-extensibility-migration).
+The custom fields (a PO number input, a "ship to my yard" toggle, a certificate upload) are Checkout UI extensions, and here is the constraint that decides your project: **checkout UI extensions for the Information, Shipping and Payment steps are Shopify Plus only.** Off Plus, you push what you can into cart attributes and accept the ceiling. The full set of deadlines and targets is in [the checkout extensibility piece](/blog/shopify-checkout-extensibility-migration).
 
 ## The thing to test before you launch
 
@@ -1036,7 +1036,7 @@ One finding I would want every merchant to read before turning wholesale on.
 
 Test your storefront **logged out**, with a normal browser user agent, including \`/products.json\` and \`/collections/<handle>/products.json\`.
 
-The theme can be perfectly correct — hiding prices, showing "contact us for pricing" — and the number can still be sitting in the JSON embedded in the product page and in those public endpoints. Those are native platform endpoints that do not pass through Liquid. No theme code opens them and no theme code can close them.
+The theme can be perfectly correct (hiding prices, showing "contact us for pricing") and the number can still be sitting in the JSON embedded in the product page and in those public endpoints. Those are native platform endpoints that do not pass through Liquid. No theme code opens them and no theme code can close them.
 
 The levers are configuration, not code: Shopify's catalog restriction settings, the store-wide password or login-required setting, or a CDN edge rule blocking the JSON endpoints for unauthenticated requests.
 
@@ -1076,7 +1076,7 @@ B2B setup, theme work and checkout extensions sit under [Shopify expert developm
     featured: true,
     body: `## TL;DR
 
-Over ten months as the sole engineer for an international luxury fashion brand on Shopify Plus, I drove **+455% platform sessions, +114% orders, and +74% total sales**. None of it came from a redesign or a magic button — it came from compounding wins across four areas: **technical SEO, catalog data hygiene, Core Web Vitals, and marketing automation**.
+Over ten months as the sole engineer for an international luxury fashion brand on Shopify Plus, I drove **+455% platform sessions, +114% orders, and +74% total sales**. None of it came from a redesign or a magic button. It came from compounding wins across four areas: **technical SEO, catalog data hygiene, Core Web Vitals, and marketing automation**.
 
 This post is the playbook.
 
@@ -1085,11 +1085,11 @@ This post is the playbook.
 When I joined, the store had:
 
 - Hundreds of SKUs with inconsistent metadata, missing structured data, and duplicate canonical URLs.
-- A theme that was custom-built but rarely revisited — Lighthouse scores stuck in the yellow range, especially on PDPs.
+- A theme that was custom-built but rarely revisited, with Lighthouse scores stuck in the yellow range, especially on PDPs.
 - Decent traffic but bad signal-to-noise: a lot of low-intent sessions, weak organic search visibility, and no AI-search readiness.
 - A marketing stack (Klaviyo, Meta CAPI, Google Merchant Center, Amazon Seller Central) that was technically connected but not actually trusted by anyone.
 
-Operator's read: every layer was almost-fine. Nothing was broken in a way that screamed. Everything was bleeding 1–3% somewhere.
+Operator's read: every layer was almost-fine. Nothing was broken in a way that screamed. Everything was bleeding 1-3% somewhere.
 
 ## 1. Technical SEO done at the schema level
 
@@ -1098,7 +1098,7 @@ The fastest wins came from treating SEO as a data problem, not a content problem
 What I did:
 
 - **Cleaned canonical and hreflang.** A store with international ambitions cannot ship duplicate canonicals on collection pages. Fixed at the theme level so it survives merchandising changes.
-- **Schema.org JSON-LD on every commercial page.** Product, Offer, AggregateRating, Brand, BreadcrumbList — emitted from Liquid using product metafields as the source of truth. No third-party app, no JS-injected schema. Crawlers and AI search engines see it on first paint.
+- **Schema.org JSON-LD on every commercial page.** Product, Offer, AggregateRating, Brand, BreadcrumbList, emitted from Liquid using product metafields as the source of truth. No third-party app, no JS-injected schema. Crawlers and AI search engines see it on first paint.
 - **Site architecture for crawlability.** Internal linking from PLP to PDP to "you might also like" was rebuilt around hubs, not flat lists. This is the kind of change that pays back over months, not days.
 - **AI-search readiness.** I added a public *llms.txt* describing the brand, catalog structure, and contact paths so models like ChatGPT, Claude, and Perplexity can answer brand questions correctly when users ask.
 
@@ -1106,7 +1106,7 @@ Result: organic sessions started compounding from week three onward. By month si
 
 ## 2. Catalog data is the lever no one talks about
 
-Shopify is only as good as the data you feed it. With multi-level variants (size × color × fit) across thousands of SKUs, manual edits are not just slow — they introduce errors that downstream tools (Google Merchant, Meta, Klaviyo) silently inherit.
+Shopify is only as good as the data you feed it. With multi-level variants (size × color × fit) across thousands of SKUs, manual edits are not just slow: they introduce errors that downstream tools (Google Merchant, Meta, Klaviyo) silently inherit.
 
 My setup:
 
@@ -1114,7 +1114,7 @@ My setup:
 - **Strict variant naming and metafield conventions.** This is unglamorous work and the highest-leverage thing in any catalog.
 - **Validation step before publish.** I wrote a small script that checks the proposed CSV against the live catalog and flags anomalies (negative inventory, malformed prices, missing required metafields).
 
-The win wasn't speed — it was that we stopped breaking things during bulk updates. That trust let merchandising move faster.
+The win wasn't speed. It was that we stopped breaking things during bulk updates. That trust let merchandising move faster.
 
 ## 3. Performance: Core Web Vitals as a daily metric
 
@@ -1129,12 +1129,12 @@ Lighthouse Performance moved from the high 60s to the low 90s on key templates. 
 
 ## 4. Marketing automation that actually moves revenue
 
-The integrations were already there — they just weren't trusted.
+The integrations were already there. They just weren't trusted.
 
-- **Klaviyo.** Rebuilt flows around behavioral triggers, not list pushes. Welcome, browse-abandon, cart-abandon, post-purchase, win-back, and replenishment — each with proper exit conditions and attribution windows.
+- **Klaviyo.** Rebuilt flows around behavioral triggers, not list pushes. Welcome, browse-abandon, cart-abandon, post-purchase, win-back, and replenishment, each with proper exit conditions and attribution windows.
 - **Meta CAPI + Pixel.** Server-side events for the full funnel; deduplication via event_id. Match quality went from "fine" to "excellent."
 - **Google Merchant Center & Amazon Seller Central.** Automated feeds with the same metafield source of truth as the storefront. No more "the product page says one thing and the feed says another."
-- **AI-assisted content pipelines** for product descriptions and metadata, with human review. This is where AI helps real businesses today — high-volume, structured, low-creativity copy at consistent quality.
+- **AI-assisted content pipelines** for product descriptions and metadata, with human review. This is where AI helps real businesses today: high-volume, structured, low-creativity copy at consistent quality.
 
 ## The compounding effect
 
@@ -1160,13 +1160,13 @@ The pieces of this playbook each have their own page: [Shopify expert developmen
 
 ---
 
-*Want this kind of work on your store? You can [hire a Shopify developer](/hire-shopify-developer) directly, or [get in touch](/contact) — I take on a small number of senior engineering and operations engagements each quarter.*`,
+*Want this kind of work on your store? You can [hire a Shopify developer](/hire-shopify-developer) directly, or [get in touch](/contact). I take on a small number of senior engineering and operations engagements each quarter.*`,
   },
   {
     slug: 'shopify-catalog-matrixify-playbook',
     title: 'The Matrixify Playbook: Bulk Catalog Operations Without Breaking Production',
     description:
-      'A field guide to running large Shopify bulk imports with Matrixify and CSV workflows — versioning, validation, rollback, and the conventions that keep multi-variant catalogs sane.',
+      'A field guide to running large Shopify bulk imports with Matrixify and CSV workflows: versioning, validation, rollback, and the conventions that keep multi-variant catalogs sane.',
     date: '2026-04-18',
     readTime: '9 min read',
     tags: ['Shopify', 'Matrixify', 'Catalog Management', 'CSV Workflows', 'Operations'],
@@ -1185,9 +1185,9 @@ Every change starts with a fresh export. Not because the previous export is wron
 
 I keep one folder per workflow (e.g. \`pricing-update-2026-04\`, \`metafield-backfill-color-family\`) with three files:
 
-- \`source.csv\` — the fresh export
-- \`changes.csv\` — the import-ready file with only changed rows
-- \`validation.csv\` — a script-generated diff of what *should* change
+- \`source.csv\`: the fresh export
+- \`changes.csv\`: the import-ready file with only changed rows
+- \`validation.csv\`: a script-generated diff of what *should* change
 
 If the diff doesn't match expectations, the import doesn't run.
 
@@ -1195,9 +1195,9 @@ If the diff doesn't match expectations, the import doesn't run.
 
 Multi-level variants are where stores die. The rule:
 
-- **One option = one axis.** Don't combine "Color" and "Material" into a single option called "Style" — it makes filtering, GMC feeds, and Klaviyo segmentation a nightmare.
+- **One option = one axis.** Don't combine "Color" and "Material" into a single option called "Style". It makes filtering, GMC feeds, and Klaviyo segmentation a nightmare.
 - **Predictable handles.** Product handles, variant SKUs, and metafield keys all follow a single naming convention documented in the catalog readme.
-- **Required metafields enforced.** Every PDP has the same metafield contract — material, country of origin, care instructions, sustainability tags. No PDP ships without them.
+- **Required metafields enforced.** Every PDP has the same metafield contract: material, country of origin, care instructions, sustainability tags. No PDP ships without them.
 
 Once this is in place, bulk operations become safe.
 
@@ -1250,7 +1250,7 @@ This is the difference between "I import some stuff sometimes" and an operations
 
 ## Closing
 
-Catalog data is invisible until it breaks. The best stores are the ones where the catalog never breaks — not because no one touches it, but because *every change is a versioned, validated, reversible operation.*
+Catalog data is invisible until it breaks. The best stores are the ones where the catalog never breaks, not because no one touches it, but because *every change is a versioned, validated, reversible operation.*
 
 That's what Matrixify gives you when you respect it.
 
@@ -1258,7 +1258,7 @@ That's what Matrixify gives you when you respect it.
 
 ## Getting help with this
 
-The full service page for this work is [Matrixify expert and Shopify catalog operations](/matrixify-expert) — bulk product imports, CSV and Excel workflows, multi-level variant configuration and inventory sync. If the catalog problem is really a platform problem, see [Shopify migration expert](/shopify-migration-expert). For everything else on the storefront, [Shopify expert development](/shopify-expert).
+The full service page for this work is [Matrixify expert and Shopify catalog operations](/matrixify-expert): bulk product imports, CSV and Excel workflows, multi-level variant configuration and inventory sync. If the catalog problem is really a platform problem, see [Shopify migration expert](/shopify-migration-expert). For everything else on the storefront, [Shopify expert development](/shopify-expert).
 
 ---
 
@@ -1336,7 +1336,7 @@ This won't make you appear; it removes a barrier that prevents you from appearin
 
 LLMs cluster by topic. So does Google. Your collection structure should mirror how a customer would describe what you sell.
 
-- Each collection page should answer one question. ("Men's linen shirts" — not "New arrivals.")
+- Each collection page should answer one question. ("Men's linen shirts", not "New arrivals.")
 - Internal links should connect collections that belong together.
 - Avoid orphan PDPs.
 - Make breadcrumbs match your collection hierarchy. JSON-LD breadcrumbs included.
@@ -1349,7 +1349,7 @@ If you sell internationally, you need hreflang. If you have it but it's wrong, y
 - \`x-default\` missing.
 - Mismatched canonicals (canonical points to one URL, hreflang points to another).
 
-Fix these before doing anything else. Bad hreflang doesn't just hurt SEO — it confuses AI summaries that try to pick the right version for the user.
+Fix these before doing anything else. Bad hreflang doesn't just hurt SEO. It confuses AI summaries that try to pick the right version for the user.
 
 ## 6. Make your most-asked questions easy to find
 
@@ -1363,7 +1363,7 @@ You can't measure AI citations the way you measure clicks. What you *can* measur
 
 - **Branded query volume** in Search Console (a leading indicator that AI is referring users).
 - **Direct traffic from no-referrer**, especially mobile (often a chat or voice referral).
-- **Mention monitoring** — set alerts for your brand on Reddit, X, and via tools like Mention or Brand24.
+- **Mention monitoring**: set alerts for your brand on Reddit, X, and via tools like Mention or Brand24.
 - **Test queries**: every two weeks, ask the major chat models the questions your customers would ask. See if you're cited. If not, ask why and fix the underlying data.
 
 ## Bottom line
@@ -1376,7 +1376,7 @@ A Shopify store that is well-built for AI search is also a Shopify store that co
 
 ## Related services
 
-Technical SEO on Shopify is implementation work, not advice work — see [Shopify SEO and expert development](/shopify-expert) for what that covers. Page speed is half of it: [Shopify speed optimization](/shopify-speed-optimization). Clean structured product data is the other half: [Matrixify catalog operations](/matrixify-expert). And if a replatform is what damaged your rankings, [Shopify migration expert](/shopify-migration-expert) covers the redirect work.
+Technical SEO on Shopify is implementation work, not advice work. See [Shopify SEO and expert development](/shopify-expert) for what that covers. Page speed is half of it: [Shopify speed optimization](/shopify-speed-optimization). Clean structured product data is the other half: [Matrixify catalog operations](/matrixify-expert). And if a replatform is what damaged your rankings, [Shopify migration expert](/shopify-migration-expert) covers the redirect work.
 
 ---
 
@@ -1386,7 +1386,7 @@ Technical SEO on Shopify is implementation work, not advice work — see [Shopif
     slug: 'matrixify-shopify-bulk-operations-guide',
     title: 'Matrixify: The Field Guide to Shopify Bulk Operations at Scale',
     description:
-      'Six years of running Matrixify on production Shopify stores — export discipline, import commands, cross-store sync, dry runs, rollback files, and the failure modes nobody warns you about.',
+      'Six years of running Matrixify on production Shopify stores: export discipline, import commands, cross-store sync, dry runs, rollback files, and the failure modes nobody warns you about.',
     date: '2026-08-28',
     readTime: '14 min read',
     tags: ['Matrixify', 'Shopify', 'Bulk Product Upload', 'Shopify CSV Import', 'Catalog Operations'],
@@ -1395,13 +1395,13 @@ Technical SEO on Shopify is implementation work, not advice work — see [Shopif
 
 Matrixify is the single most important tool in my Shopify stack, and almost nothing written about it goes past "here is how to export a CSV."
 
-I have used it every week for years — on my own store, on an international luxury fashion brand, on a US beauty and lifestyle brand, and today on two storefronts of a US building-products manufacturer that together run **an enterprise-scale catalog of 2,800+ products and 13,000+ multi-level variants**. That is where you learn what Matrixify actually is: not an import app, but the *write layer* for a catalog that no human can maintain by hand.
+I have used it every week for years: on my own store, on an international luxury fashion brand, on a US beauty and lifestyle brand, and today on two storefronts of a US building-products manufacturer that together run **an enterprise-scale catalog of 2,800+ products and 13,000+ multi-level variants**. That is where you learn what Matrixify actually is: not an import app, but the *write layer* for a catalog that no human can maintain by hand.
 
 This is the field guide I wish I had in year one.
 
 ## What Matrixify really is
 
-Shopify's admin is a single-record editor. Matrixify turns the entire store — products, variants, inventory, metafields, customers, orders, redirects, collections, pages, discounts — into spreadsheets you can export, diff, edit, version, and replay.
+Shopify's admin is a single-record editor. Matrixify turns the entire store (products, variants, inventory, metafields, customers, orders, redirects, collections, pages, discounts) into spreadsheets you can export, diff, edit, version, and replay.
 
 That reframing matters. Once the catalog is a file, catalog work becomes software work: you get diffs, you get review, you get rollback, you get repeatability. Without it, "update pricing on 900 SKUs" is a two-week project with a 100% chance of at least one typo reaching a customer.
 
@@ -1409,14 +1409,14 @@ That reframing matters. Once the catalog is a file, catalog work becomes softwar
 
 Every Matrixify import sheet can carry a \`Command\` column, and getting this wrong is how people nuke production.
 
-- \`UPDATE\` — touch existing records only. If a row does not match an existing product, it is skipped. **This is the default I use for everything.** It cannot create garbage.
-- \`NEW\` — create only. Fails on collision instead of silently overwriting.
-- \`REPLACE\` — wipe and rewrite the record. Powerful, and the reason people have bad days.
+- \`UPDATE\`: touch existing records only. If a row does not match an existing product, it is skipped. **This is the default I use for everything.** It cannot create garbage.
+- \`NEW\`: create only. Fails on collision instead of silently overwriting.
+- \`REPLACE\`: wipe and rewrite the record. Powerful, and the reason people have bad days.
 
 Then there are the per-field commands, and the one that matters most is \`Tags Command\`:
 
-- \`MERGE\` — append the tags in this row, leave existing tags alone.
-- \`REPLACE\` — the row's tags become the *entire* tag set. Everything else is gone.
+- \`MERGE\`: append the tags in this row, leave existing tags alone.
+- \`REPLACE\`: the row's tags become the *entire* tag set. Everything else is gone.
 
 I have seen a single \`Tags Command: REPLACE\` erase merchandising tags across a whole collection because someone exported tags a week earlier and re-imported a stale column. **Default to MERGE. Always.** Same logic applies to \`Variant Command\` and \`Metafield Command\`.
 
@@ -1434,10 +1434,10 @@ Every change starts with a **fresh export**, not because the old one was wrong w
 
 The discipline: *never edit yesterday's export.* I keep one folder per operation:
 
-- \`source.xlsx\` — the fresh export, never modified
-- \`changes.xlsx\` — import-ready, only the rows and columns that change
-- \`rollback.xlsx\` — current state of exactly the rows I am about to touch
-- \`validation.csv\` — a script-generated diff of what *should* change
+- \`source.xlsx\`: the fresh export, never modified
+- \`changes.xlsx\`: import-ready, only the rows and columns that change
+- \`rollback.xlsx\`: current state of exactly the rows I am about to touch
+- \`validation.csv\`: a script-generated diff of what *should* change
 
 If the diff does not match my expectation, the import does not run. That is the whole gate.
 
@@ -1445,7 +1445,7 @@ If the diff does not match my expectation, the import does not run. That is the 
 
 The biggest cause of accidental damage is exporting everything and importing everything back.
 
-If you export 91 columns and import 91 columns, you are asserting the value of 91 fields on every row — including fields you never looked at, and fields that an app owns. Import **only the key column plus the columns you are changing.** Matrixify ignores what is not present.
+If you export 91 columns and import 91 columns, you are asserting the value of 91 fields on every row, including fields you never looked at, and fields that an app owns. Import **only the key column plus the columns you are changing.** Matrixify ignores what is not present.
 
 A pricing update is four columns: \`Handle\`, \`Variant SKU\`, \`Variant Price\`, \`Variant Compare At Price\`. Not ninety-one.
 
@@ -1455,7 +1455,7 @@ Matrixify can match on \`ID\`, \`Handle\`, or \`Variant SKU\`. They fail differe
 
 - **ID** is exact and store-specific. It is also the one that silently corrupts: a 13-digit product ID pasted into Excel becomes \`1.05E+13\` and every row fails or, worse, matches nothing and reports success on zero rows. Format the column as **Text** before you paste, every time.
 - **Handle** is stable and human-readable, but changes if someone renames a product, and a handle change is a URL change.
-- **Variant SKU** is the best key for anything inventory-shaped, because it is the identifier your ERP, your 3PL and your retail partners already speak. Its catch: SKU maps to *variants*, so a product-level operation keyed by SKU needs de-duplication first — I have collapsed 90 variant SKUs down to 3 product IDs in a single migration batch.
+- **Variant SKU** is the best key for anything inventory-shaped, because it is the identifier your ERP, your 3PL and your retail partners already speak. Its catch: SKU maps to *variants*, so a product-level operation keyed by SKU needs de-duplication first. I have collapsed 90 variant SKUs down to 3 product IDs in a single migration batch.
 
 ## Rule 4: Analyze before Import, every time
 
@@ -1473,7 +1473,7 @@ Then run 5 rows for real. Look at them in the admin. Then run the 340.
 
 For XLSX imports, Matrixify reads the **sheet name** to know what object you are importing. A sheet of product statuses must be on a tab named exactly \`Products\`. Not \`Products (1)\`, not \`Sheet1\`, not \`products\`.
 
-This costs people an hour the first time and never again. Same class of gotcha: the redirects import is a two-column CSV — \`Redirect from,Redirect to\` — and it wants **full absolute URLs on the destination side**, per store domain.
+This costs people an hour the first time and never again. Same class of gotcha: the redirects import is a two-column CSV (\`Redirect from,Redirect to\`), and it wants **full absolute URLs on the destination side**, per store domain.
 
 ## Cross-store sync: the hardest thing Matrixify does
 
@@ -1482,7 +1482,7 @@ Running a B2C storefront and a B2B storefront on the same catalog means **every 
 What I actually do:
 
 - **Key cross-store operations on SKU, never ID.** SKU is the only identifier that means the same thing in both places.
-- **Maintain a mapping sheet** — SKU → B2C product ID → B2B product ID — regenerated from fresh exports, never hand-maintained.
+- **Maintain a mapping sheet** (SKU → B2C product ID → B2B product ID), regenerated from fresh exports, never hand-maintained.
 - **Generate both stores' files from one approved input list.** I wrote a small Python generator that takes a list of parent SKUs, expands children, resolves each store's IDs separately, and emits every file for the round. It was validated by regenerating a historical batch and byte-matching the original.
 - **Treat out-of-sync inventory as a Sev-1.** A SKU that is live on one store and drafted on the other is a support ticket and a lost order.
 
@@ -1490,7 +1490,7 @@ And the trap that is not obvious: **tags are product-level data shared by every 
 
 ## Order of operations is a real thing
 
-The clearest example: retiring an old SKU and replacing it with a new one is three operations — new product to Active, old product to Draft, old URL 301 to the new URL.
+The clearest example: retiring an old SKU and replacing it with a new one is three operations: new product to Active, old product to Draft, old URL 301 to the new URL.
 
 Run them in that order. **Shopify ignores a URL redirect while the source URL still resolves to a live product.** Draft the old product first, or your redirects silently do nothing and you find out from Search Console six weeks later.
 
@@ -1519,8 +1519,8 @@ Large jobs also queue. A 13,000-variant full import is not a thing you kick off 
 
 - **Silent zero-match success.** The job completes, the report says 0 items imported, and nobody reads the report. Always open the results file.
 - **Scientific-notation IDs.** Covered above. It is always this.
-- **Parent/child relationships.** Activating a "mother" product can activate derived child products you did not list — separate products, separate IDs, separate URLs. Variants are not children. Missing a child leaves an orphaned live URL.
-- **Active but unpublished.** Products flipped to Active without the Online Store sales channel added: in stock, correctly priced, and unbuyable. One audit across two stores found 164 of them, 35 carrying inventory, one with 5,469 units sitting idle. Detection is a read-only export filtered to \`Status = Active\`, then one query for \`active AND published = false\`, sorted by inventory. Note the limitation: the \`Published\` column reflects the Online Store channel only — a true multi-channel audit needs the Admin API \`publications\` query.
+- **Parent/child relationships.** Activating a "mother" product can activate derived child products you did not list: separate products, separate IDs, separate URLs. Variants are not children. Missing a child leaves an orphaned live URL.
+- **Active but unpublished.** Products flipped to Active without the Online Store sales channel added: in stock, correctly priced, and unbuyable. One audit across two stores found 164 of them, 35 carrying inventory, one with 5,469 units sitting idle. Detection is a read-only export filtered to \`Status = Active\`, then one query for \`active AND published = false\`, sorted by inventory. Note the limitation: the \`Published\` column reflects the Online Store channel only. A true multi-channel audit needs the Admin API \`publications\` query.
 - **Images.** Image rows import in order and can duplicate if you re-run a sheet that includes \`Image Src\` without \`Image Command: REPLACE\` scoped correctly. Image work deserves its own dry run.
 
 ## The part that is not about Matrixify
@@ -1537,7 +1537,7 @@ The muscle you are building is not spreadsheet skill. It is the habit of never l
 
 ---
 
-*I have run Matrixify operations on catalogs from 600 SKUs to 13,000+ variants, across single stores and paired B2C/B2B setups. If your catalog work is still happening one product at a time, I can help — see [Matrixify expert services](/matrixify-expert), [Shopify development services](/shopify-expert), or [hire a Shopify developer](/hire-shopify-developer).*
+*I have run Matrixify operations on catalogs from 600 SKUs to 13,000+ variants, across single stores and paired B2C/B2B setups. If your catalog work is still happening one product at a time, I can help. See [Matrixify expert services](/matrixify-expert), [Shopify development services](/shopify-expert), or [hire a Shopify developer](/hire-shopify-developer).*
 
 *Direct: [WhatsApp +55 11 98851-2788](https://wa.me/5511988512788) · [contato.matheusabrahao@gmail.com](mailto:contato.matheusabrahao@gmail.com)*`,
   },
@@ -1545,7 +1545,7 @@ The muscle you are building is not spreadsheet skill. It is the habit of never l
     slug: 'retail-syndication-salsify-lowes-home-depot',
     title: "Retail Syndication: Getting Product Data Accepted by Lowe's, Home Depot and Menards",
     description:
-      'How product data actually flows from Shopify through a PIM like Salsify out to Lowe’s, Home Depot, Menards and Amazon — attribute requirements, image specs, rejection reasons, and keeping one source of truth.',
+      'How product data actually flows from Shopify through a PIM like Salsify out to Lowe’s, Home Depot, Menards and Amazon: attribute requirements, image specs, rejection reasons, and keeping one source of truth.',
     date: '2026-08-27',
     readTime: '13 min read',
     tags: ['Retail Syndication', 'Salsify', 'PIM', 'Product Data', 'Shopify Multichannel'],
@@ -1556,26 +1556,26 @@ Search "Shopify developer" and you get themes. Search "product data syndication 
 
 But if you sell physical products at any scale, the hardest engineering problem you have is not your storefront. It is that the same product must exist, correctly and identically, in eight places at once: your own store, your wholesale store, Amazon Seller Central, Amazon Vendor Central, Lowe's, Home Depot US, Home Depot Canada, Menards, and the Kitchen & Bath channel.
 
-I run exactly that for a US building-products manufacturer — 361 SKUs in the syndication set, fed from Shopify through **Salsify** out to six retail partners plus Amazon. Here is how it actually works.
+I run exactly that for a US building-products manufacturer: 361 SKUs in the syndication set, fed from Shopify through **Salsify** out to six retail partners plus Amazon. Here is how it actually works.
 
 ## The topology: Shopify is the source, the PIM is the distributor
 
 The stable architecture is a straight line with one branch point:
 
-- **Shopify** owns commercial truth — price, inventory, what is sellable, what is retired.
-- **Salsify (the PIM)** owns descriptive truth — attributes, marketing copy, images, documents, certifications, and every retailer-specific mapping.
+- **Shopify** owns commercial truth: price, inventory, what is sellable, what is retired.
+- **Salsify (the PIM)** owns descriptive truth: attributes, marketing copy, images, documents, certifications, and every retailer-specific mapping.
 - **Retailers** consume from Salsify, each with their own template, their own required attributes, and their own idea of what a "product" is.
 
-Getting this wrong in the obvious way — letting each retailer's portal become its own source of truth — is how brands end up with the same product described five different ways across five sites.
+Getting this wrong in the obvious way (letting each retailer's portal become its own source of truth) is how brands end up with the same product described five different ways across five sites.
 
 ## Direct channels vs export channels, and why it matters
 
 Salsify channels come in two flavors, and confusing them is expensive:
 
 - **Direct** channels publish straight to the retailer. Press the button and it is gone. **Irreversible.**
-- **Export** channels produce a file you then load somewhere else by hand — a portal upload, a second PIM, sometimes an email attachment.
+- **Export** channels produce a file you then load somewhere else by hand: a portal upload, a second PIM, sometimes an email attachment.
 
-In practice the topology is messier than the docs suggest. One of our partners has no portal at all and consumes a spreadsheet by email. Another sits behind a *second* PIM in the middle of the chain — our PIM feeds their PIM which feeds the retailer. One channel labelled "direct" in the tool behaves as an export.
+In practice the topology is messier than the docs suggest. One of our partners has no portal at all and consumes a spreadsheet by email. Another sits behind a *second* PIM in the middle of the chain: our PIM feeds their PIM which feeds the retailer. One channel labelled "direct" in the tool behaves as an export.
 
 **Verify what each channel actually does before you publish, not after.** The button does not tell you whether it is reversible.
 
@@ -1583,13 +1583,13 @@ In practice the topology is messier than the docs suggest. One of our partners h
 
 This one has cost people entire catalogs.
 
-Salsify is three levels — **Style → Variant → SKU** — with attribute inheritance flowing down from parents. Shopify is two levels — **Product → Variant**.
+Salsify is three levels (**Style → Variant → SKU**), with attribute inheritance flowing down from parents. Shopify is two levels: **Product → Variant**.
 
 A PIM "variant" is a *group of SKUs*. A Shopify "variant" is a *single PIM SKU*. Same word, different cardinality. Map them naively and every relationship in your catalog is off by one level.
 
-Worse, and this is the part that surprises people: **PIM exports do not flatten inheritance.** Export a SKU row and it comes out missing every value it was inheriting from its Style and Variant parents. If you have ever exported from a PIM, looked at half-empty rows, and assumed the data was missing — it was not. It was inherited and the export did not resolve it.
+Worse, and this is the part that surprises people: **PIM exports do not flatten inheritance.** Export a SKU row and it comes out missing every value it was inheriting from its Style and Variant parents. If you have ever exported from a PIM, looked at half-empty rows, and assumed the data was missing, it was not. It was inherited and the export did not resolve it.
 
-That is exactly why custom channels exist: a vendor-built mapping that resolves inheritance at publish time. Trying to export and hand-join in Excel is the long way around, and you will get it wrong on the products with the deepest hierarchy — which are always your best sellers.
+That is exactly why custom channels exist: a vendor-built mapping that resolves inheritance at publish time. Trying to export and hand-join in Excel is the long way around, and you will get it wrong on the products with the deepest hierarchy, which are always your best sellers.
 
 ## Pricing rules that cost real money
 
@@ -1597,9 +1597,9 @@ Three rules I would tattoo on a new hire:
 
 **1. MAP must be byte-identical everywhere.** Minimum Advertised Price is not a suggestion and not a per-channel experiment. A price that lands on one retailer and not the others is a defect. In Shopify terms: MSRP goes in \`compare_at_price\` (the struck-through number), MAP goes in \`variant_price\` (what is actually charged).
 
-**2. In a retailer's template, the field labelled "MSRP" usually means your MAP.** This is not a typo on their end — retailers use the label to mean "the price shown on the site." Send true MSRP into that field and you will list your products meaningfully above your own store. One partner is the genuine exception and consumes both: MSRP as compare-at, plus a separate dealer cost.
+**2. In a retailer's template, the field labelled "MSRP" usually means your MAP.** This is not a typo on their end: retailers use the label to mean "the price shown on the site." Send true MSRP into that field and you will list your products meaningfully above your own store. One partner is the genuine exception and consumes both: MSRP as compare-at, plus a separate dealer cost.
 
-**3. Dealer cost is MSRP × the retailer's multiplier — not MAP × anything.** Different retailers, different multipliers. Get this into a formula, not a hand calculation.
+**3. Dealer cost is MSRP × the retailer's multiplier, not MAP × anything.** Different retailers, different multipliers. Get this into a formula, not a hand calculation.
 
 And a small one that fails silently: **GTIN is the UPC with two leading zeros.** Twelve-digit UPC, fourteen-digit GTIN. Send the UPC into the GTIN field and validation may accept it and matching will fail downstream.
 
@@ -1608,15 +1608,15 @@ And a small one that fails silently: **GTIN is the UPC with two leading zeros.**
 Each retailer publishes a template with required, recommended, and optional attributes. The engineering discipline is:
 
 - **Formulas before new properties.** When a retailer asks for a field, the order of preference is: an existing property → a single static value → a formula derived from existing properties → and only as a last resort, a new property. Roughly 150 one-off per-retailer properties were built historically in this catalog and nearly every one is regretted, because each is a field somebody has to remember to fill forever.
-- **Position attributes in steps of 10.** Display order 10, 20, 30 — so you can slide a new attribute in at 15 without renumbering the world.
+- **Position attributes in steps of 10.** Display order 10, 20, 30, so you can slide a new attribute in at 15 without renumbering the world.
 - **Mirror portal fixes back the same day.** If someone fixes a typo in the Home Depot portal and not in the PIM, the next publish overwrites the fix. Silently. The portal is never the source of truth.
 - **Record ID is the import key.** Export → fix in Excel → import is the bulk lever inside the PIM too, and no Record ID means no import.
 
 ## Images: where completion scores lie to you
 
-Image requirements differ per retailer — minimum dimensions, white background, naming convention, main-image-plus-N-alternates, sometimes a required lifestyle shot or a spec drawing.
+Image requirements differ per retailer: minimum dimensions, white background, naming convention, main-image-plus-N-alternates, sometimes a required lifestyle shot or a spec drawing.
 
-Salsify gives you a completion score per channel. Learn to read it as a diff, not a grade. A score of **331 out of 361** after an image mapping run does not mean "94% good." It means **30 specific SKUs did not map**, and the cause is almost always that one product family's asset filenames follow a different convention than the main line — an older product range, an acquisition, a supplier who names files differently.
+Salsify gives you a completion score per channel. Learn to read it as a diff, not a grade. A score of **331 out of 361** after an image mapping run does not mean "94% good." It means **30 specific SKUs did not map**, and the cause is almost always that one product family's asset filenames follow a different convention than the main line: an older product range, an acquisition, a supplier who names files differently.
 
 Chase the 30. The number only matters as a pointer.
 
@@ -1624,7 +1624,7 @@ Chase the 30. The number only matters as a pointer.
 
 There is no shared standard. Lowe's, Home Depot US, Home Depot Canada, Menards, Amazon and the Kitchen & Bath channel each publish their own workbook, and they disagree on almost everything that matters:
 
-- **Different required attributes per category.** A shower base needs drain location and load rating at one retailer, and neither at another — but that one wants an ADA compliance flag the first has never heard of.
+- **Different required attributes per category.** A shower base needs drain location and load rating at one retailer, and neither at another, but that one wants an ADA compliance flag the first has never heard of.
 - **Different units and formats.** Inches as a decimal vs. a fraction vs. a string with the unit inside it. Weight in pounds vs. ounces. Yes/No vs. TRUE/FALSE vs. Y/N. A "23.5" that should have been "23 1/2" fails validation with a message about data type, not about fractions.
 - **Different category taxonomies.** Your product is one thing; each retailer's tree calls it something else, and the required-attribute set is derived from *their* category, not yours.
 - **Different image specs.** Minimum pixel dimensions, background requirements, how many alternates, whether a spec drawing counts as an image or a document, and file-naming conventions that must match the SKU in a specific way.
@@ -1638,11 +1638,11 @@ The loop is always the same four steps, and the discipline is in step two.
 
 **Rejected.** The feed comes back with a status and, if you are lucky, a reason. Sometimes the reason is a row number and an error code with no field name. Sometimes it is "data standards not met." Sometimes it is silence and the item simply never goes live.
 
-**Diagnose.** Never fix the row you were told about until you know the class of the error. The question is always *how many other rows have this same problem?* One rejected SKU with a missing certification attribute is usually forty SKUs in the same product family, and fixing one at a time turns a one-hour job into six weeks of round trips. I diff the rejected set against the accepted set on the suspect column — that comparison names the cause faster than any error message.
+**Diagnose.** Never fix the row you were told about until you know the class of the error. The question is always *how many other rows have this same problem?* One rejected SKU with a missing certification attribute is usually forty SKUs in the same product family, and fixing one at a time turns a one-hour job into six weeks of round trips. I diff the rejected set against the accepted set on the suspect column. That comparison names the cause faster than any error message.
 
-**Fix at the source, not in the template.** This is the rule that keeps the work from repeating forever. If the fix belongs in the product data, it goes into Salsify (or into Shopify and then Salsify). If the fix belongs in the *mapping* — a unit conversion, a category translation, a concatenation the retailer wants — it goes into the channel mapping or a formula, so the next publish is correct automatically. **A fix typed directly into a downloaded template is a fix you will make again next month.**
+**Fix at the source, not in the template.** This is the rule that keeps the work from repeating forever. If the fix belongs in the product data, it goes into Salsify (or into Shopify and then Salsify). If the fix belongs in the *mapping* (a unit conversion, a category translation, a concatenation the retailer wants), it goes into the channel mapping or a formula, so the next publish is correct automatically. **A fix typed directly into a downloaded template is a fix you will make again next month.**
 
-**Resubmit and confirm.** Resubmit only the corrected rows where the channel allows partial updates, and check the result against the *live retailer page*, not the portal status. Accepted and rendered are different states — I have had items pass validation, show green in the portal, and display with no images on the site for weeks.
+**Resubmit and confirm.** Resubmit only the corrected rows where the channel allows partial updates, and check the result against the *live retailer page*, not the portal status. Accepted and rendered are different states: I have had items pass validation, show green in the portal, and display with no images on the site for weeks.
 
 **Log the reason and its fix.** Every rejection reason goes into a running table with the diagnosis and the resolution. The second time a code appears it should be a lookup, not an investigation. This single habit is what turns syndication from a permanent firefight into a maintainable process.
 
@@ -1650,21 +1650,21 @@ The most common causes, in the order I actually see them: missing required attri
 
 ## Rejections and resubmission
 
-Retailer rejections come back through the portal, sometimes by email, and — this is the important part — **sometimes not at all**.
+Retailer rejections come back through the portal, sometimes by email, and (this is the important part) **sometimes not at all**.
 
 Portal work queues (items to enrich, data-standards maintenance) sit there silently forever. Nothing pings you. Nothing appears in a dashboard. I have found items that had been waiting for months.
 
 The mitigation is unglamorous and it works:
 
 - A **daily sweep** of every retailer portal, filtered to items owned by us.
-- A **weekly spot-check** of live retailer product pages against the PIM. The recurring finding is images that exist in the PIM and are simply not on the live page — published, accepted, and never rendered.
+- A **weekly spot-check** of live retailer product pages against the PIM. The recurring finding is images that exist in the PIM and are simply not on the live page: published, accepted, and never rendered.
 - A standing rule that "no news" is not "approved." An item is done when it renders correctly on the retailer's own site.
 
 ## API reality check
 
 Do not plan an automation strategy before you check what is actually available.
 
-In this stack, the PIM's \`/products\` endpoint works with **Bearer** auth (Basic returns 401) and was good enough to bulk-verify all 361 records programmatically. But \`/channels\` and the organization root return 404 — so channel configuration and readiness work stay in the UI, permanently. And **three of the six retailer platforms are browser-only with no API key at all.**
+In this stack, the PIM's \`/products\` endpoint works with **Bearer** auth (Basic returns 401) and was good enough to bulk-verify all 361 records programmatically. But \`/channels\` and the organization root return 404, so channel configuration and readiness work stay in the UI, permanently. And **three of the six retailer platforms are browser-only with no API key at all.**
 
 So the honest architecture is hybrid: automate verification and file generation, accept that publishing on some channels is a human clicking a button, and put your engineering effort into making that human's job checkable rather than pretending it will disappear.
 
@@ -1686,7 +1686,7 @@ The second skill is where the leverage is, because a rejected SKU at a national 
 
 ---
 
-*I run Shopify → PIM → retailer syndication in production across Lowe's, Home Depot US and Canada, Menards, Amazon and Kitchen & Bath channels. If your catalog is fighting its channels, [let's talk](/shopify-expert) — or [hire me directly](/hire-shopify-developer).*
+*I run Shopify → PIM → retailer syndication in production across Lowe's, Home Depot US and Canada, Menards, Amazon and Kitchen & Bath channels. If your catalog is fighting its channels, [let's talk](/shopify-expert), or [hire me directly](/hire-shopify-developer).*
 
 *Direct: [WhatsApp +55 11 98851-2788](https://wa.me/5511988512788) · [contato.matheusabrahao@gmail.com](mailto:contato.matheusabrahao@gmail.com)*`,
   },
@@ -1694,7 +1694,7 @@ The second skill is where the leverage is, because a rejected SKU at a national 
     slug: 'shopify-speed-optimization-core-web-vitals',
     title: 'Shopify Speed Optimization: What Actually Moved Core Web Vitals on a 13,000-Variant Catalog',
     description:
-      'A real Shopify speed optimization audit — lab score 31, field CWV passing. Duplicate tags, render-blocking consent scripts, LCP priority hints, and the fixes that were worth shipping.',
+      'A real Shopify speed optimization audit: lab score 31, field CWV passing. Duplicate tags, render-blocking consent scripts, LCP priority hints, and the fixes that were worth shipping.',
     date: '2026-08-26',
     readTime: '12 min read',
     tags: ['Shopify Speed Optimization', 'Core Web Vitals', 'Performance', 'Liquid', 'Case Study'],
@@ -1703,9 +1703,9 @@ The second skill is where the leverage is, because a rejected SKU at a national 
 
 Someone runs PageSpeed Insights on their Shopify store, sees **31**, and forwards it to the team with a red exclamation mark.
 
-That happened on a storefront I operate for a US building-products manufacturer — a catalog of 2,800+ products and 13,000+ multi-level variants taking millions of sessions a year. Mobile lab Performance: 31. Desktop: 56.
+That happened on a storefront I operate for a US building-products manufacturer, a catalog of 2,800+ products and 13,000+ multi-level variants taking millions of sessions a year. Mobile lab Performance: 31. Desktop: 56.
 
-And the field data — the numbers Google actually uses for ranking — were **passing on both**.
+And the field data (the numbers Google actually uses for ranking) were **passing on both**.
 
 That gap is the whole subject of this post. Shopify speed optimization done well starts with knowing which number you are optimizing, because chasing the wrong one burns a quarter and moves nothing.
 
@@ -1713,9 +1713,9 @@ That gap is the whole subject of this post. Shopify speed optimization done well
 
 Field (real users, 28-day rolling), mobile / desktop:
 
-- **LCP** 2.0s / 1.9s — passing
-- **INP** 110ms / 78ms — passing
-- **CLS** 0 / 0.04 — passing
+- **LCP** 2.0s / 1.9s, passing
+- **INP** 110ms / 78ms, passing
+- **CLS** 0 / 0.04, passing
 - **TTFB** 1.3s / 1.1s
 
 Lab (simulated throttled mid-tier Android, cold cache), mobile / desktop:
@@ -1727,27 +1727,27 @@ Lab (simulated throttled mid-tier Android, cold cache), mobile / desktop:
 - **Long tasks** 20 / 17
 - **Total payload** ~4,445 KiB / ~4,405 KiB
 
-Same page. The lab is simulating a device and network that most of this store's actual traffic does not use. That does not make the lab useless — it makes it a **magnifying glass**. Everything the lab screams about is real; it is just amplified. Ranking is safe. Experience on a bad phone is not.
+Same page. The lab is simulating a device and network that most of this store's actual traffic does not use. That does not make the lab useless. It makes it a **magnifying glass**. Everything the lab screams about is real; it is just amplified. Ranking is safe. Experience on a bad phone is not.
 
 So the framing I use with stakeholders: *field CWV is the scoreboard, lab is the bug list.*
 
 ## What was actually slow, in order of measured cost
 
-**1. Duplicated Google tag loads — by far the biggest single item.**
+**1. Duplicated Google tag loads, by far the biggest single item.**
 
-Seven distinct Google Tag / GTM / gtag script loads on one page. GA4 was loading **twice** — once through the GTM container and once through a direct \`gtag/js\` include. The Ads conversion tag, twice. Two extra \`GT-*\` containers nobody could account for.
+Seven distinct Google Tag / GTM / gtag script loads on one page. GA4 was loading **twice**: once through the GTM container and once through a direct \`gtag/js\` include. The Ads conversion tag, twice. Two extra \`GT-*\` containers nobody could account for.
 
-Combined: ~1,066 KiB transferred, ~1,704ms of CPU, 1,569ms of long tasks on mobile, ~467 KiB of it flagged as unused JavaScript. Each duplicate removed was worth an estimated 140–180 KiB and 200–450ms of mobile CPU.
+Combined: ~1,066 KiB transferred, ~1,704ms of CPU, 1,569ms of long tasks on mobile, ~467 KiB of it flagged as unused JavaScript. Each duplicate removed was worth an estimated 140-180 KiB and 200-450ms of mobile CPU.
 
 This is the most common finding I have on Shopify stores and it is never a code problem. It accumulates: someone installs the Google & YouTube sales channel (which injects its own tag), an agency adds GTM, a developer hardcodes gtag in \`theme.liquid\` as a "quick fix," and nobody removes anything.
 
 **2. The consent management script.** 148.9 KiB, render-blocking for 2,850ms on mobile, 852ms of long tasks on desktop, and a 4-hour CDN cache TTL.
 
-It is also **not deferrable** — it has to run synchronously for consent auto-blocking to work at all. Deferring it would break the thing it exists to do. So this went in the "accepted cost" column, and the only real levers were asking the vendor for a lighter embed and a longer cache TTL. Worth saying out loud: a legitimate part of a performance audit is deciding what you are *not* going to fix.
+It is also **not deferrable**: it has to run synchronously for consent auto-blocking to work at all. Deferring it would break the thing it exists to do. So this went in the "accepted cost" column, and the only real levers were asking the vendor for a lighter embed and a longer cache TTL. Worth saying out loud: a legitimate part of a performance audit is deciding what you are *not* going to fix.
 
-**3. Render-blocking first-party CSS and JS**, ~118.5 KiB across ~8 files. A monolithic \`theme.css\` at 60.2 KiB with ~52 KiB unused and ~9 KiB of it unminified. A carousel bundle at 39.6 KiB costing 1,410ms of render blocking, 930ms of desktop CPU, and a 45ms forced reflow. Several per-section CSS files at 350–530ms each.
+**3. Render-blocking first-party CSS and JS**, ~118.5 KiB across ~8 files. A monolithic \`theme.css\` at 60.2 KiB with ~52 KiB unused and ~9 KiB of it unminified. A carousel bundle at 39.6 KiB costing 1,410ms of render blocking, 930ms of desktop CPU, and a 45ms forced reflow. Several per-section CSS files at 350-530ms each.
 
-**4. The LCP element was mis-hinted.** The hero slideshow image was discoverable in the initial HTML and correctly not lazy-loaded — but had no \`fetchpriority="high"\`.
+**4. The LCP element was mis-hinted.** The hero slideshow image was discoverable in the initial HTML and correctly not lazy-loaded, but had no \`fetchpriority="high"\`.
 
 The LCP breakdown told the whole story:
 
@@ -1768,21 +1768,21 @@ The loss was almost entirely *delay*, not download. The browser knew about the i
        widths: '480, 768, 1024, 1440, 1600' }}
 \`\`\`
 
-**5. Desktop and mobile were served different formats.** The same hero slide went out as WebP to mobile and PNG to desktop — which is why desktop image savings (877 KiB) were roughly 3× mobile's (291 KiB). A theme conditional that had drifted.
+**5. Desktop and mobile were served different formats.** The same hero slide went out as WebP to mobile and PNG to desktop, which is why desktop image savings (877 KiB) were roughly 3× mobile's (291 KiB). A theme conditional that had drifted.
 
-**6. The theme's runtime responsive-image picker was oversizing everything.** A custom client-side srcset selector was choosing \`width=1620\` sources for thumbnails rendered at 80–422px, because it measures containers that are hidden or collapsed at pick time. ~500 KiB of desktop waste.
+**6. The theme's runtime responsive-image picker was oversizing everything.** A custom client-side srcset selector was choosing \`width=1620\` sources for thumbnails rendered at 80-422px, because it measures containers that are hidden or collapsed at pick time. ~500 KiB of desktop waste.
 
 I flagged this and did not fix it. The logic lives inside a vendor theme's bundled JS; the fix is real theme surgery with real regression risk, and it sits behind four cheaper wins. Sequencing is part of the job.
 
-**7. Images uploaded through a plain URL text field bypass Shopify's image pipeline entirely.** Two PNGs at 137 KiB and 87 KiB were being served raw — no WebP conversion, no responsive srcset — because the section used an \`image_url\` string setting instead of the native image picker.
+**7. Images uploaded through a plain URL text field bypass Shopify's image pipeline entirely.** Two PNGs at 137 KiB and 87 KiB were being served raw (no WebP conversion, no responsive srcset) because the section used an \`image_url\` string setting instead of the native image picker.
 
 This fix was **editorial, not technical**: re-upload through the picker, clear the text field. Then I added a responsive \`srcset\` to the fallback path in Liquid so the next person to use that field does less damage.
 
 **8. Over-preconnecting.** Eight \`preconnect\` hints, four of them unused. Lighthouse warns above four, and each unused one is a wasted DNS + TLS handshake competing with resources you actually need.
 
-**9. Twelve registered web pixels** — five from apps, seven custom. The \`wpm:pixel:register\` User Timing marks showed the custom pixels alone taking ~1.8–2.0s to register.
+**9. Twelve registered web pixels**: five from apps, seven custom. The \`wpm:pixel:register\` User Timing marks showed the custom pixels alone taking ~1.8-2.0s to register.
 
-**10. A review-platform loader running on a page with no reviews** — 41 KiB, with its own performance marks measuring 5.4–6.5s. Fixed in the vendor's settings, not in the theme.
+**10. A review-platform loader running on a page with no reviews**: 41 KiB, with its own performance marks measuring 5.4-6.5s. Fixed in the vendor's settings, not in the theme.
 
 **11. DOM size**: 5,737 elements, depth 19, with one product-gallery node holding 348 children.
 
@@ -1794,7 +1794,7 @@ One branch, six Liquid files:
 - Added \`fetchpriority="high"\` to the first slide image in both the desktop and mobile variants
 - Removed three unused preconnects
 - Added responsive \`srcset\` to the \`image_url\` fallback images
-- Gave hotspot and quick-shop anchors real \`href\` values — this fixes the "links are not crawlable" SEO failure without changing behaviour, because the JS already calls \`preventDefault()\`
+- Gave hotspot and quick-shop anchors real \`href\` values. This fixes the "links are not crawlable" SEO failure without changing behaviour, because the JS already calls \`preventDefault()\`
 - De-duplicated an \`aria-label\` where a phone link was inheriting a CTA's label
 
 Small diff. That is deliberate. On a store doing this volume, a performance branch that touches thirty files is a risk, not an improvement.
@@ -1830,7 +1830,7 @@ A broken conversion tag costs more than a slow page. Order matters.
 
 If someone hands you a Shopify store and a red PageSpeed score:
 
-- Check field CWV first. If it passes, you are optimising experience, not ranking — say so, and set expectations accordingly.
+- Check field CWV first. If it passes, you are optimising experience, not ranking. Say so, and set expectations accordingly.
 - Count the analytics tags. There are more than anyone thinks.
 - Look at the LCP breakdown, not the LCP number. Delay and download need different fixes.
 - Ship the four cheapest fixes and measure before touching the theme's core JS.
@@ -1846,7 +1846,7 @@ If someone hands you a Shopify store and a red PageSpeed score:
     slug: 'klaviyo-expert-flow-audit',
     title: 'Klaviyo Expert Field Notes: 11 Flow Defects That Quietly Kill Email Revenue',
     description:
-      'Real Klaviyo flow defects found in a production audit — broken dynamic coupons, SMS/email branching bugs, dead conversion metrics, UTM fragmentation — and how flow revenue recovered to ~$15.8K in 7 days.',
+      'Real Klaviyo flow defects found in a production audit (broken dynamic coupons, SMS/email branching bugs, dead conversion metrics, UTM fragmentation) and how flow revenue recovered to ~$15.8K in 7 days.',
     date: '2026-08-24',
     readTime: '13 min read',
     tags: ['Klaviyo Expert', 'Klaviyo Flows', 'Email Marketing', 'Retention', 'Case Study'],
@@ -1857,15 +1857,15 @@ That is the whole problem. A flow with a fatal defect shows the same green **Liv
 
 And the revenue line is flat, and nobody knows why.
 
-I audited a production Klaviyo account across two storefronts and found eleven distinct defects. Not "opportunities to optimise" — actual bugs, each one costing money every day it stayed live. Here they are, because I promise at least three are on your account right now.
+I audited a production Klaviyo account across two storefronts and found eleven distinct defects. Not "opportunities to optimise": actual bugs, each one costing money every day it stayed live. Here they are, because I promise at least three are on your account right now.
 
 ## 1. Static text where a dynamic coupon belonged
 
-The account had two properly configured dynamic coupon objects — prefix plus eight random characters, unique per recipient. Three emails printed the bare **prefix** as typed text.
+The account had two properly configured dynamic coupon objects: prefix plus eight random characters, unique per recipient. Three emails printed the bare **prefix** as typed text.
 
 Every single recipient received a code that does not exist.
 
-Why nobody caught it: the prefix looks like a real coupon code. \`SAVE10\` in the preview looks exactly like a working \`SAVE10\`. The only way to catch it is to look at whether the token in the editor is a *variable* or *text* — or to actually redeem the code from a real send.
+Why nobody caught it: the prefix looks like a real coupon code. \`SAVE10\` in the preview looks exactly like a working \`SAVE10\`. The only way to catch it is to look at whether the token in the editor is a *variable* or *text*, or to actually redeem the code from a real send.
 
 ## 2. Copy promising an expiry the coupon does not have
 
@@ -1879,13 +1879,13 @@ Same class of bug in the welcome email, where a literal \`[INSERT EXPIRY DATE]\`
 
 For roughly ten weeks, a live flow was sending a code that had been deleted from Shopify. Recipients clicked, applied it, and got a checkout error.
 
-The fix had two parts, and the second is the one people skip: recreate the code as a **bridge** — matching the original's exact scope (percentage off a specific non-custom collection, one use per customer, no end date) — then retire it deliberately after the flow migration, rather than leaving a mystery code alive forever.
+The fix had two parts, and the second is the one people skip: recreate the code as a **bridge**, matching the original's exact scope (percentage off a specific non-custom collection, one use per customer, no end date), then retire it deliberately after the flow migration, rather than leaving a mystery code alive forever.
 
 ## 4. The SMS/email branch that silently muted a whole segment
 
 The Abandoned Checkout flow branched on SMS consent. Anyone who was SMS-subscribed got exactly one text and **zero emails**.
 
-Read that again: your most engaged subscribers — the ones who gave you their phone number — were the ones receiving the *least* communication about an abandoned checkout.
+Read that again: your most engaged subscribers, the ones who gave you their phone number, were the ones receiving the *least* communication about an abandoned checkout.
 
 The correct shape is not a branch. It is a base and a bonus:
 
@@ -1896,7 +1896,7 @@ SMS is additive. If your flow chart has SMS on one side of a split and email on 
 
 ## 5. Empty product variables
 
-Abandoned Cart and Browse Abandonment were rendering "you added ___ to your cart" — the product name variable resolving to nothing.
+Abandoned Cart and Browse Abandonment were rendering "you added ___ to your cart", with the product name variable resolving to nothing.
 
 The catch is that this **passes in preview**, because preview injects sample data. The only reliable test is triggering the flow against a real event on the live store and reading the email that actually arrives.
 
@@ -1913,7 +1913,7 @@ Two fixes:
 
 This one is my favourite because it makes a working flow report zero.
 
-The account had **two** \`Placed Order\` metrics: one from the current Shopify integration (live, 22–35 orders/day) and one left over from a **previous ecommerce platform** whose integration had been removed years earlier. The old one still appears in the dropdown. It records 0 every single day.
+The account had **two** \`Placed Order\` metrics: one from the current Shopify integration (live, 22-35 orders/day) and one left over from a **previous ecommerce platform** whose integration had been removed years earlier. The old one still appears in the dropdown. It records 0 every single day.
 
 Any flow whose conversion metric points at the dead one reports **$0.00 revenue** forever, no matter how well it performs. Teams then kill their best-performing flow because "it doesn't make money."
 
@@ -1927,7 +1927,7 @@ Smart Sending on for email 1, off for emails 2 and 3. Not a catastrophe, but it 
 
 Three welcome emails and a browse-abandonment product feed were linking to \`*.myshopify.com\` instead of the customer-facing domain. Plus several primary CTA buttons with \`href="#"\`.
 
-The myshopify links technically work — they redirect — but they burn a redirect hop, they look untrustworthy in a hover preview, and they break UTM attribution on some setups.
+The myshopify links technically work (they redirect), but they burn a redirect hop, they look untrustworthy in a hover preview, and they break UTM attribution on some setups.
 
 ## 10. The popup and the flow were pointed at different lists
 
@@ -1937,22 +1937,22 @@ The site popup deposited subscribers into **List A**. The Welcome Series trigger
 
 Result: **8,276 email subscribers gained in 90 days**, and a Live Welcome Series showing **$0.00**. A bucket being filled through a hole.
 
-Related: two competing popups were running, one from the theme and one from Klaviyo. Important mechanic here — you kill the duplicate by disabling the individual **form** in Klaviyo, *not* by turning off the Klaviyo app embed in the theme editor. That embed powers the onsite tracking that feeds Browse Abandonment and Abandoned Checkout, which between them were doing about $6.6K/week. Turn off the embed and you turn off two revenue flows to fix a cosmetic problem.
+Related: two competing popups were running, one from the theme and one from Klaviyo. Important mechanic here: you kill the duplicate by disabling the individual **form** in Klaviyo, *not* by turning off the Klaviyo app embed in the theme editor. That embed powers the onsite tracking that feeds Browse Abandonment and Abandoned Checkout, which between them were doing about $6.6K/week. Turn off the embed and you turn off two revenue flows to fix a cosmetic problem.
 
 ## 11. UTM parameters set to the list name
 
 The account had \`utm_source\` configured to resolve to **the list or segment name**. Every send produced a unique source value.
 
-GA4 attributed the clicks correctly — and then never aggregated them, because "email" had shattered into dozens of one-off sources. The email channel looked tiny because it was spread across forty rows.
+GA4 attributed the clicks correctly, and then never aggregated them, because "email" had shattered into dozens of one-off sources. The email channel looked tiny because it was spread across forty rows.
 
 The fix is boring and correct:
 
-- \`utm_source\` — static. One value. \`klaviyo\`.
-- \`utm_medium\` — \`email\`.
-- \`utm_campaign\` — carries all the detail.
+- \`utm_source\`: static. One value. \`klaviyo\`.
+- \`utm_medium\`: \`email\`.
+- \`utm_campaign\`: carries all the detail.
 - Per-message UTM tracking enabled.
 
-The second storefront had a worse version: the master UTM toggle was **entirely off**, so every link left with no UTM at all and analytics filed the traffic as direct. And that store's theme had no analytics tag installed either — so flipping the Klaviyo toggle alone would have changed nothing. Two independent fixes, both required.
+The second storefront had a worse version: the master UTM toggle was **entirely off**, so every link left with no UTM at all and analytics filed the traffic as direct. And that store's theme had no analytics tag installed either, so flipping the Klaviyo toggle alone would have changed nothing. Two independent fixes, both required.
 
 **An important nuance I put in writing for the client:** revenue was still being captured correctly *in Klaviyo* the whole time, via Shopify's Placed Order metric. The GA4 gap was a reporting hole, not lost money. Those are very different problems and conflating them causes panic. On the wholesale account, a welcome flow was doing ~$32.7K/30 days that GA4 could not see at all.
 
@@ -1981,7 +1981,7 @@ Turning a flow "on" is more than one switch, and this is where people get burned
 
 ## What is still missing on most accounts
 
-The D2C side had Welcome, Browse Abandonment, Abandoned Cart and Abandoned Checkout — and **no Post Purchase and no Winback**. The wholesale account was missing Browse Abandonment, Abandoned Cart, Abandoned Checkout and Winback entirely.
+The D2C side had Welcome, Browse Abandonment, Abandoned Cart and Abandoned Checkout, and **no Post Purchase and no Winback**. The wholesale account was missing Browse Abandonment, Abandoned Cart, Abandoned Checkout and Winback entirely.
 
 Post-purchase and winback are the two flows that turn a first order into a customer. They are also the two that get built last, because they do not have the urgency of a cart reminder. Build them anyway.
 
@@ -1995,7 +1995,7 @@ Post-purchase and winback are the two flows that turn a first order into a custo
     slug: 'shopify-b2b-wholesale-alongside-b2c',
     title: 'Shopify B2B Wholesale Alongside B2C: Running Two Storefronts on One Catalog',
     description:
-      'How to run a Shopify B2B wholesale storefront next to a consumer store — MAP vs MSRP pricing, customer tagging, trade tiers, catalog sync, checkout differences, and the price-leakage problem nobody mentions.',
+      'How to run a Shopify B2B wholesale storefront next to a consumer store: MAP vs MSRP pricing, customer tagging, trade tiers, catalog sync, checkout differences, and the price-leakage problem nobody mentions.',
     date: '2026-08-22',
     readTime: '13 min read',
     tags: ['Shopify B2B Wholesale', 'Shopify Plus', 'MAP Pricing', 'Catalog Operations', 'Case Study'],
@@ -2006,14 +2006,14 @@ I operate two Shopify storefronts for a US building-products manufacturer. A con
 
 The shape of the problem, so you know what the constraints are:
 
-- **Consumer store:** millions of sessions a year against an enterprise-scale catalog — 2,800+ products and 13,000+ multi-level variants.
+- **Consumer store:** millions of sessions a year against an enterprise-scale catalog: 2,800+ products and 13,000+ multi-level variants.
 - **Wholesale store:** the same physical products behind customer accounts, net terms, separate price lists and a completely different checkout.
 
 Both storefronts, one source of truth. This post is about what it actually takes to keep both correct at the same time.
 
 ## Decision one: two stores or one store with B2B enabled?
 
-Shopify Plus gives you native B2B — Companies, company locations, catalogs, price lists, payment terms — inside a single store. It is genuinely good, and for most brands it is the right answer.
+Shopify Plus gives you native B2B (Companies, company locations, catalogs, price lists, payment terms) inside a single store. It is genuinely good, and for most brands it is the right answer.
 
 We run two separate stores. That is a deliberate trade, and the honest version is:
 
@@ -2023,7 +2023,7 @@ We run two separate stores. That is a deliberate trade, and the honest version i
 
 The golden rule, written down and enforced: **any SKU change in one store must be replicated in the other and in every connected app.** Out-of-sync inventory between the two is the number one operational risk, above everything else on the list.
 
-If you are choosing today and you do not have a hard reason for separation — a different tax engine, a different app stack, a genuinely different catalog — use native B2B in one store. The duplication tax is real.
+If you are choosing today and you do not have a hard reason for separation (a different tax engine, a different app stack, a genuinely different catalog), use native B2B in one store. The duplication tax is real.
 
 ## Pricing: MSRP, MAP, and trade tiers
 
@@ -2034,7 +2034,7 @@ The model in Shopify terms:
 - **MSRP → \`compare_at_price\`.** The struck-through number. What the product "is worth."
 - **MAP → \`variant_price\`.** Minimum Advertised Price. What is actually charged and displayed.
 - **Trade tier 1 → 30% off**, applied to the trade audience.
-- **Trade tier 2 → certified installer.** And here is the interesting part: tier 2 is not a deeper discount. It is a **lead-routing tier** — certified installers get referred work. Promoted on the consumer site, not on the wholesale one.
+- **Trade tier 2 → certified installer.** And here is the interesting part: tier 2 is not a deeper discount. It is a **lead-routing tier**: certified installers get referred work. Promoted on the consumer site, not on the wholesale one.
 
 Two rules that carry real money:
 
@@ -2046,19 +2046,19 @@ Two rules that carry real money:
 
 Every B2B Shopify store I have touched has this problem, and it is worth describing precisely because the fix is counterintuitive.
 
-A single logical concept — *this customer is a trade account* — was encoded across at least **four different tag variants**, including one with a typo. On top of that: legacy migration artifacts from the previous platform (\`<platform> Group:1\`, \`migrated\`), test and debug tags left in production, and one tag repeated four times inside a single tag string.
+A single logical concept, *this customer is a trade account*, was encoded across at least **four different tag variants**, including one with a typo. On top of that: legacy migration artifacts from the previous platform (\`<platform> Group:1\`, \`migrated\`), test and debug tags left in production, and one tag repeated four times inside a single tag string.
 
 The instinct is to clean it up first. That is the wrong order, because segmentation is blocking revenue today and tag cleanup is a project.
 
 What I did instead: **build segments that OR across every known tag variant**, ship the revenue work, and file full tag cleanup as its own tracked piece of technical debt. Trusting one canonical tag before you have made it canonical is how you silently exclude a third of your trade customers from a campaign.
 
-When you do clean up: inventory every tag first, with a status per tag (KEEP / MERGE / REMOVE), and confirm what each one is actually wired to — smart collections, Klaviyo segments, theme conditionals, discount rules — before deleting anything.
+When you do clean up: inventory every tag first, with a status per tag (KEEP / MERGE / REMOVE), and confirm what each one is actually wired to (smart collections, Klaviyo segments, theme conditionals, discount rules) before deleting anything.
 
 ## Product tagging as feature-gating, and the multi-theme trap
 
 A pattern worth stealing: use one master product tag to drive a smart collection (\`Tag Equals <master>\`), and separate child tags to gate different PDP and grid render paths.
 
-The bug that pattern produces, and I have shipped it: the theme's grid badge gated on tag X while the smart collection filtered on tag Y. Silent mismatch — the collection populated correctly and the badge never rendered anywhere. Nothing errors. You find it by eye.
+The bug that pattern produces, and I have shipped it: the theme's grid badge gated on tag X while the smart collection filtered on tag Y. Silent mismatch: the collection populated correctly and the badge never rendered anywhere. Nothing errors. You find it by eye.
 
 And the genuinely non-obvious trap: **tags are product-level data shared by every theme in the store.** Importing tags to test a badge on an *unpublished preview theme* immediately changes smart-collection membership on the **live** theme. There is no theme scoping on catalog data. Your options are: accept the brief exposure, reverse it with a second import, or defer the tag import to go-live day. There is no fourth option.
 
@@ -2068,11 +2068,11 @@ For the import itself: key on Variant SKU, use \`Tags Command: MERGE\` (append, 
 
 The consumer checkout is optimised for speed: guest checkout, express payment buttons, upsells, a shipping-threshold progress bar.
 
-The wholesale checkout has different jobs entirely — purchase order numbers, net payment terms, quantity minimums and multiples, tax exemption certificates, freight quoting for palletised goods, and a sales rep attached to the order.
+The wholesale checkout has different jobs entirely: purchase order numbers, net payment terms, quantity minimums and multiples, tax exemption certificates, freight quoting for palletised goods, and a sales rep attached to the order.
 
 On Shopify Plus, **Checkout UI Extensions** are the supported way to add these: a PO number field, a "ship to my yard" toggle, a certificate upload. They render inside Shopify's checkout without the maintenance liability of checkout.liquid. Off Plus, you push what you can into cart attributes and post-purchase, and you accept the ceiling.
 
-Order-quantity rules — minimums, multiples, case packs — are worth solving with a dedicated app rather than theme JavaScript, because theme-level quantity validation is trivially bypassed by anyone hitting the cart API directly. And on a wholesale store, someone will.
+Order-quantity rules (minimums, multiples, case packs) are worth solving with a dedicated app rather than theme JavaScript, because theme-level quantity validation is trivially bypassed by anyone hitting the cart API directly. And on a wholesale store, someone will.
 
 ## The price-leakage problem nobody mentions
 
@@ -2096,13 +2096,13 @@ And the honest conclusion I wrote for the client: running true trade pricing on 
 
 ## Architecture: when the right answer is not a catalog
 
-A related question came up: how do you serve a *specifier* audience — architects and engineers who research products and never buy online — alongside a transactional trade audience, when their product lines conflict?
+A related question came up: how do you serve a *specifier* audience (architects and engineers who research products and never buy online) alongside a transactional trade audience, when their product lines conflict?
 
 Four options were on the table:
 
 - A **non-ecommerce specification hub** on a subdomain or path, with "Download Specs" and "Contact Rep" instead of Add to Cart.
-- A **tabbed PDP** that swaps SKU, specs and CTA per install method — consolidates page authority for SEO, but needs real PDP template work.
-- **Role-based catalog gating** via customer tagging — rejected, because putting research content behind a login suppresses exactly the lead generation the content exists for.
+- A **tabbed PDP** that swaps SKU, specs and CTA per install method: consolidates page authority for SEO, but needs real PDP template work.
+- **Role-based catalog gating** via customer tagging: rejected, because putting research content behind a login suppresses exactly the lead generation the content exists for.
 - A **guided product finder** that forces self-identification before showing conflicting information.
 
 The recommendation was the first one, on the reasoning that the research audience are **not ecommerce users at all**. Building them a catalog is solving the wrong problem well.
@@ -2137,7 +2137,7 @@ That is the general lesson of B2B on Shopify: most of the hard decisions are not
 
 Most migration advice assumes you do it once: leave Magento, arrive on Shopify, cry, celebrate.
 
-The migrations that taught me the most are the ones that happen **every three to four weeks**. On a US building-products manufacturer's storefronts, an old product line is progressively retired and replaced with a new one — old SKUs out, new SKUs in, URLs redirected, across two stores. Same operation, dozens of times.
+The migrations that taught me the most are the ones that happen **every three to four weeks**. On a US building-products manufacturer's storefronts, an old product line is progressively retired and replaced with a new one: old SKUs out, new SKUs in, URLs redirected, across two stores. Same operation, dozens of times.
 
 Repetition is what turns migration from an art into a runbook. Here is the runbook.
 
@@ -2163,7 +2163,7 @@ Draft the old product first. Then the redirect takes effect.
 
 ## The mechanics, concretely
 
-Per round, six import files — three per store, times two stores:
+Per round, six import files (three per store, times two stores):
 
 - Two XLSX files (activate, draft) with a sheet named **exactly** \`Products\`, containing only \`ID\` and \`Status\`. Not \`Sheet1\`. Not \`Products (1)\`.
 - One CSV: \`Redirect from,Redirect to\`, with **full absolute URLs** on the destination side, using that store's own domain.
@@ -2174,7 +2174,7 @@ Three things that will bite you:
 
 **Scientific notation silently corrupts IDs.** A 13-digit product ID pasted into Excel becomes \`1.05E+13\`. Format the column as Text before pasting. This is the single most common cause of a migration import that reports success against zero rows.
 
-**Parent and child products are not variants.** Variants are finishes inside one product. Children are *separate products* with separate IDs and separate URLs — multi-unit versions, kit bundles, cut-down sizes. Activating a "mother" product activates its children. If your redirect list only covers parents, every child leaves an orphaned live URL behind.
+**Parent and child products are not variants.** Variants are finishes inside one product. Children are *separate products* with separate IDs and separate URLs: multi-unit versions, kit bundles, cut-down sizes. Activating a "mother" product activates its children. If your redirect list only covers parents, every child leaves an orphaned live URL behind.
 
 ## Verification, and the audit trail Shopify does not give you
 
@@ -2182,14 +2182,14 @@ Verification is thirty seconds and non-negotiable: open two or three old URLs **
 
 Incognito matters because your logged-in admin session can render draft products.
 
-And a detail worth knowing: **Shopify records a product's creation date, not its activation date.** If you will ever need to answer "when did this SKU go live?" — for a retailer, for a warranty claim, for a marketing post-mortem — you have to log it yourself, out of band. We keep a workbook with activation dates and a release-schedule legend. The platform does not remember, so you do.
+And a detail worth knowing: **Shopify records a product's creation date, not its activation date.** If you will ever need to answer "when did this SKU go live?" (for a retailer, for a warranty claim, for a marketing post-mortem), you have to log it yourself, out of band. We keep a workbook with activation dates and a release-schedule legend. The platform does not remember, so you do.
 
 ## Batching, because the cost is fixed
 
-The whole process takes 20–30 minutes whether you migrate one pair or six. That fixed cost drives an explicit decision rule:
+The whole process takes 20-30 minutes whether you migrate one pair or six. That fixed cost drives an explicit decision rule:
 
-- **4–6+ pairs ready** → run the round.
-- **1–3 slow movers** → hold and batch them with the next round.
+- **4-6+ pairs ready** → run the round.
+- **1-3 slow movers** → hold and batch them with the next round.
 - **1 fast mover** → run it alone as a deliberate exception, because the revenue justifies the overhead.
 
 Making that rule explicit stops the process from being run ad hoc every time someone asks nicely.
@@ -2200,11 +2200,11 @@ The six files per round are mechanical, which means they should not be made by h
 
 I wrote a Python generator that reads the redirect-mapping workbook read-only, takes an approved list of parent SKUs, filters to those parents (children included automatically), **de-duplicates variant SKUs down to product IDs**, resolves old SKUs to old product IDs, keeps the two stores' ID spaces separate, and emits all six files.
 
-How I validated it: regenerated a historical round that had already been run manually and **byte-matched the output**. One parent expanded to 90 variant SKUs which collapsed to 3 product IDs — exactly the kind of arithmetic a human gets wrong at 6pm.
+How I validated it: regenerated a historical round that had already been run manually and **byte-matched the output**. One parent expanded to 90 variant SKUs which collapsed to 3 product IDs, exactly the kind of arithmetic a human gets wrong at 6pm.
 
 ## Redirect safety rules
 
-**Live ads point at existing URLs.** A wrong redirect in a bulk file breaks paid traffic silently — the ad still runs, the click still costs, the landing page is now something else. Never generate a redirect file without showing the before/after pairs for review first.
+**Live ads point at existing URLs.** A wrong redirect in a bulk file breaks paid traffic silently: the ad still runs, the click still costs, the landing page is now something else. Never generate a redirect file without showing the before/after pairs for review first.
 
 **The asymmetry rule.** This is the thing I want people to internalise:
 
@@ -2219,11 +2219,11 @@ So price files and redirect files get line-by-line human review. Description and
 
 For a genuine site split or replatform, the pre-work is an inventory, not a plan.
 
-We built a full crawl-and-classify inventory of roughly **2,072 URLs per store — about 4,144 across both** — with columns for store, page type, title, URL and last-modified date. Then joined it against organic performance data to produce three artifacts:
+We built a full crawl-and-classify inventory of roughly **2,072 URLs per store, about 4,144 across both**, with columns for store, page type, title, URL and last-modified date. Then joined it against organic performance data to produce three artifacts:
 
 - **A master URL → traffic map**: organic traffic per month, keyword count, traffic share, top query with its volume and position, and primary intent, per URL. This is what tells you which redirects are load-bearing.
-- **A "ranking but not in inventory" list.** 33 URLs earning organic traffic that the inventory did not know existed — including legacy product URLs from a discontinued material line and a bare \`http://\` homepage. **These are the URLs a migration loses**, because nobody redirects a page they do not know they have.
-- **A query-opportunity list**: high-volume terms sitting at positions 11–19. Page-two risk. A migration can push these either direction, so you want them identified before you move.
+- **A "ranking but not in inventory" list.** 33 URLs earning organic traffic that the inventory did not know existed, including legacy product URLs from a discontinued material line and a bare \`http://\` homepage. **These are the URLs a migration loses**, because nobody redirects a page they do not know they have.
+- **A query-opportunity list**: high-volume terms sitting at positions 11-19. Page-two risk. A migration can push these either direction, so you want them identified before you move.
 
 That triad is the artifact set. If you are quoted a migration and nobody mentions a URL inventory, the quote is for something else.
 
@@ -2231,7 +2231,7 @@ That triad is the artifact set. If you are quoted a migration and nobody mention
 
 The store I work on migrated from another platform long before I arrived. The residue is still measurable, and every item on this list is a real bug I found:
 
-- **Dead conversion metrics** in the email platform — a \`<old platform> Placed Order\` metric still selectable in dropdowns, recording 0 every day. Any flow pointed at it reports $0 revenue forever.
+- **Dead conversion metrics** in the email platform: a \`<old platform> Placed Order\` metric still selectable in dropdowns, recording 0 every day. Any flow pointed at it reports $0 revenue forever.
 - **Legacy customer tags**: \`<old platform> Group:1\`, \`migrated\`. Still being written by nothing, still matched by segments.
 - **Legacy product metafields** with the old platform's namespace, still on the schema, still populated on old products and empty on new ones.
 - **Products with no compare-at price**, because the old platform did not have that field and the migration had nowhere to put MSRP.
@@ -2242,7 +2242,7 @@ Budget a post-migration cleanup sprint at 90 days. Nobody does, and this is what
 
 Products get flipped to Active and the **Online Store sales channel is never added**. They are active, in stock, correctly priced, and completely unbuyable.
 
-The first audit for this across two stores found **164** of them — 86 on one store, 78 on the other. 35 were carrying inventory. One had **5,469 units** sitting idle.
+The first audit for this across two stores found **164** of them: 86 on one store, 78 on the other. 35 were carrying inventory. One had **5,469 units** sitting idle.
 
 Detection is cheap: export read-only, filter to \`Status = Active\`, then one query for rows where \`active AND published = false\`, sorted by inventory descending. I run it over the CSV with DuckDB in about ten seconds.
 
@@ -2266,7 +2266,7 @@ Migrations fail in the gaps between people's job descriptions, not in the techno
     slug: 'shopify-multichannel-inventory-sync',
     title: 'Shopify Multichannel: Syncing 7+ Sales Channels Without Breaking the Catalog',
     description:
-      'Replacing an 18MB Excel macro with a real inventory pipeline — Amazon Seller and Vendor Central, Google Merchant Center, dropship networks, and why every channel has a different key column.',
+      'Replacing an 18MB Excel macro with a real inventory pipeline: Amazon Seller and Vendor Central, Google Merchant Center, dropship networks, and why every channel has a different key column.',
     date: '2026-08-18',
     readTime: '13 min read',
     tags: ['Shopify Multichannel', 'Shopify Inventory Sync', 'Amazon Seller Central', 'Google Merchant Center', 'Python'],
@@ -2275,7 +2275,7 @@ Migrations fail in the gaps between people's job descriptions, not in the techno
 
 Everyone thinks the multichannel problem is *listing* products on more channels. It is not. Listing is a one-time cost.
 
-The problem is that once a product is on eight channels, **the quantity number has to be right on all eight, every day, forever** — and every channel wants it in a different file format, keyed on a different identifier, in a different column.
+The problem is that once a product is on eight channels, **the quantity number has to be right on all eight, every day, forever**, and every channel wants it in a different file format, keyed on a different identifier, in a different column.
 
 I run this daily for a US building-products manufacturer: two Shopify storefronts, three retailer dropship feeds (two big-box US chains and one Canadian arm), Amazon Vendor Central and Amazon Seller Central, plus product-data syndication to six retail partners. Around 3,000 SKUs on the inventory side, 13,000+ variants on the consumer store.
 
@@ -2292,16 +2292,16 @@ Every failure mode you would predict:
 - **No schedule.** It runs when someone remembers.
 - **No audit trail.** "Why did this SKU go to zero?" is unanswerable.
 
-Worth saying: it *worked*. It ran a real business for years. The point of replacing it is not that it was stupid — it is that its correctness lived in one person's head.
+Worth saying: it *worked*. It ran a real business for years. The point of replacing it is not that it was stupid. It is that its correctness lived in one person's head.
 
 ## Every channel has a different key and a different quantity column
 
 This is the detail that makes multichannel sync annoying rather than trivial. The seven daily outputs:
 
-- **Shopify ×2** — keyed on \`Variant ID\`, quantity in \`Variant Inventory Qty\`, XLSX, sheet must be named \`Products\`.
-- **Three retailer dropship templates** — keyed on \`VENDOR SKU\`, quantity in \`QTY\`, legacy **.xls**, three instruction rows above the header (the real header is on row 4).
-- **Amazon Seller** — keyed on \`item_sku\`, quantity in \`quantity\`, plus \`update_delete = PartialUpdate\`, XLSX with three reserved metadata rows.
-- **Amazon Vendor** — keyed on \`SKU\`, quantity in \`Available units\`, CSV, **latin-1 encoding**.
+- **Shopify ×2**: keyed on \`Variant ID\`, quantity in \`Variant Inventory Qty\`, XLSX, sheet must be named \`Products\`.
+- **Three retailer dropship templates**: keyed on \`VENDOR SKU\`, quantity in \`QTY\`, legacy **.xls**, three instruction rows above the header (the real header is on row 4).
+- **Amazon Seller**: keyed on \`item_sku\`, quantity in \`quantity\`, plus \`update_delete = PartialUpdate\`, XLSX with three reserved metadata rows.
+- **Amazon Vendor**: keyed on \`SKU\`, quantity in \`Available units\`, CSV, **latin-1 encoding**.
 
 Seven files, seven key columns, four file formats, one encoding gotcha. Any generic "sync tool" that promises to handle this without configuration is lying to you about at least three of them.
 
@@ -2311,12 +2311,12 @@ Shape: **INGEST → SQLite → TRANSFORM → OUTPUT**.
 
 Six tables replaced 48 tabs:
 
-- \`products\` — the SKU master
-- \`channel_membership\` — which SKUs are offered on which channel
-- \`inventory\` — quantity on hand
-- \`oos_status\` — out-of-stock flags
-- \`overrides\` — force-in-stock and manual adjustments
-- \`exceptions\` — SKUs suppressed on specific channels
+- \`products\`: the SKU master
+- \`channel_membership\`: which SKUs are offered on which channel
+- \`inventory\`: quantity on hand
+- \`oos_status\`: out-of-stock flags
+- \`overrides\`: force-in-stock and manual adjustments
+- \`exceptions\`: SKUs suppressed on specific channels
 
 Plus one computed view, \`channel_state\`.
 
@@ -2354,7 +2354,7 @@ This is the part I would most recommend copying.
 
 The obvious approach is to generate each channel's file from scratch. The better approach: **open the channel's real template file and update only the quantity column, keyed on that channel's own key, preserving everything else byte-for-byte.**
 
-Why it matters — the templates carry things you do not want to reimplement and cannot afford to lose: retailer instruction rows, Amazon's \`TemplateType=fptcustom\` metadata block, column ordering the parser depends on, and thousands of rows of static product data.
+Why it matters: the templates carry things you do not want to reimplement and cannot afford to lose: retailer instruction rows, Amazon's \`TemplateType=fptcustom\` metadata block, column ordering the parser depends on, and thousands of rows of static product data.
 
 Verification was straightforward: run both systems on the same day and diff the outputs against the macro's own files. 16,654 rows preserved on the largest file, instruction rows intact, Amazon metadata block untouched.
 
@@ -2368,13 +2368,13 @@ The old system stays the source of truth until each channel is individually prov
 - After several consecutive days of matching, flip **one channel** to live.
 - Repeat per channel.
 
-This pattern — parallel run, then retire — shows up three separate times in this operation, and it has never once been the wrong call.
+This pattern (parallel run, then retire) shows up three separate times in this operation, and it has never once been the wrong call.
 
 ## Being honest about what is not ported yet
 
 The POC deliberately does **not** implement: reserved inventory, fuzzy SKU matching, old-SKU to new-SKU reassignment during a product-line transition, and the components gap check (do not sell a shower pan whose drain plate is out of stock).
 
-Those four contain most of the remaining institutional knowledge. Naming them explicitly is what keeps a "we replaced the spreadsheet" claim honest — the spreadsheet still knows things the pipeline does not.
+Those four contain most of the remaining institutional knowledge. Naming them explicitly is what keeps a "we replaced the spreadsheet" claim honest: the spreadsheet still knows things the pipeline does not.
 
 ## Stack choices, and what I refused to use
 
@@ -2386,22 +2386,22 @@ No Airflow. No Kubernetes. No Kafka. For 3,000 SKUs and seven daily files, that 
 
 A real incident worth generalising.
 
-The daily Amazon Seller inventory upload started failing because **Amazon retired the Listing Loader template** the export targeted. The replacement demanded a Product Type on every SKU — which the daily feed has no business carrying, because it only pushes quantity and handling time.
+The daily Amazon Seller inventory upload started failing because **Amazon retired the Listing Loader template** the export targeted. The replacement demanded a Product Type on every SKU, which the daily feed has no business carrying, because it only pushes quantity and handling time.
 
 The fix: switch the output to Amazon's still-supported **Price & Quantity flat file**, which requires no Product Type. All business logic stayed where it was; a thin formatting tab and an export macro were added on top.
 
 And the part that matters: **the old export was left running in parallel for a week as a safety net** before retirement, with the change written into a change log.
 
-The general rule — when a channel changes its spec under you, change the *format layer*, never the *logic layer*. If your quantity calculation has to be rewritten because Amazon changed a template, your architecture has a seam in the wrong place.
+The general rule: when a channel changes its spec under you, change the *format layer*, never the *logic layer*. If your quantity calculation has to be rewritten because Amazon changed a template, your architecture has a seam in the wrong place.
 
 ## The target end state
 
 Every one of the six manual uploads has an API equivalent:
 
-- **Shopify** — Admin API \`inventorySetQuantities\`, or a scheduled import-from-URL.
-- **The dropship network** — V3 REST API, OAuth bearer tokens, with a staging host to test against.
-- **Amazon Vendor** — SP-API Vendor Direct Fulfillment Inventory.
-- **Amazon Seller** — SP-API Feeds and Listings.
+- **Shopify**: Admin API \`inventorySetQuantities\`, or a scheduled import-from-URL.
+- **The dropship network**: V3 REST API, OAuth bearer tokens, with a staging host to test against.
+- **Amazon Vendor**: SP-API Vendor Direct Fulfillment Inventory.
+- **Amazon Seller**: SP-API Feeds and Listings.
 
 Proof order: one channel first, easiest auth first. Not all six at once, and not the hardest one first to "prove it works."
 
@@ -2409,7 +2409,7 @@ Proof order: one channel first, easiest auth first. Not all six at once, and not
 
 One multichannel side effect that is almost universal: **sales channel apps inject their own analytics tags.**
 
-The Google & YouTube channel installs a Merchant Center tag. If you also run GTM, and someone previously hardcoded gtag, you now have three. On the store I audited, that contributed to seven distinct Google tag loads on a single page — over a megabyte of transfer and ~1.7 seconds of CPU.
+The Google & YouTube channel installs a Merchant Center tag. If you also run GTM, and someone previously hardcoded gtag, you now have three. On the store I audited, that contributed to seven distinct Google tag loads on a single page: over a megabyte of transfer and ~1.7 seconds of CPU.
 
 So when you add a channel, audit the storefront afterwards. The channel does more to your site than list your products on it.
 
@@ -2438,7 +2438,7 @@ The catch: a CSV export's \`Published\` column reflects **only the Online Store 
     slug: 'shopify-sms-marketing-retention',
     title: 'Shopify SMS Marketing: Building Consent-Safe SMS and Email Retention That Compounds',
     description:
-      'How to build a Shopify SMS marketing program that is TCPA-defensible — one canonical opt-in form, nine capture surfaces, verbal double opt-in, and why SMS must be additive to email, never instead of it.',
+      'How to build a Shopify SMS marketing program that is TCPA-defensible: one canonical opt-in form, nine capture surfaces, verbal double opt-in, and why SMS must be additive to email, never instead of it.',
     date: '2026-08-16',
     readTime: '12 min read',
     tags: ['Shopify SMS Marketing', 'Klaviyo', 'Retention', 'Compliance', 'Case Study'],
@@ -2447,9 +2447,9 @@ The catch: a CSV export's \`Published\` column reflects **only the Online Store 
 
 Every "Shopify SMS marketing" guide starts with copy and send times. The actual blocker is upstream and much less fun: **you cannot legally text people who have not documented consent, and most of your list has not.**
 
-On a wholesale program I worked on, the numbers were stark: **1,437 active trade accounts — 37% of the base — had no documented SMS consent**, because they were onboarded before an opt-in checkbox existed. Only 388 had opted in since it went live.
+On a wholesale program I worked on, the numbers were stark: **1,437 active trade accounts (37% of the base) had no documented SMS consent**, because they were onboarded before an opt-in checkbox existed. Only 388 had opted in since it went live.
 
-The consent gap was not a records problem. Multiple onboarding paths bypassed the checkbox entirely — manual sign-ups entered by inside sales, accounts created by third-party cold callers, phone orders typed in by hand.
+The consent gap was not a records problem. Multiple onboarding paths bypassed the checkbox entirely: manual sign-ups entered by inside sales, accounts created by third-party cold callers, phone orders typed in by hand.
 
 And TCPA requires **documented, timestamped, source-attributed** consent. Klaviyo enforces it: a profile without a clean consent record simply cannot be messaged. There is no override.
 
@@ -2469,7 +2469,7 @@ What you get for free:
 - Audit complexity collapses from nine mechanisms to one.
 - Implementation drops from engineering to **configuration plus thin surface layers**.
 
-The alternative — a checkout checkbox that writes consent one way, a popup that writes it another, a rep entering it manually a third — is nine places for the compliance language to drift out of sync, and nine things to re-verify when the law changes.
+The alternative (a checkout checkbox that writes consent one way, a popup that writes it another, a rep entering it manually a third) is nine places for the compliance language to drift out of sync, and nine things to re-verify when the law changes.
 
 ## Nine surfaces, and they are "and", not "or"
 
@@ -2478,7 +2478,7 @@ Each catches a different slice of the audience. You need all of them because no 
 - **An email campaign to the un-consented segment.** Cheapest reach, highest volume, one send.
 - **The landing page** with the embedded form. The destination everything else points at.
 - **A checkout checkbox.** First-class on Shopify Plus via Checkout UI Extensions; a workaround off Plus.
-- **A logged-in popup**, segment-targeted at "trade AND not SMS-subscribed", triggered on **exit-intent or 50% scroll — never on page load.** Page-load popups on a logged-in B2B dashboard are a support ticket, not a growth tactic.
+- **A logged-in popup**, segment-targeted at "trade AND not SMS-subscribed", triggered on **exit-intent or 50% scroll, never on page load.** Page-load popups on a logged-in B2B dashboard are a support ticket, not a growth tactic.
 - **A dismissible login prompt** with a 7-day remind-me TTL.
 - **A dashboard banner**, conditional on customer tag plus a metafield.
 - **An order-confirmation block.** High attention, zero friction.
@@ -2501,11 +2501,11 @@ Compliant, no paperwork, no dependency on anyone's memory or handwriting. A vari
 
 ## The automated backstop
 
-Nothing above catches everyone, so there is a flow underneath it all — triggered on \`Customer Created\`, filtered to the trade tag:
+Nothing above catches everyone, so there is a flow underneath it all, triggered on \`Customer Created\`, filtered to the trade tag:
 
-- **T+0** — welcome email including an SMS opt-in section.
-- **T+24h** — second touch if still not opted in.
-- **T+72h** — dashboard banner turns on for that customer.
+- **T+0**: welcome email including an SMS opt-in section.
+- **T+24h**: second touch if still not opted in.
+- **T+72h**: dashboard banner turns on for that customer.
 
 ## Source attribution: the free metric
 
@@ -2541,12 +2541,12 @@ If your abandoned-checkout flow has SMS on one branch and email on the other, yo
 
 ## Measure these
 
-- **Opt-in rate by source** — which surfaces earn their maintenance.
-- **Time-to-opt-in** — \`Profile Created\` vs \`SMS Consent Date\`. Long gaps mean your early surfaces are not working.
+- **Opt-in rate by source**: which surfaces earn their maintenance.
+- **Time-to-opt-in**: \`Profile Created\` vs \`SMS Consent Date\`. Long gaps mean your early surfaces are not working.
 - **SMS click-through and conversion.**
 - **AOV of SMS-opted vs email-only** profiles. This is the number that justifies the program.
 - **STOP / unsubscribe rate.** Your early warning on frequency, and the only metric that tells you to send *less*.
-- **Per-opt-in audit trail** — timestamp, source, IP, consent text. Not a growth metric; a legal one.
+- **Per-opt-in audit trail**: timestamp, source, IP, consent text. Not a growth metric; a legal one.
 - **LTV by opt-in-speed cohort.** Customers who opt in within 24 hours behave differently from those who take a month.
 
 ## The honest reframe
@@ -2557,7 +2557,7 @@ So SMS was not rescuing a broken email program. It was **additive**, and the urg
 
 Similarly, the conclusion of discovery was not "build a system." It was: **"finish publishing one that is already 80% there."** The opt-in form existed in Draft with correct compliance language and a proper teaser → form → success structure. SMS was already enabled. The trade tag already synced from Shopify to Klaviyo, so segment targeting needed zero setup.
 
-The blockers were **legal, not technical** — consent disclosure wording pending outside counsel. That is worth naming for anyone planning an SMS program: budget for the legal review, because it is the critical path and it does not compress.
+The blockers were **legal, not technical**: consent disclosure wording pending outside counsel. That is worth naming for anyone planning an SMS program: budget for the legal review, because it is the critical path and it does not compress.
 
 ## A related build worth stealing
 
@@ -2590,7 +2590,7 @@ Phase 1 is a CSV export and a calendar reminder. It captured demand signal for m
     slug: 'shopify-custom-reports-ga4-analytics',
     title: 'Shopify Custom Reports: Turning GA4 and Sales Data Into Decisions, Not Dashboards',
     description:
-      'Store owners do not need another pretty dashboard — they need to know which decision to make. How I build custom Shopify reports joining GA4, order data and catalog exports into merchandising and upsell calls.',
+      'Store owners do not need another pretty dashboard. They need to know which decision to make. How I build custom Shopify reports joining GA4, order data and catalog exports into merchandising and upsell calls.',
     date: '2026-08-14',
     readTime: '12 min read',
     tags: ['Shopify Analytics', 'Shopify Custom Reports', 'GA4', 'Python', 'Catalog Health'],
@@ -2609,7 +2609,7 @@ This is how I build them, and why it is the part of ecommerce engineering that a
 
 Before any report is trustworthy, three things have to be true, and on most stores none of them are.
 
-**1. Your channel data is not fragmented.** I found an account where Klaviyo's \`utm_source\` was set to resolve to the *list or segment name*. Every send produced a unique source value. GA4 attributed every click correctly and then never aggregated them — the email channel had shattered into dozens of one-off rows, each too small to notice.
+**1. Your channel data is not fragmented.** I found an account where Klaviyo's \`utm_source\` was set to resolve to the *list or segment name*. Every send produced a unique source value. GA4 attributed every click correctly and then never aggregated them: the email channel had shattered into dozens of one-off rows, each too small to notice.
 
 Email looked like a rounding error. It was one of the biggest channels. The fix is static \`utm_source\`, \`utm_medium=email\`, and detail carried in \`utm_campaign\`.
 
@@ -2626,7 +2626,7 @@ Shopify and GA4 each know half the story.
 - **Shopify** knows what was ordered, by whom, at what margin, with what tags, from what catalog state.
 - **GA4** knows how they arrived, what they looked at, and what they did not buy.
 
-Neither is enough on its own. The reports that actually change behaviour come from joining them — usually a Shopify order/product export plus a GA4 export, joined on product handle or SKU, then aggregated the way the *decision* needs rather than the way either tool defaults to.
+Neither is enough on its own. The reports that actually change behaviour come from joining them, usually a Shopify order/product export plus a GA4 export, joined on product handle or SKU, then aggregated the way the *decision* needs rather than the way either tool defaults to.
 
 My working stack is intentionally dull: **Shopify or Matrixify export → CSV → Python (pandas) or DuckDB → a small table and three sentences.** No warehouse until there is a reason for a warehouse.
 
@@ -2642,7 +2642,7 @@ WHERE "Top Row" = true
 ORDER BY "Variant Inventory Qty" DESC;
 \`\`\`
 
-That query, on a real store, returned **164 products across two storefronts** — 86 and 78 — that were active, correctly priced, in stock, and completely unbuyable. 35 were carrying inventory. One had **5,469 units** sitting idle.
+That query, on a real store, returned **164 products across two storefronts** (86 and 78) that were active, correctly priced, in stock, and completely unbuyable. 35 were carrying inventory. One had **5,469 units** sitting idle.
 
 Nobody would ever have found those by looking at a dashboard. Revenue charts do not show you the product that could not be bought.
 
@@ -2650,25 +2650,25 @@ One caveat I always attach: the \`Published\` column reflects **only the Online 
 
 ## Reports that produced actual decisions
 
-**The URL-to-traffic map.** A full inventory of roughly 2,072 URLs per store — about 4,144 across both — with page type, title and last-modified date, joined against organic performance: traffic per month, keyword count, traffic share, top query with volume and position, and primary intent, per URL.
+**The URL-to-traffic map.** A full inventory of roughly 2,072 URLs per store (about 4,144 across both), with page type, title and last-modified date, joined against organic performance: traffic per month, keyword count, traffic share, top query with volume and position, and primary intent, per URL.
 
-Decisions it produced: which pages a migration must redirect first; which collection pages deserve content investment; and a "**ranking but not in inventory**" list of **33 URLs earning organic traffic that nobody knew existed** — including legacy product URLs from a discontinued material line and a bare \`http://\` homepage. Those are exactly the pages a replatform quietly loses.
+Decisions it produced: which pages a migration must redirect first; which collection pages deserve content investment; and a "**ranking but not in inventory**" list of **33 URLs earning organic traffic that nobody knew existed**, including legacy product URLs from a discontinued material line and a bare \`http://\` homepage. Those are exactly the pages a replatform quietly loses.
 
-**The page-two report.** High-volume queries sitting at positions 11–19. Not a metric — a work queue, sorted by expected traffic gain. It answers "what should I write next month" in one sorted column.
+**The page-two report.** High-volume queries sitting at positions 11-19. Not a metric: a work queue, sorted by expected traffic gain. It answers "what should I write next month" in one sorted column.
 
-**Catalog health as a recurring audit.** Missing required metafields, missing compare-at prices (a migration artifact — the old platform had no such field), image counts below the retail-channel minimum, products with no collection membership, variant option axes used inconsistently. Each of these is a one-line filter over an export and each one, left alone, degrades a feed somewhere downstream.
+**Catalog health as a recurring audit.** Missing required metafields, missing compare-at prices (a migration artifact: the old platform had no such field), image counts below the retail-channel minimum, products with no collection membership, variant option axes used inconsistently. Each of these is a one-line filter over an export and each one, left alone, degrades a feed somewhere downstream.
 
 **Retail readiness by attribute.** For syndicated catalogs, a completion score per channel. The trick is reading it as a **diff, not a grade**: 331 of 361 does not mean "94% good," it means **30 specific SKUs did not map**, and the cause is almost always one product family whose asset filenames follow a different convention. The report's output is thirty SKUs, not a percentage.
 
-**Flow-level revenue per recipient.** After a Klaviyo rebuild, seven-day flow revenue broke down as roughly $212 per recipient on the cart reminder, $109 on browse abandonment, and $80 on the checkout reminder. Revenue per recipient — not total revenue — is what tells you which flow to expand and which to leave alone, because total revenue just tells you which segment is biggest.
+**Flow-level revenue per recipient.** After a Klaviyo rebuild, seven-day flow revenue broke down as roughly $212 per recipient on the cart reminder, $109 on browse abandonment, and $80 on the checkout reminder. Revenue per recipient, not total revenue, is what tells you which flow to expand and which to leave alone, because total revenue just tells you which segment is biggest.
 
 ## The operational spreadsheet is a legitimate deliverable
 
 Not every report should be a report. Sometimes the deliverable is **a spreadsheet that replaces a manual process**, and engineers are snobby about this to their own cost.
 
-One operation I inherited ran on an 18 MB, 48-tab Excel workbook that computed sellable quantity for seven channels. It was single-user, unversioned, unscheduled and unauditable — and it correctly ran a real business for years.
+One operation I inherited ran on an 18 MB, 48-tab Excel workbook that computed sellable quantity for seven channels. It was single-user, unversioned, unscheduled and unauditable, and it correctly ran a real business for years.
 
-Replacing it was worth doing. But the intermediate step that delivered value in week one was not the pipeline — it was a **read-only reporting layer over the same data**, so people could finally answer "why is this SKU zero on Amazon?" without opening the workbook and taking the file lock.
+Replacing it was worth doing. But the intermediate step that delivered value in week one was not the pipeline. It was a **read-only reporting layer over the same data**, so people could finally answer "why is this SKU zero on Amazon?" without opening the workbook and taking the file lock.
 
 Ship the answer before you ship the architecture.
 
@@ -2689,13 +2689,13 @@ And the format is deliberately cheap: a table and three sentences, delivered in 
 
 Most people selling Shopify work sell themes. Almost nobody sells **the ability to look at a store's own data and say what to do about it.**
 
-That is the difference between a Shopify developer and an ecommerce operations engineer — and it is where the interesting problems, and the interesting contracts, actually are. The catalog is a database, the storefront is a search system, the marketing stack is a pipeline, and all three produce data that nobody is reading.
+That is the difference between a Shopify developer and an ecommerce operations engineer, and it is where the interesting problems, and the interesting contracts, actually are. The catalog is a database, the storefront is a search system, the marketing stack is a pipeline, and all three produce data that nobody is reading.
 
 Start reading it.
 
 ---
 
-*I build custom Shopify reporting — GA4 joined with order and catalog data, Python catalog-health tooling, and operational spreadsheets that replace manual work. See [Shopify development services](/shopify-expert) or [hire a Shopify developer](/hire-shopify-developer).*
+*I build custom Shopify reporting: GA4 joined with order and catalog data, Python catalog-health tooling, and operational spreadsheets that replace manual work. See [Shopify development services](/shopify-expert) or [hire a Shopify developer](/hire-shopify-developer).*
 
 *Direct: [WhatsApp +55 11 98851-2788](https://wa.me/5511988512788) · [contato.matheusabrahao@gmail.com](mailto:contato.matheusabrahao@gmail.com)*`,
   },
@@ -2712,9 +2712,9 @@ Start reading it.
 
 Twelve months operating a **US-based beauty and lifestyle brand's** Shopify store, from August 2025:
 
-- **Total sales: US$207.3K — up 254%**
-- **Orders: 157 — up 324%**
-- **Sessions: 51.5K — up 1,700%**
+- **Total sales: US$207.3K, up 254%**
+- **Orders: 157, up 324%**
+- **Sessions: 51.5K, up 1,700%**
 
 No redesign. No rebrand. No funding round. The store looked broadly the same at the end as at the start.
 
@@ -2724,54 +2724,54 @@ What changed was everything underneath it.
 
 Small stores fail in a very consistent way, and it is almost never "the design is bad."
 
-- The catalog is technically live but commercially incoherent — inconsistent titles, missing product types, empty tags, SEO fields left at the theme default.
+- The catalog is technically live but commercially incoherent: inconsistent titles, missing product types, empty tags, SEO fields left at the theme default.
 - Feeds are connected but rejecting silently. Google Merchant Center has more disapprovals than approvals, and nobody has opened it in months.
 - There are apps installed for things nobody uses, each loading scripts on every page.
 - Analytics is installed twice, or once and wrong, so nothing that follows can be measured.
 - There is no discovery layer: no meaningful search, no filters, no merchandising logic. Every visitor sees the same eleven products in creation order.
 
-Nothing is broken. Everything is 1–3% worse than it should be, in twenty places at once. Sessions have nowhere to come from because the store is invisible to every machine that could send traffic.
+Nothing is broken. Everything is 1-3% worse than it should be, in twenty places at once. Sessions have nowhere to come from because the store is invisible to every machine that could send traffic.
 
 ## The stack I actually ran
 
 Deliberately boring, and every piece earns its place:
 
-- **Matrixify** — the write layer for the catalog. Every bulk change goes through it.
-- **Nabu** — Google Shopping feed plus the Ads pixel.
+- **Matrixify**: the write layer for the catalog. Every bulk change goes through it.
+- **Nabu**: Google Shopping feed plus the Ads pixel.
 - **Google & YouTube** and **Facebook & Instagram** sales channels.
-- **Pinterest** — genuinely underrated for beauty and lifestyle, where the audience is in discovery mode rather than search mode.
-- **Shopify Collective** — catalog expansion without inventory risk.
-- **Shopify Flow** — the automation layer that removes recurring manual work.
-- **Search & Discovery** — filters, synonyms, and merchandising rules.
-- **Markets** — international pricing and currency, so international sessions do not bounce at the cart.
+- **Pinterest**: genuinely underrated for beauty and lifestyle, where the audience is in discovery mode rather than search mode.
+- **Shopify Collective**: catalog expansion without inventory risk.
+- **Shopify Flow**: the automation layer that removes recurring manual work.
+- **Search & Discovery**: filters, synonyms, and merchandising rules.
+- **Markets**: international pricing and currency, so international sessions do not bounce at the cart.
 
 There is no growth-hack app in that list. There is one bulk-editing tool, four channels, and three native features most stores never configure.
 
 ## The sequence, and why order matters
 
-**Phase 1 — make the catalog machine-readable.**
+**Phase 1: make the catalog machine-readable.**
 
 Nothing else works until this is done, because every downstream system (Google, Meta, Pinterest, on-site search, AI answer engines) reads the same product data.
 
-The work, all through Matrixify: normalise product **types** into a closed vocabulary; collapse **vendor** to a canonical value; rewrite **handles** — inherited handles from marketplace imports are routinely 100+ character keyword-stuffed strings, which are bad URLs and worse signals; populate **Google Shopping fields** including product category and gender; write real **SEO titles and descriptions** at roughly 155 characters with intent and a call to action; move **tags** from empty to a working keyword set per product; and double the **body copy** on the products that matter.
+The work, all through Matrixify: normalise product **types** into a closed vocabulary; collapse **vendor** to a canonical value; rewrite **handles** (inherited handles from marketplace imports are routinely 100+ character keyword-stuffed strings, which are bad URLs and worse signals); populate **Google Shopping fields** including product category and gender; write real **SEO titles and descriptions** at roughly 155 characters with intent and a call to action; move **tags** from empty to a working keyword set per product; and double the **body copy** on the products that matter.
 
-I ran this as two passes — raw → cleaned → cleaned v2 — with the intermediate version preserved, so any single change is attributable. Pass one was pure taxonomy (handles, types, vendors). Pass two was content and SEO fields. Separating them is what makes it reviewable.
+I ran this as two passes (raw → cleaned → cleaned v2), with the intermediate version preserved, so any single change is attributable. Pass one was pure taxonomy (handles, types, vendors). Pass two was content and SEO fields. Separating them is what makes it reviewable.
 
-**Phase 2 — fix the feeds.**
+**Phase 2: fix the feeds.**
 
 With the catalog normalised, Google Merchant Center disapprovals mostly resolve themselves, because the majority are missing category, missing GTIN, missing gender or a title that does not match the landing page. Then Pinterest and Meta catalogs, which read the same fields.
 
-This is the phase that produced most of the session growth. Feed-driven surfaces do not need brand awareness — they need clean structured data.
+This is the phase that produced most of the session growth. Feed-driven surfaces do not need brand awareness. They need clean structured data.
 
-**Phase 3 — fix discovery on-site.**
+**Phase 3: fix discovery on-site.**
 
 Search & Discovery filters, synonyms for the words customers actually use (which are not the words in your product titles), and collection merchandising rules so the best sellers surface first. Sessions are worth nothing if the visitor cannot find the second product.
 
-**Phase 4 — automate the recurring work.**
+**Phase 4: automate the recurring work.**
 
 Shopify Flow for tagging, inventory alerts, and customer segmentation. Every manual task that happens weekly becomes a rule, so the operator's time goes to decisions instead of maintenance.
 
-**Phase 5 — open the geography.**
+**Phase 5: open the geography.**
 
 Markets, so international traffic gets local currency and correct pricing instead of a confusing cart.
 
@@ -2781,19 +2781,19 @@ This is not the first store where this worked, and that is the argument I would 
 
 - **An international luxury fashion brand:** +455% sessions, +114% orders, +74% total sales, as sole engineer.
 - **A US beauty and lifestyle brand:** +254% sales, +324% orders, +1,700% sessions.
-- **Martin (martin4shop.com.br), my own brand:** built and operated end to end — 1,959 orders, ~R$552K processed, 299K sessions since 2023.
+- **Martin (martin4shop.com.br), my own brand:** built and operated end to end: 1,959 orders, ~R$552K processed, 299K sessions since 2023.
 
-And today, two storefronts for a US building-products manufacturer — **B2C and B2B running side by side** on one enterprise-scale catalog, syndicated out to seven-plus sales channels.
+And today, two storefronts for a US building-products manufacturer: **B2C and B2B running side by side** on one enterprise-scale catalog, syndicated out to seven-plus sales channels.
 
 Three very different catalogs. Different countries, different price points, different customers. **Same method, same order of operations.** That is what makes it a method rather than a lucky quarter.
 
-I started with Martin — my own store, my own money, my own mistakes — and expanded outward for six-plus years. Everything I do for other brands was first tested on a store where a bad decision came out of my own pocket. That is not a credential, but it is a very effective filter for advice that only works in slide decks.
+I started with Martin (my own store, my own money, my own mistakes) and expanded outward for six-plus years. Everything I do for other brands was first tested on a store where a bad decision came out of my own pocket. That is not a credential, but it is a very effective filter for advice that only works in slide decks.
 
 ## What I would not do again
 
 **Do not start with the theme.** It is the most visible thing and almost never the constraint. A redesign on a store with a broken catalog produces a prettier version of the same problem, and it burns the budget that should have gone into data.
 
-**Do not add apps to solve data problems.** Most "SEO apps" and "feed apps" are wrapping fields you can populate yourself, correctly, once, with a bulk import — and then they load scripts on every page forever.
+**Do not add apps to solve data problems.** Most "SEO apps" and "feed apps" are wrapping fields you can populate yourself, correctly, once, with a bulk import, and then they load scripts on every page forever.
 
 **Do not run paid traffic into an unfixed catalog.** You are paying for clicks that land on pages Google is already unwilling to show for free.
 
@@ -2815,7 +2815,7 @@ There is no shortcut, but there is a correct order.
 
 ---
 
-*I operate Shopify stores end to end — catalog, feeds, performance, retention and reporting. See [Shopify development services](/shopify-expert) or [hire a Shopify developer](/hire-shopify-developer). Related: [the Matrixify field guide](/blog/matrixify-shopify-bulk-operations-guide).*
+*I operate Shopify stores end to end: catalog, feeds, performance, retention and reporting. See [Shopify development services](/shopify-expert) or [hire a Shopify developer](/hire-shopify-developer). Related: [the Matrixify field guide](/blog/matrixify-shopify-bulk-operations-guide).*
 
 *Direct: [WhatsApp +55 11 98851-2788](https://wa.me/5511988512788) · [contato.matheusabrahao@gmail.com](mailto:contato.matheusabrahao@gmail.com)*`,
   },

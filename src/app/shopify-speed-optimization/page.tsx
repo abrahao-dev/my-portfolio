@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = seoMeta({
   slug: "shopify-speed-optimization",
-  title: "Shopify Speed Optimization — Core Web Vitals & CRO | Matheus Abrahão",
+  title: "Shopify Speed Optimization: Core Web Vitals & CRO | Matheus Abrahão",
   description:
     "Shopify speed optimization by a senior developer: Core Web Vitals (LCP, INP, CLS), theme and script auditing, image and font delivery, third-party app cleanup, and conversion rate optimisation. Real store results, no plugin shortcuts.",
 })
@@ -13,11 +13,11 @@ const data: SeoLandingData = {
   eyebrow: "Core Web Vitals and conversion work",
   h1: "Shopify Speed Optimization",
   lede:
-    "Real Shopify speed optimization: theme code, render path, third-party scripts and image delivery — fixed at the source, not hidden behind a speed app that lazy-loads your buy button.",
+    "Real Shopify speed optimization: theme code, render path, third-party scripts and image delivery, fixed at the source, not hidden behind a speed app that lazy-loads your buy button.",
   intro: [
     "Every slow Shopify store is slow for boring reasons. A hero image served at 3000px into a 400px slot. Six apps injecting render-blocking scripts on every page, including the ones you stopped paying for. A theme that ships 400KB of JavaScript to display a product title. Web fonts loading late and pushing the whole layout down. None of it is exotic, and none of it is fixed by installing another app.",
     "I do this work as a senior engineer who has lived on the revenue side. On my own Shopify brand, Martin (martin4shop.com.br), page speed was the difference between a profitable ad campaign and a wasted one across 1,959 orders. For an international luxury fashion brand I rebuilt storefront components specifically around Core Web Vitals, and combined with technical SEO the store grew +455% in sessions, +114% in orders and +74% in revenue. I have also kept two storefronts (B2C and B2B) fast for a US manufacturer running a catalog with heavy multi-variant product pages.",
-    "Speed is not a vanity score. Google uses Core Web Vitals as a ranking signal, mobile shoppers abandon slow carts, and paid traffic gets more expensive per conversion when the landing page stalls. The goal is not a green Lighthouse badge on your homepage — it is faster product pages and a faster checkout path for the traffic you already pay for.",
+    "Speed is not a vanity score. Google uses Core Web Vitals as a ranking signal, mobile shoppers abandon slow carts, and paid traffic gets more expensive per conversion when the landing page stalls. The goal is not a green Lighthouse badge on your homepage. It is faster product pages and a faster checkout path for the traffic you already pay for.",
   ],
   playbookLine:
     "Four stores, four verticals, and in every one a faster storefront came before the revenue curve moved.",
@@ -64,7 +64,7 @@ const data: SeoLandingData = {
     {
       title: "Prioritised plan",
       body:
-        "You get a written list of every issue found, ranked by impact against effort, with the ones that need a business decision flagged separately — like removing an app your marketing team relies on.",
+        "You get a written list of every issue found, ranked by impact against effort, with the ones that need a business decision flagged separately, like removing an app your marketing team relies on.",
     },
     {
       title: "Implementation on staging",
@@ -82,17 +82,17 @@ const data: SeoLandingData = {
     {
       q: "How much does a speed optimization project cost?",
       a:
-        "A full audit with a prioritised, written action plan is a fixed fee starting around US$500. Implementation is quoted from that audit and depends on how customised the theme is — a clean Dawn-based theme is far cheaper than a heavily modified legacy one. Ad-hoc work is US$60 to US$90 per hour, and you always approve the number in advance.",
+        "A full audit with a prioritised, written action plan is a fixed fee starting around US$500. Implementation is quoted from that audit and depends on how customised the theme is: a clean Dawn-based theme is far cheaper than a heavily modified legacy one. Ad-hoc work is US$60 to US$90 per hour, and you always approve the number in advance.",
     },
     {
       q: "Why is my Shopify store so slow?",
       a:
-        "On the large majority of stores I audit it is not Shopify — it is what was added on top. The usual causes, in order of how often they turn up: a stack of apps each injecting its own render-blocking script into the head, two or three copies of the same analytics or consent tag, an unoptimised hero image with no priority hint or explicit dimensions, a slider or review widget that shifts layout after paint, fonts loaded without a display strategy, and Liquid loops that hit the same collection repeatedly on a page that could cache it. Shopify's own infrastructure is fast; almost all of the latency in a slow store is added after the theme is installed.",
+        "On the large majority of stores I audit it is not Shopify. It is what was added on top. The usual causes, in order of how often they turn up: a stack of apps each injecting its own render-blocking script into the head, two or three copies of the same analytics or consent tag, an unoptimised hero image with no priority hint or explicit dimensions, a slider or review widget that shifts layout after paint, fonts loaded without a display strategy, and Liquid loops that hit the same collection repeatedly on a page that could cache it. Shopify's own infrastructure is fast; almost all of the latency in a slow store is added after the theme is installed.",
     },
     {
       q: "How do you handle working from a different time zone?",
       a:
-        "I am in São Paulo, UTC-3, one to two hours ahead of US Eastern, so a normal US business day leaves four to six hours of live overlap. Publishing happens in your store's lowest-traffic window, which usually means late night your time — that is my morning, so I am awake and watching when it goes live.",
+        "I am in São Paulo, UTC-3, one to two hours ahead of US Eastern, so a normal US business day leaves four to six hours of live overlap. Publishing happens in your store's lowest-traffic window, which usually means late night your time. That is my morning, so I am awake and watching when it goes live.",
     },
     {
       q: "Do you sign an NDA and a contract?",
@@ -117,9 +117,9 @@ const data: SeoLandingData = {
   ],
   ctaTitle: "Want to know why your store is slow?",
   ctaBody:
-    "Send me your store URL. I will run a real diagnostic and tell you the top three causes — free, before you commit to anything.",
+    "Send me your store URL. I will run a real diagnostic and tell you the top three causes, for free, before you commit to anything.",
   waText:
-    "Hi Matheus, I found your Shopify speed optimization page. My store is slow — here is the URL:",
+    "Hi Matheus, I found your Shopify speed optimization page. My store is slow. Here is the URL:",
   serviceName: "Shopify Speed Optimization & CRO",
   serviceDescription:
     "Shopify speed optimization and conversion rate optimisation: Core Web Vitals diagnosis, third-party script auditing, Liquid and theme refactoring, image and font delivery, checkout path performance and revenue-prioritised CRO experiments.",

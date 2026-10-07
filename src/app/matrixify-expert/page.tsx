@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = seoMeta({
   slug: "matrixify-expert",
-  title: "Matrixify Expert — Shopify Catalog Operations at Scale | Matheus Abrahão",
+  title: "Matrixify Expert: Shopify Catalog Operations at Scale | Matheus Abrahão",
   description:
     "Matrixify expert for Shopify: bulk product upload, CSV import, inventory sync, tags and variant commands, metafields, collections, images, translations and platform migrations. Daily Matrixify operator running two storefronts and 7+ sales channels for a US manufacturer.",
 })
@@ -11,13 +11,13 @@ export const metadata: Metadata = seoMeta({
 const data: SeoLandingData = {
   slug: "matrixify-expert",
   eyebrow: "Bulk catalog work, done safely",
-  h1: "Matrixify Expert — Shopify Catalog Operations",
+  h1: "Matrixify Expert: Shopify Catalog Operations",
   lede:
-    "I run Matrixify every working day: bulk product and order imports, tag and variant commands, metafield migrations, image cleanup and full platform migrations — on live stores, without breaking the catalog.",
+    "I run Matrixify every working day: bulk product and order imports, tag and variant commands, metafield migrations, image cleanup and full platform migrations, on live stores, without breaking the catalog.",
   intro: [
     "Matrixify (formerly Excelify) is the Shopify app that turns your entire store into a spreadsheet and back again. Products, variants, inventory, collections, customers, orders, draft orders, discounts, metafields, translations, redirects, pages and blog posts all export to Excel, CSV or Google Sheets, get edited in bulk, and import back with far more control than Shopify's native CSV importer gives you. If you have ever needed to change one field across 40,000 variants, you already know why it exists.",
     "The reason to hire a Matrixify expert rather than learning it yourself is that the app is genuinely powerful, which also means it is genuinely capable of destroying a catalog. An import with the wrong Command column can overwrite prices across the store. A missing Variant ID can duplicate every variant on every product. Matrixify itself is careful and gives you an undo path on many jobs, but the fastest way to find the edge cases is on production, at 4pm, before a sale.",
-    "I operate two storefronts — B2C and B2B — for a US manufacturer, keeping a multi-level variant catalog synchronised across 7+ sales channels with MAP and MSRP pricing rules that differ per channel. Matrixify is the backbone of that operation. My Shopify experience goes back 6+ years and started with my own store, Martin (martin4shop.com.br), where I did the catalog work myself across 1,959 orders because there was nobody else to do it.",
+    "I operate two storefronts (B2C and B2B) for a US manufacturer, keeping a multi-level variant catalog synchronised across 7+ sales channels with MAP and MSRP pricing rules that differ per channel. Matrixify is the backbone of that operation. My Shopify experience goes back 6+ years and started with my own store, Martin (martin4shop.com.br), where I did the catalog work myself across 1,959 orders because there was nobody else to do it.",
   ],
   playbookLine:
     "Four stores, four verticals, and behind each one the same unglamorous discipline: clean catalog data.",
@@ -26,7 +26,7 @@ const data: SeoLandingData = {
     {
       title: "Bulk product upload and import",
       body:
-        "Bulk product upload to Shopify across thousands of SKUs — titles, descriptions, vendors, types, pricing, SEO fields and status. I always match on Handle or Variant ID rather than title, run a NEW-only pass before a full update, and keep the pre-import export as a rollback file.",
+        "Bulk product upload to Shopify across thousands of SKUs: titles, descriptions, vendors, types, pricing, SEO fields and status. I always match on Handle or Variant ID rather than title, run a NEW-only pass before a full update, and keep the pre-import export as a rollback file.",
     },
     {
       title: "Order import",
@@ -41,12 +41,12 @@ const data: SeoLandingData = {
     {
       title: "Variant command and options",
       body:
-        "Adding, reordering, renaming and removing variants and option values in bulk — including restructuring multi-level option sets without orphaning inventory or losing variant IDs. This is where most DIY imports go wrong and where a careful staging pass pays for itself.",
+        "Adding, reordering, renaming and removing variants and option values in bulk, including restructuring multi-level option sets without orphaning inventory or losing variant IDs. This is where most DIY imports go wrong and where a careful staging pass pays for itself.",
     },
     {
       title: "Metafields and metaobjects",
       body:
-        "Bulk creation and migration of product, variant, collection and customer metafields with the correct namespace, key and type — including moving legacy metafields into Online Store 2.0 definitions and metaobjects so your theme can actually render them.",
+        "Bulk creation and migration of product, variant, collection and customer metafields with the correct namespace, key and type, including moving legacy metafields into Online Store 2.0 definitions and metaobjects so your theme can actually render them.",
     },
     {
       title: "Collections",
@@ -93,7 +93,7 @@ const data: SeoLandingData = {
         {
           title: "Store-to-store copying",
           body:
-            "Duplicating a catalog between Shopify stores for a new market, a B2B storefront or a staging environment — with pricing, tags and channel publication rules adjusted during the transfer instead of afterwards.",
+            "Duplicating a catalog between Shopify stores for a new market, a B2B storefront or a staging environment, with pricing, tags and channel publication rules adjusted during the transfer instead of afterwards.",
         },
       ],
     },
@@ -120,7 +120,7 @@ const data: SeoLandingData = {
         {
           title: "One source of truth, many channels",
           body:
-            "The point of all of it is that a product change is made once and propagates everywhere — Shopify B2C, the B2B storefront, marketplaces and retailer feeds — instead of being retyped by four people into four systems and drifting apart within a quarter.",
+            "The point of all of it is that a product change is made once and propagates everywhere (Shopify B2C, the B2B storefront, marketplaces and retailer feeds) instead of being retyped by four people into four systems and drifting apart within a quarter.",
         },
       ],
     },
@@ -132,7 +132,7 @@ const data: SeoLandingData = {
         {
           title: "CSV, Excel and Google Sheets workflows",
           body:
-            "Repeatable sheets your team can actually use — validated columns, dropdowns for controlled values, formulas that build handles and tags automatically, and a scheduled Google Sheets import so an update to a row becomes an update in the store without anyone opening the app.",
+            "Repeatable sheets your team can actually use: validated columns, dropdowns for controlled values, formulas that build handles and tags automatically, and a scheduled Google Sheets import so an update to a row becomes an update in the store without anyone opening the app.",
         },
         {
           title: "Multi-channel inventory synchronisation",
@@ -157,7 +157,7 @@ const data: SeoLandingData = {
     {
       title: "Export and audit first",
       body:
-        "Nothing gets imported before I have exported. The current state becomes both the audit source and the rollback file, and the audit usually surfaces problems the client did not know existed — duplicate SKUs, wrong option names, products invisible on a channel.",
+        "Nothing gets imported before I have exported. The current state becomes both the audit source and the rollback file, and the audit usually surfaces problems the client did not know existed: duplicate SKUs, wrong option names, products invisible on a channel.",
     },
     {
       title: "Build the import on a development store",
@@ -180,7 +180,7 @@ const data: SeoLandingData = {
     {
       q: "What is Matrixify used for?",
       a:
-        "Matrixify, formerly called Excelify, is a Shopify app for bulk import and export of store data using Excel, CSV or Google Sheets. It handles products, variants, inventory, collections, customers, orders, draft orders, discounts, metafields, translations, redirects, pages, blogs and more — far beyond what Shopify's built-in CSV import supports. It is the standard tool for large catalog edits, platform migrations and scheduled data syncs.",
+        "Matrixify, formerly called Excelify, is a Shopify app for bulk import and export of store data using Excel, CSV or Google Sheets. It handles products, variants, inventory, collections, customers, orders, draft orders, discounts, metafields, translations, redirects, pages, blogs and more, far beyond what Shopify's built-in CSV import supports. It is the standard tool for large catalog edits, platform migrations and scheduled data syncs.",
     },
     {
       q: "How much does Matrixify cost?",
@@ -200,12 +200,12 @@ const data: SeoLandingData = {
     {
       q: "What do you charge for catalog work?",
       a:
-        "Ad-hoc Matrixify and catalog operations run US$60 to US$90 per hour. A defined job — a migration, a metafield restructure, a catalog audit with fix files — is quoted fixed-price from a look at your export first. Ongoing catalog operations are a monthly retainer with an agreed hour block, which is what most clients with a large or fast-changing catalog end up on.",
+        "Ad-hoc Matrixify and catalog operations run US$60 to US$90 per hour. A defined job (a migration, a metafield restructure, a catalog audit with fix files) is quoted fixed-price from a look at your export first. Ongoing catalog operations are a monthly retainer with an agreed hour block, which is what most clients with a large or fast-changing catalog end up on.",
     },
     {
-      q: "You are in Brazil — how does that work for scheduled imports?",
+      q: "You are in Brazil. How does that work for scheduled imports?",
       a:
-        "I am in São Paulo, UTC-3, one to two hours ahead of US Eastern, so a normal US business day gives four to six hours of live overlap. Large imports run in your store's quiet window, typically overnight your time, which is my morning — so someone is awake and watching the job log while it runs rather than reading the failure the next day.",
+        "I am in São Paulo, UTC-3, one to two hours ahead of US Eastern, so a normal US business day gives four to six hours of live overlap. Large imports run in your store's quiet window, typically overnight your time, which is my morning, so someone is awake and watching the job log while it runs rather than reading the failure the next day.",
     },
     {
       q: "Do you sign an NDA, and who owns the files?",
@@ -215,9 +215,9 @@ const data: SeoLandingData = {
   ],
   ctaTitle: "Have a catalog job nobody wants to touch?",
   ctaBody:
-    "Send me an export, or just describe the mess. I will tell you whether it is a one-hour Matrixify job or a two-week operation — free.",
+    "Send me an export, or just describe the mess. I will tell you whether it is a one-hour Matrixify job or a two-week operation, for free.",
   waText:
-    "Hi Matheus, I found your Matrixify page. I need help with bulk Shopify catalog work — here are the details:",
+    "Hi Matheus, I found your Matrixify page. I need help with bulk Shopify catalog work. Here are the details:",
   serviceName: "Matrixify & Shopify Catalog Operations",
   serviceDescription:
     "Matrixify expert services for Shopify: bulk product and order imports, tags and variant commands, metafield and metaobject migrations, collections, product images, translations, scheduled inventory and pricing syncs, platform migrations from WooCommerce, Magento and BigCommerce, and Python-based catalog health audits.",

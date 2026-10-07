@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = seoMeta({
   slug: "shopify-expert",
-  title: "Shopify Expert — Senior Shopify Developer & SEO Expert for Hire | Matheus Abrahão",
+  title: "Shopify Expert: Senior Shopify Developer & SEO Expert for Hire | Matheus Abrahão",
   description:
     "Shopify expert developer for hire, working with US and Canadian brands. 6+ years on Shopify, currently operating paired B2C and B2B Shopify Plus storefronts for a US manufacturer. Shopify theme development, checkout customization, custom apps, Shopify SEO and CRO. +455% sessions and +74% revenue for an international luxury fashion brand.",
 })
@@ -13,14 +13,14 @@ const data: SeoLandingData = {
   eyebrow: "Available for new Shopify projects",
   h1: "Shopify Expert",
   lede:
-    "I am a Shopify expert developer with 6+ years of hands-on store building — a senior engineer who has also run his own Shopify business end to end. If you need a Shopify developer for hire who understands both the code and the P&L, you are in the right place.",
+    "I am a Shopify expert developer with 6+ years of hands-on store building, a senior engineer who has also run his own Shopify business end to end. If you need a Shopify developer for hire who understands both the code and the P&L, you are in the right place.",
   intro: [
     "Most people who call themselves a Shopify expert have only ever worked from a ticket queue. I started differently: my first Shopify store was my own. I built the theme, wrote the Liquid, set up the payment and shipping stack, ran the ads, packed the boxes and answered the support emails. That store, Martin (martin4shop.com.br), went on to process 1,959 orders and roughly R$552,000 in revenue. Every technical decision I make for a client is shaped by having personally paid the price of a bad one.",
-    "Since then I have worked as the sole engineer for an international luxury fashion brand, where I rebuilt the storefront around Core Web Vitals, corrected the technical SEO foundation, cleaned up a sprawling catalog and wired the marketing stack together properly. Over that engagement the store grew +455% in sessions, +114% in orders and +74% in revenue. I have also run a two-storefront setup (B2C and B2B) with 7+ sales channels kept in sync for a US manufacturer with a difficult multi-variant catalog — the kind of project where a single bad CSV import can take a catalog offline for a day.",
+    "Since then I have worked as the sole engineer for an international luxury fashion brand, where I rebuilt the storefront around Core Web Vitals, corrected the technical SEO foundation, cleaned up a sprawling catalog and wired the marketing stack together properly. Over that engagement the store grew +455% in sessions, +114% in orders and +74% in revenue. I have also run a two-storefront setup (B2C and B2B) with 7+ sales channels kept in sync for a US manufacturer with a difficult multi-variant catalog, the kind of project where a single bad CSV import can take a catalog offline for a day.",
     "I work as an individual contractor, not an agency. You talk to the person writing the code. No account manager, no junior developer quietly assigned to your store, no ticket that sits for a week. That is usually the difference between a Shopify expert developer who ships and a vendor who bills.",
   ],
   playbookLine:
-    "Four stores, four verticals, one playbook: fix the data, fix the speed, fix the funnel — at enterprise scale and at startup scale.",
+    "Four stores, four verticals, one playbook: fix the data, fix the speed, fix the funnel, at enterprise scale and at startup scale.",
   servicesTitle: "What a Shopify expert actually does for you",
   services: [
     {
@@ -31,7 +31,7 @@ const data: SeoLandingData = {
     {
       title: "Storefront and PDP engineering",
       body:
-        "Reactive variant selectors, tiered pricing, AJAX add-to-cart, cart drawers, free-shipping progress bars, bundles and upsell modules — the pieces that move average order value on stores that already have traffic.",
+        "Reactive variant selectors, tiered pricing, AJAX add-to-cart, cart drawers, free-shipping progress bars, bundles and upsell modules: the pieces that move average order value on stores that already have traffic.",
     },
     {
       title: "Technical SEO and structured data",
@@ -46,7 +46,7 @@ const data: SeoLandingData = {
     {
       title: "Catalog data operations",
       body:
-        "Matrixify and CSV workflows, bulk edits across thousands of SKUs, multi-level variant configuration, metafield migrations and inventory synchronisation across channels — done on a staging copy first, with a rollback file kept ready.",
+        "Matrixify and CSV workflows, bulk edits across thousands of SKUs, multi-level variant configuration, metafield migrations and inventory synchronisation across channels, done on a staging copy first, with a rollback file kept ready.",
     },
     {
       title: "Speed, CRO and analytics",
@@ -58,7 +58,7 @@ const data: SeoLandingData = {
     {
       title: "B2C and B2B on Shopify, at real volume",
       intro:
-        "Most Shopify developers have only ever built direct-to-consumer stores. I run both sides daily for a US building-products manufacturer — a B2C storefront and a B2B storefront sharing one enterprise-scale catalog with multi-level variants.",
+        "Most Shopify developers have only ever built direct-to-consumer stores. I run both sides daily for a US building-products manufacturer: a B2C storefront and a B2B storefront sharing one enterprise-scale catalog with multi-level variants.",
       items: [
         {
           title: "Two storefronts, two different rulebooks",
@@ -78,7 +78,7 @@ const data: SeoLandingData = {
         {
           title: "The real operating stack",
           body:
-            "Matrixify, Shopify Flow, Search & Discovery, Markets, Bundles, Shopify Collective, order-limit and form-builder apps, upsell apps, plus the Google, YouTube, Facebook and Instagram channels — configured to work together instead of fighting each other for the same page.",
+            "Matrixify, Shopify Flow, Search & Discovery, Markets, Bundles, Shopify Collective, order-limit and form-builder apps, upsell apps, plus the Google, YouTube, Facebook and Instagram channels, configured to work together instead of fighting each other for the same page.",
         },
       ],
     },
@@ -180,7 +180,7 @@ const data: SeoLandingData = {
     {
       q: "How much does a Shopify expert cost?",
       a:
-        "Small scoped jobs — a section, a bug, a speed pass — are usually fixed-price and start around US$500. Larger builds are quoted from the written scope. Ongoing work runs as a monthly retainer with an agreed number of hours per week, which is the cheapest way to buy senior Shopify time. My hourly rate for ad-hoc work is US$60 to US$90 depending on the type of work and urgency, and I always tell you the number before anything starts.",
+        "Small scoped jobs (a section, a bug, a speed pass) are usually fixed-price and start around US$500. Larger builds are quoted from the written scope. Ongoing work runs as a monthly retainer with an agreed number of hours per week, which is the cheapest way to buy senior Shopify time. My hourly rate for ad-hoc work is US$60 to US$90 depending on the type of work and urgency, and I always tell you the number before anything starts.",
     },
     {
       q: "You are in Brazil. How does that work with a US team?",
@@ -205,27 +205,27 @@ const data: SeoLandingData = {
     {
       q: "Can I hire someone to manage my Shopify store?",
       a:
-        "Yes, that is the monthly retainer. It covers the ongoing work a store generates whether or not anyone plans for it: theme and app updates, new sections and landing pages, catalog and pricing changes, broken tracking, performance regressions, and the occasional emergency. You get a reserved block of senior hours, a shared backlog we reprioritise on a weekly call, and the same person every month rather than whoever is free. It is not a managed-services contract you cannot leave — 30 days' notice, and you keep the code, the documentation and every account.",
+        "Yes, that is the monthly retainer. It covers the ongoing work a store generates whether or not anyone plans for it: theme and app updates, new sections and landing pages, catalog and pricing changes, broken tracking, performance regressions, and the occasional emergency. You get a reserved block of senior hours, a shared backlog we reprioritise on a weekly call, and the same person every month rather than whoever is free. It is not a managed-services contract you cannot leave: 30 days' notice, and you keep the code, the documentation and every account.",
     },
     {
       q: "Is it worth it to hire a Shopify expert?",
       a:
-        "It depends entirely on what your traffic is already worth. If a store does US$20,000 a month and converts at 1.2%, a two-point improvement in checkout completion pays for a month of senior work several times over, and speed, catalog and SEO fixes compound for years after. If the store has almost no traffic yet, engineering is the wrong spend — you need demand first, and I will say so rather than sell you a theme rebuild. The honest test is whether you can name the number you expect to move. If you cannot, start with a paid audit instead of a build.",
+        "It depends entirely on what your traffic is already worth. If a store does US$20,000 a month and converts at 1.2%, a two-point improvement in checkout completion pays for a month of senior work several times over, and speed, catalog and SEO fixes compound for years after. If the store has almost no traffic yet, engineering is the wrong spend: you need demand first, and I will say so rather than sell you a theme rebuild. The honest test is whether you can name the number you expect to move. If you cannot, start with a paid audit instead of a build.",
     },
     {
       q: "Are you a Shopify expert agency or an individual?",
       a:
-        "An individual, deliberately. A Shopify expert agency sells you a senior name in the pitch and staffs the work with whoever is free that sprint, and you pay for the account manager, the project manager and the sales commission on top of the code. You get me directly, at one rate, with no layer in between. Where a project genuinely needs more hands — design, copy, paid media — I bring in people I have worked with and you contract them yourself, so nothing is marked up.",
+        "An individual, deliberately. A Shopify expert agency sells you a senior name in the pitch and staffs the work with whoever is free that sprint, and you pay for the account manager, the project manager and the sales commission on top of the code. You get me directly, at one rate, with no layer in between. Where a project genuinely needs more hands (design, copy, paid media), I bring in people I have worked with and you contract them yourself, so nothing is marked up.",
     },
     {
       q: "How do I tell a top Shopify developer from a cheap one?",
       a:
-        "Ask for a store they operated, not just built, and ask what the numbers did afterwards. Ask them to explain a decision they got wrong and what it cost. Ask what happens to your store the day they stop working on it — a good answer involves documentation and a repository you own, a bad answer involves a retainer you cannot leave. Rates on Shopify work range from roughly US$25 to over US$200 an hour, and the cheap end almost always gets re-done within a year.",
+        "Ask for a store they operated, not just built, and ask what the numbers did afterwards. Ask them to explain a decision they got wrong and what it cost. Ask what happens to your store the day they stop working on it: a good answer involves documentation and a repository you own, a bad answer involves a retainer you cannot leave. Rates on Shopify work range from roughly US$25 to over US$200 an hour, and the cheap end almost always gets re-done within a year.",
     },
     {
       q: "Do you do Shopify SEO, or only development?",
       a:
-        "Both, and on Shopify they are the same job. Most Shopify SEO problems — duplicate collection URLs, index bloat from tag pages, missing or invalid structured data, a redirect map that was never built after a replatform — are fixed in Liquid and in the store settings, not in a content calendar. I audit, prioritise and then implement, which is the part a standalone Shopify SEO consultant usually cannot do.",
+        "Both, and on Shopify they are the same job. Most Shopify SEO problems (duplicate collection URLs, index bloat from tag pages, missing or invalid structured data, a redirect map that was never built after a replatform) are fixed in Liquid and in the store settings, not in a content calendar. I audit, prioritise and then implement, which is the part a standalone Shopify SEO consultant usually cannot do.",
     },
     {
       q: "Can you take over a store another developer built?",
@@ -235,9 +235,9 @@ const data: SeoLandingData = {
   ],
   ctaTitle: "Need a Shopify expert this week?",
   ctaBody:
-    "Send me the store URL and what is going wrong. You get an honest opinion within one business day — free, no sales call required.",
+    "Send me the store URL and what is going wrong. You get an honest opinion within one business day. It is free, no sales call required.",
   waText:
-    "Hi Matheus, I found your Shopify expert page. I need help with my Shopify store — here is the URL:",
+    "Hi Matheus, I found your Shopify expert page. I need help with my Shopify store. Here is the URL:",
   serviceName: "Shopify Expert Development",
   serviceDescription:
     "Senior Shopify expert services: custom Liquid theme development, storefront and PDP engineering, technical SEO, app and custom app integrations, catalog data operations, speed optimisation and CRO for Shopify and Shopify Plus stores.",

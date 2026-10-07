@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
  * Single-tap theme toggle.
  *
  * Was a three-item dropdown (Light / Dark / System) for what is a two-state
- * choice — two taps, a second popover in an already crowded header, and a
+ * choice: two taps, a second popover in an already crowded header, and a
  * `Moon` positioned `absolute` inside a button that was never `relative`, so
  * it escaped to the sticky header's coordinate space.
  *

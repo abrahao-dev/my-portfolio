@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  // `absolute` skips the root layout's `%s | Matheus Abrahão` template — this
+  // `absolute` skips the root layout's `%s | Matheus Abrahão` template: this
   // title already carries the name, and the template doubled it.
   title: { absolute: 'Sobre Matheus Abrahão | Shopify Expert & E-commerce Engineer' },
-  description: 'Shopify Expert com 6+ anos operando lojas Shopify, começando pelo próprio e-commerce (Martin, martin4shop.com.br) e chegando a operar lojas para marcas internacionais. Hoje opera lojas B2C e B2B simultâneas em escala enterprise e foi o engenheiro único de uma marca internacional de moda de luxo. Especialista em Shopify Liquid, Matrixify, Salsify PIM, Klaviyo, SEO técnico, performance e migrações. Baseado em São Paulo, Brasil (UTC-3) — atende marcas nos EUA e no Canadá.',
+  description: 'Shopify Expert com 6+ anos operando lojas Shopify, começando pelo próprio e-commerce (Martin, martin4shop.com.br) e chegando a operar lojas para marcas internacionais. Hoje opera lojas B2C e B2B simultâneas em escala enterprise e foi o engenheiro único de uma marca internacional de moda de luxo. Especialista em Shopify Liquid, Matrixify, Salsify PIM, Klaviyo, SEO técnico, performance e migrações. Baseado em São Paulo, Brasil (UTC-3). Atende marcas nos EUA e no Canadá.',
   alternates: {
     canonical: 'https://www.matheusabrahao.com.br/about',
     languages: {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     url: 'https://www.matheusabrahao.com.br/about',
     locale: 'pt_BR',
     alternateLocale: ['en_US'],
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Sobre Matheus Abrahão — Shopify Expert & E-commerce Engineer' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Sobre Matheus Abrahão | Shopify Expert & E-commerce Engineer' }],
   },
   twitter: {
     title: 'Sobre Matheus Abrahão | Shopify Expert & E-commerce Engineer',

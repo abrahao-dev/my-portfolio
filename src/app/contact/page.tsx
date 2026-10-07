@@ -75,7 +75,7 @@ export default function Contact() {
 
     try {
       // Sem backend: a mensagem é entregue pelo cliente de e-mail do visitante.
-      // É feio, mas chega — o setTimeout que estava aqui antes descartava o lead.
+      // É feio, mas chega: o setTimeout que estava aqui antes descartava o lead.
       const subject = `New project inquiry from ${formData.name}`
       const body = `${formData.message}\n\n---\nFrom: ${formData.name}\nEmail: ${formData.email}\nSent from matheusabrahao.com.br`
       window.location.href =
@@ -162,7 +162,7 @@ export default function Contact() {
                   <h3 className="font-medium">Availability</h3>
                   <p className="text-muted-foreground">
                     Remote, working with e-commerce brands in the US and Canada.
-                    UTC-3 means near-full overlap with US business hours — same-day
+                    UTC-3 means near-full overlap with US business hours: same-day
                     replies, live calls, no overnight handoffs. Fluent English,
                     invoiced in USD.
                   </p>

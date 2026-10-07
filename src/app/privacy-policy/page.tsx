@@ -29,7 +29,7 @@ const EN: Section[] = [
     h: "1. Who is responsible for your data",
     blocks: [
       {
-        p: "This website — matheusabrahao.com.br — is operated by Matheus Abrahão, an individual software engineer and Shopify specialist based in Atibaia, São Paulo, Brazil. Under the GDPR he is the \"controller\"; under the LGPD, the \"controlador\"; under the CCPA/CPRA, the \"business\".",
+        p: "This website (matheusabrahao.com.br) is operated by Matheus Abrahão, an individual software engineer and Shopify specialist based in Atibaia, São Paulo, Brazil. Under the GDPR he is the \"controller\"; under the LGPD, the \"controlador\"; under the CCPA/CPRA, the \"business\".",
       },
       {
         p: "There is no data protection officer, because the volume of personal data processed here does not require one. Every request below goes to the same place: my inbox.",
@@ -49,7 +49,7 @@ const EN: Section[] = [
         p: "This is a portfolio. It sells nothing, has no user accounts, no database, and no advertising. It does not profile you, does not track you across sites, and does not sell or share your data with anyone for marketing purposes.",
       },
       {
-        p: "The only personal data I actually end up holding is what you deliberately send me — an email or a WhatsApp message — plus the ordinary server logs my hosting provider keeps to serve the page to you.",
+        p: "The only personal data I actually end up holding is what you deliberately send me (an email or a WhatsApp message), plus the ordinary server logs my hosting provider keeps to serve the page to you.",
       },
     ],
   },
@@ -68,17 +68,17 @@ const EN: Section[] = [
           "One external asset. The icon font used for technology logos is loaded from the jsDelivr CDN (cdn.jsdelivr.net). Your browser therefore makes a request to jsDelivr, which sees your IP address and user agent. jsDelivr states that it does not use cookies or track users. Nothing else on this site is loaded from a third-party domain.",
         ],
       },
-      { p: "Legal basis: legitimate interest (GDPR art. 6(1)(f)) / legitimate interest under LGPD art. 7, IX — operating and securing a website. The purpose is limited to delivery and security; there is no profiling." },
+      { p: "Legal basis: legitimate interest (GDPR art. 6(1)(f)) / legitimate interest under LGPD art. 7, IX: operating and securing a website. The purpose is limited to delivery and security; there is no profiling." },
     ],
   },
   {
-    h: "4. The contact form — read this before you use it",
+    h: "4. The contact form: read this before you use it",
     blocks: [
       {
         p: "The form at /contact currently has no backend. Your name, email and message are validated inside your own browser and then discarded when you leave or reload the page. They are not sent to a server, not stored, and not emailed to me. The success message you see is the form's front end, not a delivery confirmation.",
       },
       {
-        p: "That means two things. First, nothing you type into that form ever becomes data I hold. Second, if you actually want to reach me, use email or WhatsApp — those work.",
+        p: "That means two things. First, nothing you type into that form ever becomes data I hold. Second, if you actually want to reach me, use email or WhatsApp. Those work.",
       },
       {
         p: "If and when the form is connected to a real backend, this section will be rewritten before that change goes live, and it will state the processor used, the retention period, and the legal basis.",
@@ -89,7 +89,7 @@ const EN: Section[] = [
     h: "5. When you email or message me",
     blocks: [
       {
-        p: "If you contact me by email or WhatsApp, I receive whatever you chose to send: typically your name, your email address or phone number, and the content of your message — often including details about your business or your Shopify store.",
+        p: "If you contact me by email or WhatsApp, I receive whatever you chose to send: typically your name, your email address or phone number, and the content of your message, often including details about your business or your Shopify store.",
       },
       { p: "Purpose: to reply to you, to quote and discuss possible work, and to carry out any engagement we agree on." },
       {
@@ -109,11 +109,11 @@ const EN: Section[] = [
       {
         list: [
           "No accounts, passwords or authentication of any kind.",
-          "No payment or card data — this site takes no payments.",
+          "No payment or card data: this site takes no payments.",
           "No cookies set by me for advertising, remarketing or cross-site tracking.",
           "No purchase, location, biometric or sensitive-category data.",
           "No data about children. This site is aimed at businesses and professionals and is not directed at anyone under 18.",
-          "No sale or sharing of personal information as those terms are defined by the CCPA/CPRA — I have never sold or shared personal information, and I do not intend to.",
+          "No sale or sharing of personal information as those terms are defined by the CCPA/CPRA. I have never sold or shared personal information, and I do not intend to.",
         ],
       },
     ],
@@ -122,7 +122,7 @@ const EN: Section[] = [
     h: "7. Cookies and browser storage",
     blocks: [
       {
-        p: "This site sets no tracking cookies. It does keep two small preferences in your browser's localStorage — your chosen theme and your chosen language — which never leave your device. The details, including how to clear them, are on the cookie page.",
+        p: "This site sets no tracking cookies. It does keep two small preferences in your browser's localStorage (your chosen theme and your chosen language), which never leave your device. The details, including how to clear them, are on the cookie page.",
       },
     ],
   },
@@ -132,10 +132,10 @@ const EN: Section[] = [
       { p: "These are the only third parties involved in running this site:" },
       {
         list: [
-          "Vercel Inc. — hosting and content delivery. Receives your request data (including IP) as a processor.",
-          "jsDelivr (Prospect One) — public CDN serving the icon font.",
-          "Google LLC — only because my email address is a Gmail address, so Google processes messages you send me.",
-          "Meta Platforms — only if you contact me through WhatsApp.",
+          "Vercel Inc.: hosting and content delivery. Receives your request data (including IP) as a processor.",
+          "jsDelivr (Prospect One): public CDN serving the icon font.",
+          "Google LLC: only because my email address is a Gmail address, so Google processes messages you send me.",
+          "Meta Platforms: only if you contact me through WhatsApp.",
         ],
       },
       {
@@ -180,19 +180,19 @@ const EN: Section[] = [
         p: "Which law applies depends on where you are, but the practical answer is the same everywhere: email me and I will act on it. Be aware that for a plain visitor I usually hold nothing at all, so the honest answer to an access request may be \"I have no data about you\".",
       },
       {
-        p: "Brazil — LGPD: confirmation of processing, access, correction, anonymisation or deletion of unnecessary or excessive data, portability, information about the entities I share data with, and the right to withdraw consent. You may also complain to the ANPD (gov.br/anpd).",
+        p: "Brazil (LGPD): confirmation of processing, access, correction, anonymisation or deletion of unnecessary or excessive data, portability, information about the entities I share data with, and the right to withdraw consent. You may also complain to the ANPD (gov.br/anpd).",
       },
       {
-        p: "EU / UK — GDPR: access, rectification, erasure, restriction, portability, objection to processing based on legitimate interest, and the right to lodge a complaint with your national supervisory authority. There is no automated decision-making or profiling here.",
+        p: "EU / UK (GDPR): access, rectification, erasure, restriction, portability, objection to processing based on legitimate interest, and the right to lodge a complaint with your national supervisory authority. There is no automated decision-making or profiling here.",
       },
       {
-        p: "California — CCPA/CPRA: the right to know what is collected and why, to delete, to correct, to opt out of sale or sharing (nothing is sold or shared, so there is nothing to opt out of), to limit the use of sensitive personal information (none is collected), and not to be discriminated against for exercising these rights. Authorised agents may submit requests on your behalf.",
+        p: "California (CCPA/CPRA): the right to know what is collected and why, to delete, to correct, to opt out of sale or sharing (nothing is sold or shared, so there is nothing to opt out of), to limit the use of sensitive personal information (none is collected), and not to be discriminated against for exercising these rights. Authorised agents may submit requests on your behalf.",
       },
       {
-        p: "Canada — PIPEDA: the right to access the personal information I hold about you and to challenge its accuracy, and to complain to the Office of the Privacy Commissioner of Canada.",
+        p: "Canada (PIPEDA): the right to access the personal information I hold about you and to challenge its accuracy, and to complain to the Office of the Privacy Commissioner of Canada.",
       },
       {
-        p: "To exercise any of these, email the address below with the subject \"Privacy request\". I answer within 15 days (LGPD) or 30 days (GDPR, CCPA/CPRA, PIPEDA), whichever is shorter for your case. I may ask a question or two to confirm you are who you say you are — usually just that you are writing from the address you originally contacted me from. Exercising a right is free.",
+        p: "To exercise any of these, email the address below with the subject \"Privacy request\". I answer within 15 days (LGPD) or 30 days (GDPR, CCPA/CPRA, PIPEDA), whichever is shorter for your case. I may ask a question or two to confirm you are who you say you are, usually just that you are writing from the address you originally contacted me from. Exercising a right is free.",
       },
       {
         links: [
@@ -205,7 +205,7 @@ const EN: Section[] = [
     h: "12. Changes to this policy",
     blocks: [
       {
-        p: "If what this site does changes — an analytics tool, a working contact form, a newsletter — this policy gets updated before the change goes live, and the date at the top changes with it. There is no mailing list to notify, so the date is the honest signal.",
+        p: "If what this site does changes (an analytics tool, a working contact form, a newsletter), this policy gets updated before the change goes live, and the date at the top changes with it. There is no mailing list to notify, so the date is the honest signal.",
       },
     ],
   },
@@ -216,7 +216,7 @@ const PT: Section[] = [
     h: "1. Quem é responsável pelos seus dados",
     blocks: [
       {
-        p: "Este site — matheusabrahao.com.br — é operado por Matheus Abrahão, engenheiro de software e especialista Shopify, pessoa física estabelecida em Atibaia, São Paulo, Brasil. Ele é o \"controlador\" nos termos da LGPD, o \"controller\" nos termos do GDPR e o \"business\" nos termos da CCPA/CPRA.",
+        p: "Este site (matheusabrahao.com.br) é operado por Matheus Abrahão, engenheiro de software e especialista Shopify, pessoa física estabelecida em Atibaia, São Paulo, Brasil. Ele é o \"controlador\" nos termos da LGPD, o \"controller\" nos termos do GDPR e o \"business\" nos termos da CCPA/CPRA.",
       },
       {
         p: "Não há encarregado (DPO) designado, porque o volume de dados pessoais tratado aqui não exige um. Todos os pedidos descritos abaixo chegam ao mesmo lugar: minha caixa de entrada.",
@@ -236,7 +236,7 @@ const PT: Section[] = [
         p: "Isto é um portfólio. Não vende nada, não tem cadastro de usuário, não tem banco de dados e não tem publicidade. Não faz perfilamento, não rastreia você entre sites e não vende nem compartilha seus dados com ninguém para fins de marketing.",
       },
       {
-        p: "O único dado pessoal que efetivamente fica comigo é o que você deliberadamente me envia — um e-mail ou uma mensagem de WhatsApp — somado aos logs de servidor que a hospedagem mantém para entregar a página até você.",
+        p: "O único dado pessoal que efetivamente fica comigo é o que você deliberadamente me envia (um e-mail ou uma mensagem de WhatsApp), somado aos logs de servidor que a hospedagem mantém para entregar a página até você.",
       },
     ],
   },
@@ -253,17 +253,17 @@ const PT: Section[] = [
           "Um recurso externo. A fonte de ícones usada para os logos de tecnologia é carregada da CDN jsDelivr (cdn.jsdelivr.net). Seu navegador, portanto, faz uma requisição à jsDelivr, que vê seu IP e seu user agent. A jsDelivr declara não usar cookies nem rastrear usuários. Nenhum outro recurso deste site vem de domínio de terceiro.",
         ],
       },
-      { p: "Base legal: legítimo interesse (LGPD art. 7º, IX; GDPR art. 6(1)(f)) — operar e proteger um site. A finalidade se limita à entrega e à segurança; não há perfilamento." },
+      { p: "Base legal: legítimo interesse (LGPD art. 7º, IX; GDPR art. 6(1)(f)): operar e proteger um site. A finalidade se limita à entrega e à segurança; não há perfilamento." },
     ],
   },
   {
-    h: "4. O formulário de contato — leia antes de usar",
+    h: "4. O formulário de contato: leia antes de usar",
     blocks: [
       {
         p: "O formulário em /contact hoje não tem backend. Seu nome, e-mail e mensagem são validados dentro do seu próprio navegador e descartados quando você sai ou recarrega a página. Não são enviados a servidor nenhum, não são armazenados e não chegam ao meu e-mail. A mensagem de sucesso que aparece é da interface, não é confirmação de entrega.",
       },
       {
-        p: "Isso significa duas coisas. Primeiro: nada do que você digitar nesse formulário se torna um dado que eu detenho. Segundo: se você realmente quer falar comigo, use e-mail ou WhatsApp — esses funcionam.",
+        p: "Isso significa duas coisas. Primeiro: nada do que você digitar nesse formulário se torna um dado que eu detenho. Segundo: se você realmente quer falar comigo, use e-mail ou WhatsApp. Esses funcionam.",
       },
       {
         p: "Se e quando o formulário for ligado a um backend real, esta seção será reescrita antes de a mudança entrar no ar, informando o operador utilizado, o prazo de retenção e a base legal.",
@@ -274,7 +274,7 @@ const PT: Section[] = [
     h: "5. Quando você me escreve",
     blocks: [
       {
-        p: "Se você me contata por e-mail ou WhatsApp, eu recebo o que você escolheu enviar: normalmente seu nome, seu e-mail ou telefone e o conteúdo da mensagem — muitas vezes incluindo detalhes sobre o seu negócio ou a sua loja Shopify.",
+        p: "Se você me contata por e-mail ou WhatsApp, eu recebo o que você escolheu enviar: normalmente seu nome, seu e-mail ou telefone e o conteúdo da mensagem, muitas vezes incluindo detalhes sobre o seu negócio ou a sua loja Shopify.",
       },
       { p: "Finalidade: responder você, orçar e discutir um possível trabalho e executar o que combinarmos." },
       {
@@ -294,11 +294,11 @@ const PT: Section[] = [
       {
         list: [
           "Nenhuma conta, senha ou autenticação de qualquer tipo.",
-          "Nenhum dado de pagamento ou de cartão — este site não recebe pagamentos.",
+          "Nenhum dado de pagamento ou de cartão: este site não recebe pagamentos.",
           "Nenhum cookie definido por mim para publicidade, remarketing ou rastreamento entre sites.",
           "Nenhum dado de compra, localização, biometria ou dado pessoal sensível.",
           "Nenhum dado de crianças. Este site é dirigido a empresas e profissionais e não se destina a menores de 18 anos.",
-          "Nenhuma venda ou compartilhamento de informação pessoal no sentido da CCPA/CPRA — nunca vendi nem compartilhei, e não pretendo.",
+          "Nenhuma venda ou compartilhamento de informação pessoal no sentido da CCPA/CPRA. Nunca vendi nem compartilhei, e não pretendo.",
         ],
       },
     ],
@@ -307,7 +307,7 @@ const PT: Section[] = [
     h: "7. Cookies e armazenamento no navegador",
     blocks: [
       {
-        p: "Este site não define cookies de rastreamento. Ele guarda duas pequenas preferências no localStorage do seu navegador — o tema escolhido e o idioma escolhido — que nunca saem do seu dispositivo. Os detalhes, incluindo como limpar, estão na página de cookies.",
+        p: "Este site não define cookies de rastreamento. Ele guarda duas pequenas preferências no localStorage do seu navegador (o tema escolhido e o idioma escolhido), que nunca saem do seu dispositivo. Os detalhes, incluindo como limpar, estão na página de cookies.",
       },
     ],
   },
@@ -317,10 +317,10 @@ const PT: Section[] = [
       { p: "Estes são os únicos terceiros envolvidos no funcionamento deste site:" },
       {
         list: [
-          "Vercel Inc. — hospedagem e entrega de conteúdo. Recebe os dados da sua requisição (inclusive IP) na condição de operador.",
-          "jsDelivr (Prospect One) — CDN pública que serve a fonte de ícones.",
-          "Google LLC — apenas porque meu endereço de e-mail é Gmail, então o Google trata as mensagens que você me envia.",
-          "Meta Platforms — apenas se você me contatar pelo WhatsApp.",
+          "Vercel Inc.: hospedagem e entrega de conteúdo. Recebe os dados da sua requisição (inclusive IP) na condição de operador.",
+          "jsDelivr (Prospect One): CDN pública que serve a fonte de ícones.",
+          "Google LLC: apenas porque meu endereço de e-mail é Gmail, então o Google trata as mensagens que você me envia.",
+          "Meta Platforms: apenas se você me contatar pelo WhatsApp.",
         ],
       },
       {
@@ -365,19 +365,19 @@ const PT: Section[] = [
         p: "Qual lei se aplica depende de onde você está, mas a resposta prática é a mesma em todo lugar: me mande um e-mail e eu atendo. Saiba que, para um visitante comum, normalmente eu não tenho absolutamente nada, então a resposta honesta a um pedido de acesso pode ser \"não tenho dado nenhum sobre você\".",
       },
       {
-        p: "Brasil — LGPD: confirmação da existência de tratamento, acesso, correção, anonimização ou eliminação de dados desnecessários ou excessivos, portabilidade, informação sobre com quem compartilho dados e revogação do consentimento. Você também pode reclamar à ANPD (gov.br/anpd).",
+        p: "Brasil (LGPD): confirmação da existência de tratamento, acesso, correção, anonimização ou eliminação de dados desnecessários ou excessivos, portabilidade, informação sobre com quem compartilho dados e revogação do consentimento. Você também pode reclamar à ANPD (gov.br/anpd).",
       },
       {
-        p: "UE / Reino Unido — GDPR: acesso, retificação, apagamento, limitação, portabilidade, oposição ao tratamento baseado em legítimo interesse e direito de reclamar à autoridade supervisora do seu país. Não há decisão automatizada nem perfilamento aqui.",
+        p: "UE / Reino Unido (GDPR): acesso, retificação, apagamento, limitação, portabilidade, oposição ao tratamento baseado em legítimo interesse e direito de reclamar à autoridade supervisora do seu país. Não há decisão automatizada nem perfilamento aqui.",
       },
       {
-        p: "Califórnia — CCPA/CPRA: direito de saber o que é coletado e por quê, de excluir, de corrigir, de recusar a venda ou o compartilhamento (nada é vendido ou compartilhado, então não há do que recusar), de limitar o uso de informação pessoal sensível (nenhuma é coletada) e de não sofrer discriminação por exercer esses direitos. Agentes autorizados podem enviar pedidos em seu nome.",
+        p: "Califórnia (CCPA/CPRA): direito de saber o que é coletado e por quê, de excluir, de corrigir, de recusar a venda ou o compartilhamento (nada é vendido ou compartilhado, então não há do que recusar), de limitar o uso de informação pessoal sensível (nenhuma é coletada) e de não sofrer discriminação por exercer esses direitos. Agentes autorizados podem enviar pedidos em seu nome.",
       },
       {
-        p: "Canadá — PIPEDA: direito de acessar a informação pessoal que eu detenho sobre você, de contestar sua exatidão e de reclamar ao Office of the Privacy Commissioner of Canada.",
+        p: "Canadá (PIPEDA): direito de acessar a informação pessoal que eu detenho sobre você, de contestar sua exatidão e de reclamar ao Office of the Privacy Commissioner of Canada.",
       },
       {
-        p: "Para exercer qualquer um desses direitos, escreva para o e-mail abaixo com o assunto \"Pedido de privacidade\". Respondo em até 15 dias (LGPD) ou 30 dias (GDPR, CCPA/CPRA, PIPEDA), o que for mais curto no seu caso. Posso fazer uma ou duas perguntas para confirmar que você é quem diz ser — em geral apenas que você escreve do mesmo endereço com que me contatou. Exercer um direito é gratuito.",
+        p: "Para exercer qualquer um desses direitos, escreva para o e-mail abaixo com o assunto \"Pedido de privacidade\". Respondo em até 15 dias (LGPD) ou 30 dias (GDPR, CCPA/CPRA, PIPEDA), o que for mais curto no seu caso. Posso fazer uma ou duas perguntas para confirmar que você é quem diz ser, em geral apenas que você escreve do mesmo endereço com que me contatou. Exercer um direito é gratuito.",
       },
       {
         links: [
@@ -390,7 +390,7 @@ const PT: Section[] = [
     h: "12. Alterações nesta política",
     blocks: [
       {
-        p: "Se o que este site faz mudar — uma ferramenta de analytics, um formulário de contato funcionando, uma newsletter — esta política é atualizada antes de a mudança entrar no ar, e a data no topo muda junto. Não há lista de e-mails para avisar ninguém, então a data é o sinal honesto.",
+        p: "Se o que este site faz mudar (uma ferramenta de analytics, um formulário de contato funcionando, uma newsletter), esta política é atualizada antes de a mudança entrar no ar, e a data no topo muda junto. Não há lista de e-mails para avisar ninguém, então a data é o sinal honesto.",
       },
     ],
   },

@@ -85,7 +85,7 @@ const experiences = [
     company: "US Building-Products Manufacturer (confidential)",
     period: "May 2026 - Present · Full-time",
     location: "United States · Remote",
-    description: "Operating paired B2C and B2B Shopify storefronts on one enterprise-scale catalog — multi-level variants, separate pricing and customer accounts, and 7+ sales channels.",
+    description: "Operating paired B2C and B2B Shopify storefronts on one enterprise-scale catalog: multi-level variants, separate pricing and customer accounts, and 7+ sales channels.",
     highlights: [
       "Catalog & Data Management: bulk updates, pricing adjustments, and inventory synchronization across multi-level variant configurations using Matrixify and complex CSV workflows",
       "Technical SEO & Performance: structured data, schema markup, and site architecture for high crawlability and AI-search readiness",
@@ -126,7 +126,7 @@ const experiences = [
     company: "NEX Agency",
     period: "September 2020 - Present · Self-employed",
     location: "São Paulo, Brazil · Remote",
-    description: "E-commerce engineering studio serving Shopify brands across the US, Canada, and Europe — storefront engineering, catalog operations, technical SEO, and lifecycle marketing.",
+    description: "E-commerce engineering studio serving Shopify brands across the US, Canada, and Europe: storefront engineering, catalog operations, technical SEO, and lifecycle marketing.",
     highlights: [
       "Sole engineer and technical decision-maker for Shopify brands in the US, Canada, France, Portugal, and Brazil",
       "Re-architected Shopify storefronts with custom Liquid logic, checkout optimization, and tiered B2B pricing systems",
@@ -143,9 +143,9 @@ const experiences = [
     location: "Brazil · Remote",
     description: "Founded and scaled a men's fashion Shopify store from zero, leading every aspect of the business as a single founder: engineering, branding, content creation, social media, and operations. This is where the Shopify work started.",
     highlights: [
-      "Built and maintained the entire Shopify stack — custom Liquid theme, checkout logic, and internal tooling",
-      "Scaled the platform to 1,959 orders, roughly R$552,000 processed, and 299,000+ sessions — operated end-to-end without additional resources",
-      "Grew TikTok to 51,000+ followers and 500,000+ likes, with individual videos reaching over 1.7M views — all content produced, edited, and published independently",
+      "Built and maintained the entire Shopify stack: custom Liquid theme, checkout logic, and internal tooling",
+      "Scaled the platform to 1,959 orders, roughly R$552,000 processed, and 299,000+ sessions, operated end-to-end without additional resources",
+      "Grew TikTok to 51,000+ followers and 500,000+ likes, with individual videos reaching over 1.7M views, all content produced, edited, and published independently",
       "Built an Instagram presence to 5,100+ followers with a cohesive brand identity, product photography, and video content",
       "Implemented marketing integrations, inventory automation, and performance reporting pipelines",
       "This experience strengthened my ability to build products from zero, wear every hat, and make engineering and business decisions with direct, measurable impact"
@@ -245,7 +245,7 @@ export default function About() {
                 type="button"
                 onClick={() => setActiveTab(tab)}
                 // aria-pressed: these are a toggle group, but nothing told a
-                // screen reader which one was active — the state was carried
+                // screen reader which one was active: the state was carried
                 // by colour alone. rounded-full/min-h-11 match the site's
                 // button language and the 44px tap target.
                 aria-pressed={activeTab === tab}
@@ -408,7 +408,7 @@ export default function About() {
                       <span className="absolute flex items-center justify-center w-4 h-4 sm:w-6 sm:h-6 bg-primary rounded-full -left-2 sm:-left-3 ring-4 sm:ring-8 ring-card">
                         <Briefcase className="w-2 h-2 sm:w-3 sm:h-3 text-primary-foreground" aria-hidden />
                       </span>
-                      {/* Was "{title} at {company}" — a hardcoded English word
+                      {/* Was "{title} at {company}", a hardcoded English word
                           on a bilingual page. */}
                       <h3 className="flex items-center mb-1 text-sm sm:text-base lg:text-lg font-semibold">{exp.title} · {exp.company}</h3>
                       <time className="block mb-2 text-xs sm:text-sm font-normal text-muted-foreground">{exp.period}</time>
