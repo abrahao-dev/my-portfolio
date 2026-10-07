@@ -53,6 +53,30 @@ const nextConfig = {
         ],
       },
       {
+        // llms.txt e llms-full.txt são text/plain, então não têm como carregar
+        // <link rel="canonical">. Estão no sitemap (é como os crawlers de IA
+        // acham eles), e sem canonical o Google marcou os dois como
+        // "Duplicate without user-selected canonical": os textos se sobrepõem
+        // entre si e com o conteúdo do site. O header Link resolve: canonical
+        // apontando para ele mesmo, sem tirar do sitemap.
+        source: '/llms.txt',
+        headers: [
+          {
+            key: 'Link',
+            value: '<https://www.matheusabrahao.com.br/llms.txt>; rel="canonical"',
+          },
+        ],
+      },
+      {
+        source: '/llms-full.txt',
+        headers: [
+          {
+            key: 'Link',
+            value: '<https://www.matheusabrahao.com.br/llms-full.txt>; rel="canonical"',
+          },
+        ],
+      },
+      {
         // Cache static assets aggressively
         source: '/(.*)\\.(jpg|jpeg|png|gif|ico|svg|webp|avif|woff|woff2)',
         headers: [
