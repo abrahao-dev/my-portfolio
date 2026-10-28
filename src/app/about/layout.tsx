@@ -27,6 +27,13 @@ export const metadata: Metadata = {
   },
 }
 
+// Os ícones de skill (devicon) só existem nesta página. A folha de estilo
+// ficava no <head> global e bloqueava a renderização de todas as páginas.
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
-  return children
+  return (
+    <>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+      {children}
+    </>
+  )
 }

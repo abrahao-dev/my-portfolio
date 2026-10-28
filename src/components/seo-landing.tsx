@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowUpRight, Check, Mail, MessageCircle } from "lucide-react"
 import Link from "next/link"
+import { getPostBySlug } from "@/lib/blog-posts"
 
 export const SITE = "https://www.matheusabrahao.com.br"
 export const EMAIL = "contato.matheusabrahao@gmail.com"
@@ -37,6 +38,8 @@ export type SeoLandingData = {
   serviceDescription: string
   breadcrumb: string
   related: { href: string; label: string }[]
+  /** Blog post slugs linked from the page. Without these the posts were only reachable from /blog. */
+  guides?: string[]
 }
 
 /** Client work. Rule: metrics stay with an anonymous client; only Martin is named. */
@@ -539,6 +542,29 @@ export function SeoLanding({ data }: { data: SeoLandingData }) {
             ))}
           </div>
         </div>
+
+        {data.guides && data.guides.length > 0 && (
+          <div className="mx-auto mt-10 max-w-content">
+            <p className="type-eyebrow text-muted-foreground">Guides on this topic</p>
+            <ul className="mt-4 grid grid-cols-1 gap-2.5 md:grid-cols-2">
+              {data.guides.map((slug) => {
+                const post = getPostBySlug(slug)
+                if (!post) throw new Error(`guide not found: ${slug}`)
+                return (
+                  <li key={slug}>
+                    <Link
+                      href={`/blog/${slug}`}
+                      className="flex h-full items-start gap-2 rounded-2xl border border-border p-4 text-sm font-medium leading-snug text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
+                    >
+                      <ArrowUpRight className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
+                      {post.title}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        )}
       </section>
     </div>
   )

@@ -144,6 +144,64 @@ const projects: Project[] = [
 ]
 
 /**
+ * Sites fora do Shopify. Texto copiado do portfólio da NEX Agency
+ * (nex-agency/src/pages/CriacaoDeSites.tsx), que confere cada um na página
+ * publicada. Sem métricas, nomes só com o que foi feito. Não acrescente
+ * entrada sem link no ar.
+ */
+const WEBSITES: { name: string; url: string; pt: [string, string]; en: [string, string] }[] = [
+  {
+    name: "MDL Odontologia",
+    url: "https://mdlodontologia.com.br",
+    pt: ["Clínica odontológica · Atibaia (SP)", "Site com uma página por tratamento, páginas para as cidades vizinhas atendidas, blog e agendamento online."],
+    en: ["Dental clinic · Atibaia, Brazil", "One page per treatment, pages for the neighbouring towns served, a blog and online booking."],
+  },
+  {
+    name: "Dra. Manuela Longo",
+    url: "https://www.dramanuelalongo.com.br",
+    pt: ["Consultório odontológico", "Site institucional e SEO local para captação de pacientes."],
+    en: ["Dental practice", "Practice website and local SEO to bring in new patients."],
+  },
+  {
+    name: "HDIL Acessórios",
+    url: "https://hdil.com.br",
+    pt: ["Peças para móveis e cadeiras · Mooca, São Paulo (SP)", "Catálogo com página por categoria de peça, catálogos para download, blog e orçamento no WhatsApp."],
+    en: ["Furniture and chair parts · São Paulo, Brazil", "Catalogue with a page per part category, downloadable catalogues, a blog and WhatsApp quotes."],
+  },
+  {
+    name: "Cinplastic",
+    url: "https://www.cinplastic.com.br",
+    pt: ["Indústria de perfis plásticos extrudados · Guarulhos (SP)", "Site industrial de página única: linha de perfis, processo de fabricação, FAQ e formulário de orçamento."],
+    en: ["Extruded plastic profiles manufacturer · Guarulhos, Brazil", "Single-page industrial site: product line, manufacturing process, FAQ and quote form."],
+  },
+  {
+    name: "Grupo OnMed",
+    url: "https://www.grupoonmed.com",
+    pt: ["Distribuição e logística farmacêutica · Nordeste", "Site institucional da distribuidora, com as frentes de logística farmacêutica e contato comercial no WhatsApp."],
+    en: ["Pharmaceutical distribution and logistics · Northeast Brazil", "Corporate site for the distributor, covering its logistics services, with sales contact on WhatsApp."],
+  },
+  {
+    name: "Abrahao Labs",
+    url: "https://www.abrahaolabs.com.br",
+    pt: ["Minha marca de impressão 3D", "Medalhas, troféus e peças personalizadas em impressão 3D, com modelagem a partir de foto e envio para todo o Brasil."],
+    en: ["My own 3D printing brand", "Custom 3D-printed medals, trophies and parts, modelled from a photo and shipped across Brazil."],
+  },
+]
+
+const WEBSITES_COPY = {
+  "pt-BR": {
+    title: "Sites institucionais pela NEX Agency",
+    intro: "Fora do Shopify, sites de clínicas, indústrias e distribuidoras saem pela NEX Agency, a agência que eu fundei. Todos no ar, com link.",
+    cta: "Precisa de um site institucional? Veja a NEX Agency",
+  },
+  en: {
+    title: "Business websites through NEX Agency",
+    intro: "Outside Shopify, websites for clinics, manufacturers and distributors are built through NEX Agency, the agency I founded. All live, all linked.",
+    cta: "Need a business website? See NEX Agency",
+  },
+} as const
+
+/**
  * Card actions.
  *
  * These were `<button onClick={window.open}>`: announced as buttons to screen
@@ -370,6 +428,47 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.5 }}
+        className="mt-16"
+      >
+        <h2 className="text-xl sm:text-2xl font-semibold mb-3">{WEBSITES_COPY[language].title}</h2>
+        <p className="text-muted-foreground mb-6 max-w-2xl">{WEBSITES_COPY[language].intro}</p>
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {WEBSITES.map((w) => {
+            const [segment, built] = language === 'pt-BR' ? w.pt : w.en
+            return (
+              <li key={w.url}>
+                <a
+                  href={w.url}
+                  target="_blank"
+                  rel="noopener"
+                  className="flex h-full flex-col rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/50"
+                >
+                  <span className="flex items-center justify-between gap-2 font-semibold">
+                    {w.name}
+                    <ExternalLink className="h-4 w-4 shrink-0 text-primary" aria-hidden />
+                  </span>
+                  <span className="mt-1 text-xs text-muted-foreground">{segment}</span>
+                  <span className="mt-3 text-sm text-foreground/90">{built}</span>
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+        <a
+          href="https://www.nexagency.com.br/criacao-de-sites"
+          target="_blank"
+          rel="noopener"
+          className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+        >
+          {WEBSITES_COPY[language].cta}
+          <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+        </a>
       </motion.div>
 
       <motion.div

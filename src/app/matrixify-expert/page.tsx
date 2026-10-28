@@ -229,6 +229,13 @@ const data: SeoLandingData = {
     { href: "/hire-shopify-developer", label: "Hire a Shopify Developer" },
     { href: "/shopify-speed-optimization", label: "Shopify Speed Optimization" },
   ],
+  guides: [
+    "matrixify-shopify-bulk-operations-guide",
+    "shopify-catalog-matrixify-playbook",
+    "shopify-csv-import-bulk-product-upload",
+    "shopify-multichannel-inventory-sync",
+    "retail-syndication-salsify-lowes-home-depot",
+  ],
 }
 
 export default function MatrixifyExpertPage() {

@@ -35,6 +35,63 @@ const COPY: Record<Language, { waText: string; serviceCta: string; proofNote: st
   },
 }
 
+/**
+ * Perguntas sobre a pessoa (busca pelo nome e respostas de IA). Ficavam como
+ * FAQPage no layout raiz, invisíveis e repetidas em todas as páginas, o que
+ * duplicava o FAQPage das páginas de serviço. Agora aparecem aqui, visíveis,
+ * e o JSON-LD sai só na home.
+ */
+const FAQ: Record<Language, { q: string; a: string }[]> = {
+  "pt-BR": [
+    {
+      q: "Quem é Matheus Abrahão?",
+      a: "Matheus Abrahão é Shopify Expert e engenheiro de e-commerce com mais de 6 anos de Shopify. Começou pela própria loja, a Martin (martin4shop.com.br), e cresceu até operar lojas para marcas internacionais. Hoje opera lojas Shopify B2C e B2B simultâneas de uma fabricante americana, com catálogo em escala enterprise, e foi o engenheiro único de uma marca de moda de luxo internacional. Trabalha remoto de São Paulo, Brasil (UTC-3), atendendo marcas nos Estados Unidos e Canadá.",
+    },
+    {
+      q: "Quais serviços Shopify o Matheus Abrahão oferece?",
+      a: "Desenvolvimento Shopify e tema Liquid, operações de catálogo em escala com Matrixify e Salsify PIM, Klaviyo (fluxos de email e SMS, segmentação e atribuição de receita), otimização de velocidade e Core Web Vitals, SEO técnico com structured data, e migrações de WooCommerce, Wix, Magento ou BigCommerce para Shopify. Também atua como desenvolvedor Shopify dedicado em projetos de preço fechado ou retainer.",
+    },
+    {
+      q: "Quais resultados Matheus Abrahão já entregou?",
+      a: "Para uma marca de moda de luxo internacional, gerou +455% em sessões, +114% em pedidos e +74% em vendas totais através de SEO técnico, performance e integrações de marketing. Para uma marca de beleza e lifestyle dos EUA, +254% em vendas e +324% em pedidos em 12 meses. Opera lojas Shopify B2C e B2B simultâneas para uma fabricante americana, com catálogo em escala enterprise, variantes multinível e sindicalização de catálogo para Lowe's, Home Depot, Menards e Amazon via Salsify PIM e Matrixify. Como fundador da Martin (martin4shop.com.br), escalou a loja a 1.959 pedidos, ~R$552 mil processados e 299.000+ sessões operando ponta a ponta.",
+    },
+    {
+      q: "Quais tecnologias o Matheus Abrahão utiliza?",
+      a: "Shopify Plus, Shopify Liquid, temas e sections, Checkout Extensibility, Shopify Admin e Storefront API, Hydrogen. Operações de catálogo: Matrixify, Salsify PIM e fluxos CSV em massa. Marketing e canais: Klaviyo, Meta CAPI e Pixel, Google Merchant Center, Amazon Seller Central. Dados: GA4 e PostHog. Front-end de apoio: React, Next.js, TypeScript e Tailwind CSS.",
+    },
+    {
+      q: "Como contratar o Matheus Abrahão?",
+      a: "Você pode entrar em contato pelo WhatsApp +55 11 98851-2788, email contato.matheusabrahao@gmail.com, ou pela página de contato em matheusabrahao.com.br/contact. Atende marcas de e-commerce nos EUA e Canadá em projetos de preço fechado, retainer mensal ou como desenvolvedor Shopify dedicado. Remoto, fuso UTC-3 com sobreposição quase total ao horário comercial americano, inglês fluente, faturamento em USD.",
+    },
+    {
+      q: "O Matheus Abrahão faz sites institucionais?",
+      a: "Sites institucionais, de clínicas, indústrias e distribuidoras, são feitos pela NEX Agency, a agência que ele fundou (nexagency.com.br). Este site é o trabalho dele com Shopify: desenvolvimento, SEO técnico, GEO, catálogo e migrações.",
+    },
+  ],
+  en: [
+    {
+      q: "Who is Matheus Abrahão?",
+      a: "Matheus Abrahão is a Shopify expert and e-commerce engineer with 6+ years on the platform. He started with his own Shopify store, Martin (martin4shop.com.br), and grew into running stores for international brands. He currently runs paired B2C and B2B Shopify storefronts for a US building-products manufacturer, and is the sole engineer behind an international luxury fashion brand's Shopify ecosystem. Remote from São Paulo, Brazil (UTC-3), working with e-commerce brands in the United States and Canada.",
+    },
+    {
+      q: "What technologies does Matheus Abrahão work with?",
+      a: "Shopify Plus, Liquid, themes and sections, checkout extensibility, Shopify Admin and Storefront API, Hydrogen. Catalog operations: Matrixify, Salsify PIM, bulk CSV workflows. Marketing and channels: Klaviyo, Meta CAPI and Pixel, Google Merchant Center, Amazon Seller Central. Data: GA4, PostHog. Supporting frontend: React, Next.js, TypeScript, Tailwind CSS.",
+    },
+    {
+      q: "What results has Matheus Abrahão delivered?",
+      a: "+455% sessions, +114% orders, and +74% total sales for an international luxury fashion brand through technical optimizations, SEO, and marketing integrations. +254% sales, +324% orders, and +1,700% sessions for a US beauty and lifestyle brand. Paired B2C and B2B Shopify storefronts on one enterprise-scale catalog for a US building-products manufacturer, syndicated to Lowe's, Home Depot, Menards and Amazon via Salsify PIM. As founder of Martin (martin4shop.com.br): 1,959 orders, roughly R$552,000 processed, and 299,000+ sessions, operating end-to-end as a single founder.",
+    },
+    {
+      q: "How can I hire Matheus Abrahão?",
+      a: "WhatsApp +55 11 98851-2788, email contato.matheusabrahao@gmail.com, or the contact page at matheusabrahao.com.br/contact. Available for fixed-price Shopify projects, monthly retainers, and dedicated developer engagements with e-commerce brands in the US and Canada. Remote, UTC-3 with near-full overlap with US business hours, fluent English, invoiced in USD.",
+    },
+    {
+      q: "Does Matheus Abrahão build business websites?",
+      a: "Business websites for clinics, manufacturers and distributors are built through NEX Agency, the agency he founded (nexagency.com.br). This site covers his Shopify work: development, technical SEO, GEO, catalog operations and migrations.",
+    },
+  ],
+}
+
 type Store = (typeof STORES)[number]
 
 /**
@@ -408,6 +465,51 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-5 text-sm text-muted-foreground sm:text-center">{copy.proofNote}</p>
+        </div>
+      </section>
+
+      {/* ---------- FAQ: native <details>, same pattern as the service pages ---------- */}
+      <section className="border-t border-border px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              inLanguage: ["pt-BR", "en"],
+              mainEntity: [...FAQ["pt-BR"], ...FAQ.en].map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            }),
+          }}
+        />
+        <div className="mx-auto grid max-w-content gap-10 lg:grid-cols-12 lg:gap-14">
+          <h2 className="type-section lg:col-span-4">
+            {language === "pt-BR" ? "Perguntas frequentes" : "FAQ"}
+          </h2>
+          <div className="lg:col-span-8">
+            {FAQ[language].map((f) => (
+              <details
+                key={f.q}
+                className="group border-t border-border first:border-t-0 [&_summary::-webkit-details-marker]:hidden"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-base font-semibold sm:text-lg">
+                  {f.q}
+                  <span
+                    aria-hidden
+                    className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-border text-muted-foreground transition-transform duration-200 group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="pb-6 pr-2 text-sm leading-relaxed text-muted-foreground sm:pr-10 sm:text-base">
+                  {f.a}
+                </p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

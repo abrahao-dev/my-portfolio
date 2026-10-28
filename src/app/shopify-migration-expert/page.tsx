@@ -126,6 +126,10 @@ const data: SeoLandingData = {
     { href: "/matrixify-expert", label: "Matrixify Expert" },
     { href: "/shopify-speed-optimization", label: "Shopify Speed Optimization" },
   ],
+  guides: [
+    "shopify-migration-expert-seo-redirects",
+    "shopify-ou-wordpress-woocommerce-loja-virtual",
+  ],
 }
 
 export default function ShopifyMigrationExpertPage() {

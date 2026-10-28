@@ -228,3 +228,40 @@ exigiriam tradução de verdade (fase 2, só depois que o inglês estiver rankea
 5. `/matrixify-expert` — "matrixify" 1.300/mês é o achado mais subestimado
 6. `/shopify-speed-optimization` e `/shopify-migration-expert`
 7. Blog: 1 post por keyword de Tier 2, cada um linkando para a página de serviço
+
+---
+
+## Sprint SEO/GEO, 28/out/2026
+
+Dados: DataForSEO (Labs ranked keywords BR e US, Google Ads search volume BR, SERP, on-page, ChatGPT llm_responses) e TypeSafe Jev para intenção. Custo: US$0,27.
+
+### O que os dados mostraram
+
+- **Ranked keywords: zero**, no Brasil e nos EUA. O domínio não aparece no top 100 de nenhuma keyword no índice do Labs.
+- **`site:` no Google: 8 URLs** (eram 4 em 30/ago): home, /projects, /about, /contact, /matrixify-expert, /shopify-expert, /shopify-speed-optimization, /shopify-migration-expert. **Nenhum dos 20 posts** e nem /blog.
+- **Causa provável dos posts fora do índice:** nenhuma página indexada linkava para eles. As páginas de serviço tinham 0 links para /blog/*, e o "Continue reading" de cada post mostrava sempre os mesmos dois primeiros posts.
+- **Marca "matheus abrahao":** /about em #5, a home fora do top 20. Na frente: homônimos (músico no Beatport, Spotify, Muso.ai, perfis de LinkedIn de outras pessoas). AI Overview aparece na SERP.
+- **Schema duplicado:** o layout raiz emitia FAQPage e um BreadcrumbList falso (Home > About > Projects > Blog > Contact) em todas as URLs. Nas páginas de serviço isso dava 2 FAQPage e 2 BreadcrumbList por página.
+- **On-page:** `<meta name="viewport">` duplicada em todas as páginas; CSS do devicon (jsdelivr, render-blocking) carregado no site inteiro, mas usado só em /about.
+- **GEO (ChatGPT gpt-4.1-mini com busca):** "Quem é Matheus Abrahão, desenvolvedor Shopify?" responde certo e cita /projects e /about. Pedidos de recomendação ("freelance Shopify expert para SEO técnico e Matrixify", EUA; "desenvolvedor freelancer brasileiro Shopify e SEO para IA", BR) **não citam**. O ChatGPT reescreve a pergunta como busca ("desenvolvedor freelancer brasileiro especialista em Shopify e SEO") e lista 8 pessoas cujo site diz exatamente isso em português.
+- **Jev (fit deste site):** "criação de site para dentista/médico/empresa" fit 0,03 a 0,16. Esse público é da NEX Agency, não deste site. Fit alto em pt-BR: consultoria seo (1.000/mês, fit 0,84), geo seo (590, 0,92), seo para ia (390, KD 0, 0,94), llms.txt (720, 0,78), desenvolvedor freelancer (390, 0,81).
+- **Maior volume informacional com fit:** "shopify ou wordpress" / "wordpress vs shopify" (6.600/mês BR, KD 0). SERP fraca em português (resultados em francês e inglês no top 5).
+- **SERP "llms.txt" BR:** só 2 resultados em português no top 10 (Reddit, holandês, japonês, francês). Fácil de disputar.
+- **Sazonalidade:** volumes BR do cluster planos nos últimos 12 meses, sem pico.
+
+### O que mudou
+
+- Layout raiz: Person ganhou `@id` (`/#person`, o mesmo das páginas de serviço); saíram o BreadcrumbList falso e o FAQPage sitewide; viewport via `export const viewport`; devicon só em /about.
+- Home: FAQ visível (Quem é, serviços, resultados, tecnologias, como contratar, sites institucionais) com o FAQPage só ali; nome no eyebrow do hero.
+- Páginas de serviço: bloco "Guides on this topic" ligando cada página aos posts do tema (todos os 23 posts agora recebem link de página indexada).
+- Posts: CTA final com WhatsApp e mensagem pré-preenchida com o título do post; "Continue reading" por tags em comum; suporte a `lang: 'pt-BR'` e `updated` (dateModified); tirado o `&mdash;` que tinha sobrado no CTA.
+- 3 posts novos em pt-BR: `/blog/llms-txt-o-que-e-como-criar`, `/blog/seo-para-ia-geo-aparecer-no-chatgpt`, `/blog/shopify-ou-wordpress-woocommerce-loja-virtual`.
+- /projects: seção "Sites institucionais pela NEX Agency" com MDL Odontologia, Dra. Manuela Longo, HDIL, Cinplastic, Grupo OnMed e Abrahao Labs (texto do portfólio da NEX, sem métricas) e link para nexagency.com.br/criacao-de-sites.
+- llms.txt e llms-full.txt: lista de artigos completa (20 em inglês + 3 em português), seção de sites da NEX, nota de confidencialidade restrita aos clientes Shopify.
+
+### O que olhar no mês que vem
+
+- `site:matheusabrahao.com.br`: sair de 8 URLs e ver posts indexados.
+- Posição da home para "matheus abrahao".
+- "llms.txt", "shopify ou wordpress", "seo para ia" no Brasil.
+- Repetir as 3 perguntas ao ChatGPT (arquivo de próximos passos).

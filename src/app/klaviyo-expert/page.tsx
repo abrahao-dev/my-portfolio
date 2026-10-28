@@ -166,6 +166,10 @@ const data: SeoLandingData = {
     { href: "/shopify-migration-expert", label: "Shopify Migration Expert" },
     { href: "/matrixify-expert", label: "Matrixify Expert" },
   ],
+  guides: [
+    "klaviyo-expert-flow-audit",
+    "shopify-sms-marketing-retention",
+  ],
 }
 
 export default function KlaviyoExpertPage() {

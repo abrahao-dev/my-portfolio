@@ -1,6 +1,7 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import { whatsappLink } from '@/components/seo-landing'
 import { blogPosts, getPostBySlug } from '@/lib/blog-posts'
 import { ArrowLeft, Calendar, Clock, Github, Linkedin, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
@@ -102,7 +103,14 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   if (!post) notFound()
 
   const url = `https://www.matheusabrahao.com.br/blog/${post.slug}`
-  const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+  const pt = post.lang === 'pt-BR'
+  const locale = pt ? 'pt-BR' : 'en-US'
+  const wa = whatsappLink(
+    pt
+      ? `Oi Matheus, li o seu artigo "${post.title}" e queria conversar sobre a minha loja:`
+      : `Hi Matheus, I read your article "${post.title}" and would like to talk about my store:`
+  )
+  const formattedDate = new Date(post.date).toLocaleDateString(locale, {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -115,9 +123,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     description: post.description,
     image: post.image ? `https://www.matheusabrahao.com.br${post.image}` : 'https://www.matheusabrahao.com.br/og-image.jpg',
     datePublished: new Date(post.date).toISOString(),
-    dateModified: new Date(post.date).toISOString(),
+    dateModified: new Date(post.updated ?? post.date).toISOString(),
     author: {
       '@type': 'Person',
+      '@id': 'https://www.matheusabrahao.com.br/#person',
       name: 'Matheus Abrahão',
       url: 'https://www.matheusabrahao.com.br',
     },
@@ -132,7 +141,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     keywords: post.tags.join(', '),
-    inLanguage: 'en',
+    inLanguage: pt ? 'pt-BR' : 'en',
   }
 
   const breadcrumbSchema = {
@@ -145,7 +154,14 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     ],
   }
 
-  const related = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2)
+  // Most shared tags first, same language as a tiebreak. It was always the
+  // first two posts of the list, so most posts never got a link from another.
+  const overlap = (p: typeof post) =>
+    p.tags.filter((t) => post.tags.includes(t)).length * 2 + (p.lang === post.lang ? 1 : 0)
+  const related = blogPosts
+    .filter((p) => p.slug !== post.slug)
+    .sort((a, b) => overlap(b) - overlap(a))
+    .slice(0, 2)
 
   return (
     <article className="container mx-auto py-10 px-4 sm:px-6 lg:px-8 max-w-3xl">
@@ -157,7 +173,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary mb-6 transition-colors"
       >
         <ArrowLeft className="h-4 w-4" />
-        Back to all articles
+        {pt ? 'Todos os artigos' : 'Back to all articles'}
       </Link>
 
       <header className="mb-10">
@@ -180,7 +196,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <Clock className="h-4 w-4" /> {post.readTime}
           </span>
           <span className="flex items-center gap-1.5">
-            By <Link href="/about" className="text-primary hover:underline">Matheus Abrahão</Link>
+            {pt ? 'Por' : 'By'} <Link href="/about" className="text-primary hover:underline">Matheus Abrahão</Link>
           </span>
         </div>
       </header>
@@ -189,16 +205,20 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
       <Card className="mt-16 bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 border-primary/20">
         <CardContent className="py-8 px-6 sm:px-8 text-center">
-          <h3 className="text-xl sm:text-2xl font-semibold mb-3">Need a senior engineer who thinks like an operator?</h3>
+          <h3 className="text-xl sm:text-2xl font-semibold mb-3">
+            {pt ? 'Quer isso feito na sua loja?' : 'Need a senior engineer who thinks like an operator?'}
+          </h3>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-            I take on a small number of Shopify operations and senior engineering engagements each quarter. If your store needs catalog hygiene, technical SEO, performance, or marketing automation done right &mdash; let&apos;s talk.
+            {pt
+              ? 'Pego poucos projetos por trimestre: SEO técnico, GEO, catálogo, velocidade e migração para Shopify. Me chama no WhatsApp com o link da sua loja.'
+              : 'I take on a small number of Shopify operations and senior engineering engagements each quarter. If your store needs catalog hygiene, technical SEO, performance or marketing automation done right, let\u2019s talk.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button asChild size="lg" className="h-12 px-8">
-              <Link href="/contact">
+              <a href={wa} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2 h-5 w-5" />
-                Get in touch
-              </Link>
+                {pt ? 'Falar no WhatsApp' : 'Message me on WhatsApp'}
+              </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="h-12 px-8">
               <a href="https://linkedin.com/in/abrahao-dev" target="_blank" rel="noopener noreferrer">
@@ -218,7 +238,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
       {related.length > 0 && (
         <section className="mt-16">
-          <h2 className="text-2xl font-bold mb-6">Continue reading</h2>
+          <h2 className="text-2xl font-bold mb-6">{pt ? 'Continue lendo' : 'Continue reading'}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {related.map((p) => (
               <Link
@@ -227,7 +247,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 className="block p-5 rounded-2xl bg-secondary/10 border border-border/40 hover:border-primary/40 transition-colors"
               >
                 <div className="text-xs text-muted-foreground mb-2 flex gap-3">
-                  <span>{new Date(p.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                  <span>{new Date(p.date).toLocaleDateString(p.lang ?? 'en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                   <span>{p.readTime}</span>
                 </div>
                 <h3 className="font-semibold leading-tight mb-2">{p.title}</h3>

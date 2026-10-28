@@ -356,6 +356,15 @@ const data: SeoLandingData = {
     { href: "/matrixify-expert", label: "Matrixify Expert" },
     { href: "/klaviyo-expert", label: "Klaviyo Expert" },
   ],
+  guides: [
+    "shopify-canonical-urls-duplicate-content",
+    "shopify-schema-markup-rich-results",
+    "shopify-robots-txt-sitemap-guide",
+    "llms-txt-shopify-agents-md-geo",
+    "technical-seo-ai-search-shopify",
+    "seo-para-ia-geo-aparecer-no-chatgpt",
+    "llms-txt-o-que-e-como-criar",
+  ],
 }
 
 export default function ShopifySeoExpertPage() {

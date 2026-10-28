@@ -250,6 +250,12 @@ const data: SeoLandingData = {
     { href: "/shopify-speed-optimization", label: "Shopify Speed Optimization" },
     { href: "/shopify-migration-expert", label: "Shopify Migration Expert" },
   ],
+  guides: [
+    "shopify-checkout-extensibility-migration",
+    "shopify-stripe-integration",
+    "shopify-b2b-company-accounts-catalogs",
+    "scalable-ecommerce-shopify-react",
+  ],
 }
 
 export default function ShopifyExpertPage() {

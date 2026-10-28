@@ -10,9 +10,248 @@ export type BlogPost = {
   body: string
   /** Optional cover image URL (defaults to /og-image.jpg). */
   image?: string
+  /** Post language. Omitted means English. */
+  lang?: 'pt-BR'
+  /** Last substantive edit (YYYY-MM-DD), for dateModified. Omitted means `date`. */
+  updated?: string
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: 'llms-txt-o-que-e-como-criar',
+    title: 'llms.txt: o que é, se funciona e como criar o seu',
+    description:
+      'O que o arquivo llms.txt faz de verdade, o que ele não faz, como montar o seu em 20 minutos e o erro de canonical que o Google aponta quando ele está no sitemap.',
+    date: '2026-10-28',
+    readTime: '9 min de leitura',
+    tags: ['llms.txt', 'GEO', 'SEO para IA', 'SEO Técnico'],
+    featured: true,
+    lang: 'pt-BR',
+    body: `## A resposta curta
+
+O llms.txt é um arquivo de texto simples, em Markdown, publicado na raiz do site (\`seusite.com.br/llms.txt\`), que resume quem você é, o que você vende e quais páginas importam. A ideia é dar a um modelo de linguagem, como o ChatGPT, o Claude ou o Perplexity, um resumo limpo do site sem ele precisar atravessar menu, banner de cookie e JavaScript.
+
+Ele não é um fator de ranqueamento no Google. A documentação do Google Search Central fala de robots.txt e de sitemap, e não lista o llms.txt entre os arquivos que o Googlebot lê. Então ele não vai te colocar na primeira página. O que ele faz é deixar a sua descrição pronta para quem quiser ler, e isso custa pouco.
+
+Eu mantenho um neste site, então este texto é sobre o que eu fiz, o que quebrou e o que eu mediria antes de gastar mais tempo com isso.
+
+## O que vai dentro do arquivo
+
+A convenção é curta e qualquer editor de texto serve:
+
+- Um título com o nome do negócio, na primeira linha, com \`#\`.
+- Um parágrafo de resumo, em citação (\`>\`), dizendo o que você faz, para quem e onde.
+- Seções com \`##\` listando as páginas que importam, cada uma com link e uma frase explicando o que tem lá.
+- Opcionalmente, um segundo arquivo, o \`llms-full.txt\`, com o conteúdo completo das páginas principais em texto corrido.
+
+Um exemplo enxuto, para uma loja:
+
+\`\`\`
+# Nome da Loja
+
+> Loja de roupas masculinas em linho, com envio para todo o Brasil.
+> Troca grátis em 30 dias. Atendimento por WhatsApp.
+
+## Páginas principais
+- [Coleção de camisas](https://seusite.com.br/collections/camisas): camisas de linho, tamanhos P ao GG
+- [Política de troca](https://seusite.com.br/policies/refund-policy): prazo e como solicitar
+- [Contato](https://seusite.com.br/pages/contato): WhatsApp e e-mail
+\`\`\`
+
+A regra que mais importa: escreva fatos que você assina embaixo. Prazo de entrega, região atendida, o que está incluso. Um modelo que lê o arquivo vai repetir o que está ali, então qualquer exagero vira uma resposta errada sobre o seu negócio.
+
+## Se a loja é Shopify, ele já existe
+
+Antes de criar qualquer coisa, abra \`sualoja.com.br/llms.txt\`. Se a loja roda em Shopify, provavelmente já tem um arquivo lá. A Shopify passou a servir \`/agents.md\`, \`/llms.txt\` e \`/llms-full.txt\` para todas as lojas, gerados a partir da configuração da própria loja.
+
+Dá para sobrescrever com um template \`llms.txt.liquid\` no tema, mas eu só faria isso com um motivo claro. O arquivo gerado acompanha a loja sozinho. O arquivo escrito à mão é uma foto do dia em que alguém escreveu, e fica velho no primeiro produto novo. Escrevi sobre essa cadeia de templates em detalhe no artigo [llms.txt on Shopify Is Already Built](/blog/llms-txt-shopify-agents-md-geo), em inglês.
+
+Em WordPress, os plugins de SEO mais usados já geram o arquivo. Em site feito à mão, como este, é um arquivo estático na pasta pública.
+
+## O erro que o Google me mostrou
+
+Coloquei os dois arquivos no sitemap, porque é por ali que boa parte dos robôs descobre URLs. Algum tempo depois o Search Console marcou os dois como "Cópia sem página canônica selecionada pelo usuário".
+
+Faz sentido quando você pensa no que o Google vê: dois arquivos de texto que repetem, com outras palavras, o conteúdo das páginas do site, e repetem um ao outro. Texto puro não tem \`<head>\`, então não tem onde colocar \`<link rel="canonical">\`.
+
+A saída é o cabeçalho HTTP \`Link\`, que faz o mesmo papel do canonical para arquivos que não são HTML. No Next.js ficou assim:
+
+\`\`\`
+{
+  source: '/llms.txt',
+  headers: [{
+    key: 'Link',
+    value: '<https://www.matheusabrahao.com.br/llms.txt>; rel="canonical"',
+  }],
+}
+\`\`\`
+
+O canonical aponta para o próprio arquivo. Isso diz ao Google que a URL é a versão oficial dela mesma, sem tirar o arquivo do sitemap. Em outros servidores a lógica é igual: Apache e Nginx também mandam cabeçalho \`Link\` por arquivo.
+
+Confira o seu com \`curl -I https://seusite.com.br/llms.txt\` e procure a linha \`link:\` na resposta.
+
+## Ele funciona?
+
+Depende do que você chama de funcionar. Em 27 de outubro de 2026 eu fiz um teste simples no ChatGPT com busca na web ligada.
+
+Perguntei "Quem é Matheus Abrahão, desenvolvedor Shopify?". A resposta trouxe os números certos dos meus projetos e citou duas páginas deste site, a de projetos e a sobre. Não dá para saber se veio do llms.txt ou das páginas, porque o conteúdo é o mesmo. E é esse o ponto: o arquivo não cria informação, ele resume a que já está no site.
+
+Depois perguntei, sem citar meu nome, quem indicar como freelancer de Shopify e SEO para IA. Eu não apareci. Apareceram oito pessoas, e a descrição que o ChatGPT trouxe de cada uma repetia, em português, as palavras da pergunta: desenvolvedor, freelancer, Shopify, SEO. O llms.txt não muda isso. O que muda é ter uma página que responde a pergunta exata que o cliente faz.
+
+Então a ordem certa é:
+
+- **Primeiro**, as páginas do site precisam responder, em texto, as perguntas que o seu cliente faz. Isso vale para o Google e para a IA.
+- **Depois**, o robots.txt não pode bloquear os robôs de IA (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended). Muita loja bloqueia sem saber, herdando uma regra antiga.
+- **Por último**, o llms.txt, como um resumo bem escrito do que já está publicado.
+
+## Checklist de 20 minutos
+
+- Abra \`/llms.txt\` do seu site. Se já existe, leia e veja se está certo.
+- Se não existe, escreva título, resumo de duas a três frases e as dez páginas que mais importam, com link.
+- Coloque só fatos verificáveis: o que vende, onde atende, como falar com você.
+- Se o arquivo estiver no sitemap, mande o cabeçalho \`Link\` com canonical para ele mesmo.
+- Confira o robots.txt e libere os robôs de IA que você quer que leiam o site.
+- Teste: pergunte ao ChatGPT e ao Perplexity sobre a sua marca pelo nome, e anote o que eles respondem. Repita a cada duas semanas.
+
+---
+
+O llms.txt é uma parte pequena do trabalho de [SEO técnico e GEO para Shopify](/shopify-seo-expert) que eu faço. A parte grande é deixar o catálogo e as páginas respondendo o que o cliente pergunta. Leia também [SEO para IA: como fazer sua loja aparecer no ChatGPT](/blog/seo-para-ia-geo-aparecer-no-chatgpt).
+
+*Quer que eu olhe o llms.txt, o robots.txt e o que a IA responde sobre a sua loja? [Me chama no WhatsApp](https://wa.me/5511988512788?text=Oi%20Matheus%2C%20li%20seu%20artigo%20sobre%20llms.txt%20e%20queria%20ajuda%20com%20a%20minha%20loja%3A) com o link do site.*`,
+  },
+  {
+    slug: 'seo-para-ia-geo-aparecer-no-chatgpt',
+    title: 'SEO para IA (GEO): como fazer sua loja aparecer no ChatGPT',
+    description:
+      'Como o ChatGPT decide quem recomendar, o que eu vi testando buscas reais e as seis coisas que fazem uma loja ser citada por IA. Sem fórmula mágica.',
+    date: '2026-10-28',
+    readTime: '10 min de leitura',
+    tags: ['GEO', 'SEO para IA', 'ChatGPT', 'Shopify SEO', 'AEO'],
+    featured: true,
+    lang: 'pt-BR',
+    body: `## O que é SEO para IA, em uma frase
+
+SEO para IA, também chamado de GEO (Generative Engine Optimization) ou AEO (Answer Engine Optimization), é o trabalho de fazer o seu site ser lido, entendido e citado quando alguém pergunta algo ao ChatGPT, ao Gemini, ao Perplexity ou às Visões Gerais criadas por IA do Google.
+
+Não é uma disciplina separada do SEO. É SEO com uma etapa a mais: além de aparecer na lista de links, você precisa ser a fonte que o modelo escolhe para montar a resposta.
+
+## Como o ChatGPT escolhe quem citar
+
+Quando a busca na web está ligada, o ChatGPT não responde só de memória. Ele transforma a sua pergunta em uma ou mais buscas, lê os resultados e monta a resposta a partir deles, com links.
+
+Eu vi isso acontecer em 27 de outubro de 2026, rodando perguntas reais pela API e olhando a busca que o modelo gerou por trás. Pedi "Recomende um desenvolvedor freelancer brasileiro especialista em Shopify e SEO para IA". O ChatGPT transformou isso na busca "desenvolvedor freelancer brasileiro especialista em Shopify e SEO" e listou oito pessoas. A descrição de cada uma, tirada do próprio site, repetia quase as mesmas palavras: desenvolvedor, freelancer, Shopify, SEO.
+
+Eu não apareci. Meu site fala de Shopify e de GEO há meses, mas em inglês e para lojas dos Estados Unidos. Não existia uma página em português dizendo "sou desenvolvedor freelancer de Shopify". A IA não deduz isso. Ela encontra quem escreveu.
+
+Quando perguntei pelo meu nome, a resposta veio certa, com os números dos meus projetos e link para duas páginas deste site. Ou seja: o conteúdo estava lá e foi lido. Faltava a página que responde a pergunta do cliente.
+
+Essa é a lição mais útil que eu conheço sobre GEO, e serve para qualquer loja: **a IA recomenda quem responde, em texto, a pergunta que o cliente faz.**
+
+## As seis coisas que fazem uma loja ser citada
+
+**1. Estar no índice.** Se a página não está indexada no Google e no Bing, ela não existe para a busca que a IA faz. Comece pelo Search Console: veja quantas páginas estão indexadas e quais foram excluídas. Neste site, durante semanas, só quatro URLs estavam no índice por causa de um canonical apontando para o domínio sem www. Nenhuma IA ia me citar por uma página que o Google nem tinha guardado.
+
+**2. Não bloquear os robôs de IA.** Confira o robots.txt. Os robôs que importam hoje são GPTBot e OAI-SearchBot (OpenAI), ClaudeBot (Anthropic), PerplexityBot e Google-Extended. Liberar não garante citação, mas bloquear garante que não vai ter.
+
+**3. Responder a pergunta logo no começo.** Modelos de linguagem citam trechos. O trecho mais citável é o primeiro parágrafo depois de um título que é uma pergunta: "Quanto tempo leva a entrega para o Nordeste?" seguido da resposta direta, sem rodeio. Página de produto com descrição de fornecedor copiada não responde nada.
+
+**4. Usar as palavras do cliente.** Se o cliente pergunta por "camisa de linho masculina", a página precisa dizer "camisa de linho masculina", não só "peça em fibra natural". Parece óbvio, e é exatamente onde eu falhei com o meu próprio site em português.
+
+**5. Dados estruturados que batem com a página.** Schema de produto com preço, disponibilidade e avaliações reais, schema de organização com nome, endereço e contato, e FAQ só quando as perguntas estão visíveis na página. Schema escondido ou repetido em todas as páginas confunde mais do que ajuda. Eu tirei um FAQ que este site repetia em todas as URLs pelo mesmo motivo.
+
+**6. Ser mencionado fora do próprio site.** Os resultados que a IA lê incluem diretórios, Reddit, YouTube, matérias e perfis. Uma loja que só fala de si mesma no próprio domínio tem menos chances do que uma que aparece citada em outros lugares. Isso é o equivalente de backlink para GEO, e não tem atalho.
+
+## E o llms.txt?
+
+Ajuda pouco e custa pouco. É um resumo do site em texto puro, para modelos lerem. Não substitui nenhum dos seis itens acima. Expliquei como montar e o erro de canonical que ele gera em [llms.txt: o que é, se funciona e como criar o seu](/blog/llms-txt-o-que-e-como-criar).
+
+## Como medir sem ferramenta cara
+
+Não existe "posição" na resposta do ChatGPT, e a resposta muda a cada pergunta. O que dá para fazer:
+
+- Escolha cinco perguntas que o seu cliente faria antes de comprar. Pergunte ao ChatGPT, ao Gemini e ao Perplexity a cada duas semanas e anote se a loja aparece e qual página foi citada.
+- Pergunte pelo nome da marca. Se a resposta tiver erro, o erro está em alguma página sua ou de terceiros. Ache e corrija a fonte.
+- No Search Console, acompanhe as buscas pelo nome da marca. Quando a IA cita você, parte das pessoas vai ao Google procurar seu nome.
+- No Analytics, olhe as visitas vindas de chatgpt.com, perplexity.ai e gemini.google.com.
+
+## Onde a Shopify ajuda e onde não ajuda
+
+A Shopify já publica um llms.txt e um agents.md para cada loja e expõe o catálogo para agentes de compra. A plataforma resolve a parte de ser encontrado. Ela não escreve a descrição do produto, não preenche os metacampos com os atributos que o cliente filtra e não cria a página de política que responde "faz entrega no meu CEP?".
+
+Esse resto é trabalho de catálogo e de conteúdo, e é onde a maioria das lojas perde a citação.
+
+---
+
+Faço esse trabalho em lojas Shopify: indexação, dados estruturados, robots, catálogo e o teste periódico das respostas de IA. Os detalhes estão na página de [SEO técnico e GEO para Shopify](/shopify-seo-expert). Se a loja ainda não é Shopify, veja [Shopify ou WordPress](/blog/shopify-ou-wordpress-woocommerce-loja-virtual).
+
+*Quer saber o que o ChatGPT responde hoje sobre a sua loja? [Me chama no WhatsApp](https://wa.me/5511988512788?text=Oi%20Matheus%2C%20li%20seu%20artigo%20sobre%20SEO%20para%20IA%20e%20queria%20que%20minha%20loja%20aparecesse%20no%20ChatGPT%3A) com o link e as perguntas que seus clientes fazem.*`,
+  },
+  {
+    slug: 'shopify-ou-wordpress-woocommerce-loja-virtual',
+    title: 'Shopify ou WordPress (WooCommerce): qual escolher para a sua loja virtual',
+    description:
+      'A diferença real entre Shopify e WordPress com WooCommerce para quem vai vender online: custo de manutenção, SEO, velocidade, integrações e quando migrar.',
+    date: '2026-10-28',
+    readTime: '10 min de leitura',
+    tags: ['Shopify', 'WooCommerce', 'WordPress', 'Migração para Shopify', 'Loja Virtual'],
+    featured: true,
+    lang: 'pt-BR',
+    body: `## A resposta curta
+
+Se a loja é o negócio principal e você quer vender sem cuidar de servidor, escolha Shopify. Se o site é principalmente conteúdo, com uma loja pequena do lado, e você tem alguém técnico para manter, WordPress com WooCommerce faz sentido.
+
+A diferença não está na lista de recursos. As duas plataformas vendem, têm tema, aceitam Pix por meio de app ou gateway e fazem SEO. A diferença está em quem cuida de tudo que não é vender: servidor, atualização, segurança, velocidade e backup.
+
+Eu trabalho com Shopify há mais de seis anos. Comecei pela minha própria loja, a Martin, que passou de 1.959 pedidos e cerca de R$552 mil processados operando sozinho, e hoje opero lojas para marcas de fora. Também faço migração de WooCommerce para Shopify. Então leve em conta o meu lado, mas o critério abaixo vale para os dois.
+
+## O que muda na prática
+
+**Hospedagem e manutenção.** A Shopify é um serviço: você paga a mensalidade e a plataforma cuida de servidor, certificado, atualização e picos de acesso. O WooCommerce é um plugin gratuito do WordPress, mas a loja roda numa hospedagem que você contrata, e você atualiza WordPress, tema e plugins. Uma atualização que quebra o checkout na véspera de uma data forte é problema seu.
+
+**Custo.** O WooCommerce parece mais barato porque o plugin é grátis. A conta real inclui hospedagem boa (a barata fica lenta quando o catálogo cresce), plugins pagos para o que a loja precisa e horas de alguém técnico. Na Shopify o custo é mais previsível: plano, apps e eventuais taxas por transação, que dependem do plano e do meio de pagamento. Os preços mudam, então confira a tabela oficial antes de decidir.
+
+**Velocidade.** Na Shopify, o servidor e a CDN não são problema seu. O que deixa uma loja Shopify lenta quase sempre é excesso de apps e tema pesado, e isso tem conserto. No WooCommerce, a velocidade depende também da hospedagem, do cache e de quantos plugins carregam em cada página.
+
+**SEO.** As duas plataformas ranqueiam. A Shopify gera sitemap, canonical e dados estruturados básicos sozinha, e deixa editar o robots.txt pelo template \`robots.txt.liquid\`. Em troca, as URLs têm prefixo fixo (\`/products/\`, \`/collections/\`, \`/pages/\`) e não dá para mudar. No WordPress você controla tudo, inclusive a estrutura de URL, o que é ótimo se você sabe o que está fazendo e perigoso se não sabe. Os erros de SEO que mais vejo em Shopify estão em [canonical e URLs duplicadas](/blog/shopify-canonical-urls-duplicate-content), e são corrigíveis no tema.
+
+**Integrações e canais.** A Shopify tem integração nativa ou por app com Google, Meta, marketplaces e ferramentas como Klaviyo. No WooCommerce quase tudo existe também, por plugin, com qualidade que varia muito de um para outro.
+
+**Catálogo grande.** Para centenas ou milhares de produtos com variantes, a Shopify com o Matrixify permite importar e atualizar o catálogo inteiro por planilha com segurança. É o tipo de operação que eu faço em catálogos com mais de 13 mil variantes. No WooCommerce também dá, mas a carga cai no servidor que você paga.
+
+## Quando escolher Shopify
+
+- A loja é a principal fonte de receita e cada hora fora do ar custa dinheiro.
+- Você não tem, nem quer ter, alguém cuidando de servidor e atualização.
+- O catálogo vai crescer, ou você vai vender em mais de um canal.
+- Você quer que o tempo da equipe vá para produto, conteúdo e marketing.
+
+## Quando escolher WordPress com WooCommerce
+
+- O site é principalmente blog ou conteúdo, e a loja é um complemento.
+- Você precisa de controle total sobre código, URL e banco de dados.
+- Já existe alguém técnico que mantém o WordPress e vai continuar mantendo.
+- O catálogo é pequeno e o volume de pedidos é baixo.
+
+## E se a loja já está no WooCommerce?
+
+Migrar só vale a pena quando a manutenção está custando mais do que a mudança, ou quando a loja está lenta e instável. O risco real de uma migração não é perder produto. É perder o Google.
+
+As URLs mudam, porque a Shopify usa \`/products/\` e \`/collections/\`. Se cada URL antiga não tiver um redirecionamento 301 para a nova, as páginas que já ranqueavam somem da busca. A migração que eu faço começa pelo mapa de redirecionamentos, antes de mover qualquer produto. Escrevi o passo a passo em [Shopify migration: SEO redirects](/blog/shopify-migration-expert-seo-redirects), em inglês.
+
+A ordem que funciona:
+
+- Exportar tudo: produtos, clientes, pedidos e a lista de URLs que recebem tráfego no Search Console.
+- Montar o mapa de redirecionamento URL por URL.
+- Importar o catálogo com os campos de SEO preenchidos.
+- Subir os redirecionamentos antes de trocar o domínio.
+- Acompanhar o Search Console por quatro semanas, corrigindo os 404 que aparecerem.
+
+---
+
+Se você decidiu pela Shopify, ou já está nela e precisa de ajuda, veja como funciona a [migração para Shopify](/shopify-migration-expert) e o [desenvolvimento Shopify](/shopify-expert) que eu faço. Para deixar a loja visível também nas respostas de IA, leia [SEO para IA: como aparecer no ChatGPT](/blog/seo-para-ia-geo-aparecer-no-chatgpt).
+
+*Está em dúvida entre as duas ou pensando em migrar? [Me chama no WhatsApp](https://wa.me/5511988512788?text=Oi%20Matheus%2C%20li%20seu%20artigo%20Shopify%20ou%20WordPress%20e%20queria%20conversar%20sobre%20a%20minha%20loja%3A) e me conta como a loja está hoje.*`,
+  },
   {
     slug: 'shopify-canonical-urls-duplicate-content',
     title: 'Shopify Canonical URLs: The Duplicate Content Trap in Collections and Filters',

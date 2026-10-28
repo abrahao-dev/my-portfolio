@@ -24,7 +24,7 @@ const translations = {
     // Homepage
     'home.badge': 'Available for new Shopify work',
     'home.title': 'Shopify stores that make money.',
-    'home.subtitle': 'Shopify Expert & E-commerce Operator',
+    'home.subtitle': 'Matheus Abrahão · Shopify Expert & E-commerce Operator',
     'home.description': "I'm Matheus Abrahão. For 6+ years I have run Shopify stores end to end for brands in the US and Canada: catalog, site speed, email and the unglamorous operational work that quietly decides whether a store grows. You are not hiring an agency. You talk to the person doing the work.",
     'home.stats.experience': 'Years Experience',
     'home.stats.revenue': 'Sales Channels Operated',
@@ -171,7 +171,7 @@ const translations = {
     // Homepage
     'home.badge': 'Disponível para novos projetos Shopify',
     'home.title': 'Shopify: lojas que vendem de verdade.',
-    'home.subtitle': 'Shopify Expert & Operador de E-commerce',
+    'home.subtitle': 'Matheus Abrahão · Shopify Expert & Operador de E-commerce',
     'home.description': 'Sou o Matheus Abrahão. Há 6+ anos opero lojas Shopify de ponta a ponta para marcas nos EUA e no Canadá: catálogo, velocidade do site, e-mail e todo o trabalho operacional invisível que decide, no fim, se a loja cresce ou trava. Você não contrata uma agência. Você fala direto com quem executa.',
     'home.stats.experience': 'Anos de Experiência',
     'home.stats.revenue': 'Canais de Venda Operados',

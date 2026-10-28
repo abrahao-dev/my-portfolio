@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { ScrollProgress } from "@/components/ui/scroll-progress"
 import WhatsAppButton from "@/components/whatsapp-button"
 import { LanguageProvider } from "@/contexts/language-context"
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 
@@ -26,6 +26,14 @@ const geistMono = localFont({
   weight: '100 900',
   display: 'swap',
 })
+
+// Viewport pelo export do Next: a <meta name="viewport"> escrita à mão no
+// <head> saía duplicada com a que o Next já emite (auditoria DataForSEO, 27/out).
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.matheusabrahao.com.br'),
@@ -153,21 +161,17 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="alternate" hrefLang="pt-BR" href="https://www.matheusabrahao.com.br" />
         <link rel="alternate" hrefLang="en" href="https://www.matheusabrahao.com.br" />
         <link rel="alternate" hrefLang="x-default" href="https://www.matheusabrahao.com.br" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#0B0B0B" />
         <meta name="msapplication-TileColor" content="#0B0B0B" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="format-detection" content="telephone=no" />
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="" />
-        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
         {/* Structured Data: Person */}
         <script
@@ -176,6 +180,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
+              "@id": "https://www.matheusabrahao.com.br/#person",
               "name": "Matheus Abrahão",
               "alternateName": ["Matheus Abrahao", "abrahao-dev", "abrahao.dev"],
               "jobTitle": "Shopify Expert & E-commerce Engineer",
@@ -371,134 +376,6 @@ export default function RootLayout({
           }}
         />
 
-        {/* Structured Data: BreadcrumbList */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://www.matheusabrahao.com.br"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "About",
-                  "item": "https://www.matheusabrahao.com.br/about"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "Projects",
-                  "item": "https://www.matheusabrahao.com.br/projects"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 4,
-                  "name": "Blog",
-                  "item": "https://www.matheusabrahao.com.br/blog"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 5,
-                  "name": "Contact",
-                  "item": "https://www.matheusabrahao.com.br/contact"
-                }
-              ]
-            })
-          }}
-        />
-
-        {/* Structured Data: FAQPage */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "inLanguage": ["pt-BR", "en"],
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "Quem é Matheus Abrahão?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Matheus Abrahão é Shopify Expert e engenheiro de e-commerce com mais de 6 anos de Shopify. Começou pela própria loja, a Martin (martin4shop.com.br), e cresceu até operar lojas para marcas internacionais. Hoje opera lojas Shopify B2C e B2B simultâneas de uma fabricante americana, com catálogo em escala enterprise, e foi o engenheiro único de uma marca de moda de luxo internacional. Trabalha remoto de São Paulo, Brasil (UTC-3), atendendo marcas nos Estados Unidos e Canadá."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Quais serviços Shopify o Matheus Abrahão oferece?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Desenvolvimento Shopify e tema Liquid, operações de catálogo em escala com Matrixify e Salsify PIM, Klaviyo (fluxos de email e SMS, segmentação e atribuição de receita), otimização de velocidade e Core Web Vitals, SEO técnico com structured data, e migrações de WooCommerce, Wix, Magento ou BigCommerce para Shopify. Também atua como desenvolvedor Shopify dedicado em projetos de preço fechado ou retainer."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Quais resultados Matheus Abrahão já entregou?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Para uma marca de moda de luxo internacional, gerou +455% em sessões, +114% em pedidos e +74% em vendas totais através de SEO técnico, performance e integrações de marketing. Para uma marca de beleza e lifestyle dos EUA, +254% em vendas e +324% em pedidos em 12 meses. Opera lojas Shopify B2C e B2B simultâneas para uma fabricante americana, com catálogo em escala enterprise, variantes multinível e sindicalização de catálogo para Lowe's, Home Depot, Menards e Amazon via Salsify PIM e Matrixify. Como fundador da Martin (martin4shop.com.br), escalou a loja a 1.959 pedidos, ~R$552 mil processados e 299.000+ sessões operando ponta a ponta."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Quais tecnologias o Matheus Abrahão utiliza?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Shopify Plus, Shopify Liquid, temas e sections, Checkout Extensibility, Shopify Admin e Storefront API, Hydrogen. Operações de catálogo: Matrixify, Salsify PIM e fluxos CSV em massa. Marketing e canais: Klaviyo, Meta CAPI e Pixel, Google Merchant Center, Amazon Seller Central. Dados: GA4 e PostHog. Front-end de apoio: React, Next.js, TypeScript e Tailwind CSS."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Como contratar o Matheus Abrahão?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Você pode entrar em contato pelo WhatsApp +55 11 98851-2788, email contato.matheusabrahao@gmail.com, ou pela página de contato em matheusabrahao.com.br/contact. Atende marcas de e-commerce nos EUA e Canadá em projetos de preço fechado, retainer mensal ou como desenvolvedor Shopify dedicado. Remoto, fuso UTC-3 com sobreposição quase total ao horário comercial americano, inglês fluente, faturamento em USD."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Who is Matheus Abrahão?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Matheus Abrahão is a Shopify expert and e-commerce engineer with 6+ years on the platform. He started with his own Shopify store, Martin (martin4shop.com.br), and grew into running stores for international brands. He currently runs paired B2C and B2B Shopify storefronts for a US building-products manufacturer, and is the sole engineer behind an international luxury fashion brand's Shopify ecosystem. Remote from São Paulo, Brazil (UTC-3), working with e-commerce brands in the United States and Canada."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "What technologies does Matheus Abrahão work with?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Shopify Plus, Liquid, themes and sections, checkout extensibility, Shopify Admin and Storefront API, Hydrogen. Catalog operations: Matrixify, Salsify PIM, bulk CSV workflows. Marketing and channels: Klaviyo, Meta CAPI and Pixel, Google Merchant Center, Amazon Seller Central. Data: GA4, PostHog. Supporting frontend: React, Next.js, TypeScript, Tailwind CSS."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "What results has Matheus Abrahão delivered?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "+455% sessions, +114% orders, and +74% total sales for an international luxury fashion brand through technical optimizations, SEO, and marketing integrations. +254% sales, +324% orders, and +1,700% sessions for a US beauty and lifestyle brand. Paired B2C and B2B Shopify storefronts on one enterprise-scale catalog for a US building-products manufacturer, syndicated to Lowe\u0027s, Home Depot, Menards and Amazon via Salsify PIM. As founder of Martin (martin4shop.com.br): 1,959 orders, roughly R$552,000 processed, and 299,000+ sessions, operating end-to-end as a single founder."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "How can I hire Matheus Abrahão?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "WhatsApp +55 11 98851-2788, email contato.matheusabrahao@gmail.com, or the contact page at matheusabrahao.com.br/contact. Available for fixed-price Shopify projects, monthly retainers, and dedicated developer engagements with e-commerce brands in the US and Canada. Remote, UTC-3 with near-full overlap with US business hours, fluent English, invoiced in USD."
-                  }
-                }
-              ]
-            })
-          }}
-        />
       </head>
       <body className="antialiased min-h-screen bg-background font-sans">
         <a

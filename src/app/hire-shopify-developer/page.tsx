@@ -208,6 +208,11 @@ const data: SeoLandingData = {
     { href: "/shopify-migration-expert", label: "Shopify Migration Expert" },
     { href: "/matrixify-expert", label: "Matrixify Expert" },
   ],
+  guides: [
+    "scaling-small-shopify-store-sessions-revenue",
+    "shopify-custom-reports-ga4-analytics",
+    "shopify-b2b-wholesale-alongside-b2c",
+  ],
 }
 
 export default function HireShopifyDeveloperPage() {
