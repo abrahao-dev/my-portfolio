@@ -7,6 +7,7 @@ import { TiltCard } from "@/components/ui/tilt-card"
 import { useLanguage } from "@/contexts/language-context"
 import { AnimatePresence, motion } from "framer-motion"
 import { ExternalLink, Github, ShoppingBag, Sparkles, TrendingUp } from "lucide-react"
+import Image from "next/image"
 import { useState } from "react"
 
 type Project = {
@@ -64,17 +65,15 @@ const projects: Project[] = [
     featured: true,
   },
   {
-    titleEn: "Martin: Founder E-commerce Brand",
-    titlePt: "Martin: Marca de E-commerce Própria",
+    titleEn: "Martin: Founder E-commerce Brand (2021-2024)",
+    titlePt: "Martin: Marca de E-commerce Própria (2021-2024)",
     problemEn: "Build a profitable men's fashion brand from zero, owning every layer: technical, brand, content, and operations. This is where the six-plus years of Shopify started.",
     problemPt: "Construir uma marca de moda masculina lucrativa do zero, com ownership total: técnico, marca, conteúdo e operações. Foi aqui que começaram os 6+ anos de Shopify.",
-    solutionEn: "Designed and operated the full stack on Shopify/Liquid + Hydrogen + Remix + Tailwind. Built custom checkout logic, internal tooling, marketing integrations, inventory automation, and content (TikTok, Instagram).",
-    solutionPt: "Projetei e operei toda a stack em Shopify/Liquid + Hydrogen + Remix + Tailwind. Construí lógica de checkout customizada, ferramentas internas, integrações de marketing, automação de inventário e conteúdo (TikTok, Instagram).",
-    impactEn: "1,959 orders, ~R$552,000 processed and 299,000+ sessions since 2023. TikTok grown to 51K followers and 500K+ likes; individual videos at 1.7M+ views. All solo.",
-    impactPt: "1.959 pedidos, ~R$552.000 processados e 299.000+ sessões desde 2023. TikTok com 51K seguidores e 500K+ curtidas; vídeos individuais com 1,7M+ visualizações. Tudo solo.",
-    tags: ["Shopify", "Hydrogen", "Remix", "React", "Tailwind CSS", "E-commerce", "Founder"],
-    demoLink: "https://martin4shop.com.br",
-    hasDemo: true,
+    solutionEn: "Designed and operated the full stack on Shopify/Liquid + Hydrogen + Remix + Tailwind. Built custom checkout logic, internal tooling, marketing integrations, inventory automation, and content (TikTok, Instagram), with AI and automations doing the work of a team.",
+    solutionPt: "Projetei e operei toda a stack em Shopify/Liquid + Hydrogen + Remix + Tailwind. Construí lógica de checkout customizada, ferramentas internas, integrações de marketing, automação de inventário e conteúdo (TikTok, Instagram), com IA e automações fazendo o trabalho de uma equipe.",
+    impactEn: "About US$100,000 in sales (~R$552,000) from 2021 to 2024: 1,959 orders and 299,000+ sessions, run solo with AI and automations. TikTok grown to 51K followers and 500K+ likes; individual videos at 1.7M+ views. Closed in 2024.",
+    impactPt: "Cerca de US$100.000 em vendas (~R$552.000) de 2021 a 2024: 1.959 pedidos e 299.000+ sessões, operando sozinho com IA e automações. TikTok com 51K seguidores e 500K+ curtidas; vídeos individuais com 1,7M+ visualizações. Encerrada em 2024.",
+    tags: ["Shopify", "Hydrogen", "Remix", "AI Automation", "React", "Tailwind CSS", "Founder"],
     featured: true,
   },
   {
@@ -188,6 +187,33 @@ const WEBSITES: { name: string; url: string; pt: [string, string]; en: [string, 
   },
 ]
 
+/**
+ * Lojas Shopify em que trabalhei, com print da home (public/projects, tirado a
+ * 1440x900 e reduzido para 960x600). Sem métricas por nome: os números ficam
+ * nos cases acima. A Martin saiu do ar em 2024, então vai sem link e sem print.
+ */
+const STORES: { name: string; url?: string; img?: string; pt: string; en: string }[] = [
+  { name: "Josie Maran", url: "https://www.josiemaran.com", img: "/projects/josiemaran.jpg", pt: "Skincare e body care com óleo de argan · EUA", en: "Argan oil skincare and body care · US" },
+  { name: "Tile Redi", url: "https://tileredi.com", img: "/projects/tileredi.jpg", pt: "Sistemas de box à prova d'água · EUA, varejo e atacado", en: "Waterproof shower systems · US, retail and wholesale" },
+  { name: "Acuarela", url: "https://acuarela.co", img: "/projects/acuarela.jpg", pt: "Moda de luxo latino-americana", en: "Latin American luxury fashion" },
+  { name: "Stillness Planners", url: "https://www.stillnessplanners.com", img: "/projects/stillness.jpg", pt: "Planners e organização para profissionais", en: "Planners and organization for professionals" },
+  { name: "Mauvella Lash Academy", url: "https://mauvella.info", img: "/projects/mauvella.jpg", pt: "Cursos e produtos para extensão de cílios", en: "Lash courses and lash products" },
+  { name: "Pure Food Fish Market", url: "https://freshseafood.com", img: "/projects/freshseafood.jpg", pt: "Peixaria de Seattle com venda online", en: "Seattle fish market selling online" },
+  { name: "AlerteHit", url: "https://alertehit.fr", img: "/projects/alertehit.jpg", pt: "Cartas Pokémon e acessórios TCG · França", en: "Pokémon cards and TCG accessories · France" },
+  { name: "Martin", pt: "Minha marca de moda masculina · 2021-2024, encerrada", en: "My own men's fashion brand · 2021-2024, closed" },
+]
+
+const STORES_COPY = {
+  "pt-BR": {
+    title: "Lojas em que trabalhei como especialista Shopify",
+    intro: "Marcas na América do Norte, na Europa e na América Latina. Com algumas eu sigo trabalhando hoje.",
+  },
+  en: {
+    title: "Stores I've worked on as a Shopify specialist",
+    intro: "Brands in North America, Europe and Latin America. I still work with some of them today.",
+  },
+} as const
+
 const WEBSITES_COPY = {
   "pt-BR": {
     title: "Sites institucionais pela NEX Agency",
@@ -267,6 +293,58 @@ export default function Projects() {
       >
         {t('projects.subtitle')}
       </motion.p>
+
+      <motion.section
+        className="mb-16"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.25, duration: 0.5 }}
+      >
+        <h2 className="text-xl sm:text-2xl font-semibold mb-3">{STORES_COPY[language].title}</h2>
+        <p className="text-muted-foreground mb-6 max-w-2xl">{STORES_COPY[language].intro}</p>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {STORES.map((s) => {
+            const body = (
+              <>
+                <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-muted">
+                  {s.img ? (
+                    <Image
+                      src={s.img}
+                      alt={language === 'pt-BR' ? `Página inicial de ${s.name}` : `${s.name} homepage`}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
+                    />
+                  ) : (
+                    <span className="absolute inset-0 grid place-items-center text-2xl font-semibold tracking-[0.3em] text-muted-foreground">
+                      {s.name.toUpperCase()}
+                    </span>
+                  )}
+                </div>
+                <div className="flex flex-1 flex-col p-4">
+                  <span className="flex items-center justify-between gap-2 font-semibold">
+                    {s.name}
+                    {s.url && <ExternalLink className="h-4 w-4 shrink-0 text-primary" aria-hidden />}
+                  </span>
+                  <span className="mt-1 text-xs text-muted-foreground">{language === 'pt-BR' ? s.pt : s.en}</span>
+                </div>
+              </>
+            )
+            const cardClass = "group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card"
+            return (
+              <li key={s.name}>
+                {s.url ? (
+                  <a href={s.url} target="_blank" rel="noopener" className={`${cardClass} transition-colors hover:border-primary/50`}>
+                    {body}
+                  </a>
+                ) : (
+                  <div className={cardClass}>{body}</div>
+                )}
+              </li>
+            )
+          })}
+        </ul>
+      </motion.section>
 
       <motion.div
         className="mb-16"
